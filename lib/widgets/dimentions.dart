@@ -29,10 +29,13 @@ class AddSize {
   /// For Sizes
 
   static double size14 = screenHeight / 57.42857;
+  static double size13 = size12 + 1;
   static double size15 = screenHeight / 53.6;
   static double size10 = screenHeight / 80.4;
   static double size100 = screenHeight / 8.04;
   static double size5 = screenHeight / 160.8;
+  static double size6 =  size5 + 1;
+  static double size8 =  size5 + 3;
   static double size50 = screenHeight / 16.08;
   static double size60 = screenHeight / 16.08;
   static double size20 = screenHeight / 40.2;
@@ -48,9 +51,12 @@ class AddSize {
   static double size110 = screenHeight / 7.309090909;
   static double size125 = size110 + size15;
   static double size220 = screenHeight / 3.65454;
+  static double size170 = size100 + 70;
   static double size12 = screenHeight / 67;
   static double size300 = size10 * size30;
   static double size310 = size300 + size10;
+  static double size330 = size300 + size20;
+  static double size340 = size300 + size40;
   static double size18 = screenHeight / 44.6666;
   static double size16 = screenHeight / 50.25;
   static double radius30 = screenHeight / 26.8;

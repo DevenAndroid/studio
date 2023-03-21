@@ -24,6 +24,7 @@ class _SignupScreenState extends State<SignupScreen> {
   var obscureText1 = true;
   String dropdownvalue = 'Male';
   RxString genderType = "".obs;
+  bool value = false;
 
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
@@ -135,6 +136,15 @@ class _SignupScreenState extends State<SignupScreen> {
 
                             SizedBox(
                               height: AddSize.size30,
+                            ),
+                            AddText(
+                              text: "Business Type",
+                              fontSize: AddSize.size16,
+                              color: AppTheme.filtter,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            SizedBox(
+                              height: AddSize.size10,
                             ),
                             DropdownButtonFormField(
                               decoration: InputDecoration(
@@ -419,13 +429,50 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                             ),
                             SizedBox(
-                              height: AddSize.size40,
+                              height: AddSize.size20,
                             ),
-                            // Row(
-                            //   children: [
-                            //     AddText(text: 'I agree to the Terms and Conditions and Privacy Policy')
-                            //   ],
-                            // ),
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Checkbox(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4)),
+                                      checkColor: Colors.white,
+                                      activeColor: AppTheme.primaryColor,
+                                      value: this.value,
+                                      onChanged: ( value) {
+                                        if(this.value == false){
+                                          setState(() {
+                                            this.value = true;
+                                          });
+                                        }
+                                        else if(this.value == true)  {
+                                          setState(() {
+                                            this.value = false;
+                                          });
+                                        }
+
+                                      },
+                                    ),
+                                     AddText(text: 'I agree to the',fontSize: 14,),
+                                    SizedBox(width: 3,),
+                                    AddText(text: 'Terms and Conditions',fontSize: 14,color: AppTheme.primaryColor,),
+                                    SizedBox(width: 3,),
+                                    AddText(text: 'and',fontSize: 14),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 47),
+                                      child: AddText(text: 'Privacy Policy',fontSize: 14,color: AppTheme.primaryColor,),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 20,),
                             CommonButtonField('CREATE ACCOUNT', () {
                               if (formKey.currentState!.validate()) {
                                 // login(emailController.text,
@@ -433,7 +480,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 //     .then((value) async {
                                 //   if (value.data!.token != null) {
                                 //     showToast("Login Successful");
-                                Get.offAllNamed(MyRouter.forgotPassword);
+                                Get.offAllNamed(MyRouter.signupVerification);
                                 //     SharedPreferences sharedPreference =
                                 //     await SharedPreferences.getInstance();
                                 //     sharedPreference.setString(
@@ -480,6 +527,11 @@ class _SignupScreenState extends State<SignupScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 10),
+                                    child: Image.asset("assets/images/Group1000003765.png",),
+                                  ),
+
                                   Text('Sign in with google',style: TextStyle(color: Color(0xFF39439D),fontSize: 18),)
                                 ],
                               ),
@@ -503,7 +555,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                       ),
                                     ),
                                     TextSpan(
-                                        text: 'Sign up ',
+                                        text: 'Sign in ',
                                         style: TextStyle(
                                           fontSize: AddSize.font16,
                                           color: AppTheme.linkColor,
@@ -513,7 +565,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                         ),
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
-                                            Get.toNamed(MyRouter.signupScreen);
+                                            Get.toNamed(MyRouter.loginScreen);
                                           }),
                                   ],
                                 ),

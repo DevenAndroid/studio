@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       )),
                   Positioned(
-                    top: AddSize.size30 * 4,
+                    top: AddSize.size30 * 5,
                     left: 0,
                     right: 0,
                     bottom: 0,
@@ -222,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 //     .then((value) async {
                                 //   if (value.data!.token != null) {
                                 //     showToast("Login Successful");
-                                     Get.offAllNamed(MyRouter.forgotPassword);
+                                     Get.offAllNamed(MyRouter.homeScreen);
                                 //     SharedPreferences sharedPreference =
                                 //     await SharedPreferences.getInstance();
                                 //     sharedPreference.setString(
@@ -269,7 +269,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  // Image.asset("assets/images/7123031_mail_google_gmail_icon.png"),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 10),
+                                    child: Image.asset("assets/images/Group1000003765.png",),
+                                  ),
                                   Text('Sign in with google',style: TextStyle(color: Color(0xFF39439D),fontSize: 18),)
                                 ],
                               ),
