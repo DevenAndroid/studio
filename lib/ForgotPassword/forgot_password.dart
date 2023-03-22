@@ -44,9 +44,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFFFF8E30),
-        leading: Icon(Icons.arrow_back),
+        leading: InkWell(onTap: (){Get.back();},
+            child: Icon(Icons.arrow_back)),
         title: Padding(
-          padding: const EdgeInsets.only(left: 60),
+          padding: const EdgeInsets.only(left: 50),
           child: Text("Forgot Password",style: TextStyle(color: Colors.white),),
         ),
         toolbarHeight: 70,
@@ -192,9 +193,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           // });
                         }
                       }, style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFFFF8E30),
+                        backgroundColor: AppTheme.buttonColor,
                       ),
-                          child: Text('Send',style: TextStyle(fontSize: 20),)),
+                          child: Text('Send OTP',style: TextStyle(fontSize: 20,),)),
                     ),
                     SizedBox(
                       height: AddSize.size20,

@@ -21,7 +21,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
-
+  bool value = false;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Container(
                     // padding: EdgeInsets.all(30),
-                      margin: EdgeInsets.only(top: AddSize.size5),
+                      margin: EdgeInsets.only(top: AddSize.size15),
                       color: Color(0xFFFF8E30),
                       child: Stack(
                         children: [
@@ -55,25 +55,28 @@ class _LoginScreenState extends State<LoginScreen> {
                           //   width: AddSize.screenWidth * 2,
                           //   fit: BoxFit.cover,
                           // ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/images/Maskgroup.png",
-                                height: AddSize.size10 * 15,
-                                width: AddSize.size10 * 15,
-                                fit: BoxFit.contain,
-                              ),
-                              SizedBox(
-                                width: AddSize.size10,
-                              ),
-                              // Image.asset(
-                              //   "assets/images/textmain2.png",
-                              //   height: AddSize.size10 * 6,
-                              //   width: AddSize.size110,
-                              //   fit: BoxFit.contain,
-                              // ),
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/Maskgroup.png",
+                                  height: AddSize.size10 * 15,
+                                  width: AddSize.size10 * 15,
+                                  fit: BoxFit.contain,
+                                ),
+                                SizedBox(
+                                  width: AddSize.size10,
+                                ),
+                                // Image.asset(
+                                //   "assets/images/textmain2.png",
+                                //   height: AddSize.size10 * 6,
+                                //   width: AddSize.size110,
+                                //   fit: BoxFit.contain,
+                                // ),
+                              ],
+                            ),
                           )
                         ],
                       )),
@@ -142,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               text: "Your Email",
                               fontSize: AddSize.size16,
                               color: AppTheme.filtter,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w500,
                             ),
                             SizedBox(
                               height: AddSize.size10,
@@ -175,7 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               text: "Password",
                               fontSize: AddSize.size16,
                               color: AppTheme.filtter,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w500,
                             ),
                             SizedBox(
                               height: AddSize.size10,
@@ -213,8 +216,50 @@ class _LoginScreenState extends State<LoginScreen> {
                               ]),
                             ),
                             SizedBox(
-                              height: AddSize.size40,
+                              height: AddSize.size20,
                             ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Transform.scale(
+                                      scale: 1.3,
+                                      child: Checkbox(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(4)),
+                                        checkColor: Colors.white,
+                                        activeColor: AppTheme.primaryColor,
+                                        value: this.value,
+                                        onChanged: ( value) {
+                                          if(this.value == false){
+                                            setState(() {
+                                              this.value = true;
+                                            });
+                                          }
+                                          else if(this.value == true)  {
+                                            setState(() {
+                                              this.value = false;
+                                            });
+                                          }
+
+                                        },
+                                      ),
+                                    ),
+                                    AddText(text: 'Remember Me',fontSize: 14,fontWeight: FontWeight.w500,),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    InkWell(onTap: (){
+                                      Get.offAllNamed(MyRouter.forgotPassword);
+                                    },
+                                        child: AddText(text: 'Forgot Password',fontSize: 14,color:AppTheme.primaryColor,decoration: TextDecoration.underline,)),
+                                  ],
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 20,),
                             CommonButtonField('LOG IN', () {
                               if (formKey.currentState!.validate()) {
                                 // login(emailController.text,
@@ -222,7 +267,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 //     .then((value) async {
                                 //   if (value.data!.token != null) {
                                 //     showToast("Login Successful");
-                                     Get.offAllNamed(MyRouter.homeScreen);
+                                     Get.offAllNamed(MyRouter.bottomNavBar);
                                 //     SharedPreferences sharedPreference =
                                 //     await SharedPreferences.getInstance();
                                 //     sharedPreference.setString(

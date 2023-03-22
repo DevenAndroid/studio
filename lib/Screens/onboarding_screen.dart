@@ -157,7 +157,7 @@ class OnBoardingScreen extends StatelessWidget {
                                         curve: Curves.ease);
                                   } else if (controller.currentIndex1.value ==
                                       true) {
-                                    Get.toNamed(MyRouter.loginScreen);
+                                    Get.toNamed(MyRouter.splashScreen2);
                                   }
                                 },
                                 child: Container(

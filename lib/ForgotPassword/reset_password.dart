@@ -12,6 +12,7 @@ import '../../../widgets/common_appbar.dart';
 import '../../../widgets/common_button.dart';
 import '../../../widgets/common_textfield.dart';
 import '../../../widgets/dimentions.dart';
+import '../Router/my_router.dart';
 import '../widgets/app_theme.dart';
 import '../widgets/common_button1.dart';
 
@@ -46,9 +47,10 @@ class _ResetPasswordState extends State<ResetPassword> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFFFF8E30),
-        leading: Icon(Icons.arrow_back),
+        leading: InkWell(onTap: (){Get.back();},
+            child: Icon(Icons.arrow_back)),
         title: Padding(
-          padding: const EdgeInsets.only(left: 40),
+          padding: const EdgeInsets.only(left: 25),
           child: Text("Create New Password",style: TextStyle(color: Colors.white),),
         ),
         toolbarHeight: 70,
@@ -62,7 +64,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             child: Column(
               children: [
                 Container(
-                  height: AddSize.size300,
+                  height: AddSize.size250,
                   // width: AddSize.size40,
                   decoration: const BoxDecoration(
                     // boxShadow: blurBoxShadow,
@@ -193,7 +195,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       },
                     ),
                     SizedBox(
-                      height: AddSize.size80,
+                      height: AddSize.size60,
                     ),
                     // Center(
                     //   child: CommonButton('Save Password', () {
@@ -261,7 +263,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           //       if (goNext == false) {
                           //         goNext = true;
                           //         Get.back();
-                          //         Get.toNamed(MyRouter.loginScreen);
+                                  Get.toNamed(MyRouter.loginScreen);
                           //       }
                           //     });
                           //     showDialog(
@@ -294,9 +296,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                           // });
                         }
                       }, style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFFFF8E30),
+                        backgroundColor: AppTheme.buttonColor,
                       ),
-                          child: Text('Verify',style: TextStyle(fontSize: 20),)),
+                          child: Text('Save Password',style: TextStyle(fontSize: 20),)),
                     ),
                     SizedBox(
                       height: AddSize.size20,

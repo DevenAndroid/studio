@@ -18,6 +18,7 @@ import '../../widgets/add_text.dart';
 import '../../widgets/common_appbar.dart';
 import '../../widgets/common_button.dart';
 import '../../widgets/dimentions.dart';
+import '../Router/my_router.dart';
 import '../widgets/app_theme.dart';
 import '../widgets/common_button1.dart';
 
@@ -53,9 +54,10 @@ class _SignupVerification extends State<SignupVerification> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Color(0xFFFF8E30),
-          leading: Icon(Icons.arrow_back),
+          leading: InkWell(onTap: (){Get.back();},
+              child: Icon(Icons.arrow_back)),
           title: Padding(
-            padding: const EdgeInsets.only(left: 60),
+            padding: const EdgeInsets.only(left: 70),
             child: Text("Verification",style: TextStyle(color: Colors.white),),
           ),
           toolbarHeight: 70,
@@ -402,9 +404,9 @@ class _SignupVerification extends State<SignupVerification> {
                         height: 56,
                         width: MediaQuery.of(context).size.width / 1,
                         child: ElevatedButton(onPressed: (){
-
+                          Get.offAllNamed(MyRouter.resetPassword);
                         }, style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFF8E30),
+                          backgroundColor: AppTheme.buttonColor,
                         ),
                             child: Text('Verify',style: TextStyle(fontSize: 20),)),
                       ),

@@ -43,6 +43,7 @@ class AddSize {
   static double size80 = size40 * 2;
   static double size90 = size45 * 2;
   static double size25 = screenHeight / 32.16;
+  static double size28 = size25 + 3;
   static double size30 = screenHeight / 26.8;
   static double size250 = size50 * size5;
   static double size200 = screenHeight / 4.02;
@@ -57,6 +58,7 @@ class AddSize {
   static double size310 = size300 + size10;
   static double size330 = size300 + size20;
   static double size340 = size300 + size40;
+  static double size70 = size80 - 10;
   static double size18 = screenHeight / 44.6666;
   static double size16 = screenHeight / 50.25;
   static double radius30 = screenHeight / 26.8;

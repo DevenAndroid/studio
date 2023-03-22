@@ -5,6 +5,7 @@ import 'package:studio_live/widgets/add_text.dart';
 import 'package:studio_live/widgets/app_theme.dart';
 
 import '../Router/my_router.dart';
+import '../widgets/common_searchbar.dart';
 import '../widgets/dimentions.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: AppTheme.primaryColor
+                        color: AppTheme.buttonColor
                       ),child: Image.asset("assets/images/9057028.png"),
                     ),
                   ),
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Row(
                         children: [
-                          AddText(text: 'Home'),
+                          AddText(text: 'Location'),
                           SizedBox(width: 5,),
                           Icon(Icons.keyboard_arrow_down)
                         ],
@@ -53,24 +54,37 @@ class _HomeScreenState extends State<HomeScreen> {
                       AddText(text: '184 Main Colins  Street....',color: Colors.grey,fontSize: 13,),
                     ],
                   ),
-                  SizedBox(width: 70,),
-                  Icon(Icons.filter_alt_outlined,color: Color(0xFFFF8E30),),
+                  SizedBox(width: 45,),
+                  Container(
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                         ),
+                      child: Image.asset("assets/images/Ellipse2.png")
+                  ),
                   SizedBox(width: 10),
                   Container(
                     padding: EdgeInsets.all(AddSize.padding10),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
-                        border: Border.all(color: Color(0xFFFF8E30))),
-                    child: Icon(Icons.notifications_none,color: Color(0xFFFF8E30),)
+                        border: Border.all(color: Color(0xFF7D9FB8))),
+                    child: Icon(Icons.notifications_none,color: Color(0xFF7D9FB8),)
                   ),
-
                 ],
               ),
               SizedBox(height: 30,),
+              SearchBar(
+                  onFieldSubmit: (String value) {
+                    // searchController.name.value = value;
+                    // searchController.getData(context);
+                  },
+                  title: 'Search any course',
+                  onPressed: () {}),
+              SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(left: 15),
-                child: AddText(text: 'Exploring Upcomming Classes',fontSize: 18,fontWeight: FontWeight.w500,),
+                child: AddText(text: 'Exploring Upcomming Studio',fontSize: 18,fontWeight: FontWeight.w500,),
               ),
               SizedBox(height: 10,),
               Container(
@@ -237,19 +251,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
               ),
               SizedBox(height: 20,),
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: AddText(text: 'Based on your previous booking',fontSize: 18,),
-              ),
-              //SizedBox(height: 5,),
-              ListView.builder(
-                  itemCount: 2,
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return coursesUi(index);
-                  }),
-              SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -276,13 +277,49 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 5,),
+              //SizedBox(height: 5,),
               ListView.builder(
                   itemCount: 2,
                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
                     return coursesUi1(index);
+                  }),
+
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: AddText(
+                      text: 'Your Previous Booking',
+                      fontSize: AddSize.font18,
+                      color: AppTheme.userText,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      //homeController.currentTab.value = 0;
+                      //Get.toNamed(MyRouter.courseScreen);
+                    },
+                    child: AddText(
+                      text: 'View All',
+                      fontSize: AddSize.font16,
+                      color: AppTheme.primaryColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 5,),
+              ListView.builder(
+                  itemCount: 2,
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    return coursesUi(index);
                   }),
             ],
           ),

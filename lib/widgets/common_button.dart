@@ -19,7 +19,7 @@ class CommonButtonField extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: AppTheme.primaryColor),
+          color: AppTheme.buttonColor),
       child: MaterialButton(
         minWidth: buttonWidth,
         color: BgColor,

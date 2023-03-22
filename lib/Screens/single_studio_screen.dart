@@ -33,7 +33,7 @@ class _StudioScreenState extends State<StudioScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -129,32 +129,13 @@ class _StudioScreenState extends State<StudioScreen> {
                               //textAlign: TextAlign.start,
                               color: AppTheme.filtter
                                   .withOpacity(0.8),
-                              fontWeight: FontWeight.bold,
-                              fontSize: AddSize.font14,
+                              fontWeight: FontWeight.w600,
+                              fontSize: AddSize.font18,
                             ),
                           ),
                           // SizedBox(
                           //   width: AddSize.size20,
                           // ),
-                          Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                            size: AddSize.size20,
-                          ),
-                          SizedBox(
-                              width: AddSize.size5),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: AddSize.size5),
-                            child: AddText(
-                              text:'4.9',
-                              color: Colors.amber,
-                              fontWeight:
-                              FontWeight.w600,
-                              fontSize:
-                              AddSize.font16,
-                            ),
-                          ),
                         ],
                       ),
                       SizedBox(
@@ -162,17 +143,12 @@ class _StudioScreenState extends State<StudioScreen> {
                       ),
                       Row(
                         children: [
-                          Icon(Icons.location_on_outlined,color: Color(0xFF004B93),),
-                          SizedBox(width: 8,),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5),
-                            child: AddText(
-                              text: '5 km',
-                              textAlign: TextAlign.start,
-                              color: AppTheme.userText.withOpacity(.4),
-                              //fontWeight: FontWeight.w600,
-                              fontSize: AddSize.font14,
-                            ),
+                          AddText(
+                            text: '50+ bookings this week',
+                            textAlign: TextAlign.start,
+                            color: Colors.black,
+                            //fontWeight: FontWeight.w600,
+                            fontSize: AddSize.font14,
                           ),
                         ],
                       ),
@@ -183,11 +159,11 @@ class _StudioScreenState extends State<StudioScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: 40,),
+              AddText(text: 'Review',fontSize: 20,fontWeight: FontWeight.bold,),
               SizedBox(height: 20,),
-              AddText(text: 'About Studio',fontSize: 20,fontWeight: FontWeight.bold,),
-              SizedBox(height: 20,),
-              AddText(text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been'
-                  ' the industry\'s standard dummy text ever since',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w400,),
+              AddText(text: '4.8',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w400,),
+
               SizedBox(height: 20,),
 
               AddText(text: 'Classes',fontSize: 20,),

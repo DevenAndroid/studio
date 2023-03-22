@@ -7,7 +7,7 @@ class OnBoardingController extends GetxController {
 
   RxList<UnbordingContent> contents = [
     UnbordingContent(
-        image: 'assets/images/Rectangle1.png',
+        image: 'assets/images/Rectangle3.png',
         title: "Welcome To Studio",
         discription:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."),
@@ -17,7 +17,7 @@ class OnBoardingController extends GetxController {
         discription:
         "It is a long established fact that a reader will be distracted by the readable."),
     UnbordingContent(
-        image: 'assets/images/Rectangle3.png',
+        image: 'assets/images/Rectangle1.png',
         title: "Lorem ipsum dollar \nsit amet.",
         discription:
         "It is a long established fact that a reader will be distracted by the readable."),

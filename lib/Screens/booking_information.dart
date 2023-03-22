@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:studio_live/Router/my_router.dart';
 import 'package:studio_live/widgets/add_text.dart';
 import 'package:studio_live/widgets/dimentions.dart';
 
@@ -139,22 +142,10 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                 ),
               ),
               SizedBox(height: 200,),
-              ElevatedButton(onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-
-                    backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: BorderSide(
-                            color: Colors.red,
-                          ),
-                        ),
-                    minimumSize: Size(340, 60),
-                  ),
-                  child: Center(child: AddText(text: 'ADD NEW CHILD ',color: AppTheme.primaryColor,))
-              ),
-              SizedBox(height: AddSize.size10,),
-              ElevatedButton(onPressed: (){},
+              ElevatedButton(onPressed: ()
+              {
+                Get.toNamed(MyRouter.checkoutScreen);
+              },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFF8E30),
                     shape: RoundedRectangleBorder(
@@ -165,7 +156,7 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                     ),
                     minimumSize: Size(340, 60),
                   ),
-                  child: Center(child: AddText(text: 'PAY FOR CLASS ',color:Colors.white,))
+                  child: Center(child: AddText(text: 'BOOK CLASS ',color:AppTheme.buttonColor,))
               ),
             ],
           ),

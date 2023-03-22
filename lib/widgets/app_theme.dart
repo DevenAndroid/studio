@@ -10,6 +10,9 @@ class AppTheme {
   static const Color appPrimaryPinkColor = Color(0xffFA61FF);
   static const Color textfield = Color(0xfff0ebf3);
   static const Color subText = Color(0xff6B6B6B);
+  static const Color buttonColor = Color(0xFF18B884);
+  static const Color searchfield = Color(0xffF3F7FA);
+
 
 
 
