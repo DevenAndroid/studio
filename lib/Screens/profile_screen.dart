@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFF8E30),
+        backgroundColor: AppTheme.primaryColor,
         leading: InkWell(onTap: (){
           Get.back();
           //Get.toNamed(MyRouter.studioScreen);

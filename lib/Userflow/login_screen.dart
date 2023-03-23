@@ -38,14 +38,14 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              color: Color(0xFFFF8E30),
+              color: AppTheme.primaryColor,
               height: MediaQuery.of(context).size.height * 1,
               child: Stack(
                 children: [
                   Container(
                     // padding: EdgeInsets.all(30),
                       margin: EdgeInsets.only(top: AddSize.size15),
-                      color: Color(0xFFFF8E30),
+                      color: AppTheme.primaryColor,
                       child: Stack(
                         children: [
                          //Text('Sourav sdsdsjkdjsdjskdjskdjskdjskdjskdjskdjskdjskdsjkdsjkdsjkd'),
@@ -119,14 +119,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               children: [
                                 AddText(
                                     text: "Sign In",
-                                    fontSize: AddSize.size10 * 3,
+                                    fontSize: AddSize.size25,
                                     color: AppTheme.headingColor,
                                     fontWeight: FontWeight.bold,
                                 ),SizedBox(width: 20,),
                                 Image.asset(
                                   "assets/images/faceid1.png",
-                                  height: AddSize.size10 * 4,
-                                  width: AddSize.size10 * 4,
+                                  height: AddSize.size10 * 3,
+                                  width: AddSize.size10 * 3,
                                   fit: BoxFit.contain,
                                 ),
 
@@ -203,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   )
                                       : const Icon(
                                     Icons.visibility,
-                                    color: Color(0xFF53B176),
+                                    color: Colors.red,
                                   )),
                               validator: MultiValidator([
                                 RequiredValidator(

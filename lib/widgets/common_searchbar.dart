@@ -22,7 +22,7 @@ class SearchBar extends StatelessWidget {
         right: AddSize.size10,
       ),
       decoration: BoxDecoration(
-          color: AppTheme.searchfield,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(AddSize.size40),
           boxShadow: blurBoxShadow),
       height: AddSize.size50,
@@ -58,7 +58,7 @@ class SearchBar extends StatelessWidget {
                     borderSide: BorderSide.none,
                     borderRadius:
                         BorderRadius.all(Radius.circular(AddSize.size10))),
-                fillColor: AppTheme.searchfield,
+                fillColor: Colors.white,
                 contentPadding: EdgeInsets.zero,
                 hintText: title,
               ),

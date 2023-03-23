@@ -23,7 +23,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            color: Color(0xFFFF8E30),
+            color: Colors.white,
             height: MediaQuery.of(context).size.height,
             child: Stack(
               children: [
@@ -32,16 +32,16 @@ class _SplashScreen2State extends State<SplashScreen2> {
                   child: Container(
                     // padding: EdgeInsets.all(30),
                       //margin: EdgeInsets.only(top: AddSize.size5),
-                      color: Color(0xFFFF8E30),
+                      color: Colors.white,
                       child: Stack(
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                "assets/images/logoipsum2141.png",
-                                height: AddSize.size10 * 17,
-                                width: AddSize.size10 * 17,
+                                "assets/images/undrawworkoutgcgu1.png",
+                                height: AddSize.size16 * 17,
+                                width: AddSize.size16 * 17,
                                 fit: BoxFit.contain,
                               ),
                             ],
@@ -83,9 +83,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: 20,
-                          ),
+
                           ElevatedButton(onPressed: ()
                           {
                            // Get.toNamed(MyRouter.loginScreen);
@@ -98,7 +96,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                                     color: Colors.white,
                                   ),
                                 ),
-                                minimumSize: Size(340, 60),
+                                minimumSize: Size(340, 70),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,7 +122,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                                     color: AppTheme.buttonColor,
                                   ),
                                 ),
-                                minimumSize: Size(340, 60),
+                                minimumSize: Size(340, 70),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -150,7 +148,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                                     color: Colors.white,
                                   ),
                                 ),
-                                minimumSize: Size(340, 60),
+                                minimumSize: Size(340, 70),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

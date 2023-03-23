@@ -43,14 +43,14 @@ class _SignupScreenState extends State<SignupScreen> {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              color: Color(0xFFFF8E30),
+              color: AppTheme.primaryColor,
               height: MediaQuery.of(context).size.height * 1,
               child: Stack(
                 children: [
                   Container(
                     // padding: EdgeInsets.all(30),
                       margin: EdgeInsets.only(top: AddSize.size15),
-                      color: Color(0xFFFF8E30),
+                      color: AppTheme.primaryColor,
                       child: Stack(
                         children: [
                           //Text('Sourav sdsdsjkdjsdjskdjskdjskdjskdjskdjskdjskdjskdsjkdsjkdsjkd'),

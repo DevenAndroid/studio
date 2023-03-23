@@ -24,7 +24,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFA629),
+        backgroundColor: AppTheme.primaryColor,
         leading: InkWell(onTap: (){
           Get.back();
           //Get.toNamed(MyRouter.studioScreen);
@@ -38,7 +38,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(17),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -65,13 +65,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
+                            AddText(text: 'Jack Smith',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
                             SizedBox(height: AddSize.size10,),
-                            AddText(text: '2',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
+                            AddText(text: '\$98.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
                             SizedBox(height: AddSize.size10,),
                             AddText(text: '\$2.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
                             SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$202.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
+                            AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
                             ],
                         ),
                         //AddText(text: 'Folk Dance',fontWeight: FontWeight.w600),
@@ -85,7 +85,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AddText(text: 'Folk Dance',fontWeight: FontWeight.w600),
+                            AddText(text: 'Child Name',fontWeight: FontWeight.w600),
                             SizedBox(height: AddSize.size10,),
                             AddText(text: 'Jaz Dance',fontWeight: FontWeight.w600),
                             SizedBox(height: AddSize.size10,),
@@ -97,54 +97,38 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
+                            AddText(text: 'William Jae',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
                             SizedBox(height: AddSize.size10,),
-                            AddText(text: '2',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
+                            AddText(text: '\$88.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
                             SizedBox(height: AddSize.size10,),
                             AddText(text: '\$2.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
                             SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$202.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
+                            AddText(text: '\$90.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
                           ],
                         ),
-                        //AddText(text: 'Folk Dance',fontWeight: FontWeight.w600),
-                        //AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,)
                       ],
                     ),
+                    SizedBox(height: AddSize.size60,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        //AddText(text: 'Total Child',fontWeight: FontWeight.w600),
-                       // AddText(text: '2',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
+                        AddText(text: 'Total Amount',fontWeight: FontWeight.w600),
+                        AddText(text: '\$190.00',color: AppTheme.primaryColor,fontWeight: FontWeight.w400,),
                       ],
                     ),
-                    SizedBox(height: AddSize.size15,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        //AddText(text: 'Tax',fontWeight: FontWeight.w600),
-                       // AddText(text: '\$2.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                      ],
-                    ),
-                    SizedBox(height: AddSize.size15,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        //AddText(text: 'Pay amount',fontWeight: FontWeight.w600),
-                        //AddText(text: '\$202.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
-                      ],
-                    ),
+                    SizedBox(height: AddSize.size60,),
                   ],
                 ),
               ),
               //SizedBox(height: AddSize.size20,),
-              AddText(text: 'Payment Method',fontSize: 18,),
+              AddText(text: 'Select The Payment Method',fontSize: 18,),
               SizedBox(height: AddSize.size20,),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: blurBoxShadow,
                     border: Border.all(color: Color(0xFFD4D9FF)),
-                    borderRadius: BorderRadius.circular(40)),
+                    borderRadius: BorderRadius.circular(15)),
                 // width: AddSize.screenWidth,
                 height: AddSize.screenHeight * .10,
                 width: AddSize.screenWidth,
@@ -153,7 +137,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset(
-                      'assets/images/image31.png',
+                      'assets/images/Group1000003786.png',
                       width: AddSize.size40,
                       height: AddSize.size40,
                       // fit: BoxFit.cover,
@@ -162,7 +146,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     //   width: AddSize.size10,
                     // ),
                     AddText(
-                      text: 'Google pay',
+                      text: '**** **** **** 0007',
                       textAlign: TextAlign.start,
                       color: AppTheme.filtter,
                       fontWeight: FontWeight.w500,
@@ -183,7 +167,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     color: Colors.white,
                     boxShadow: blurBoxShadow,
                     border: Border.all(color: Color(0xFFD4D9FF)),
-                    borderRadius: BorderRadius.circular(40)),
+                    borderRadius: BorderRadius.circular(15)),
                 // width: AddSize.screenWidth,
                 height: AddSize.screenHeight * .10,
                 width: AddSize.screenWidth,
@@ -192,7 +176,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset(
-                      'assets/images/paypal1.png',
+                      'assets/images/image32.png',
                       width: AddSize.size40,
                       height: AddSize.size40,
                       // fit: BoxFit.cover,
@@ -201,15 +185,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     //   width: AddSize.size10,
                     // ),
                     AddText(
-                      text: 'PayPal',
+                      text: '**** **** **** 0012',
                       textAlign: TextAlign.start,
                       color: AppTheme.filtter,
                       fontWeight: FontWeight.w500,
                       fontSize: AddSize.font16,
                     ),
-                    SizedBox(
-                      width: AddSize.size28,
-                    ),
+                    // SizedBox(
+                    //   width: AddSize.size25,
+                    // ),
                     Padding(
                       padding: const EdgeInsets.only(left: 35),
                       child: addRadioButton(
@@ -219,46 +203,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: AddSize.size20,),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: blurBoxShadow,
-                    border: Border.all(color: Color(0xFFD4D9FF)),
-                    borderRadius: BorderRadius.circular(40)),
-                // width: AddSize.screenWidth,
-                height: AddSize.screenHeight * .10,
-                width: AddSize.screenWidth,
-                padding: EdgeInsets.all(AddSize.size20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Image.asset(
-                      'assets/images/money3.png',
-                      width: AddSize.size40,
-                      height: AddSize.size40,
-                      // fit: BoxFit.cover,
-                    ),
-                    // SizedBox(
-                    //   width: AddSize.size10,
-                    // ),
-                    AddText(
-                      text: 'Credit Card',
-                      textAlign: TextAlign.start,
-                      color: AppTheme.filtter,
-                      fontWeight: FontWeight.w500,
-                      fontSize: AddSize.font16,
-                    ),
-                    SizedBox(
-                      width: AddSize.size25,
-                    ),
-                    addRadioButton(
-                      2,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: AddSize.size20,),
+              SizedBox(height: AddSize.size40,),
               Row(
                 children: [
                   Transform.scale(
@@ -285,7 +230,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 8),
+                    padding: const EdgeInsets.only(top: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -313,8 +258,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                     minimumSize: Size(340, 60),
                   ),
-                  child: Center(child: AddText(text: 'CONFIRM',color:Colors.white,))
+                  child: Center(child: AddText(text: 'CONFIRM',color:Colors.white,fontWeight: FontWeight.w600))
               ),
+              SizedBox(height: AddSize.size40,),
             ],
           ),
         ),
