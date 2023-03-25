@@ -24,7 +24,7 @@ class _ThankYouScreenState extends State<ThankYouScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: AddSize.size100),
+            SizedBox(height: AddSize.size170),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -51,81 +51,14 @@ class _ThankYouScreenState extends State<ThankYouScreen> {
             Center(child: AddText(text: 'Thank You for The Booking',fontSize: 16,fontWeight: FontWeight.w400,color: Color(0xFF828B88),)),
             SizedBox(height: AddSize.size10),
             Center(child: AddText(text: 'Booking is #2589632',fontSize: 16,fontWeight: FontWeight.w400,color: AppTheme.primaryColor,)),
-            SizedBox(height: AddSize.size20),
-            Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AddText(text: 'Child Name',fontWeight: FontWeight.w600),
-                        SizedBox(height: AddSize.size15,),
-                        AddText(text: 'Popup Dance',fontWeight: FontWeight.w600),
-                        SizedBox(height: AddSize.size15,),
-                        AddText(text: 'Tax',fontWeight: FontWeight.w600),
-                        SizedBox(height: AddSize.size15,),
-                        AddText(text: 'Pay amount',fontWeight: FontWeight.w600),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AddText(text: 'Jack Smith',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
-                        SizedBox(height: AddSize.size15,),
-                        AddText(text: '\$98.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                        SizedBox(height: AddSize.size15,),
-                        AddText(text: '\$2.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                        SizedBox(height: AddSize.size15,),
-                        AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
-                      ],
-                    ),
-                    //AddText(text: 'Folk Dance',fontWeight: FontWeight.w600),
-                    //AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,)
-                  ],
-                ),
-                SizedBox(height: 40,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AddText(text: 'Child name',fontWeight: FontWeight.w600),
-                        SizedBox(height: AddSize.size10,),
-                        AddText(text: 'Popup Dance',fontWeight: FontWeight.w600),
-                        SizedBox(height: AddSize.size10,),
-                        AddText(text: 'Tax',fontWeight: FontWeight.w600),
-                        SizedBox(height: AddSize.size10,),
-                        AddText(text: 'Pay amount',fontWeight: FontWeight.w600),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AddText(text: 'William Joe',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
-                        SizedBox(height: AddSize.size10,),
-                        AddText(text: '\$98.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                        SizedBox(height: AddSize.size10,),
-                        AddText(text: '\$2.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                        SizedBox(height: AddSize.size10,),
-                        AddText(text: '\$98.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
-                      ],
-                    ),
-                    //AddText(text: 'Folk Dance',fontWeight: FontWeight.w600),
-                    //AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,)
-                  ],
-                ),
-              ],
-            ),
-          ),
-            SizedBox(height: AddSize.size60,),
+
+
+            SizedBox(height: AddSize.size200,),
+            SizedBox(height: AddSize.size80),
+
             ElevatedButton(onPressed: ()
             {
-              Get.toNamed(MyRouter.thankYouScreen);
+              Get.toNamed(MyRouter.bottomNavBar);
             },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.buttonColor,
@@ -137,7 +70,7 @@ class _ThankYouScreenState extends State<ThankYouScreen> {
                   ),
                   minimumSize: Size(340, 60),
                 ),
-                child: Center(child: AddText(text: 'SEE DETAILS',color:Colors.white,fontWeight: FontWeight.w600))
+                child: Center(child: AddText(text: 'GO TO HOME',color:Colors.white,fontWeight: FontWeight.w600))
             ),
           ],
         ),

@@ -53,6 +53,7 @@ class AddSize {
   static double size125 = size110 + size15;
   static double size220 = screenHeight / 3.65454;
   static double size170 = size100 + 70;
+  static double size190 = size100 + 90;
   static double size12 = screenHeight / 67;
   static double size300 = size10 * size30;
   static double size310 = size300 + size10;
@@ -68,6 +69,7 @@ class AddSize {
   static double font14 = screenHeight / 57.42857;
   static double font10 = screenHeight / 80.4;
   static double font12 = screenHeight / 67;
+  static double font15 = font12 + 3;
   static double font8 = screenHeight / 100.5;
   static double font18 = screenHeight / 44.6666;
   static double font20 = screenHeight / 40.2;

@@ -172,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ]),
                             ),
                             SizedBox(
-                              height: AddSize.size20,
+                              height: AddSize.size30,
                             ),
                             AddText(
                               text: "Password",
@@ -216,7 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ]),
                             ),
                             SizedBox(
-                              height: AddSize.size20,
+                              height: AddSize.size30,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -259,7 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 )
                               ],
                             ),
-                            SizedBox(height: 20,),
+                            SizedBox(height: AddSize.size30,),
                             CommonButtonField('LOG IN', () {
                               if (formKey.currentState!.validate()) {
                                 // login(emailController.text,
@@ -288,22 +288,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 // });
                               }
                             }, deviceWidth, AddSize.size50),
-                            SizedBox(height: AddSize.size30,),
-                            // SizedBox(
-                            //     height: 10,
-                            //     width: MediaQuery.of(context).size.width,
-                            //     child: Image.asset(Igs.orImg)),
-                            // AddText(text: 'Or',
-                            // fontSize: 18,
-                            // ),
-                            // Center(child: Text('Or',style: TextStyle(fontSize: 20),)),
+                            SizedBox(height: AddSize.size40,),
                             SizedBox(
                                 height: 10,
                                 width: MediaQuery.of(context).size.width,
                                 child: Image.asset(Igs.orImg)),
-                            SizedBox(
-                              height: 30,
-                            ),
+                            SizedBox(height: AddSize.size40,),
                             Container(
                               width: MediaQuery.of(context).size.width / 1,
                               height: 60,
@@ -357,21 +347,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                             ),
-                            // Align(
-                            //   alignment: Alignment.centerRight,
-                            //   child: InkWell(
-                            //     onTap: () {
-                            //       Get.toNamed(MyRouter.addemail);
-                            //     },
-                            //     child: AddText(
-                            //       text: "Forgot Password",
-                            //       fontSize: AddSize.size14,
-                            //       decoration: TextDecoration.underline,
-                            //       color: AppTheme.linkColor,
-                            //       fontWeight: FontWeight.w400,
-                            //     ),
-                            //   ),
-                            // ),
                             SizedBox(
                               height: AddSize.size40,
                             ),
@@ -408,7 +383,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             //     height: 10,
                             //     width: MediaQuery.of(context).size.width,
                             //     child: Image.asset(Igs.orImg)),
-                            addHeight(30),
+
 
                             // Row(
                             //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

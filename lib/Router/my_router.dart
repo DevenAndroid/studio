@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studio_live/ForgotPassword/forgot_password.dart';
+import 'package:studio_live/Screens/ParentDashboard/add_new_child_screen.dart';
+import 'package:studio_live/Screens/ParentDashboard/caregiver_list.dart';
+import 'package:studio_live/Screens/ParentDashboard/child_list.dart';
+import 'package:studio_live/Screens/ParentDashboard/faq_screen.dart';
+import 'package:studio_live/Screens/ParentDashboard/parent_dashboard_screen.dart';
+import 'package:studio_live/Screens/ParentDashboard/support_screen.dart';
 import 'package:studio_live/Screens/booking_details.dart';
+import 'package:studio_live/Screens/cancellation_policy_screen.dart';
 import 'package:studio_live/Screens/child_information.dart';
 import 'package:studio_live/Screens/checkout_screen.dart';
 import 'package:studio_live/Screens/edit_profile.dart';
 import 'package:studio_live/Screens/home_screen.dart';
 import 'package:studio_live/Screens/leave_review_screen.dart';
+import 'package:studio_live/Screens/notification_screen.dart';
 import 'package:studio_live/Screens/profile_screen.dart';
 import 'package:studio_live/Screens/saved_places.dart';
 import 'package:studio_live/Screens/splash_screen2.dart';
@@ -17,6 +25,8 @@ import 'package:studio_live/Userflow/bottom_nav_bar.dart';
 import 'package:studio_live/Userflow/login_screen.dart';
 import 'package:studio_live/Userflow/signup_screen.dart';
 import '../ForgotPassword/reset_password.dart';
+import '../Screens/ParentDashboard/add_new_caregiver_screen.dart';
+import '../Screens/ParentDashboard/privacy_policy.dart';
 import '../Screens/my_bookings.dart';
 import '../Screens/onboarding_screen.dart';
 import '../Screens/single_studio_screen.dart';
@@ -48,6 +58,19 @@ class MyRouter{
   static var  myBookingScreen="/myBookingScreen";
   static var  bookingDetailsScreen="/bookingDetailsScreen";
   static var  leaveReviewScreen="/leaveReviewScreen";
+  static var  notificationScreen="/notificationScreen";
+  static var  cancellationPolicyScreen="/cancellationPolicyScreen";
+  static var  parentDashboardScreen="/parentDashboardScreen";
+  static var  childListScreen="/childListScreen";
+  static var  addNewChildScreen="/addNewChildScreen";
+  static var  caregiverListScreen="/caregiverListScreen";
+  static var  addNewCaregiverScreen="/addNewCaregiverScreen";
+  static var  privacyPolicyScreen="/privacyPolicyScreen";
+  static var  faqScreen="/faqScreen";
+  static var  supportScreen="/supportScreen";
+
+
+
 
 
 
@@ -55,7 +78,7 @@ class MyRouter{
 
 
   static var route = [
-   GetPage(name: '/', page: () => const StudioListScreen()),
+   GetPage(name: '/', page: () => const SplashScreen()),
    GetPage(name: MyRouter.splashScreen, page: () => const SplashScreen()),
    GetPage(name: MyRouter.onBoarding, page: () => OnBoardingScreen()),
     GetPage(name: MyRouter.loginScreen, page: () => LoginScreen()),
@@ -78,6 +101,17 @@ class MyRouter{
     GetPage(name: MyRouter.myBookingScreen, page: () => MyBookingScreen()),
     GetPage(name: MyRouter.bookingDetailsScreen, page: () => BookingDetailsScreen()),
     GetPage(name: MyRouter.leaveReviewScreen, page: () => ReviewScreen()),
+    GetPage(name: MyRouter.leaveReviewScreen, page: () => NotificationScreen()),
+    GetPage(name: MyRouter.cancellationPolicyScreen, page: () => CancellationPolicyScreen()),
+    GetPage(name: MyRouter.parentDashboardScreen, page: () => ParentDashboardScreen()),
+    GetPage(name: MyRouter.childListScreen, page: () => ChildListScreen()),
+    GetPage(name: MyRouter.addNewChildScreen, page: () => AddNewChildScreen()),
+    GetPage(name: MyRouter.caregiverListScreen, page: () => CareGiverListScreen()),
+    GetPage(name: MyRouter.addNewCaregiverScreen, page: () => AddNewCareGiverScreen()),
+    GetPage(name: MyRouter.privacyPolicyScreen, page: () => PrivacyPolicyScreen()),
+    GetPage(name: MyRouter.faqScreen, page: () => FaqScreen()),
+    GetPage(name: MyRouter.supportScreen, page: () => SupportScreen()),
+
 
 
   ];

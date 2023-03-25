@@ -236,7 +236,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       children: [
                         AddText(text: 'I have read and understand the studio\'s',fontSize: 14,fontWeight: FontWeight.w400,color: Color(0xFF1B233A),),
                         SizedBox(height: AddSize.size5,),
-                        AddText(text: 'cancellation policy.',fontSize: 14,color: Color(0xFF2951C2),decoration: TextDecoration.underline,),
+                        InkWell(onTap: (){
+                          Get.toNamed(MyRouter.cancellationPolicyScreen);
+                        },
+                            child: AddText(text: 'cancellation policy.',fontSize: 14,color: Color(0xFF2951C2),decoration: TextDecoration.underline,)),
                       ],
                     ),
                   ),
@@ -244,6 +247,23 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 ],
               ),
               SizedBox(height: AddSize.size40,),
+              ElevatedButton(onPressed: ()
+              {
+                Get.toNamed(MyRouter.thankYouScreen);
+              },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide(
+                        color: AppTheme.primaryColor,
+                      ),
+                    ),
+                    minimumSize: Size(340, 60),
+                  ),
+                  child: Center(child: AddText(text: 'ADD NEW CARD',color:AppTheme.primaryColor,fontWeight: FontWeight.w600))
+              ),
+              SizedBox(height: AddSize.size10,),
               ElevatedButton(onPressed: ()
               {
                 Get.toNamed(MyRouter.thankYouScreen);
@@ -260,7 +280,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ),
                   child: Center(child: AddText(text: 'CONFIRM',color:Colors.white,fontWeight: FontWeight.w600))
               ),
-              SizedBox(height: AddSize.size40,),
+              SizedBox(height: AddSize.size20,),
             ],
           ),
         ),

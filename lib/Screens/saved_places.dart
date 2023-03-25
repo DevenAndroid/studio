@@ -107,7 +107,7 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 12),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -120,7 +120,7 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Folk Dance',
+                                      text: 'Dance Class',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
@@ -143,38 +143,33 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
                                       fontWeight:
                                       FontWeight.w600,
                                       fontSize:
-                                      AddSize.font14,
+                                      AddSize.font12,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                             SizedBox(
-                              height: AddSize.size10,
-                            ),
-                            Row(
-                              children:  [
-                                Padding(
-                                  padding:  EdgeInsets.only(bottom: 5),
-                                  child: Icon(Icons.person_2_outlined,size: 20,color: Color(0xFF7D8396)),
-                                ),
-                                SizedBox(width: 2,),
-                                AddText(
-                                  text: '6 to 10 Ages',
-                                  textAlign: TextAlign.start,
-                                  color: Color(0xFF7D8396),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: AddSize.font12,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: AddSize.size10,
+                              height: AddSize.size5,
                             ),
                             Row(
                               children: [
-                                Icon(Icons.location_on_outlined,color: Color(0xFF7D8396)),
-                                SizedBox(width: 8,),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 6),
+                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                ),
+                                SizedBox(width: 5,),
+                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
+                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
+                              ],
+                            ),
+                            SizedBox(
+                              height: AddSize.size5,
+                            ),
+                            Row(
+                              children: [
+                                Icon(Icons.location_on_outlined,color: Color(0xFF7D8396),size: 20,),
+                                SizedBox(width: 5,),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: AddText(
@@ -182,11 +177,19 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
                                     textAlign: TextAlign.start,
                                     color: AppTheme.userText.withOpacity(.4),
                                     //fontWeight: FontWeight.w600,
-                                    fontSize: AddSize.font14,
+                                    fontSize: AddSize.font12,
                                   ),
                                 ),
                               ],
                             ),
+                            SizedBox(
+                              height: AddSize.size8,
+                            ),
+                            Row(
+                              children: [
+                                AddText(text: "\$30.00",color: AppTheme.primaryColor,)
+                              ],
+                            )
                           ],
                         ),
                       ),

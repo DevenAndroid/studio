@@ -2,23 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../Router/my_router.dart';
-import '../widgets/add_text.dart';
-import '../widgets/app_theme.dart';
-import '../widgets/dimentions.dart';
-
-class StudioListScreen extends StatefulWidget {
-  const StudioListScreen({Key? key}) : super(key: key);
+import '../../Router/my_router.dart';
+import '../../widgets/add_text.dart';
+import '../../widgets/app_theme.dart';
+import '../../widgets/dimentions.dart';
+class CareGiverListScreen extends StatefulWidget {
+  const CareGiverListScreen({Key? key}) : super(key: key);
 
   @override
-  State<StudioListScreen> createState() => _StudioListScreenState();
+  State<CareGiverListScreen> createState() => _CareGiverListScreenState();
 }
 
-class _StudioListScreenState extends State<StudioListScreen> {
+class _CareGiverListScreenState extends State<CareGiverListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      //backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -28,43 +27,52 @@ class _StudioListScreenState extends State<StudioListScreen> {
         },
             child : Icon(Icons.arrow_back)),
         title: Padding(
-          padding: const EdgeInsets.only(left: 80),
-          child: Text("Studio List",style: TextStyle(color: Colors.white),),
+          padding: const EdgeInsets.only(left: 75),
+          child: Text("Caregiver",style: TextStyle(color: Colors.white),),
         ),
-        actions: [Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 20,
-            child: Icon(Icons.filter_alt,color: AppTheme.primaryColor,),
-          ),
-        )],
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(25),
           child: Column(
             children: [
               ListView.builder(
-                  itemCount: 7,
+                  itemCount: 6,
                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
-                    return coursesUi(index);
+                    return coursesUi1(index);
                   }),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FloatingActionButton(
+                    onPressed: () {
+                      Get.toNamed(MyRouter.addNewCaregiverScreen);
+                    },
+                    child: Icon(Icons.add, color: Colors.white, size: 29,),
+                    backgroundColor: AppTheme.buttonColor,
+                    tooltip: 'Capture Picture',
+                    elevation: 5,
+                    splashColor: Colors.grey,
+                  )
+                ],
+              ),
+              SizedBox(height: 30,),
             ],
           ),
         ),
       ),
     );
   }
-  Column coursesUi(int index) {
+  Column coursesUi1(int index) {
     return Column(
       children: [
         InkWell(
           onTap: () {
-            Get.toNamed(MyRouter.studioScreen);
+            // Get.toNamed(MyRouter.studioScreen);
             // Get.toNamed(MyRouter.paidCourse, arguments: [
             //   homeController.model.value.data!.popularCourses![index].id
             //       .toString()
@@ -74,10 +82,10 @@ class _StudioListScreenState extends State<StudioListScreen> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: (blurBoxShadow),
-                   //border: Border.all(color: Colors.grey),
+                  //border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+              height: AddSize.screenHeight * .15,
               //margin: EdgeInsets.all(AddSize.size2),
               child: Padding(
                 padding: EdgeInsets.all(AddSize.size10),
@@ -92,7 +100,7 @@ class _StudioListScreenState extends State<StudioListScreen> {
                       ),
                       child:
                       Image.asset(
-                        'assets/images/Rectangle100.png',
+                        'assets/images/Rectangle31.png',
                         width: AddSize.size90,
                         height: AddSize.size90,
                         fit: BoxFit.cover,
@@ -116,7 +124,7 @@ class _StudioListScreenState extends State<StudioListScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.only(top: 30),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -129,30 +137,11 @@ class _StudioListScreenState extends State<StudioListScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Dance Studio',
+                                      text: 'Jacky Smith',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
                                       fontSize: AddSize.font14,
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: AddSize.size16,
-                                  ),
-                                  SizedBox(
-                                      width: AddSize.size5),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        top: AddSize.size5),
-                                    child: AddText(
-                                      text:'4.9',
-                                      color: Colors.amber,
-                                      fontWeight:
-                                      FontWeight.w600,
-                                      fontSize:
-                                      AddSize.font12,
                                     ),
                                   ),
                                 ],
@@ -165,37 +154,58 @@ class _StudioListScreenState extends State<StudioListScreen> {
                               //crossAxisAlignment:CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                AddText(
-                                  text: "Folk Dance",
-                                  //textAlign: TextAlign.start,
-                                  color: Color(0xFF004B93),
-                                  //fontWeight: FontWeight.bold,
-                                  fontSize: AddSize.font12,
+                                Row(
+                                  children: [
+                                    Icon(Icons.phone,size: 17,color: Color(0xFF39439D),),
+                                    SizedBox(width: 5,),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 5),
+                                      child: AddText(
+                                        text: "987-654-3210",
+                                        //textAlign: TextAlign.start,
+                                        color: Color(0xFF7D8396),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: AddSize.font12,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 // SizedBox(
                                 //   width: AddSize.size20,
                                 // ),
-
+                                Row(
+                                  children:  [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: Color(0xFFD4D9FF))
+                                      ),
+                                      child: CircleAvatar(
+                                        backgroundColor: Color(0xFFE4E7FF),
+                                        minRadius: 13,
+                                        maxRadius: 13,
+                                        child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17,),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10,),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: Color(0xFFFFC2CF))
+                                      ),
+                                      child: CircleAvatar(
+                                        backgroundColor: Color(0xFFFFCFD9),
+                                        minRadius: 13,
+                                        maxRadius: 13,
+                                        child: Icon(Icons.delete_forever,color: Color(0xFFC9002B),size: 17),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ],
                             ),
                             SizedBox(
                               height: AddSize.size10,
-                            ),
-                            Row(
-                              children: [
-                                Icon(Icons.location_on_outlined,color: Color(0xFF004B93),size: 20,),
-                                SizedBox(width: 5,),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: AddText(
-                                    text: '5 km',
-                                    textAlign: TextAlign.start,
-                                    color: AppTheme.userText.withOpacity(.4),
-                                    //fontWeight: FontWeight.w600,
-                                    fontSize: AddSize.font14,
-                                  ),
-                                ),
-                              ],
                             ),
                           ],
                         ),

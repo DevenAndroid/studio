@@ -77,7 +77,7 @@ class CommonTextFieldWidget extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(horizontal: AddSize.size12)
               .copyWith(top: maxLines! > 4 ? AddSize.size18 : 0),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: AppTheme.primaryColor),
+            borderSide: BorderSide(color: Colors.red),
             borderRadius: BorderRadius.circular(10.0),
           ),
           enabledBorder: OutlineInputBorder(

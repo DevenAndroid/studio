@@ -210,14 +210,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AddText(text: 'Address',fontWeight: FontWeight.w400),
-                      SizedBox(height: 10,),
-                      AddText(text: 'Riverside Building, County Hall, LondonSE1 7PB, United Kingdom'),
+                      SizedBox(height: 5,),
+                      AddText(text: 'Riverside Building, County Hall, LondonSE1 7PB, United Kingdom',height: 1.3,),
                     ],
                   ),
                 )
               ],
             ),
-            SizedBox(height: 70,),
+            SizedBox(height: 50,),
             ElevatedButton(onPressed: ()
             {
               Get.toNamed(MyRouter.editProfileScreen);

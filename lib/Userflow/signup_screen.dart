@@ -124,10 +124,19 @@ class _SignupScreenState extends State<SignupScreen> {
                               children: [
                                 AddText(
                                   text: "Sign Up",
-                                  fontSize: AddSize.size10 * 3,
+                                  fontSize: AddSize.size25,
                                   color: AppTheme.headingColor,
                                   fontWeight: FontWeight.bold,
                                 ),SizedBox(width: 20,),
+                                Image.asset(
+                                  "assets/images/faceid1.png",
+                                  height: AddSize.size10 * 3,
+                                  width: AddSize.size10 * 3,
+                                  fit: BoxFit.contain,
+                                ),
+
+                                // Image.asset("assets/images/Vector.png",width: 30,height: 30,)
+
                               ],
                             ),
                             SizedBox(
@@ -428,9 +437,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 }
                               },
                             ),
-                            SizedBox(
-                              height: AddSize.size20,
-                            ),
+                            SizedBox(height: AddSize.size30,),
                             Column(
                               children: [
                                 Row(
@@ -472,7 +479,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20,),
+                            SizedBox(height: AddSize.size30,),
                             CommonButtonField('CREATE ACCOUNT', () {
                               if (formKey.currentState!.validate()) {
                                 // login(emailController.text,
@@ -501,22 +508,12 @@ class _SignupScreenState extends State<SignupScreen> {
                                 // });
                               }
                             }, deviceWidth, AddSize.size50),
-                            SizedBox(height: AddSize.size30,),
-                            // SizedBox(
-                            //     height: 10,
-                            //     width: MediaQuery.of(context).size.width,
-                            //     child: Image.asset(Igs.orImg)),
-                            // AddText(text: 'Or',
-                            // fontSize: 18,
-                            // ),
-                            // Center(child: Text('Or',style: TextStyle(fontSize: 20),)),
+                            SizedBox(height: AddSize.size40,),
                             SizedBox(
                                 height: 10,
                                 width: MediaQuery.of(context).size.width,
                                 child: Image.asset(Igs.orImg)),
-                            SizedBox(
-                              height: 30,
-                            ),
+                            SizedBox(height: AddSize.size40,),
                             Container(
                               width: MediaQuery.of(context).size.width / 1,
                               height: 60,
