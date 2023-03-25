@@ -200,6 +200,7 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                   children: [
                     AddText(text: 'About Folk Dance',fontSize: 20,fontWeight: FontWeight.w600,),
                     SizedBox(height: 20,),
+
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(

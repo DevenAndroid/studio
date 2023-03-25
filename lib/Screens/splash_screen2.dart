@@ -59,7 +59,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                             AddText(text: 'Are you Parents',fontWeight: FontWeight.w400),
                             SizedBox(height: 10,),
                             InkWell(onTap: (){
-                              Get.toNamed(MyRouter.parentDashboardScreen);
+                              Get.toNamed(MyRouter.loginScreen);
                             },
                                 child: Icon(Icons.arrow_forward))
                           ],
