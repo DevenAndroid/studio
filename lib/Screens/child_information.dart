@@ -27,6 +27,7 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
         backgroundColor: AppTheme.primaryColor,
         leading: InkWell(onTap: (){
           //Get.toNamed(MyRouter.studioScreen);
+          Get.back();
         },
             child : Icon(Icons.arrow_back)),
         title: Padding(

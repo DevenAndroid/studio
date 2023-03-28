@@ -21,7 +21,7 @@ class _StudioScreenState extends State<StudioScreen> {
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
         leading: InkWell(onTap: (){
-          Get.toNamed(MyRouter.homeScreen);
+          Get.back();
         },
             child: Icon(Icons.arrow_back)),
         title: Padding(
@@ -586,7 +586,7 @@ class _StudioScreenState extends State<StudioScreen> {
                               children:  [
                                 Padding(
                                   padding:  EdgeInsets.only(bottom: 5),
-                                  child: Icon(Icons.person_2_outlined,size: 20,color: Color(0xFF7D8396)),
+                                  child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
                                 ),
                                 SizedBox(width: 2,),
                                 AddText(

@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 //import '../../../repository/signup_verification_api.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 // import '../../repository/common_response_repository.dart';
 // import '../../repository/signup_verification_repository.dart';
 // import '../../resource/app_theme.dart';
@@ -35,11 +35,12 @@ class _SignupVerification extends State<SignupVerification> {
       BorderSide(width: 0.6, color: AppTheme.subText.withOpacity(.3)),
       borderRadius: BorderRadius.circular(AddSize.size10));
 
+  final otpController = TextEditingController();
   final TextEditingController useridController = TextEditingController();
   final TextEditingController phoneNoController = TextEditingController();
   OtpFieldController controller = OtpFieldController();
   final TextEditingController emailController = TextEditingController();
-  RxString otpController = "".obs;
+  // RxString otpController = "".obs;
   RxBool showValidation = false.obs;
 
   final maintext = "An 4 digit code has been sent your mobile number";
@@ -53,13 +54,15 @@ class _SignupVerification extends State<SignupVerification> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xFFFF8E30),
+          backgroundColor: const Color(0xFFFFA629),
           leading: InkWell(onTap: (){Get.back();},
               child: Icon(Icons.arrow_back)),
-          title: Padding(
-            padding: const EdgeInsets.only(left: 70),
-            child: Text("Verification",style: TextStyle(color: Colors.white),),
-          ),
+          // title: Padding(
+          //   padding: const EdgeInsets.only(left: 70),
+          //   child: Text("Verification",style: TextStyle(color: Colors.white),),
+          // ),
+          title: const Text("Verification",style: TextStyle(color: Colors.white)),
+          centerTitle:true,
           toolbarHeight: 70,
         ),
         body: SingleChildScrollView(
@@ -76,11 +79,12 @@ class _SignupVerification extends State<SignupVerification> {
                     decoration: const BoxDecoration(
                       // boxShadow: blurBoxShadow,
                       color: Colors.white,
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/Forgot password-amico 1.png"),
-                        fit: BoxFit.contain,
-                      ),
+                      // image: DecorationImage(
+                      //   image: AssetImage("assets/images/Forgot password-amico 1.png"),
+                      //   fit: BoxFit.contain,
+                      // ),
                     ),
+                    child: SvgPicture.asset('assets/images/Forgot password-amico 1.svg'),
                     width: AddSize.screenWidth,
                     margin: EdgeInsets.all(AddSize.size5),
                     padding: EdgeInsets.all(AddSize.size15),
@@ -187,45 +191,98 @@ class _SignupVerification extends State<SignupVerification> {
                       //     print(output);
                       //   },
                       // ),
-                      SizedBox(
-                        height: 50,
-                        child: OTPTextField(
-                          length: 4,
-                          width: MediaQuery.of(context).size.width * .8,
+                      // SizedBox(
+                      //   height: 56,
+                      //   child: Theme(
+                      //     data: ThemeData(
+                      //       primaryColor: Colors.orangeAccent,
+                      //       primaryColorDark: Colors.orange,
+                      //     ),
+                      //     child: OTPTextField(
+                      //       length: 4,
+                      //       width: MediaQuery.of(context).size.width,
+                      //       fieldWidth: 75,
+                      //       inputFormatter: [
+                      //         FilteringTextInputFormatter.digitsOnly,
+                      //       ],
+                      //       otpFieldStyle: OtpFieldStyle(
+                      //         borderColor: Colors.red,
+                      //         backgroundColor: Color(0xFFFFF5F7),
+                      //         enabledBorderColor: Colors.red,
+                      //         focusBorderColor: Colors.red,
+                      //       ),
+                      //       style: const TextStyle(fontSize: 17),
+                      //       controller: controller,
+                      //       textFieldAlignment: MainAxisAlignment.spaceAround,
+                      //       fieldStyle: FieldStyle.box,
+                      //       onChanged: (pin) {
+                      //         otpController.value = pin;
+                      //         setState(() {});
+                      //       },
+                      //       onCompleted: (pin) {
+                      //         otpController.value = pin;
+                      //         setState(() {});
+                      //       },
+                      //     ),
+                      //   ),
+                      // ),
+
+                      PinCodeTextField(
+                        appContext: context,
+                        errorTextMargin: EdgeInsets.only(top: 45),
+                        // errorTextMargin: EdgeInsets.only(top: 15),
+                        textStyle: const TextStyle(color: Colors.black),
+                        controller: otpController,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+
+                        pastedTextStyle: TextStyle(
+                          color: Colors.green.shade600,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        animationType: AnimationType.fade,
+                        validator: (v) {
+                          if (v!.isEmpty) {
+                            return "OTP code Required";
+                          } else if (v.length != 6) {
+                            return "Enter complete OTP code";
+                          }
+                          return null;
+                        },
+                        length: 4,
+                        pinTheme: PinTheme(
+                          shape: PinCodeFieldShape.box,
+                          borderRadius: BorderRadius.circular(5),
+                          selectedColor:  Color(0xFFC9002B),
+                          selectedFillColor: Colors.black,
                           fieldWidth: 80,
-                          inputFormatter: [
-                            FilteringTextInputFormatter.digitsOnly,
-                          ],
-                          otpFieldStyle: OtpFieldStyle(
-                             //backgroundColor: Colors.,
-                            borderColor: Color(0xFFFF8E30)
-                          ),
-                          style: const TextStyle(fontSize: 17),
-                          controller: controller,
-                          textFieldAlignment: MainAxisAlignment.spaceAround,
-                          fieldStyle: FieldStyle.box,
-                          onChanged: (pin) {
-                            otpController.value = pin;
-                            setState(() {});
-                          },
-                          onCompleted: (pin) {
-                            otpController.value = pin;
-                            setState(() {});
-                          },
+                          fieldHeight: 56,
+                          activeColor: Color(0xFFC9002B),
+                          inactiveColor: Color(0xFFC9002B),
+                          inactiveFillColor:  Color(0xFFC9002B),
+                          errorBorderColor:  Color(0xFFC9002B),
                         ),
+                        cursorColor: Colors.black,
+                        keyboardType: TextInputType.number,
+                        onChanged: (v) {
+                          setState(() {
+                            // currentText = v;
+                          });
+                        },
                       ),
-                      if (otpController.value.isEmpty && showValidation.value)
-                        const Text(
-                          "Otp is required",
-                          style: TextStyle(color: Colors.red),
-                        ),
-                      if (otpController.value.length != 4 &&
-                          otpController.value.isNotEmpty &&
-                          showValidation.value)
-                        const Text(
-                          "Enter valid otp",
-                          style: TextStyle(color: Colors.red),
-                        ),
+                      // if (otpController.value.isEmpty && showValidation.value)
+                      //   const Text(
+                      //     "Otp is required",
+                      //     style: TextStyle(color: Colors.red),
+                      //   ),
+                      // if (otpController.value.length != 4 &&
+                      //     otpController.value.isNotEmpty &&
+                      //     showValidation.value)
+                      //   const Text(
+                      //     "Enter valid otp",
+                      //     style: TextStyle(color: Colors.red),
+                      //   ),
                       SizedBox(
                         height: AddSize.size30,
                       ),

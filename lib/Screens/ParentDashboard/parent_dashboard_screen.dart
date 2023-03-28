@@ -225,7 +225,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                                           children:  [
                                             Padding(
                                               padding:  EdgeInsets.only(bottom: 5),
-                                              child: Icon(Icons.person_2_outlined,size: 20,color: Color(0xFF7D8396)),
+                                              child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
                                             ),
                                             SizedBox(width: 2,),
                                             AddText(

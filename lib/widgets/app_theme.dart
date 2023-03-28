@@ -12,7 +12,7 @@ class AppTheme {
   static const Color subText = Color(0xff6B6B6B);
   static const Color buttonColor = Color(0xFF18B884);
   static const Color searchfield = Color(0xffF3F7FA);
-
+  static const Color etBgColor = Color(0xFFF0F0F0);
 
 
 

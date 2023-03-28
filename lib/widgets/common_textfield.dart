@@ -52,6 +52,7 @@ class CommonTextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: Colors.black,
       onTap: onTap,
       readOnly: readOnly!,
       controller: controller,
@@ -71,7 +72,7 @@ class CommonTextFieldWidget extends StatelessWidget {
           focusColor: AppTheme.primaryColor,
           counterText: "",
           hintStyle:
-          TextStyle(color: AppTheme.userText, fontSize: AddSize.font14),
+          TextStyle(color: Color(0xFF5E6282), fontSize: AddSize.font14),
           filled: true,
           fillColor: AppTheme.appPrimaryPinkColor.withOpacity(.02),
           contentPadding: EdgeInsets.symmetric(horizontal: AddSize.size12)
