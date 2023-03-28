@@ -46,13 +46,18 @@ class _ResetPasswordState extends State<ResetPassword> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFF8E30),
-        leading: InkWell(onTap: (){Get.back();},
+        backgroundColor: const Color(0xFFFFA629),
+        leading: InkWell(onTap: (){
+          print('Ok done');
+          Get.back();
+          },
             child: Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 25),
-          child: Text("Create New Password",style: TextStyle(color: Colors.white),),
-        ),
+        centerTitle: true,
+        title: const Text("Create New Password",style: TextStyle(color: Colors.white),),
+        // title: Padding(
+        //   padding: const EdgeInsets.only(left: 25),
+        //   child: Text("Create New Password",style: TextStyle(color: Colors.white),),
+        // ),
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
@@ -103,7 +108,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       color: AppTheme.userText,
                       fontWeight: FontWeight.w500,
                       height: 1.20,
-                      fontSize: AddSize.font18,
+                      fontSize: AddSize.font14,
                     ),
                     SizedBox(
                       height: AddSize.size10,
@@ -115,7 +120,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       bgColor: AppTheme.textfield.withOpacity(0.5),
-
                       suffix: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -129,18 +133,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                           )
                               : const Icon(
                             Icons.visibility,
-                            color: Color(0xFF53B176),
+                            color: Color(0xFFFFA629),
                           )),
-                      // validator: (value) {
-                      //   if (value!.trim().isEmpty) {
-                      //     return 'New password is required ';
-                      //   } else if (value!.trim() ==
-                      //       passwordController.text.trim()) {
-                      //     return 'new password not same old password';
-                      //   } else {
-                      //     return null;
-                      //   }
-                      // },
                       validator: MultiValidator([
                         RequiredValidator(errorText: 'Password is required'),
                         MinLengthValidator(8,errorText:'Password must be at least 8 digits long'),
@@ -156,7 +150,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       color: AppTheme.userText,
                       fontWeight: FontWeight.w500,
                       height: 1.20,
-                      fontSize: AddSize.font18,
+                      fontSize: AddSize.font14,
                     ),
                     SizedBox(
                       height: AddSize.size10,
@@ -181,7 +175,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           )
                               : const Icon(
                             Icons.visibility,
-                            color: Color(0xFF53B176),
+                            color: Color(0xFFFFA629),
                           )),
                       validator: (value) {
                         if (value!.trim().isEmpty) {

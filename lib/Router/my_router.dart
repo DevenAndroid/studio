@@ -101,7 +101,7 @@ class MyRouter{
 
 
   static var route = [
-   GetPage(name: '/', page: () => const WithDrawlMoneyScreen()),
+   GetPage(name: '/', page: () => const SplashScreen()),
    GetPage(name: MyRouter.splashScreen, page: () => const SplashScreen()),
    GetPage(name: MyRouter.onBoarding, page: () => OnBoardingScreen()),
     GetPage(name: MyRouter.loginScreen, page: () => LoginScreen()),

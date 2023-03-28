@@ -12,7 +12,7 @@ import '../../../widgets/common_button.dart';
 import '../../../widgets/common_textfield.dart';
 import '../../../widgets/dimentions.dart';
 // import 'package:phone_form_field/phone_form_field.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import '../Router/my_router.dart';
 import '../widgets/app_theme.dart';
 import '../widgets/common_button1.dart';
@@ -43,13 +43,18 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFF8E30),
-        leading: InkWell(onTap: (){Get.back();},
+        backgroundColor: Color(0xFFFFA629),
+        leading: InkWell(onTap: (){
+          print("Click Done");
+          Get.back();
+          },
             child: Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 50),
-          child: Text("Forgot Password",style: TextStyle(color: Colors.white),),
-        ),
+        // title: Padding(
+        //   padding: const EdgeInsets.only(left: 50),
+        //   child: Text("Forgot Password",style: TextStyle(color: Colors.white),),
+        // ),
+        centerTitle: true,
+        title: const Text("Forgot Password",style: TextStyle(color: Colors.white),),
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
@@ -63,14 +68,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 Container(
                   height: AddSize.size300,
                   // width: AddSize.size40,
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                     // boxShadow: blurBoxShadow,
                     color: Colors.white,
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/Forgot password-amico 1.png"),
-                      fit: BoxFit.contain,
-                    ),
+                    // image: DecorationImage(
+                    //   // image: AssetImage("assets/images/Forgot password-amico 1.png"),
+                    //   // fit: BoxFit.contain,
+                    // ),
                   ),
+                  child: SvgPicture.asset('assets/images/Forgot password-amico 1.svg'),
                   width: AddSize.screenWidth,
                   margin: EdgeInsets.all(AddSize.size5),
                   padding: EdgeInsets.all(AddSize.size15),
@@ -102,10 +108,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       height: AddSize.size20,
                     ),
                     AddText(
-                      text: 'Email ID',
-                      fontWeight: FontWeight.w400,
+                      text: 'Your Email',
+                      fontWeight: FontWeight.w500,
                       height: 1.20,
-                      fontSize: AddSize.font14,
+                      fontSize: 14,
                     ),
                     SizedBox(
                       height: AddSize.size10,
@@ -134,17 +140,21 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       hint: 'Enter your email id',
                       textInputAction: TextInputAction.next,
                       bgColor: Colors.white,
-                      validator: MultiValidator([
-                        RequiredValidator(
-                            errorText: 'your email entered is incorrect'),
-                        //   PatternValidator(r'(^(?:[+0]9)?[0-9]{10,12}$)',
-                        //       errorText: 'only digit allow'),
-                        //   MinLengthValidator(9,
-                        //       errorText: 'Phone number is not less then 9 digit'),
-                        //   MaxLengthValidator(10,
-                        //       errorText:
-                        //           'Phone number is not greater then 10 digit')
-                      ]),
+                      validator: (value) {
+                        if (emailController.text.isEmpty) {
+                          return "Please enter your email";
+                        } else if (emailController.text
+                            .contains('+') ||
+                            emailController.text.contains(' ')) {
+                          return "Email is invalid";
+                        } else if (RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(emailController.text)) {
+                          return null;
+                        } else {
+                          return 'Please enter a vaild email address';
+                        }
+                      },
                     ),
                     //PhoneFormField(
                     //validator: PhoneValidator.validMobile(),

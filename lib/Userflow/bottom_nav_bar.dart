@@ -34,139 +34,202 @@ class _BottomNavbarState extends State<BottomNavbar> {
       }),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          height: 80,
+          height: 68,
           child: Obx(() {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MaterialButton(
-                      minWidth: AddSize.size20,
-                      onPressed: () {
-                        homeController.currentTab.value = 0;
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: AddSize.size22,
-                            child: Image.asset(
-                              fit: BoxFit.contain,
-                              'assets/images/home2.png',
-                              color: homeController.currentTab.value == 0
-                                  ? AppTheme.primaryColor
-                                  : Colors.grey,
-                            ),
-                          ),
-                          Text(
-                            'Home',
-                            style: TextStyle(
+                Expanded(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      MaterialButton(
+                        minWidth: AddSize.size20,
+                        onPressed: () {
+                          homeController.currentTab.value = 0;
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: AddSize.size22,
+                              child: Image.asset(
+                                fit: BoxFit.contain,
+                                'assets/images/home2.png',
                                 color: homeController.currentTab.value == 0
                                     ? AppTheme.primaryColor
-                                    : Colors.grey),
-                          )
-                        ],
-                      ),
-                    ),
-                    MaterialButton(
-                      minWidth: AddSize.size20,
-                      onPressed: () {
-                        homeController.currentTab.value = 1;
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: AddSize.size22,
-                            child: Image.asset(
-                              fit: BoxFit.contain,
-                              'assets/images/clipboardtext.png',
-                              color: homeController.currentTab.value == 1
-                                  ? AppTheme.primaryColor
-                                  : Colors.grey,
+                                    : Colors.grey,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'Upcoming',
-                            style: TextStyle(
+                            Text(
+                              'Home',
+                              style: TextStyle(
+                                  color: homeController.currentTab.value == 0
+                                      ? AppTheme.primaryColor
+                                      : Colors.grey),
+                            )
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: AddSize.size20,
+                        onPressed: () {
+                          homeController.currentTab.value = 1;
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: AddSize.size22,
+                              child: Image.asset(
+                                fit: BoxFit.contain,
+                                'assets/images/clipboardtext.png',
                                 color: homeController.currentTab.value == 1
                                     ? AppTheme.primaryColor
-                                    : Colors.grey),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                //right
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MaterialButton(
-                      minWidth: AddSize.size20,
-                      onPressed: () {
-                        homeController.currentTab.value = 2;
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: AddSize.size22,
-                            child: Image.asset(
-                              fit: BoxFit.contain,
-                              'assets/images/searchnormal.png',
-                              color: homeController.currentTab.value == 2
-                                  ? AppTheme.primaryColor
-                                  : Colors.grey,
+                                    : Colors.grey,
+                              ),
                             ),
-                          ),
-                          // Icon(
-                          //   Icons.add,
-                          //   color: homeController.currentTab.value == 3 ? Colors.blue : Colors.grey,
-                          // ),
-                          Text(
-                            'Search',
-                            style: TextStyle(
+                            Text(
+                              'Upcoming',
+                              style: TextStyle(
+                                  color: homeController.currentTab.value == 1
+                                      ? AppTheme.primaryColor
+                                      : Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: AddSize.size20,
+                        onPressed: () {
+                          homeController.currentTab.value = 2;
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: AddSize.size22,
+                              child: Image.asset(
+                                fit: BoxFit.contain,
+                                'assets/images/searchnormal.png',
                                 color: homeController.currentTab.value == 2
                                     ? AppTheme.primaryColor
-                                    : Colors.grey),
-                          )
-                        ],
-                      ),
-                    ),
-                    MaterialButton(
-                      minWidth: AddSize.size40,
-                      onPressed: () {
-                        homeController.currentTab.value = 3;
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: AddSize.size22,
-                            child: Image.asset(
-                              fit: BoxFit.contain,
-                              'assets/images/user.png',
-                              color: homeController.currentTab.value == 3
-                                  ? AppTheme.primaryColor
-                                  : Colors.grey,
+                                    : Colors.grey,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'Profile',
-                            style: TextStyle(
+                            // Icon(
+                            //   Icons.add,
+                            //   color: homeController.currentTab.value == 3 ? Colors.blue : Colors.grey,
+                            // ),
+                            Text(
+                              'Search',
+                              style: TextStyle(
+                                  color: homeController.currentTab.value == 2
+                                      ? AppTheme.primaryColor
+                                      : Colors.grey),
+                            )
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: AddSize.size40,
+                        onPressed: () {
+                          homeController.currentTab.value = 3;
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: AddSize.size22,
+                              child: Image.asset(
+                                fit: BoxFit.contain,
+                                'assets/images/user.png',
                                 color: homeController.currentTab.value == 3
                                     ? AppTheme.primaryColor
-                                    : Colors.grey),
-                          )
-                        ],
+                                    : Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              'Profile',
+                              style: TextStyle(
+                                  color: homeController.currentTab.value == 3
+                                      ? AppTheme.primaryColor
+                                      : Colors.grey),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                )
+                    ],
+                  ),
+                ),
+                //right
+                // Row(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     MaterialButton(
+                //       minWidth: AddSize.size20,
+                //       onPressed: () {
+                //         homeController.currentTab.value = 2;
+                //       },
+                //       child: Column(
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         children: [
+                //           SizedBox(
+                //             height: AddSize.size22,
+                //             child: Image.asset(
+                //               fit: BoxFit.contain,
+                //               'assets/images/searchnormal.png',
+                //               color: homeController.currentTab.value == 2
+                //                   ? AppTheme.primaryColor
+                //                   : Colors.grey,
+                //             ),
+                //           ),
+                //           // Icon(
+                //           //   Icons.add,
+                //           //   color: homeController.currentTab.value == 3 ? Colors.blue : Colors.grey,
+                //           // ),
+                //           Text(
+                //             'Search',
+                //             style: TextStyle(
+                //                 color: homeController.currentTab.value == 2
+                //                     ? AppTheme.primaryColor
+                //                     : Colors.grey),
+                //           )
+                //         ],
+                //       ),
+                //     ),
+                //     MaterialButton(
+                //       minWidth: AddSize.size40,
+                //       onPressed: () {
+                //         homeController.currentTab.value = 3;
+                //       },
+                //       child: Column(
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         children: [
+                //           SizedBox(
+                //             height: AddSize.size22,
+                //             child: Image.asset(
+                //               fit: BoxFit.contain,
+                //               'assets/images/user.png',
+                //               color: homeController.currentTab.value == 3
+                //                   ? AppTheme.primaryColor
+                //                   : Colors.grey,
+                //             ),
+                //           ),
+                //           Text(
+                //             'Profile',
+                //             style: TextStyle(
+                //                 color: homeController.currentTab.value == 3
+                //                     ? AppTheme.primaryColor
+                //                     : Colors.grey),
+                //           )
+                //         ],
+                //       ),
+                //     ),
+                //   ],
+                // )
               ],
             );
           }),

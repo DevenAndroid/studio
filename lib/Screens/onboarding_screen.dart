@@ -44,7 +44,7 @@ class OnBoardingScreen extends StatelessWidget {
                           },
                           itemBuilder: (_, i) {
                             return ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
                               child: Image.asset(
                                 controller
                                     .contents[controller.currentIndex.value]
@@ -68,14 +68,15 @@ class OnBoardingScreen extends StatelessWidget {
                           child: const Text("Skip",
                               style: TextStyle(
                                   color: Colors.transparent,
-                                  decorationColor: Colors.white,
+                                  decorationColor: Color(0XffFF8E30),
                                   shadows: [
                                     Shadow(
-                                        color: Colors.white,
+                                        color: Color(0XffFF8E30),
                                         offset: Offset(0, -10))
                                   ],
-                                  decoration: TextDecoration.underline,
-                                  decorationThickness: 3)),
+                                  // decoration: TextDecoration.underline,
+                                  // decorationThickness: 3
+                                 )),
                         )
                             : const SizedBox())
                   ],

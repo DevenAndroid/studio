@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool value = false;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
+  RxBool checkboxColor = false.obs;
   var obscureText = true;
 
 
@@ -203,16 +203,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                   )
                                       : const Icon(
                                     Icons.visibility,
-                                    color: Colors.red,
+                                    // color: Colors.red,
+                                    color: Color(0xFFFFA629),
                                   )),
                               validator: MultiValidator([
                                 RequiredValidator(
-                                    errorText: 'Please enter Password'),
+                                    errorText: 'Please enter your password'),
                                 MinLengthValidator(8,
-                                    errorText:
-                                    'Password must be at least 8 digits long'),
-                                PatternValidator(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$",
-                                    errorText: 'Password must be strong')
+                                    errorText: 'Password must be at least 8 characters, with 1 special character & 1 numerical'),
+                                PatternValidator(
+                                    r"(?=.*\W)(?=.*?[#?!@$%^&*-])(?=.*[0-9])",
+                                    errorText: "Password must be at least with 1 special character & 1 numerical"),
                               ]),
                             ),
                             SizedBox(
@@ -224,27 +225,52 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Row(
                                   children: [
                                     Transform.scale(
-                                      scale: 1.3,
-                                      child: Checkbox(
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(4)),
-                                        checkColor: Colors.white,
-                                        activeColor: AppTheme.primaryColor,
-                                        value: this.value,
-                                        onChanged: ( value) {
-                                          if(this.value == false){
-                                            setState(() {
-                                              this.value = true;
-                                            });
-                                          }
-                                          else if(this.value == true)  {
-                                            setState(() {
-                                              this.value = false;
-                                            });
-                                          }
+                                      scale: 1.0,
+                                      child:    Theme(
+                                        data: ThemeData(
+                                          unselectedWidgetColor: checkboxColor
+                                              .value == false ? Colors.grey
+                                              .withOpacity(.78) : Colors.red,
 
-                                        },
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(bottom: 3.0),
+                                          child: Checkbox(
+                                              materialTapTargetSize: MaterialTapTargetSize
+                                                  .shrinkWrap,
+                                              value: value,
+                                              activeColor: AppTheme
+                                                  .primaryColor,
+                                              onChanged: (newValue) {
+                                                setState(() {
+                                                  value =
+                                                  newValue!;
+                                                  checkboxColor.value =
+                                                  !newValue!;
+                                                });
+                                              }),
+                                        ),
                                       ),
+                                      // child: Checkbox(
+                                      //   shape: RoundedRectangleBorder(
+                                      //       borderRadius: BorderRadius.circular(4)),
+                                      //   checkColor: Colors.white,
+                                      //   activeColor: AppTheme.primaryColor,
+                                      //   value: this.value,
+                                      //   onChanged: ( value) {
+                                      //     if(this.value == false){
+                                      //       setState(() {
+                                      //         this.value = true;
+                                      //       });
+                                      //     }
+                                      //     else if(this.value == true)  {
+                                      //       setState(() {
+                                      //         this.value = false;
+                                      //       });
+                                      //     }
+                                      //
+                                      //   },
+                                      // ),
                                     ),
                                     AddText(text: 'Remember Me',fontSize: 14,fontWeight: FontWeight.w500,),
                                   ],
@@ -252,7 +278,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Row(
                                   children: [
                                     InkWell(onTap: (){
-                                      Get.offAllNamed(MyRouter.forgotPassword);
+                                      Get.toNamed(MyRouter.forgotPassword);
                                     },
                                         child: AddText(text: 'Forgot Password',fontSize: 14,color:AppTheme.primaryColor,decoration: TextDecoration.underline,)),
                                   ],
@@ -261,13 +287,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             SizedBox(height: AddSize.size30,),
                             CommonButtonField('LOG IN', () {
+                              checkboxColor.value = true;
                               if (formKey.currentState!.validate()) {
                                 // login(emailController.text,
                                 //     passwordController.text, context)
                                 //     .then((value) async {
                                 //   if (value.data!.token != null) {
                                 //     showToast("Login Successful");
-                                     Get.offAllNamed(MyRouter.bottomNavBar);
+                                     Get.toNamed(MyRouter.bottomNavBar);
                                 //     SharedPreferences sharedPreference =
                                 //     await SharedPreferences.getInstance();
                                 //     sharedPreference.setString(
@@ -308,7 +335,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     padding: const EdgeInsets.only(right: 10),
                                     child: Image.asset("assets/images/Group1000003765.png",),
                                   ),
-                                  Text('Sign in with google',style: TextStyle(color: Color(0xFF39439D),fontSize: 18),)
+                                  Text('Sign in with google',style: TextStyle(color: Color(0xFF39439D),fontSize: 15,fontWeight: FontWeight.w500),)
                                 ],
                               ),
                             ),
