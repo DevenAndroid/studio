@@ -38,6 +38,7 @@ import '../Screens/EventFlow/checkout_event_screen.dart';
 import '../Screens/EventFlow/review_event_screen.dart';
 import '../Screens/ParentDashboard/add_new_caregiver_screen.dart';
 import '../Screens/ParentDashboard/privacy_policy.dart';
+import '../Screens/ParentDashboard/setting_screen.dart';
 import '../Screens/my_bookings.dart';
 import '../Screens/onboarding_screen.dart';
 import '../Screens/single_studio_screen.dart';
@@ -90,7 +91,7 @@ class MyRouter{
   static var  checkoutEventScreen="/checkoutEventScreen";
   static var  thankYouEventScreen="/thankYouEventScreen";
   static var  withDrawlMoneyScreen="/withDrawlMoneyScreen";
-
+  static var  settingScreen="/settingScreen";
 
 
 
@@ -112,6 +113,7 @@ class MyRouter{
     GetPage(name: MyRouter.homeScreen, page: () => HomeScreen()),
     GetPage(name: MyRouter.bottomNavBar, page: () => BottomNavbar()),
     GetPage(name: MyRouter.studioScreen, page: () => StudioScreen()),
+    GetPage(name: MyRouter.notificationScreen, page: () => NotificationScreen()),
     GetPage(name: MyRouter.studioClassScreen, page: () => StudioClassScreen()),
     GetPage(name: MyRouter.bookingScreen, page: () => BookingInformationScreen()),
     GetPage(name: MyRouter.checkoutScreen, page: () => CheckoutScreen()),
@@ -145,6 +147,8 @@ class MyRouter{
     GetPage(name: MyRouter.checkoutEventScreen, page: () => CheckoutEventScreen()),
     GetPage(name: MyRouter.thankYouEventScreen, page: () => ThankYouEventScreen()),
     GetPage(name: MyRouter.withDrawlMoneyScreen, page: () => WithDrawlMoneyScreen()),
+    GetPage(name: MyRouter.settingScreen, page: () => SettingScreen()),
+
 
 
 

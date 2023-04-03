@@ -25,10 +25,8 @@ class _CancellationPolicyScreenState extends State<CancellationPolicyScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 35),
-          child: Text("Cancellation Policy",style: TextStyle(color: Colors.white),),
-        ),
+        title:  Text("Cancellation Policy",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(

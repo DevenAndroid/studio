@@ -21,116 +21,654 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Widget _drawerTile(
-      {required bool active,
-        required String title,
-        required Icon icon,
-        required VoidCallback onTap}) {
-    return ListTile(
-      selectedTileColor: AppTheme.etBgColor,
-      leading: icon,
-      title: Text(
-        title,
-        style: GoogleFonts.poppins(
-          fontSize: 14,
-          color: active ? const Color(0xFF939393) : Colors.grey,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-      onTap: active ? onTap : null,
-    );
-  }
+  final drawerKey = GlobalKey<ScaffoldState>();
+  int currentDrawer = 0;
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final drawerKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-      backgroundColor: Colors.white,
+      key: drawerKey,
+      drawer: Container(
+        color: Colors.white,
+        child: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              SizedBox(
+                height: 150,
+                child: DrawerHeader(
+                    padding: EdgeInsets.zero,
+                    decoration: const BoxDecoration(
+                        color: const Color(0xFFFF8E30)
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 8,),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Row(
+                            crossAxisAlignment:
+                            CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100)),
+                                  color: AppTheme.primaryColor,
+                                ),
+                                child: ClipOval(
+                                  child : Image.asset('assets/images/drawer_img.png',height: 66,width: 66 ,),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+
+                              Column(
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                MainAxisAlignment.start,
+                                children: const [
+
+                                  Text(
+                                    'Rizwan Q',
+                                    style: TextStyle(
+                                        color: Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 24),
+                                  ),
+                                  Text(
+                                   'qrizwan@gmail.com',
+                                    style: TextStyle(
+                                        color: Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+              ),
+
+               Container(
+                 padding: EdgeInsets.zero,
+                 decoration: BoxDecoration(
+                     color: const Color(0xFFFCFBFA),
+                     borderRadius: BorderRadius.circular(10),
+                 ),
+                 child:  Theme(
+                   data:  Theme.of(context).copyWith(
+                     accentColor: const Color(0xFF4F535E),
+                   ),
+                   child: Padding(
+                     padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                     child: ExpansionTile(
+                       leading: Image.asset('assets/images/grid-2.png',width: 22 ,height: 22,),
+                       backgroundColor: Color(0xFFFCFBFA),
+                       iconColor: Color(0xFF4F535E),
+                       collapsedIconColor: Color(0xFF4F535E),
+                       childrenPadding: EdgeInsets.only(left:60),
+                       title: const Text(
+                         'My Dashbord ',
+                         style: TextStyle(
+                           color: Color(0xFF4F535E),
+                           fontWeight: FontWeight.w400,
+                           fontSize: 16,
+                         ),
+                       ),
+                       children: const <Widget>[
+                         ListTile(
+                           iconColor:Color(0xFF4F535E),
+                           // isThreeLine: true,
+                           visualDensity: VisualDensity(horizontal: 0, vertical: -2),
+                           subtitle: Text('Dashbord',
+                             style: TextStyle( color: Color(0xFF4F535E),
+                               fontWeight: FontWeight.w300,
+                               fontSize: 14,),),
+                           dense: true,
+                         ),
+                         ListTile(
+                           iconColor:Color(0xFF4F535E),
+                           // isThreeLine: true,
+                           subtitle: Text('Child',
+                             style: TextStyle( color: Color(0xFF4F535E),
+                               fontWeight: FontWeight.w300,
+                               fontSize: 14,),),
+                           dense: true,
+                           visualDensity: VisualDensity(horizontal: 0, vertical: -3),
+                         ),
+                         ListTile(
+                           iconColor:Color(0xFF4F535E),
+                           // isThreeLine: true,
+                           subtitle: Text('Caregiver',
+                             style: TextStyle( color: Color(0xFF4F535E),
+                               fontWeight: FontWeight.w300,
+                               fontSize: 14,),),
+                           dense: true,
+                           visualDensity: VisualDensity(horizontal: 0, vertical: -3),
+                         ),
+                         ListTile(
+                           visualDensity: VisualDensity(horizontal: 0, vertical: -3),
+                           iconColor:Color(0xFF4F535E),
+                           // isThreeLine: true,
+                           subtitle: Text('My Booking',
+                             style: TextStyle( color: Color(0xFF4F535E),
+                               fontWeight: FontWeight.w300,
+                               fontSize: 14,),),
+                           dense: true,
+                         ),
+
+                       ],
+                     ),
+                   ),
+                 ),
+               ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 0
+                          ? Icon(
+                      Icons.mail,
+                        color: const Color(0xFF4F535E),
+                      )
+                          :Icon(
+                      Icons.mail_outline,
+                        color: const Color(0xFF4F535E),
+                      ),
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'Messages',
+                        style: currentDrawer == 0
+                            ? const TextStyle(
+                            color: Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 0;
+                    });
+                  },
+                ),
+              ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 1
+                          ? const Icon(
+                        Icons.favorite_outline,
+                        color: const Color(0xFF4F535E),
+
+                      )
+                          : const Icon(
+                        Icons.favorite,
+                        color: const Color(0xFF4F535E),
+                      ),
+
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'My Wishlist',
+                        style: currentDrawer == 1
+                            ? const TextStyle(
+                            color: Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 1;
+                      Get.toNamed(MyRouter.savedPlacesScreen);
+                    });
+                  },
+                ),
+              ),
+             Divider(
+               thickness: 1,
+             ),
+              Container(
+                padding: EdgeInsets.zero,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFCFBFA),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child:  Theme(
+                  data:  Theme.of(context).copyWith(
+                    accentColor: const Color(0xFF4F535E),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                    child: ExpansionTile(
+                      leading: Image.asset('assets/images/ranking.png',width: 25 ,height: 25,),
+                      backgroundColor: Color(0xFFFCFBFA),
+                      iconColor: Color(0xFF4F535E),
+                      collapsedIconColor: Color(0xFF4F535E),
+                      childrenPadding: EdgeInsets.only(left:20),
+                      title: const Text(
+                        'Refer',
+                        style: TextStyle(
+                          color: Color(0xFF4F535E),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                        ),
+                      ),
+                      children:  <Widget>[
+                        ListTile(
+                          iconColor:Color(0xFF4F535E),
+                          // isThreeLine: true,
+                          visualDensity: VisualDensity(horizontal: 0, vertical: -2),
+                          subtitle: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('YAF5KJHGCX45YTUY',
+                                style: TextStyle( color: Color(0xFF1E282D),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,),),
+                              IconButton(onPressed: (){}, icon: Image.asset('assets/images/copied_icon.png',width: 23,height: 23,))
+                            ],
+                          ),
+                          dense: true,
+
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 4
+                          ? Image.asset(
+                        'assets/images/music.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      )
+                          : Image.asset(
+                        'assets/images/music.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      ),
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'Become a Studio Partner',
+                        style: currentDrawer == 4
+                            ? const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 4;
+                      // bottomController.updateIndexValue(2);
+                    });
+                  },
+                ),
+              ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 4
+                          ? Image.asset(
+                        'assets/images/audio_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      )
+                          : Image.asset(
+                        'assets/images/audio_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      ),
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'Become a Event Partner',
+                        style: currentDrawer == 4
+                            ? const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 4;
+                      // bottomController.updateIndexValue(2);
+                    });
+                  },
+                ),
+              ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 4
+                          ? Image.asset(
+                        'assets/images/headest_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      )
+                          : Image.asset(
+                        'assets/images/headest_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      ),
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'Support',
+                        style: currentDrawer == 4
+                            ? const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 4;
+                      // bottomController.updateIndexValue(2);
+                    });
+                  },
+                ),
+              ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 4
+                          ? Image.asset(
+                        'assets/images/policy_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      )
+                          : Image.asset(
+                        'assets/images/policy_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      ),
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'Privacy Policy',
+                        style: currentDrawer == 4
+                            ? const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 4;
+                      // bottomController.updateIndexValue(2);
+                    });
+                  },
+                ),
+              ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 4
+                          ? Image.asset(
+                        'assets/images/qus_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      )
+                          : Image.asset(
+                        'assets/images/qus_icon.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      ),
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'FAQ',
+                        style: currentDrawer == 4
+                            ? const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 4;
+                      // bottomController.updateIndexValue(2);
+                    });
+                  },
+                ),
+              ),
+              Divider(thickness: 1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,bottom: 0),
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      currentDrawer == 4
+                          ? Image.asset(
+                        'assets/images/logout.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      )
+                          : Image.asset(
+                        'assets/images/logout.png',
+                        width: 22,
+                        color: const Color(0xFF4F535E),
+                      ),
+                      const SizedBox(
+                        width: 31,
+                      ),
+                      Text(
+                        'Logout',
+                        style: currentDrawer == 4
+                            ? const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16)
+                            : const TextStyle(
+                            color: const Color(0xFF4F535E),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      currentDrawer = 4;
+                      // bottomController.updateIndexValue(2);
+                    });
+                  },
+                ),
+              ),
+              SizedBox(
+                height:20,
+              )
+            ],
+          ),
+        ),
+      ),
+      backgroundColor: const Color(0xFFF6F6F6),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFFFFFFF),
+        toolbarHeight: 70,
+        elevation: 1.8,
+        shadowColor: const Color(0xFF549ADD),
+        titleSpacing: 0,
+        leading:Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: (){
+                print('click drawer');
+                drawerKey.currentState!.openDrawer();
+                },
+              child: Container(
+                height: 30,
+                width: 30,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: const Color(0xFFFF8E30)
+                ),
+                child: SvgPicture.asset('assets/images/9057028_menu_left_icon (2) 1.svg',fit: BoxFit.none,),
+              ),
+            ),
+          ],
+        ),
+        title: RichText(
+          textAlign: TextAlign.start,
+          text: const TextSpan(
+              text: "Location",
+              style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF1B233A)),
+              children: <TextSpan>[
+                TextSpan(
+                  text: '\n184 Main Collins Street....',
+                  style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF1B233A)
+                  ),
+                ),
+              ]),
+        ),
+        actions: <Widget>[
+      InkWell(
+          onTap: (){
+            _dialogBuilder(context);
+          },
+            child: Container(
+                height: 34,
+                width: 34,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0xFF1B233A),
+                   ),
+                child: SvgPicture.asset('assets/images/setting-4.svg',fit: BoxFit.none,),
+            ),
+          ),
+          const SizedBox(width: 10),
+             InkWell(
+               onTap: (){
+                 Get.toNamed(MyRouter.notificationScreen);
+               },
+               child: Container(
+                            height: 36,
+                            width: 36,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              border: Border.all(color: const Color(0xFF7D9FB8))),
+                          child: Center(child:SvgPicture.asset('assets/images/Group 180.svg',fit: BoxFit.none,),
+                          )
+                        ),
+             ),
+          const SizedBox(width: 10),
+        ],
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(5.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 40,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: InkWell(
-                      onTap: (){
-                        Scaffold.of(context).openDrawer();
-                        print('open drawer');
-                      },
-                      child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: const Color(0xFFFF8E30)
-                        ),
-                        child: SvgPicture.asset('assets/images/9057028_menu_left_icon (2) 1.svg',fit: BoxFit.none,),
-                        // child: Image.asset("assets/images/9057028.png"),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 8,),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                       AddText(text: 'Location',fontWeight: FontWeight.w500,fontSize: 13,),
-                       SizedBox(height: 5,),
-                       AddText(text: '184 Main Colins  Street....',color: Colors.grey,fontSize: 13,),
-                    ],
-                  ),
-                  const SizedBox(width: 45,),
-                  const Spacer(),
-                InkWell(
-                  onTap: (){
-                    _dialogBuilder(context);
-                  },
-                    child: Container(
-                        height: 34,
-                        width: 34,
-                        decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xFF1B233A),
-                           ),
-                        child: SvgPicture.asset('assets/images/setting-4.svg',fit: BoxFit.none,),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                      height: 36,
-                      width: 36,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        border: Border.all(color: const Color(0xFF7D9FB8))),
-                    child: Center(child:SvgPicture.asset('assets/images/Group 180.svg',fit: BoxFit.none,),
-                    )
-                  ),
-                ],
-              ),
-              const SizedBox(height: 30,),
+              addHeight(AddSize.size13),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(left: 8.0),
-                    child:  AddText(text: 'Popular Studio',fontSize: 18,fontWeight: FontWeight.w500,),
+                    child:  AddText(text: 'Popular Studio',fontSize: 18,fontWeight: FontWeight.w500,color: Color(0xFF1B233A),),
                   ),
                   TextButton(onPressed: (){}, child:AddText(
                     text: 'View All',
                     fontSize: AddSize.font16,
                     color: AppTheme.primaryColor,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                   ), ),
                 ],
               ),
-              const SizedBox(height: 10,),
+              // const SizedBox(height: 10,),
               Container(
-                height: AddSize.screenHeight * .34,
+                height: AddSize.screenHeight * .37,
                 decoration: BoxDecoration(boxShadow: blurBoxShadow),
                 child: ListView.builder(
                     itemCount: 3,
@@ -154,7 +692,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(
                                   AddSize.size15)),
                           // width: AddSize.screenWidth,
-                          height: AddSize.screenHeight * .51,
+                          // height: AddSize.screenHeight * .2,
                           width: AddSize.screenWidth * .6,
                           margin: EdgeInsets.all(AddSize.size5),
                           child: Padding(
@@ -177,9 +715,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       bottomRight:
                                       Radius.circular(8.0),
                                     ),
-                                    child:Image.asset('assets/images/Rectangle11.png',
+                                    child:Image.asset('assets/images/home_studio.png',
                                             width: AddSize.size300,
-                                            height: AddSize.size125,
+                                            height: 150,
                                             fit: BoxFit.cover,
                                           ),
                                   ),
@@ -193,11 +731,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Expanded(
                                       child: AddText(
                                         text: "Dance Studio",
-                                        //textAlign: TextAlign.start,
-                                        color: AppTheme.filtter
-                                            .withOpacity(0.8),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: AddSize.font14,
+                                        color: Color(0xFF1B233A),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: AddSize.font16,
                                       ),
                                     ),
                                     // SizedBox(
@@ -219,7 +755,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontWeight:
                                         FontWeight.w600,
                                         fontSize:
-                                        AddSize.font12,
+                                        AddSize.font14,
                                       ),
                                     ),
                                   ],
@@ -230,13 +766,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   //crossAxisAlignment:CrossAxisAlignment.end,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
+                                  children: const [
                                     AddText(
                                       text: "Folk Dance",
                                       //textAlign: TextAlign.start,
-                                      color: const Color(0xFF004B93),
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize: AddSize.font12,
+                                      color: Color(0xFF004B93),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 13,
                                     ),
                                   ],
                                 ),
@@ -244,17 +780,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: AddSize.size10,
                                 ),
                                 Row(
-                                  children: [
-                                    const Icon(Icons.location_on_outlined,color: Color(0xFF004B93),size: 20,),
-                                    const SizedBox(width: 5,),
+                                  children: const [
+                                     Icon(Icons.location_on_outlined,color: Color(0xFF004B93),size: 20,),
+                                     SizedBox(width: 5,),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5),
                                       child: AddText(
                                         text: '5 km',
                                         textAlign: TextAlign.start,
-                                        color: AppTheme.userText.withOpacity(.4),
-                                        //fontWeight: FontWeight.w600,
-                                        fontSize: AddSize.font12,
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 13,
                                       ),
                                     ),
                                   ],
@@ -267,33 +803,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
               ),
               const SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8),
-                    child: AddText(
-                      text: 'Popular Classes',
-                      fontSize: AddSize.font18,
-                      color: AppTheme.userText,
-                      //fontWeight: FontWeight.bold,
+
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0,left: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                   AddText(
+                     text: 'Popular Classes',
+                     fontSize: 18,fontWeight: FontWeight.w500,color: Color(0xFF1B233A),
+                     //fontWeight: FontWeight.bold,
+                   ),
+                    InkWell(
+                      onTap: () {
+                        //homeController.currentTab.value = 0;
+                        //Get.toNamed(MyRouter.courseScreen);
+                      },
+                      child: AddText(
+                        text: 'View All',
+                        fontSize: AddSize.font16,
+                        color: AppTheme.primaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      //homeController.currentTab.value = 0;
-                      //Get.toNamed(MyRouter.courseScreen);
-                    },
-                    child: AddText(
-                      text: 'View All',
-                      fontSize: AddSize.font16,
-                      color: AppTheme.primaryColor,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              //SizedBox(height: 5,),
+              const SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.all(4),
                 child: Column(
@@ -310,33 +846,33 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               const SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8),
-                    child: AddText(
+
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0,left: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AddText(
                       text: 'Popular Events',
-                      fontSize: AddSize.font18,
-                      color: AppTheme.userText,
+                      fontSize: 18,fontWeight: FontWeight.w500,color: Color(0xFF1B233A),
                       //fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      //homeController.currentTab.value = 0;
-                      //Get.toNamed(MyRouter.courseScreen);
-                    },
-                    child: AddText(
-                      text: 'View All',
-                      fontSize: AddSize.font16,
-                      color: AppTheme.primaryColor,
-                      fontWeight: FontWeight.w500,
+                    InkWell(
+                      onTap: () {
+                        //homeController.currentTab.value = 0;
+                        //Get.toNamed(MyRouter.courseScreen);
+                      },
+                      child: AddText(
+                        text: 'View All',
+                        fontSize: AddSize.font16,
+                        color: AppTheme.primaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -352,33 +888,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 5,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8),
-                    child: AddText(
+
+              Padding(
+                padding: const EdgeInsets.only(left: 8,right: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AddText(
                       text: 'Upcomming Classes',
                       fontSize: AddSize.font18,
                       color: AppTheme.userText,
-                      //fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      //homeController.currentTab.value = 0;
-                      //Get.toNamed(MyRouter.courseScreen);
-                    },
-                    child: AddText(
-                      text: 'View All',
-                      fontSize: AddSize.font16,
-                      color: AppTheme.primaryColor,
                       fontWeight: FontWeight.w500,
                     ),
-                  ),
-                ],
+                    InkWell(
+                      onTap: () {
+                        //homeController.currentTab.value = 0;
+                        //Get.toNamed(MyRouter.courseScreen);
+                      },
+                      child: AddText(
+                        text: 'View All',
+                        fontSize: AddSize.font16,
+                        color: AppTheme.primaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -502,11 +1039,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const SizedBox(height: 6,),
                             Row(
-                              children: [
-                                const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                                const SizedBox(width: 5,),
-                                const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
-                                const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
+                              children: const [
+                                Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                SizedBox(width: 5,),
+                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
+                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
                               ],
                             ),
                             SizedBox(
@@ -530,8 +1067,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             SizedBox(height: AddSize.size6,),
                             Row(
-                              children: [
-                                const AddText(text: "30.00",color: AppTheme.primaryColor,)
+                              children: const [
+                                AddText(text: "30.00",color: AppTheme.primaryColor,)
                               ],
                             )
                           ],
@@ -562,12 +1099,12 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           child: Container(
               decoration: BoxDecoration(
-                  color: const Color(0xFFF6F6F6),
-                  boxShadow: (blurBoxShadow),
-                  // border: Border.all(color: AppTheme.subText.withOpacity(.5)),
-                  borderRadius: BorderRadius.circular(AddSize.size15)),
+                  color: Colors.white,
+                  boxShadow: blurBoxShadow,
+                  borderRadius: BorderRadius.circular(
+                      AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+              height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
                 padding: EdgeInsets.all(AddSize.size10),
@@ -582,24 +1119,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child:
                       Image.asset(
-                        'assets/images/Rectangleyoga.png',
+                        'assets/images/home_classes.png',
+                        height: 115,
                         width: AddSize.size100,
-                        height: AddSize.size100,
                         fit: BoxFit.cover,
                       ),
-                      // CachedNetworkImage(
-                      //   width: AddSize.size110,
-                      //   height: AddSize.size125 * 250,
-                      //   fit: BoxFit.cover,
-                      //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //   placeholder: (context, url) => SizedBox(),
-                      //   errorWidget: (context, url, error) => SizedBox(),
-                      // ),
-                      //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //     width: AddSize.size110,
-                      //     height: AddSize.size125 * 250,
-                      //     fit: BoxFit.cover,
-                      //   ),
                     ),
                     SizedBox(
                       width: AddSize.size15,
@@ -621,9 +1145,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: AddText(
                                       text: 'Dance Class',
                                       textAlign: TextAlign.start,
-                                     // color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.w600,
-                                      fontSize: AddSize.font14,
+                                      fontSize: AddSize.font16,
+                                      color: const Color(0xFF1B233A),
                                     ),
                                   ),
                                   Icon(
@@ -636,27 +1160,33 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Padding(
                                     padding: EdgeInsets.only(
                                         top: AddSize.size5),
-                                    child: AddText(
+                                    child: const AddText(
                                       text:'4.9',
                                       color: Colors.amber,
                                       fontWeight:
                                       FontWeight.w600,
-                                      fontSize:AddSize.font12,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
+                            const SizedBox(height: 3),
+                           const Text('Jaz Dance Class',style: TextStyle(
+                              color: Color(0xFF004B93),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500
+                            ),),
                             const SizedBox(height: 6,),
                             Row(
-                              children: [
-                                const Padding(
+                              children: const [
+                                Padding(
                                   padding: EdgeInsets.only(bottom: 6),
                                   child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
                                 ),
-                                const SizedBox(width: 5,),
-                                const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
-                                const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
+                                SizedBox(width: 5,),
+                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
+                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
                               ],
                             ),
                             SizedBox(
@@ -672,16 +1202,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                     text: '5 km',
                                     textAlign: TextAlign.start,
                                     color: AppTheme.userText.withOpacity(.4),
-                                    //fontWeight: FontWeight.w600,
-                                    fontSize: AddSize.size12,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
                                   ),
                                 ),
+                                addWidth(AddSize.size14),
+                                Image.asset('assets/images/seat_icon.png',height: 16,width: 16,color: Colors.grey,),
+                                addWidth(AddSize.size5),
+                                Text('105 available seats',style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color:  AppTheme.userText.withOpacity(.4),
+                                  fontSize: 13,
+                                ),),
                               ],
                             ),
-                            SizedBox(height: AddSize.size6,),
+                            SizedBox(height: AddSize.size8,),
                             Row(
-                              children: [
-                                const AddText(text: "\$30.00",color: AppTheme.primaryColor,)
+                              children: const [
+                                AddText(text: "\$30.00",color: AppTheme.primaryColor,fontSize: 15,fontWeight: FontWeight.w500,)
                               ],
                             )
                           ],
@@ -712,12 +1250,12 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           child: Container(
               decoration: BoxDecoration(
-                  color: const Color(0xFFF6F6F6),
-                  boxShadow: (blurBoxShadow),
-                  // border: Border.all(color: AppTheme.subText.withOpacity(.5)),
-                  borderRadius: BorderRadius.circular(AddSize.size15)),
+                  color: Colors.white,
+                  boxShadow: blurBoxShadow,
+                  borderRadius: BorderRadius.circular(
+                      AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+              height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
                 padding: EdgeInsets.all(AddSize.size10),
@@ -732,24 +1270,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child:
                       Image.asset(
-                        'assets/images/Rectangle18.png',
+                        'assets/images/events_home.png',
                         width: AddSize.size100,
-                        height: AddSize.size100,
+                        height: 115,
                         fit: BoxFit.cover,
                       ),
-                      // CachedNetworkImage(
-                      //   width: AddSize.size110,
-                      //   height: AddSize.size125 * 250,
-                      //   fit: BoxFit.cover,
-                      //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //   placeholder: (context, url) => SizedBox(),
-                      //   errorWidget: (context, url, error) => SizedBox(),
-                      // ),
-                      //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //     width: AddSize.size110,
-                      //     height: AddSize.size125 * 250,
-                      //     fit: BoxFit.cover,
-                      //   ),
                     ),
                     SizedBox(
                       width: AddSize.size15,
@@ -771,9 +1296,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: AddText(
                                       text: 'Pool Event',
                                       textAlign: TextAlign.start,
-                                      // color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.w600,
-                                      fontSize: AddSize.font14,
+                                      fontSize: AddSize.font16,
+                                      color: const Color(0xFF1B233A),
                                     ),
                                   ),
                                   Icon(
@@ -791,19 +1316,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Colors.amber,
                                       fontWeight:
                                       FontWeight.w600,
-                                      fontSize:AddSize.font12,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
+                            const SizedBox(height: 3),
+                            const Text('Pool Window Event',style: TextStyle(
+                                color: Color(0xFF004B93),
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500
+                            ),),
                             const SizedBox(height: 6,),
                             Row(
-                              children: [
-                                const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                                const SizedBox(width: 5,),
-                                const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
-                                const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
+                              children: const [
+                                Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                SizedBox(width: 5,),
+                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
+                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
                               ],
                             ),
                             SizedBox(
@@ -818,19 +1349,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: AddText(
                                     text: '5 km',
                                     textAlign: TextAlign.start,
-                                    color: AppTheme.userText.withOpacity(.4),
-                                    //fontWeight: FontWeight.w600,
-                                    fontSize: AddSize.size12,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
                                   ),
                                 ),
+                                addWidth(AddSize.size14),
+                                Image.asset('assets/images/seat_icon.png',height: 16,width: 16,color: Colors.grey,),
+                                addWidth(AddSize.size5),
+                                Text('105 available seats',style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color:  AppTheme.userText.withOpacity(.4),
+                                  fontSize: 13,
+                                ),),
                               ],
                             ),
-                            SizedBox(height: AddSize.size6,),
-                            Row(
-                              children: [
-                                const AddText(text: " \$ 30.00",color: AppTheme.primaryColor,)
-                              ],
-                            )
+                            SizedBox(height: AddSize.size8,),
+                            AddText(text: " \$ 30.00",color: AppTheme.primaryColor,fontSize: 15,fontWeight: FontWeight.w500,)
                           ],
                         ),
                       ),
@@ -859,12 +1394,12 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           child: Container(
               decoration: BoxDecoration(
-                  color: const Color(0xFFF6F6F6),
-                  boxShadow: (blurBoxShadow),
-                  // border: Border.all(color: AppTheme.subText.withOpacity(.5)),
-                  borderRadius: BorderRadius.circular(AddSize.size15)),
+                  color: Colors.white,
+                  boxShadow: blurBoxShadow,
+                  borderRadius: BorderRadius.circular(
+                      AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+              height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
                 padding: EdgeInsets.all(AddSize.size10),
@@ -879,24 +1414,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child:
                       Image.asset(
-                        'assets/images/Rectanglech.png',
+                        'assets/images/yoga_classes.png',
                         width: AddSize.size100,
-                        height: AddSize.size100,
+                        height:115,
                         fit: BoxFit.cover,
                       ),
-                      // CachedNetworkImage(
-                      //   width: AddSize.size110,
-                      //   height: AddSize.size125 * 250,
-                      //   fit: BoxFit.cover,
-                      //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //   placeholder: (context, url) => SizedBox(),
-                      //   errorWidget: (context, url, error) => SizedBox(),
-                      // ),
-                      //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //     width: AddSize.size110,
-                      //     height: AddSize.size125 * 250,
-                      //     fit: BoxFit.cover,
-                      //   ),
                     ),
                     SizedBox(
                       width: AddSize.size15,
@@ -916,11 +1438,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Pool Event',
+                                      text: 'Yoga Class',
                                       textAlign: TextAlign.start,
                                       // color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.w600,
-                                      fontSize: AddSize.font14,
+                                      fontSize: 16,
                                     ),
                                   ),
                                   Icon(
@@ -946,11 +1468,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const SizedBox(height: 6,),
                             Row(
-                              children: [
-                                const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                                const SizedBox(width: 5,),
-                                const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
-                                const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
+                              children: const [
+                                Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                SizedBox(width: 5,),
+                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
+                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
                               ],
                             ),
                             SizedBox(
@@ -965,19 +1487,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: AddText(
                                     text: '5 km',
                                     textAlign: TextAlign.start,
-                                    color: AppTheme.userText.withOpacity(.4),
-                                    //fontWeight: FontWeight.w600,
-                                    fontSize: AddSize.size12,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
                                   ),
                                 ),
+                                addWidth(AddSize.size14),
+                                Image.asset('assets/images/seat_icon.png',height: 16,width: 16,color: Colors.grey,),
+                                addWidth(AddSize.size5),
+                                Text('105 available seats',style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color:  AppTheme.userText.withOpacity(.4),
+                                  fontSize: 13,
+                                ),),
                               ],
                             ),
                             SizedBox(height: AddSize.size6,),
-                            Row(
-                              children: [
-                                const AddText(text: " \$ 30.00",color: AppTheme.primaryColor,)
-                              ],
-                            )
+                            SizedBox(height: AddSize.size8,),
+                            AddText(text: " \$ 30.00",color: AppTheme.primaryColor,fontSize: 15,fontWeight: FontWeight.w500,)
                           ],
                         ),
                       ),

@@ -21,7 +21,7 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF6F6F6),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -30,10 +30,9 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
           Get.back();
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 50),
-          child: Text("Child Information",style: TextStyle(color: Colors.white),),
+        title: Text("Child Information",style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
@@ -42,156 +41,156 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: AddSize.size20,),
+              const SizedBox(height: 11),
               AddText(
-                text: "Add New Child",
+                text: "Add New Member",
                 fontSize: AddSize.size18,
                 color: AppTheme.filtter,
                 fontWeight: FontWeight.w500,
               ),
               SizedBox(height: AddSize.size30,),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AddText(
-                      text: "Child Name",
-                      fontSize: AddSize.size16,
-                      color: AppTheme.filtter,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    SizedBox(height: AddSize.size10,),
-                    DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        hintText: "Jacky ",
-                        focusColor: AppTheme.primaryColor,
-                        hintStyle: TextStyle(
-                            color: AppTheme.userText,
-                            fontSize: AddSize.font14),
-                        filled: true,
-                        fillColor: AppTheme.appPrimaryPinkColor
-                            .withOpacity(.02),
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: AddSize.size12),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: AppTheme.primaryColor),
-                          borderRadius:
-                          BorderRadius.circular(10.0),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: AppTheme.boardercolor
-                                    .withOpacity(0.5)),
-                            borderRadius:
-                            const BorderRadius.all(
-                                Radius.circular(10.0))),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: AppTheme.boardercolor
-                                    .withOpacity(0.5),
-                                width: 3.0),
-                            borderRadius:
-                            BorderRadius.circular(15.0)),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFFFFF),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: (blurBoxShadow),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(18),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AddText(
+                        text: "Child Name",
+                        fontSize: AddSize.size16,
+                        color: AppTheme.filtter,
+                        fontWeight: FontWeight.w500,
                       ),
-                      value: genderType.value == ""
-                          ? null
-                          : genderType.value,
-                      validator: (value) {
-                        if (genderType.value == "") {
-                          return "Please select gender type";
-                        } else {
-                          return null;
-                        }
-                      },
-                      items: const [
-                        DropdownMenuItem(
-                          value: "Studio",
-                          child: Text('Studio'),
-                        ),
-                        DropdownMenuItem(
-                          value: "Others",
-                          child: Text('Others'),
-                        ),
-                        //DropdownMenuItem(value: "Others",child: Text('Others'),)
-                      ],
-                      onChanged: (String? v) {
-                        genderType.value = v!;
-                      },
-                    ),
-                    SizedBox(height: AddSize.size40,),
-                    AddText(
-                      text: "Caretaker Name",
-                      fontSize: AddSize.size16,
-                      color: AppTheme.filtter,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    SizedBox(height: AddSize.size10,),
-                    DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        hintText: "Jolly",
-                        focusColor: AppTheme.primaryColor,
-                        hintStyle: TextStyle(
-                            color: AppTheme.userText,
-                            fontSize: AddSize.font14),
-                        filled: true,
-                        fillColor: AppTheme.appPrimaryPinkColor
-                            .withOpacity(.02),
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: AddSize.size12),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: AppTheme.primaryColor),
-                          borderRadius:
-                          BorderRadius.circular(10.0),
-                        ),
-                        enabledBorder: OutlineInputBorder(
+                      SizedBox(height: AddSize.size10,),
+                      DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          hintText: "Jacky ",
+                          focusColor: AppTheme.primaryColor,
+                          hintStyle: TextStyle(
+                              color: AppTheme.userText,
+                              fontSize: AddSize.font14),
+                          filled: true,
+                          fillColor: AppTheme.appPrimaryPinkColor
+                              .withOpacity(.02),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: AddSize.size12),
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: AppTheme.boardercolor
-                                    .withOpacity(0.5)),
+                                color: AppTheme.primaryColor),
                             borderRadius:
-                            const BorderRadius.all(
-                                Radius.circular(10.0))),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: AppTheme.boardercolor
-                                    .withOpacity(0.5),
-                                width: 3.0),
-                            borderRadius:
-                            BorderRadius.circular(15.0)),
+                            BorderRadius.circular(10.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: AppTheme.boardercolor
+                                      .withOpacity(0.5)),
+                              borderRadius:
+                              const BorderRadius.all(
+                                  Radius.circular(10.0))),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: AppTheme.boardercolor
+                                      .withOpacity(0.5),
+                                  width: 3.0),
+                              borderRadius:
+                              BorderRadius.circular(15.0)),
+                        ),
+                        items: const [
+                          DropdownMenuItem(
+                            value: "Jacky",
+                            child: Text('Jacky'),
+                          ),
+                          DropdownMenuItem(
+                            value: "Rocky",
+                            child: Text('Rocky'),
+                          ),
+                          DropdownMenuItem(
+                            value: "Alex",
+                            child: Text('Alex'),
+                          ),
+                          DropdownMenuItem(
+                            value: "Add New Child",
+                            child: Text('Add New Child',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),),
+                          ),
+                          //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                        ],
+                        onChanged: (String? v) {
+                          genderType.value = v!;
+                        },
                       ),
-                      value: genderType.value == ""
-                          ? null
-                          : genderType.value,
-                      validator: (value) {
-                        if (genderType.value == "") {
-                          return "Please select gender type";
-                        } else {
-                          return null;
-                        }
-                      },
-                      items: const [
-                        DropdownMenuItem(
-                          value: "Studio",
-                          child: Text('Studio'),
+                      SizedBox(height: AddSize.size40,),
+                      AddText(
+                        text: "Caretaker Name",
+                        fontSize: AddSize.size16,
+                        color: AppTheme.filtter,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      SizedBox(height: AddSize.size10,),
+                      DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          hintText: "Jolly",
+                          focusColor: AppTheme.primaryColor,
+                          hintStyle: TextStyle(
+                              color: AppTheme.userText,
+                              fontSize: AddSize.font14),
+                          filled: true,
+                          fillColor: AppTheme.appPrimaryPinkColor
+                              .withOpacity(.02),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: AddSize.size12),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: AppTheme.primaryColor),
+                            borderRadius:
+                            BorderRadius.circular(10.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: AppTheme.boardercolor
+                                      .withOpacity(0.5)),
+                              borderRadius:
+                              const BorderRadius.all(
+                                  Radius.circular(10.0))),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: AppTheme.boardercolor
+                                      .withOpacity(0.5),
+                                  width: 3.0),
+                              borderRadius:
+                              BorderRadius.circular(15.0)),
                         ),
-                        DropdownMenuItem(
-                          value: "Others",
-                          child: Text('Others'),
-                        ),
-                        //DropdownMenuItem(value: "Others",child: Text('Others'),)
-                      ],
-                      onChanged: (String? v) {
-                        genderType.value = v!;
-                      },
-                    ),
-                    SizedBox(height: AddSize.size40,),
 
-                  ],
+                        items: const [
+                          DropdownMenuItem(
+                            value: "Ram lal",
+                            child: Text('Ram lal'),
+                          ),
+                          DropdownMenuItem(
+                            value: "shyam kumar",
+                            child: Text('shyam kumar'),
+                          ),
+                          DropdownMenuItem(
+                            value: "oren",
+                            child: Text('oren'),
+                          ),
+                          //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                        ],
+                        onChanged: (String? v) {
+                          genderType.value = v!;
+                        },
+                      ),
+                      SizedBox(height: AddSize.size30,),
+
+                    ],
+                  ),
                 ),
               ),
-              //SizedBox(height: 300,),
+              SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -205,7 +204,7 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 270,),
+              SizedBox(height: 170,),
               ElevatedButton(onPressed: ()
               {
                 Get.toNamed(MyRouter.checkoutScreen);
