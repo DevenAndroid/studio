@@ -5,6 +5,8 @@ import '../Router/my_router.dart';
 import '../widgets/add_text.dart';
 import '../widgets/app_theme.dart';
 import '../widgets/dimentions.dart';
+import 'package:card_swiper/card_swiper.dart';
+
 class StudioScreen extends StatefulWidget {
   const StudioScreen({Key? key}) : super(key: key);
 
@@ -16,333 +18,232 @@ class _StudioScreenState extends State<StudioScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF6F6F6),
       appBar:  AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
         leading: InkWell(onTap: (){
           Get.back();
         },
-            child: Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 60),
-          child: Text("Dance Studio",style: TextStyle(color: Colors.white),),
-        ),
+            child: const Icon(Icons.arrow_back)),
+        // title: Padding(
+        //   padding: const EdgeInsets.only(left: 60),
+        //   child: Text("Dance Studio",style: TextStyle(color: Colors.white),),
+        // ),
+        centerTitle: true,
+        title: const Text("Dance Studio",style: TextStyle(color: Colors.white),),
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(18),
+          padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
+                height: 458,
+              decoration: BoxDecoration(
+                color:  Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: (blurBoxShadow),
+              ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                       height: MediaQuery.of(context).size.height*0.30,
+                       width: MediaQuery.of(context).size.width,
+                       clipBehavior: Clip.antiAlias,
+                       decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(15)),
+                       child: Padding(
+                         padding: const EdgeInsets.all(8.0),
+                         child: Swiper(
+                           autoplay: false,
+                           outer: false,
+                           autoplayDisableOnInteraction: false,
+                           itemCount: 3,
+                           itemBuilder: (BuildContext context, int index) {
+                             return Image.asset('assets/images/doctor_swiper.png');
+                           },
+                           // pagination: const SwiperPagination(),
+                           control: const SwiperControl(
+                               size: 30,color: Colors.white,padding: EdgeInsets.all(20)),
+                         ),
+                       ),
+                     ),
+                    addHeight(AddSize.size13),
+                    Padding(
+                      padding: const EdgeInsets.only(left:18.0,right: 18.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text('Dance Studio',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color:  Color(0xFF1B233A)),),
+                          Spacer(),
+                          Icon(Icons.location_on_outlined),
+                          Padding(
+                            padding: EdgeInsets.only(right: 8.0),
+                            child: Text('5 Km',style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color:  Color(0xFF1B233A)),),
+                          ),
+                        ],
+                      ),
+                    ),
+                       const SizedBox(height: 2),
+                  const Padding(
+                     padding:  EdgeInsets.only(left:18.0,right:18.0),
+                     child:  Text('Folk Dance',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500,color:  Color(0xFF004B93)),),
+                   ),
+                    addHeight(AddSize.size16),
+                   const Padding(
+                      padding: EdgeInsets.only(left: 18,right: 18),
+                      child: Divider(
+                        height: 1,
+                        thickness: 0.5,
+                        color: Color(0xFF39439D),
+                      ),
+                    ),
+                    addHeight(AddSize.size15),
+                   const Padding(
+                      padding:  EdgeInsets.only(left:18.0,right: 18.0),
+                      child:  Text('About Us',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600,color:  Color(0xFF1B233A)),),
+                    ),
+                    const Padding(
+                      padding:  EdgeInsets.only(left:18.0,right: 18.0),
+                      child:  Text('Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w300,color:  Color(0xFF667182)),),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.only(left:8.0,right: 8.0),
+                      child:  TextButton(
+                        onPressed: (){},
+                        child: const Text(
+                            'Read more',style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color:  Color(0xFF5B5E73),
+                          decoration: TextDecoration.underline,
+                        ),),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+             const Padding(
+                padding:  EdgeInsets.only(top: 13.0),
+                child: Text('Our Classes',style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                    color:  Color(0xFF1B233A),
+        ),),
+              ),
+              addHeight(AddSize.size10),
+              ListView.builder(
+                  itemCount: 3,
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    return coursesUi1(index);
+                  }),
+              Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: blurBoxShadow,
-                    borderRadius:
-                    BorderRadius.circular(AddSize.size15)),
+                  color:  Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow:(blurBoxShadow),
+                ),
                 child: Padding(
-                  padding: EdgeInsets.all(AddSize.size10),
+                  padding: const EdgeInsets.all(13.0),
                   child: Column(
+
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Stack(
+                      const AddText(text: 'Reviews',fontSize: 20,fontWeight: FontWeight.w600,),
+                      const SizedBox(height: 20,),
+                      Row(
                         children: [
+                          const AddText(text: '4.8',fontSize: 16,fontWeight: FontWeight.w500,),
+                          const SizedBox(width: 5,),
                           Padding(
-                            padding:EdgeInsets.only(bottom: AddSize.size10),
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(8.0),
-                                topRight: Radius.circular(8.0),
-                                bottomLeft: Radius.circular(8.0),
-                                bottomRight: Radius.circular(8.0),
-                              ),
-                              child:Image.asset(
-                                 'assets/images/Rectanglech.png',
-                                 width: AddSize.size340 ,
-                                 height: AddSize.size170,
-                                fit: BoxFit.cover,
-
-                              )
-                              // CachedNetworkImage(
-                              //   imageUrl:model.value.data!.image.toString(),
-                              //   width: AddSize.size100 * 4,
-                              //   height: AddSize.size100 * 2,
-                              //   fit: BoxFit.cover,
-                              // ),
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: Icon(
+                              Icons.star,
+                              color: const Color(0xFFFF8E30),
+                              size: AddSize.size15,
                             ),
                           ),
-                          Positioned(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 70),
-                              child: Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.all(AddSize.size10),
-                                  child: Container(
-                                      width: AddSize.size20,
-                                      height: AddSize.size20,
-                                      decoration: BoxDecoration(
-                                          borderRadius:BorderRadius.circular(5),
-                                          color: Colors.white.withOpacity(.8)),
-                                    child: InkWell(onTap: (){},
-                                        child: Icon(Icons.chevron_left,color: Colors.grey,)),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 70),
-                              child: Align(
-                                alignment: Alignment.bottomRight,
-                                child: Padding(
-                                  padding: EdgeInsets.all(AddSize.size10),
-                                  child: Container(
-                                    width: AddSize.size20,
-                                    height: AddSize.size20,
-                                    decoration: BoxDecoration(
-                                        borderRadius:BorderRadius.circular(5),
-                                        color: Colors.white.withOpacity(.8)),
-                                    child: InkWell(onTap: (){},
-                                        child: Icon(Icons.chevron_right,color: Colors.grey,)),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
+                          const SizedBox(width: 5,),
+                          const AddText(text: '(2500+)',fontSize: 16,fontWeight: FontWeight.w500,),
                         ],
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 20,),
                       Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: AddText(
-                              text: "Dance Studio",
-                              //textAlign: TextAlign.start,
-                              color: AppTheme.filtter
-                                  .withOpacity(0.8),
-                              fontWeight: FontWeight.w600,
-                              fontSize: AddSize.font18,
-                            ),
-                          ),
-                          // SizedBox(
-                          //   width: AddSize.size20,
-                          // ),
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                           AddText(text: 'Jack Lee',fontSize: 18,fontWeight: FontWeight.w600,),
+                           SizedBox(width: 3,),
+                           Icon(Icons.verified,color: Color(0xFF12C202),size: 14,)
                         ],
                       ),
-                      SizedBox(
-                        height: AddSize.size10,
-                      ),
-                      Row(
-                        children: [
-                          AddText(
-                            text: '50+ bookings this week',
-                            textAlign: TextAlign.start,
-                            color: Color(0xFF18B884),
-                            //fontWeight: FontWeight.w600,
-                            fontSize: AddSize.font14,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: AddSize.size15,
-                      ),
+                      const SizedBox(height: 15,),
+                      const AddText(text: 'Lorem Ipsum is simply dummy text of the '
+                          'printing and typesetting industry. Lorem Ipsum has been the.',fontWeight: FontWeight.w300,fontSize: 14,),
+                      const SizedBox(height: 8,),
+                      const AddText(text: 'See all reviews',decoration: TextDecoration.underline,fontWeight: FontWeight.w500,fontSize: 14,),
                     ],
                   ),
                 ),
-              ),
+                ),
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20,),
-                    AddText(text: 'Reviews',fontSize: 20,fontWeight: FontWeight.w600,),
-                    SizedBox(height: 20,),
-                    Row(
-                      children: [
-                        AddText(text: '4.8',fontSize: 16,fontWeight: FontWeight.w500,),
-                        SizedBox(width: 5,),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: Icon(
-                            Icons.star,
-                            color: Color(0xFFFF8E30),
-                            size: AddSize.size15,
-                          ),
-                        ),
-                        SizedBox(width: 5,),
-                        AddText(text: '(2500+)',fontSize: 16,fontWeight: FontWeight.w500,),
-                      ],
-                    ),
-                    SizedBox(height: 20,),
-                    Row(
-                      children: [
-                        AddText(text: 'Jack Lee',fontSize: 18,fontWeight: FontWeight.w600,),
-                        SizedBox(width: 10,),
-                        Icon(Icons.verified,color: Color(0xFF12C202),)
-                      ],
-                    ),
-                    SizedBox(height: 15,),
-                    AddText(text: 'Lorem Ipsum is simply dummy text of the '
-                        'printing and typesetting industry. Lorem Ipsum has been the.',fontWeight: FontWeight.w300,fontSize: 14,),
-                    SizedBox(height: 5,),
-                    AddText(text: 'See all reviews',decoration: TextDecoration.underline,fontWeight: FontWeight.w500,fontSize: 14,),
-                    SizedBox(height: 30,),
-                    AddText(text: 'Our Classes',fontSize: 18,fontWeight: FontWeight.w500),
-                    SizedBox(height: 10,),
-                    ListView.builder(
-                        itemCount: 3,
-                        shrinkWrap: true,
-                        physics: const BouncingScrollPhysics(),
-                        itemBuilder: (BuildContext context, int index) {
-                          return coursesUi1(index);
-                        }),
-                    AddText(text: 'About us',fontSize: 18,fontWeight: FontWeight.w600),
-                    SizedBox(height: 20,),
-                    AddText(text: 'Lorem Ipsum is simply dummy text of '
-                        'the for printing and typesetting industry. '
-                        'the Lorem Ipsum has been the. text of the in printing',fontWeight: FontWeight.w300,fontSize: 14,),
-                    SizedBox(height: 5,),
-                    AddText(text: 'Read more',decoration: TextDecoration.underline,fontWeight: FontWeight.w500,fontSize: 14,),
-                    SizedBox(height: 50,),
-                    AddText(text: 'Highlights',fontSize: 18,fontWeight: FontWeight.w600,),
-                    SizedBox(height: 15,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Studio Dance',color: Color(0xFF534F4F))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Photo Studio',color: Color(0xFF534F4F),)
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Folk Dance',color: Color(0xFF534F4F))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Music Events',color: Color(0xFF534F4F))
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 45,),
+                    const SizedBox(height: 10,),
                     Stack(
                       children: <Widget>[
                         Container(
                         child: Image.asset('assets/images/Rectangle23165.png'),
                       ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 160,top: 70),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 160,top: 70),
                           child: Icon(Icons.location_on_outlined,color: Color(0xFF004B93),size: 35,),
                         )
+
                       ]
                     ),
-                    SizedBox(height: 20,),
-                    Center(child: AddText(text: "18225 Biscayne Blvd, Aventura, Jaipur")),
-                    SizedBox(height: 45,),
-                    AddText(text: 'Videos',fontWeight: FontWeight.w600,fontSize: 18,),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
+                    const Center(child: AddText(text: "18225 Biscayne Blvd, Aventura, Jaipur")),
+                    const SizedBox(height: 45,),
+                    const AddText(text: 'Videos',fontWeight: FontWeight.w600,fontSize: 18,),
+                    const SizedBox(height: 20,),
                     Stack(
                       children: <Widget>[
                         Container(
                           child: Image.asset('assets/images/Group1000003969.png'),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 65),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 65),
                           child: Center(child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 35,)),
                         ),
+                        Positioned(
+                            top: 0,
+                            right: 10,
+                            left: 10,
+                            bottom: 12,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  child: Image.asset('assets/images/back_icon.png',width: 30,height: 30,),
+                                ),
+                                InkWell(
+                                  child: Image.asset('assets/images/next_icon.png',width: 30,height: 30,),
+                                ),
+                              ],
+                            ))
                       ]
                     ),
-                    SizedBox(height: 20,),
-                    Center(child: AddText(text: 'What to expect a Dance Studio')),
-                    SizedBox(height: 50,),
-                    AddText(text: 'Safety & Cleanliness',fontSize: 18,fontWeight: FontWeight.w600,),
-                    SizedBox(height: 20,),
-                    AddText(text: 'Provide by Studio Updated on 1/24/2022',fontWeight: FontWeight.w300),
-                    SizedBox(height: 40,),
-                    AddText(text: 'Health & Safety measures',fontSize: 18,fontWeight: FontWeight.w600,),
-                    SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Studio Dance',fontWeight: FontWeight.w300)
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Photo Studio',fontWeight: FontWeight.w300)
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Folk Dance',fontWeight: FontWeight.w300)
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Music Events',fontWeight: FontWeight.w300)
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.check,color: AppTheme.primaryColor,),
-                            SizedBox(width: 5,),
-                            AddText(text: 'Folk Dance',fontWeight: FontWeight.w300)
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 30,),
-                    AddText(text: 'See Details',fontWeight: FontWeight.w400,decoration: TextDecoration.underline,)
+                    const SizedBox(height: 20,),
+                    const Center(child: AddText(text: 'What to expect a Dance Studio')),
                   ],
                 ),
               )
@@ -514,33 +415,58 @@ class _StudioScreenState extends State<StudioScreen> {
                 padding: EdgeInsets.all(AddSize.size10),
                 child: Row(
                   children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        topRight: Radius.circular(8.0),
-                        bottomLeft: Radius.circular(8.0),
-                        bottomRight: Radius.circular(8.0),
+                    Stack(
+                      children: [
+                        ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8.0),
+                          topRight: Radius.circular(8.0),
+                          bottomLeft: Radius.circular(8.0),
+                          bottomRight: Radius.circular(8.0),
+                        ),
+                        child:
+                        Image.asset(
+                          'assets/images/Rectangle18.png',
+                          width: AddSize.size100,
+                          height: AddSize.size100,
+                          fit: BoxFit.cover,
+                        ),
+                        // CachedNetworkImage(
+                        //   width: AddSize.size110,
+                        //   height: AddSize.size125 * 250,
+                        //   fit: BoxFit.cover,
+                        //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
+                        //   placeholder: (context, url) => SizedBox(),
+                        //   errorWidget: (context, url, error) => SizedBox(),
+                        // ),
+                        //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
+                        //     width: AddSize.size110,
+                        //     height: AddSize.size125 * 250,
+                        //     fit: BoxFit.cover,
+                        //   ),
                       ),
-                      child:
-                      Image.asset(
-                        'assets/images/Rectangle18.png',
-                        width: AddSize.size100,
-                        height: AddSize.size100,
-                        fit: BoxFit.cover,
-                      ),
-                      // CachedNetworkImage(
-                      //   width: AddSize.size110,
-                      //   height: AddSize.size125 * 250,
-                      //   fit: BoxFit.cover,
-                      //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //   placeholder: (context, url) => SizedBox(),
-                      //   errorWidget: (context, url, error) => SizedBox(),
-                      // ),
-                      //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //     width: AddSize.size110,
-                      //     height: AddSize.size125 * 250,
-                      //     fit: BoxFit.cover,
-                      //   ),
+                        Positioned(
+                          right: 1,
+                          top: 2,
+                          child: InkWell(
+                           onTap: (){},
+                            child: Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: const Icon(
+                           Icons.favorite_border,
+                                  // color: AppTheme.primaryColor,
+                                  color :  Color(0xFFC9002B),
+                                size: 15,
+                              ),
+                            ),
+                          ),
+                        )
+          ],
                     ),
                     SizedBox(
                       width: AddSize.size15,
@@ -562,7 +488,6 @@ class _StudioScreenState extends State<StudioScreen> {
                                     child: AddText(
                                       text: 'Folk Dance',
                                       textAlign: TextAlign.start,
-                                      //color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.w600,
                                       fontSize: AddSize.font16,
                                     ),
@@ -570,38 +495,38 @@ class _StudioScreenState extends State<StudioScreen> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 6,),
-                            Row(
-                              children: [
-                                Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                                SizedBox(width: 5,),
-                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
-                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
-                              ],
-                            ),
-                            SizedBox(
-                              height: AddSize.size6,
-                            ),
+                            const SizedBox(height: 6),
                             Row(
                               children:  [
-                                Padding(
+                                const Padding(
                                   padding:  EdgeInsets.only(bottom: 5),
                                   child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
                                 ),
-                                SizedBox(width: 2,),
+                                const SizedBox(width: 2,),
                                 AddText(
                                   text: '6 to 10 Ages',
                                   textAlign: TextAlign.start,
-                                  color: Color(0xFF7D8396),
+                                  color: const Color(0xFF7D8396),
                                   fontWeight: FontWeight.w400,
                                   fontSize: AddSize.font12,
                                 ),
                               ],
                             ),
-                            SizedBox(height: AddSize.size6,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Row(
                               children: [
-                                AddText(text: "\$10.00",color: Color(0xFF18B884),)
+                                const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                const SizedBox(width: 5,),
+                                const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400,),
+                                const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: [
+                                const AddText(text: "\$10.00",color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14,)
                               ],
                             )
                           ],

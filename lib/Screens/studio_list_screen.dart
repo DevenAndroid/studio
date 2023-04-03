@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -18,7 +19,7 @@ class _StudioListScreenState extends State<StudioListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: const Color(0xFFF6F6F6),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -27,23 +28,31 @@ class _StudioListScreenState extends State<StudioListScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 80),
-          child: Text("Studio List",style: TextStyle(color: Colors.white),),
-        ),
-        actions: [Padding(
+        title:  Text("Studio List",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500)),
+        centerTitle: true,
+        actions: [
+          Padding(
           padding: const EdgeInsets.only(right: 20),
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 20,
-            child: Icon(Icons.filter_alt,color: AppTheme.primaryColor,),
+          child:   InkWell(
+            onTap: (){
+              _dialogBuilder(context);
+            },
+            child: Container(
+              height: 34,
+              width: 34,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color(0xFF1B233A),
+              ),
+              child: SvgPicture.asset('assets/images/setting-4.svg',fit: BoxFit.none,),
+            ),
           ),
         )],
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           child: Column(
             children: [
               ListView.builder(
@@ -83,33 +92,45 @@ class _StudioListScreenState extends State<StudioListScreen> {
                 padding: EdgeInsets.all(AddSize.size10),
                 child: Row(
                   children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        topRight: Radius.circular(8.0),
-                        bottomLeft: Radius.circular(8.0),
-                        bottomRight: Radius.circular(8.0),
+                    Stack(
+                      children: [
+                        ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8.0),
+                          topRight: Radius.circular(8.0),
+                          bottomLeft: Radius.circular(8.0),
+                          bottomRight: Radius.circular(8.0),
+                        ),
+                        child:
+                        Image.asset(
+                          'assets/images/Rectangle100.png',
+                          width: AddSize.size90,
+                          height: AddSize.size90,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      child:
-                      Image.asset(
-                        'assets/images/Rectangle100.png',
-                        width: AddSize.size90,
-                        height: AddSize.size90,
-                        fit: BoxFit.cover,
-                      ),
-                      // CachedNetworkImage(
-                      //   width: AddSize.size110,
-                      //   height: AddSize.size125 * 250,
-                      //   fit: BoxFit.cover,
-                      //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //   placeholder: (context, url) => SizedBox(),
-                      //   errorWidget: (context, url, error) => SizedBox(),
-                      // ),
-                      //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //     width: AddSize.size110,
-                      //     height: AddSize.size125 * 250,
-                      //     fit: BoxFit.cover,
-                      //   ),
+                        Positioned(
+                          right: 1,
+                          top: 2,
+                          child: InkWell(
+                            onTap: (){},
+                            child: Container(
+                              height: 23,
+                              width: 23,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: const Icon(
+                                Icons.favorite_border,
+                                // color: AppTheme.primaryColor,
+                                color :  Color(0xFFC9002B),
+                                size: 15,
+                              ),
+                            ),
+                          ),
+                        )
+          ],
                     ),
                     SizedBox(
                       width: AddSize.size15,
@@ -132,8 +153,8 @@ class _StudioListScreenState extends State<StudioListScreen> {
                                       text: 'Dance Studio',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AddSize.font14,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
                                     ),
                                   ),
                                   Icon(
@@ -151,8 +172,7 @@ class _StudioListScreenState extends State<StudioListScreen> {
                                       color: Colors.amber,
                                       fontWeight:
                                       FontWeight.w600,
-                                      fontSize:
-                                      AddSize.font12,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],
@@ -167,10 +187,9 @@ class _StudioListScreenState extends State<StudioListScreen> {
                               children: [
                                 AddText(
                                   text: "Folk Dance",
-                                  //textAlign: TextAlign.start,
                                   color: Color(0xFF004B93),
-                                  //fontWeight: FontWeight.bold,
-                                  fontSize: AddSize.font12,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 13,
                                 ),
                                 // SizedBox(
                                 //   width: AddSize.size20,
@@ -191,8 +210,8 @@ class _StudioListScreenState extends State<StudioListScreen> {
                                     text: '5 km',
                                     textAlign: TextAlign.start,
                                     color: AppTheme.userText.withOpacity(.4),
-                                    //fontWeight: FontWeight.w600,
-                                    fontSize: AddSize.font14,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
                                   ),
                                 ),
                               ],
@@ -212,4 +231,163 @@ class _StudioListScreenState extends State<StudioListScreen> {
       ],
     );
   }
+}
+Future<void> _dialogBuilder(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return SimpleDialog(
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12.0))),
+        children: <Widget>[
+          SimpleDialogOption(
+            onPressed: () {
+              Get.back();
+              _showDatePicker(context);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Date'),
+                InkWell(
+                  child: const Icon(Icons.arrow_forward_ios,size: 20,),
+                  onTap: (){
+                    // _showDatePicker(context);
+
+                  },
+                )
+              ],
+            ),
+          ),
+          const Divider(thickness: 1,),
+          SimpleDialogOption(
+            onPressed: () {
+              Get.back();
+              _distance(context);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Distance'),
+                InkWell(
+                  child: const Icon(Icons.arrow_forward_ios,size: 20,),
+                  onTap: (){
+                    _distance(context);
+                  },
+                )
+              ],
+            ),
+          ),
+          const Divider(thickness: 1,),
+          SimpleDialogOption(
+            onPressed: () {
+              Get.back();
+              _category(context);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Category'),
+                InkWell(
+                  child: const Icon(Icons.arrow_forward_ios,size: 20,),
+                  onTap: (){
+                    _category(context);
+                  },
+                )
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
+Future<void> _showDatePicker (BuildContext context) {
+  return showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2000), lastDate: DateTime(2025),     builder: (context,child){
+    return Theme(
+      data: ThemeData(
+        primarySwatch: Colors.orange,
+      ),
+      child: child!,
+    );
+  },);
+
+}
+Future<void> _distance (BuildContext context) {
+  return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        RangeValues values = RangeValues(1, 100);
+        return SimpleDialog(
+            title: const Text('Distance',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12,),),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12.0))),
+            children: <Widget>[
+              SimpleDialogOption(
+                child:  Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 8,
+                        width: 231,
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFFF8E30),
+                            borderRadius: BorderRadius.circular(100)
+                        ),
+                      ),
+                      Container(
+                        height: 8,
+                        width: 30,
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFFFF1E5),
+                            borderRadius: BorderRadius.circular(100)
+                        ),
+                      ),
+
+                    ],
+                  ),
+                ),
+              ),
+              SimpleDialogOption(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text('1km',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: Color(0xFF657074)),),
+                    Text('10km',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: Color(0xFF657074)),),
+
+                  ],
+                ),
+              )
+            ]);
+      }
+  );
+}
+Future<void> _category (BuildContext context) {
+  return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12.0))),
+          children: <Widget>[
+            SimpleDialogOption(
+              onPressed: () {
+                Get.back();
+              },
+              child: const Text('Classes'),
+            ),
+            const Divider(thickness: 1,),
+            SimpleDialogOption(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Events'),
+            ),
+          ],
+        );
+      }
+  );
 }

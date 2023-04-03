@@ -21,7 +21,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF6F6F6),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -29,185 +29,302 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           Get.back();
           //Get.toNamed(MyRouter.studioScreen);
         },
-            child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 80),
-          child: Text("Checkout",style: TextStyle(color: Colors.white),),
-        ),
+            child : const Icon(Icons.arrow_back)),
+        // title: Padding(
+        //   padding: const EdgeInsets.only(left: 80),
+        //   child: Text("Checkout",style: TextStyle(color: Colors.white),),
+        // ),
+        centerTitle: true,
+        title: const Text("Checkout",style: TextStyle(color: Colors.white),),
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(17),
+          padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: AddSize.size20,),
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(4),
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            AddText(text: 'Child Name',fontWeight: FontWeight.w600),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: 'Popup Dance',fontWeight: FontWeight.w600),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: 'Tax',fontWeight: FontWeight.w600),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: 'Pay amount',fontWeight: FontWeight.w600),
+                    Container(
+                      height: 69,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        boxShadow: const[
+                          BoxShadow(
+                              // offset: const Offset(3, 3),
+                              color:  Color(0xFF8CBDE3FF),
+                              spreadRadius: 1.6,
+                              blurRadius: 5),
+                        ],
+                        color: const Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const[
+                            Text('Studio Name:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                            Text('Rocks Dance Studio',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
                           ],
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            AddText(text: 'Jack Smith',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$98.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$2.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
-                            ],
-                        ),
-                        //AddText(text: 'Folk Dance',fontWeight: FontWeight.w600),
-                        //AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,)
-                      ],
+                      ),
                     ),
-                    SizedBox(height: AddSize.size30,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                    SizedBox(height: AddSize.size10,),
+                    Container(
+                      height: 154,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        boxShadow: const[
+                          BoxShadow(
+                            // offset: const Offset(3, 3),
+                              color:  Color(0xFF8CBDE3FF),
+                              spreadRadius: 1.6,
+                              blurRadius: 5),
+                        ],
+                        color: const Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0,right: 8.0,top: 14),
+                        child: Column(
                           children: [
-                            AddText(text: 'Child Name',fontWeight: FontWeight.w600),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: 'Jaz Dance',fontWeight: FontWeight.w600),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: 'Tax',fontWeight: FontWeight.w600),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: 'Pay amount',fontWeight: FontWeight.w600),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Child Name:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('William Joe',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
+                            SizedBox(height: AddSize.size8,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Jaz Dance:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('\$98.00',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
+                            SizedBox(height: AddSize.size8,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Tax:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('\$2.00',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
+                            SizedBox(height: AddSize.size8,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Pay Amount:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('\$100.00',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
                           ],
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                      ),
+                    ),
+                    SizedBox(height: AddSize.size10,),
+                    Container(
+                      height: 154,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        boxShadow: const[
+                          BoxShadow(
+                            // offset: const Offset(3, 3),
+                              color:  Color(0xFF8CBDE3FF),
+                              spreadRadius: 1.6,
+                              blurRadius: 5),
+                        ],
+                        color: const Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0,right: 8.0,top: 14),
+                        child: Column(
                           children: [
-                            AddText(text: 'William Jae',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$88.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$2.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                            SizedBox(height: AddSize.size10,),
-                            AddText(text: '\$90.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Child Name:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('Jack Smith',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
+                            SizedBox(height: AddSize.size8,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Popup Dance:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('\$98.00',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
+                            SizedBox(height: AddSize.size8,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Tax:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('\$2.00',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
+                            SizedBox(height: AddSize.size8,),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const[
+                                Text('Pay Amount:',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                                Text('\$100.00',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w300 ,fontSize: 16)),
+                              ],
+                            ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
-                    SizedBox(height: AddSize.size60,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        AddText(text: 'Total Amount',fontWeight: FontWeight.w600),
-                        AddText(text: '\$190.00',color: AppTheme.primaryColor,fontWeight: FontWeight.w400,),
-                      ],
-                    ),
-                    SizedBox(height: AddSize.size60,),
-                  ],
-                ),
-              ),
-              //SizedBox(height: AddSize.size20,),
-              AddText(text: 'Select The Payment Method',fontSize: 18,),
-              SizedBox(height: AddSize.size20,),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: blurBoxShadow,
-                    border: Border.all(color: Color(0xFFD4D9FF)),
-                    borderRadius: BorderRadius.circular(15)),
-                // width: AddSize.screenWidth,
-                height: AddSize.screenHeight * .10,
-                width: AddSize.screenWidth,
-                padding: EdgeInsets.all(AddSize.size20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Image.asset(
-                      'assets/images/Group1000003786.png',
-                      width: AddSize.size40,
-                      height: AddSize.size40,
-                      // fit: BoxFit.cover,
-                    ),
-                    // SizedBox(
-                    //   width: AddSize.size10,
-                    // ),
-                    AddText(
-                      text: '**** **** **** 0007',
-                      textAlign: TextAlign.start,
-                      color: AppTheme.filtter,
-                      fontWeight: FontWeight.w500,
-                      fontSize: AddSize.font16,
-                    ),
-                    SizedBox(
-                      width: AddSize.size25,
-                    ),
-                    addRadioButton(
-                      0,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: AddSize.size20,),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: blurBoxShadow,
-                    border: Border.all(color: Color(0xFFD4D9FF)),
-                    borderRadius: BorderRadius.circular(15)),
-                // width: AddSize.screenWidth,
-                height: AddSize.screenHeight * .10,
-                width: AddSize.screenWidth,
-                padding: EdgeInsets.all(AddSize.size20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Image.asset(
-                      'assets/images/image32.png',
-                      width: AddSize.size40,
-                      height: AddSize.size40,
-                      // fit: BoxFit.cover,
-                    ),
-                    // SizedBox(
-                    //   width: AddSize.size10,
-                    // ),
-                    AddText(
-                      text: '**** **** **** 0012',
-                      textAlign: TextAlign.start,
-                      color: AppTheme.filtter,
-                      fontWeight: FontWeight.w500,
-                      fontSize: AddSize.font16,
-                    ),
-                    // SizedBox(
-                    //   width: AddSize.size25,
-                    // ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 35),
-                      child: addRadioButton(
-                        1,
+                    SizedBox(height: AddSize.size10,),
+                    Container(
+                      height: 69,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        boxShadow: const[
+                          BoxShadow(
+                            // offset: const Offset(3, 3),
+                              color:  Color(0xFF8CBDE3FF),
+                              spreadRadius: 1.6,
+                              blurRadius: 5),
+                        ],
+                        color: const Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const[
+                            Text('Total Amount',style: TextStyle(color: Color(0xFF1B233A),fontWeight: FontWeight.w500 ,fontSize: 16 )),
+                            Text('\$190.00',style: TextStyle(color: Color(0xFFFF8E30),fontWeight: FontWeight.w500 ,fontSize: 16)),
+                          ],
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: AddSize.size40,),
+              SizedBox(height: AddSize.size16,),
+              const Padding(
+                padding:  EdgeInsets.only(left:5.0),
+                child:  AddText(text: 'Select The Payment Method',fontSize: 18,),
+              ),
+              SizedBox(height: AddSize.size20,),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: const[
+                        BoxShadow(
+                          // offset: const Offset(3, 3),
+                            color:  Color(0xFF8CBDE3FF),
+                            spreadRadius: 1.6,
+                            blurRadius: 5),
+                      ],
+                      border: Border.all(color: const Color(0xFFD4D9FF)),
+                      borderRadius: BorderRadius.circular(15)),
+                  // width: AddSize.screenWidth,
+                  height: AddSize.screenHeight * .10,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(AddSize.size20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image.asset(
+                        'assets/images/Group1000003786.png',
+                        width: AddSize.size40,
+                        height: AddSize.size40,
+                        // fit: BoxFit.cover,
+                      ),
+                      // SizedBox(
+                      //   width: AddSize.size10,
+                      // ),
+                      AddText(
+                        text: '**** **** **** 0007',
+                        textAlign: TextAlign.start,
+                        color: AppTheme.filtter,
+                        fontWeight: FontWeight.w500,
+                        fontSize: AddSize.font16,
+                      ),
+                      SizedBox(
+                        width: AddSize.size25,
+                      ),
+                      addRadioButton(
+                        0,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: AddSize.size10,),
+
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: const[
+                        BoxShadow(
+                          // offset: const Offset(3, 3),
+                            color:  Color(0xFF8CBDE3FF),
+                            spreadRadius: 1.6,
+                            blurRadius: 5),
+                      ],
+                      border: Border.all(color: const Color(0xFFD4D9FF)),
+                      borderRadius: BorderRadius.circular(15)),
+                  // width: AddSize.screenWidth,
+                  height: AddSize.screenHeight * .10,
+                  width:  MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(AddSize.size20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image.asset(
+                        'assets/images/image32.png',
+                        width: AddSize.size40,
+                        height: AddSize.size40,
+                        // fit: BoxFit.cover,
+                      ),
+                      AddText(
+                        text: '**** **** **** 0012',
+                        textAlign: TextAlign.start,
+                        color: AppTheme.filtter,
+                        fontWeight: FontWeight.w500,
+                        fontSize: AddSize.font16,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 35),
+                        child: addRadioButton(
+                          1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: AddSize.size18,),
               Row(
                 children: [
                   Transform.scale(
-                    scale: 1.5,
+                    scale: 1.0,
                     child: Checkbox(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4)),
@@ -234,12 +351,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AddText(text: 'I have read and understand the studio\'s',fontSize: 14,fontWeight: FontWeight.w400,color: Color(0xFF1B233A),),
+                        const AddText(text: 'I have read and understand the studio\'s',fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xFF1B233A),),
                         SizedBox(height: AddSize.size5,),
                         InkWell(onTap: (){
                           Get.toNamed(MyRouter.cancellationPolicyScreen);
                         },
-                            child: AddText(text: 'cancellation policy.',fontSize: 14,color: Color(0xFF2951C2),decoration: TextDecoration.underline,)),
+                            child: const AddText(text: 'cancellation policy.',fontSize: 12,color: Color(0xFF2951C2),decoration: TextDecoration.underline,)),
                       ],
                     ),
                   ),
@@ -255,13 +372,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: AppTheme.primaryColor,
                       ),
                     ),
-                    minimumSize: Size(340, 60),
+                    minimumSize: const Size(340, 60),
                   ),
-                  child: Center(child: AddText(text: 'ADD NEW CARD',color:AppTheme.primaryColor,fontWeight: FontWeight.w600))
+                  child: const Center(child: AddText(text: 'ADD NEW CARD',color:AppTheme.primaryColor,fontWeight: FontWeight.w500,fontSize: 16,))
               ),
               SizedBox(height: AddSize.size10,),
               ElevatedButton(onPressed: ()
@@ -272,13 +389,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     backgroundColor: AppTheme.buttonColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: AppTheme.buttonColor,
                       ),
                     ),
-                    minimumSize: Size(340, 60),
+                    minimumSize: const Size(340, 60),
                   ),
-                  child: Center(child: AddText(text: 'CONFIRM',color:Colors.white,fontWeight: FontWeight.w600))
+                  child: const Center(child: AddText(text: 'CONFIRM',color:Colors.white,fontWeight: FontWeight.w600,fontSize: 18,))
               ),
               SizedBox(height: AddSize.size20,),
             ],

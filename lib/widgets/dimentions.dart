@@ -80,25 +80,25 @@ class AddSize {
 
 final List<BoxShadow> blurBoxShadow = [
   BoxShadow(
-      offset: const Offset(3, 3),
-      color: AppTheme.primaryColor.withOpacity(.008),
+      offset: Offset(3, 3),
+      color: Color(0xFF549ADD).withOpacity(.007),
       spreadRadius: 1,
       blurRadius: 1),
   BoxShadow(
-    offset: const Offset(-3, -3),
-    color: AppTheme.primaryColor.withOpacity(.008),
+    offset:  Offset(-3, -3),
+    color: Color(0xFF549ADD).withOpacity(.007),
     spreadRadius: 1,
     blurRadius: 1,
 // spreadRadius: 1
   ),
   BoxShadow(
-      offset: const Offset(3, -3),
-      color: AppTheme.primaryColor.withOpacity(.008),
+      offset:  Offset(3, -3),
+      color: Color(0xFF549ADD).withOpacity(.007),
       spreadRadius: 1,
       blurRadius: 1),
   BoxShadow(
-    offset: const Offset(-3, 3),
-    color: AppTheme.primaryColor.withOpacity(.008),
+    offset:  Offset(-3, 3),
+    color: Color(0xFF549ADD).withOpacity(.007),
     spreadRadius: 1,
     blurRadius: 1,
 // spreadRadius: 1

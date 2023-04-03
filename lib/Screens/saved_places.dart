@@ -26,10 +26,8 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 65),
-          child: Text("Saved Places",style: TextStyle(color: Colors.white),),
-        ),
+        title:  Text("My Wishlist",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
@@ -74,45 +72,71 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
                 padding: EdgeInsets.all(AddSize.size10),
                 child: Row(
                   children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        topRight: Radius.circular(8.0),
-                        bottomLeft: Radius.circular(8.0),
-                        bottomRight: Radius.circular(8.0),
+
+                    Stack(
+                      children: [
+                        ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8.0),
+                          topRight: Radius.circular(8.0),
+                          bottomLeft: Radius.circular(8.0),
+                          bottomRight: Radius.circular(8.0),
+                        ),
+                        child:
+                        Image.asset(
+                          'assets/images/Rectangle100.png',
+                          width: AddSize.size90,
+                          height: AddSize.size90,
+                          fit: BoxFit.cover,
+                        ),
+                        // CachedNetworkImage(
+                        //   width: AddSize.size110,
+                        //   height: AddSize.size125 * 250,
+                        //   fit: BoxFit.cover,
+                        //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
+                        //   placeholder: (context, url) => SizedBox(),
+                        //   errorWidget: (context, url, error) => SizedBox(),
+                        // ),
+                        //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
+                        //     width: AddSize.size110,
+                        //     height: AddSize.size125 * 250,
+                        //     fit: BoxFit.cover,
+                        //   ),
                       ),
-                      child:
-                      Image.asset(
-                        'assets/images/Rectangle100.png',
-                        width: AddSize.size90,
-                        height: AddSize.size90,
-                        fit: BoxFit.cover,
-                      ),
-                      // CachedNetworkImage(
-                      //   width: AddSize.size110,
-                      //   height: AddSize.size125 * 250,
-                      //   fit: BoxFit.cover,
-                      //   imageUrl: homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //   placeholder: (context, url) => SizedBox(),
-                      //   errorWidget: (context, url, error) => SizedBox(),
-                      // ),
-                      //   Image.network(homeController.model.value.data!.popularCourses![index].image.toString(),
-                      //     width: AddSize.size110,
-                      //     height: AddSize.size125 * 250,
-                      //     fit: BoxFit.cover,
-                      //   ),
+                        Positioned(
+                          right: 1,
+                          top: 2,
+                          child: InkWell(
+                            onTap: (){},
+                            child: Container(
+                              height: 23,
+                              width: 23,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: const Icon(
+                                Icons.favorite_border,
+                                // color: AppTheme.primaryColor,
+                                color :  Color(0xFFC9002B),
+                                size: 15,
+                              ),
+                            ),
+                          ),
+                        )
+          ],
                     ),
                     SizedBox(
                       width: AddSize.size15,
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 12),
+                        padding: const EdgeInsets.only(top: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              height: AddSize.size5,
+                              height: AddSize.size6,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(right: 8.0),
@@ -120,74 +144,47 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Dance Class',
+                                      text: 'Folk Dance',
                                       textAlign: TextAlign.start,
-                                      color: AppTheme.filtter.withOpacity(0.8),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AddSize.font14,
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: AddSize.size16,
-                                  ),
-                                  SizedBox(
-                                      width: AddSize.size5),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        top: AddSize.size5),
-                                    child: AddText(
-                                      text:'4.9',
-                                      color: Colors.amber,
-                                      fontWeight:
-                                      FontWeight.w600,
-                                      fontSize:
-                                      AddSize.font12,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: AddSize.font16,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: AddSize.size5,
-                            ),
+                            const SizedBox(height: 6),
                             Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 6),
-                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                              children:  [
+                                const Padding(
+                                  padding:  EdgeInsets.only(bottom: 5),
+                                  child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
                                 ),
-                                SizedBox(width: 5,),
-                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
-                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
-                              ],
-                            ),
-                            SizedBox(
-                              height: AddSize.size5,
-                            ),
-                            Row(
-                              children: [
-                                Icon(Icons.location_on_outlined,color: Color(0xFF7D8396),size: 20,),
-                                SizedBox(width: 5,),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: AddText(
-                                    text: '5 km',
-                                    textAlign: TextAlign.start,
-                                    color: AppTheme.userText.withOpacity(.4),
-                                    //fontWeight: FontWeight.w600,
-                                    fontSize: AddSize.font12,
-                                  ),
+                                const SizedBox(width: 2,),
+                                AddText(
+                                  text: '6 to 10 Ages',
+                                  textAlign: TextAlign.start,
+                                  color: const Color(0xFF7D8396),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: AddSize.font12,
                                 ),
                               ],
                             ),
                             SizedBox(
-                              height: AddSize.size8,
+                              height: 5,
                             ),
                             Row(
                               children: [
-                                AddText(text: "\$30.00",color: AppTheme.primaryColor,)
+                                const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                const SizedBox(width: 5,),
+                                const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400,),
+                                const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: [
+                                const AddText(text: "\$10.00",color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14,)
                               ],
                             )
                           ],
