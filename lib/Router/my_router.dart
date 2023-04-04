@@ -33,6 +33,7 @@ import 'package:studio_live/Screens/thankyou_screen.dart';
 import 'package:studio_live/Userflow/bottom_nav_bar.dart';
 import 'package:studio_live/Userflow/login_screen.dart';
 import 'package:studio_live/Userflow/signup_screen.dart';
+import 'package:studio_live/studio_owner/thank_you_owner.dart';
 import '../ForgotPassword/reset_password.dart';
 import '../Screens/EventFlow/checkout_event_screen.dart';
 import '../Screens/EventFlow/review_event_screen.dart';
@@ -44,6 +45,11 @@ import '../Screens/onboarding_screen.dart';
 import '../Screens/single_studio_screen.dart';
 import '../Screens/splash_screen.dart';
 import '../ForgotPassword/signup_verification.dart';
+import '../studio_owner/checkout_owner.dart';
+import '../studio_owner/create_class.dart';
+import '../studio_owner/reviews_screen.dart';
+import '../studio_owner/subscripition_screen.dart';
+import '../studio_owner/subscription_plan.dart';
 
 
 
@@ -92,6 +98,12 @@ class MyRouter{
   static var  thankYouEventScreen="/thankYouEventScreen";
   static var  withDrawlMoneyScreen="/withDrawlMoneyScreen";
   static var  settingScreen="/settingScreen";
+  static var  createclassowner="/createclassowner";
+  static var  thankyouownerScreen="/thankyouownerScreen";
+  static var  reviewscreen="/reviewScreen";
+  static var  subScripitionScreenOwner="/subScripitionScreenOwner";
+  static var  checkoutOwner="/checkoutOwner";
+  static var  subscripitionPlanScreen ="/subscripitionPlanScreen";
 
 
 
@@ -148,6 +160,12 @@ class MyRouter{
     GetPage(name: MyRouter.thankYouEventScreen, page: () => ThankYouEventScreen()),
     GetPage(name: MyRouter.withDrawlMoneyScreen, page: () => WithDrawlMoneyScreen()),
     GetPage(name: MyRouter.settingScreen, page: () => SettingScreen()),
+    GetPage(name: MyRouter.createclassowner, page: () => CreateClassOwner()),
+    GetPage(name: MyRouter.thankyouownerScreen, page: () => ThankyouOwner()),
+    GetPage(name: MyRouter.reviewscreen, page: () => ReviewOwnerScreen()),
+    GetPage(name: MyRouter.subScripitionScreenOwner, page: () => SubScripitionScreenOwner()),
+    GetPage(name: MyRouter.checkoutOwner, page: () => CheckoutOwner()),
+    GetPage(name: MyRouter.subscripitionPlanScreen, page: () => SubscripitionPlanScreen()),
 
 
 

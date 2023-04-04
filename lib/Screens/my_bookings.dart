@@ -26,10 +26,8 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 65),
-          child: Text("My Bookings",style: TextStyle(color: Colors.white),),
-        ),
+        title:  Text("My Bookings",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
