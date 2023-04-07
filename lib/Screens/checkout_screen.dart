@@ -53,13 +53,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       height: 69,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                        boxShadow: const[
-                          BoxShadow(
-                              // offset: const Offset(3, 3),
-                              color:  Color(0xFF8CBDE3FF),
-                              spreadRadius: 1.6,
-                              blurRadius: 5),
-                        ],
+                       boxShadow: (blurBoxShadow),
                         color: const Color(0xFFFFFFFF),
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -80,13 +74,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       height: 154,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                        boxShadow: const[
-                          BoxShadow(
-                            // offset: const Offset(3, 3),
-                              color:  Color(0xFF8CBDE3FF),
-                              spreadRadius: 1.6,
-                              blurRadius: 5),
-                        ],
+                        boxShadow: (blurBoxShadow),
                         color: const Color(0xFFFFFFFF),
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -138,13 +126,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       height: 154,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                        boxShadow: const[
-                          BoxShadow(
-                            // offset: const Offset(3, 3),
-                              color:  Color(0xFF8CBDE3FF),
-                              spreadRadius: 1.6,
-                              blurRadius: 5),
-                        ],
+                        boxShadow: (blurBoxShadow),
                         color: const Color(0xFFFFFFFF),
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -196,13 +178,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       height: 69,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                        boxShadow: const[
-                          BoxShadow(
-                            // offset: const Offset(3, 3),
-                              color:  Color(0xFF8CBDE3FF),
-                              spreadRadius: 1.6,
-                              blurRadius: 5),
-                        ],
+                        boxShadow: (blurBoxShadow),
                         color: const Color(0xFFFFFFFF),
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -232,14 +208,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      boxShadow: const[
-                        BoxShadow(
-                          // offset: const Offset(3, 3),
-                            color:  Color(0xFF8CBDE3FF),
-                            spreadRadius: 1.6,
-                            blurRadius: 5),
-                      ],
-                      border: Border.all(color: const Color(0xFFD4D9FF)),
+                      boxShadow: (blurBoxShadow),
+                      // border: Border.all(color: const Color(0xFFD4D9FF)),
                       borderRadius: BorderRadius.circular(15)),
                   // width: AddSize.screenWidth,
                   height: AddSize.screenHeight * .10,
@@ -281,14 +251,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      boxShadow: const[
-                        BoxShadow(
-                          // offset: const Offset(3, 3),
-                            color:  Color(0xFF8CBDE3FF),
-                            spreadRadius: 1.6,
-                            blurRadius: 5),
-                      ],
-                      border: Border.all(color: const Color(0xFFD4D9FF)),
+                      boxShadow: (blurBoxShadow),
+                      // border: Border.all(color: const Color(0xFFD4D9FF)),
                       borderRadius: BorderRadius.circular(15)),
                   // width: AddSize.screenWidth,
                   height: AddSize.screenHeight * .10,

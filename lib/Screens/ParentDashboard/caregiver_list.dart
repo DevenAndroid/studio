@@ -25,16 +25,14 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
           Get.back();
           //Get.toNamed(MyRouter.studioScreen);
         },
-            child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 75),
-          child: Text("Caregiver",style: TextStyle(color: Colors.white),),
-        ),
+            child : const Icon(Icons.arrow_back)),
+        title:  const Text("Caregiver",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(25),
+          padding: const EdgeInsets.only(top: 15,left: 8,right: 8),
           child: Column(
             children: [
               ListView.builder(
@@ -44,7 +42,7 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                   itemBuilder: (BuildContext context, int index) {
                     return coursesUi1(index);
                   }),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -52,7 +50,7 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                     onPressed: () {
                       Get.toNamed(MyRouter.addNewCaregiverScreen);
                     },
-                    child: Icon(Icons.add, color: Colors.white, size: 29,),
+                    child: const Icon(Icons.add, color: Colors.white, size: 29,),
                     backgroundColor: AppTheme.buttonColor,
                     tooltip: 'Capture Picture',
                     elevation: 5,
@@ -60,7 +58,7 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
             ],
           ),
         ),
@@ -85,7 +83,7 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                   //border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .15,
+              height: AddSize.screenHeight * .13,
               //margin: EdgeInsets.all(AddSize.size2),
               child: Padding(
                 padding: EdgeInsets.all(AddSize.size10),
@@ -100,9 +98,9 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                       ),
                       child:
                       Image.asset(
-                        'assets/images/Rectangle31.png',
-                        width: AddSize.size90,
-                        height: AddSize.size90,
+                        'assets/images/caregiver_img.png',
+                        width: 71,
+                        height: 71,
                         fit: BoxFit.cover,
                       ),
                       // CachedNetworkImage(
@@ -124,7 +122,7 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 30),
+                        padding: const EdgeInsets.only(top: 13),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -137,35 +135,35 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Jacky Smith',
+                                      text: 'Amelia',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AddSize.font14,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: AddSize.size10,
+                            const SizedBox(
+                              height: 4,
                             ),
                             Row(
                               //crossAxisAlignment:CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
-                                  children: [
-                                    Icon(Icons.phone,size: 17,color: Color(0xFF39439D),),
-                                    SizedBox(width: 5,),
+                                  children: const[
+                                     Icon(Icons.phone,size: 17,color: Color(0xFF39439D),),
+                                     SizedBox(width: 5,),
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 5),
+                                      padding:  EdgeInsets.only(top: 5),
                                       child: AddText(
                                         text: "987-654-3210",
                                         //textAlign: TextAlign.start,
-                                        color: Color(0xFF7D8396),
+                                        color:  Color(0xFF7D8396),
                                         fontWeight: FontWeight.w400,
-                                        fontSize: AddSize.font12,
+                                        fontSize: 12,
                                       ),
                                     ),
                                   ],
@@ -178,22 +176,22 @@ class _CareGiverListScreenState extends State<CareGiverListScreen> {
                                     Container(
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          border: Border.all(color: Color(0xFFD4D9FF))
+                                          border: Border.all(color: const Color(0xFFD4D9FF))
                                       ),
-                                      child: CircleAvatar(
+                                      child: const CircleAvatar(
                                         backgroundColor: Color(0xFFE4E7FF),
                                         minRadius: 13,
                                         maxRadius: 13,
                                         child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17,),
                                       ),
                                     ),
-                                    SizedBox(width: 10,),
+                                    const SizedBox(width: 18,),
                                     Container(
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          border: Border.all(color: Color(0xFFFFC2CF))
+                                          border: Border.all(color: const Color(0xFFFFC2CF))
                                       ),
-                                      child: CircleAvatar(
+                                      child: const CircleAvatar(
                                         backgroundColor: Color(0xFFFFCFD9),
                                         minRadius: 13,
                                         maxRadius: 13,

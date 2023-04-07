@@ -24,16 +24,14 @@ class _ChildListScreenState extends State<ChildListScreen> {
           Get.back();
           //Get.toNamed(MyRouter.studioScreen);
         },
-            child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 85),
-          child: Text("Child List",style: TextStyle(color: Colors.white),),
-        ),
+            child : const Icon(Icons.arrow_back)),
+        title: const Text("Child List",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(25),
+          padding: const EdgeInsets.only(top: 15,left: 8,right: 8),
           child: Column(
             children: [
               ListView.builder(
@@ -43,7 +41,7 @@ class _ChildListScreenState extends State<ChildListScreen> {
                   itemBuilder: (BuildContext context, int index) {
                     return coursesUi1(index);
                   }),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -51,7 +49,7 @@ class _ChildListScreenState extends State<ChildListScreen> {
                     onPressed: () {
                       Get.toNamed(MyRouter.addNewChildScreen);
                     },
-                    child: Icon(Icons.add, color: Colors.white, size: 29,),
+                    child: const Icon(Icons.add, color: Colors.white, size: 29,),
                     backgroundColor: AppTheme.buttonColor,
                     tooltip: 'Capture Picture',
                     elevation: 5,
@@ -59,7 +57,7 @@ class _ChildListScreenState extends State<ChildListScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
             ],
           ),
         ),
@@ -84,10 +82,10 @@ class _ChildListScreenState extends State<ChildListScreen> {
                   //border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .15,
+              height: AddSize.screenHeight * .13,
               //margin: EdgeInsets.all(AddSize.size2),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -99,9 +97,9 @@ class _ChildListScreenState extends State<ChildListScreen> {
                       ),
                       child:
                       Image.asset(
-                        'assets/images/Rectangle32.png',
-                        width: AddSize.size90,
-                        height: AddSize.size90,
+                        'assets/images/child_list.png',
+                        width: 65,
+                        height: 61,
                         fit: BoxFit.cover,
                       ),
                       // CachedNetworkImage(
@@ -123,7 +121,7 @@ class _ChildListScreenState extends State<ChildListScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 30),
+                        padding: const EdgeInsets.only(top: 12),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -139,26 +137,26 @@ class _ChildListScreenState extends State<ChildListScreen> {
                                       text: 'Rahul Sharma',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AddSize.font14,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: AddSize.size10,
+                            const SizedBox(
+                              height: 5,
                             ),
                             Row(
                               //crossAxisAlignment:CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                AddText(
+                                const AddText(
                                   text: "5 years old",
                                   //textAlign: TextAlign.start,
                                   color: Color(0xFF7D8396),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: AddSize.font12,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
                                 ),
                                 // SizedBox(
                                 //   width: AddSize.size20,
@@ -168,22 +166,22 @@ class _ChildListScreenState extends State<ChildListScreen> {
                                     Container(
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          border: Border.all(color: Color(0xFFD4D9FF))
+                                          border: Border.all(color: const Color(0xFFD4D9FF))
                                       ),
-                                      child: CircleAvatar(
+                                      child: const CircleAvatar(
                                         backgroundColor: Color(0xFFE4E7FF),
                                         minRadius: 13,
                                         maxRadius: 13,
                                         child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17),
                                       ),
                                     ),
-                                    SizedBox(width: 10,),
+                                    const SizedBox(width: 18,),
                                     Container(
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          border: Border.all(color: Color(0xFFFFC2CF))
+                                          border: Border.all(color: const Color(0xFFFFC2CF))
                                       ),
-                                      child: CircleAvatar(
+                                      child: const CircleAvatar(
                                         backgroundColor: Color(0xFFFFCFD9),
                                         minRadius: 13,
                                         maxRadius: 13,

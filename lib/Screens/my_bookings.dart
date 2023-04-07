@@ -14,6 +14,16 @@ class MyBookingScreen extends StatefulWidget {
 }
 
 class _MyBookingScreenState extends State<MyBookingScreen> {
+  RxString dropDownValue2 = ''.obs;
+  var days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +45,250 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
+              const SizedBox(height: 14),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 50,
+                    width: 100,
+                    child:  PopupMenuButton<int>(
+                      constraints:
+                      const BoxConstraints(maxHeight: 400),
+                      position: PopupMenuPosition.under,
+                      offset: Offset.fromDirection(50, 100),
+                      onSelected: (value) {
+                        setState(() {
+                          dropDownValue2.value = days[value];
+
+                        });
+                      },
+                      // icon: Icon(Icons.keyboard_arrow_down),
+                      itemBuilder: (context) => [
+                        PopupMenuItem(
+
+                            child: Column(
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    dropDownValue2.value =  '  Folk Dance';
+                                    Get.back();
+                                  },
+                                  child: const Text('  Folk Dance'),
+                                ),
+
+                              ],
+                            )),
+                        PopupMenuItem(
+
+                            child: Column(
+                              children: [
+
+                                InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      dropDownValue2.value = '  Hip hop dance';
+                                      Get.back();
+                                    }); },
+                                  child: const Text('  Hip hop dance'),
+                                ),
+
+                              ],
+                            )),
+                        PopupMenuItem(
+                            child: Column(
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      dropDownValue2.value = '  Salsa Dance';
+                                      Get.back();
+                                    }); },
+                                  child: const Text('  Salsa Dance'),
+                                ),
+
+                              ],
+                            )),
+                      ],
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 3, vertical: 10),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFF4FAFF),
+                            borderRadius: const BorderRadius.all(
+                                Radius.circular(8)),
+                            border: Border.all(
+                                color:const Color(0xFFD7EBFF),width: 1)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Obx(() {
+                              return Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.center,
+                                crossAxisAlignment:
+                                CrossAxisAlignment.center,
+                                children: [
+
+                                  Center(
+                                    child: Text(
+                                      dropDownValue2.value
+                                          .toString()
+                                          .isEmpty
+                                          ? "  Month "
+                                          : dropDownValue2.value
+                                          .toString(),
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          color: Color(0xFF5E6282),
+                                          fontWeight:
+                                          FontWeight.w400),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }),
+                            const SizedBox(width: 10,),
+                            const Spacer(),
+                            const Icon(
+                              Icons.keyboard_arrow_down_outlined,
+                              color:Color(0xFF000000),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    height: 50,
+                    width: 135,
+                    child:  PopupMenuButton<int>(
+                      constraints:
+                      const BoxConstraints(maxHeight: 400),
+                      position: PopupMenuPosition.under,
+                      offset: Offset.fromDirection(50, 100),
+                      onSelected: (value) {
+                        setState(() {
+                          dropDownValue2.value = days[value];
+
+                        });
+                      },
+                      // icon: Icon(Icons.keyboard_arrow_down),
+                      itemBuilder: (context) => [
+                        PopupMenuItem(
+
+                            child: Column(
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    dropDownValue2.value =  '  Folk Dance';
+                                    Get.back();
+                                  },
+                                  child: const Text('  Folk Dance'),
+                                ),
+
+                              ],
+                            )),
+                        PopupMenuItem(
+
+                            child: Column(
+                              children: [
+
+                                InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      dropDownValue2.value = '  Hip hop dance';
+                                      Get.back();
+                                    }); },
+                                  child: const Text('  Hip hop dance'),
+                                ),
+
+                              ],
+                            )),
+                        PopupMenuItem(
+                            child: Column(
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      dropDownValue2.value = '  Salsa Dance';
+                                      Get.back();
+                                    }); },
+                                  child: const Text('  Salsa Dance'),
+                                ),
+
+                              ],
+                            )),
+                      ],
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 3, vertical: 10),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFF4FAFF),
+                            borderRadius: const BorderRadius.all(
+                                Radius.circular(8)),
+                            border: Border.all(
+                                color:const Color(0xFFD7EBFF),width: 1)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Obx(() {
+                              return Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.center,
+                                crossAxisAlignment:
+                                CrossAxisAlignment.center,
+                                children: [
+
+                                  Center(
+                                    child: Text(
+                                      dropDownValue2.value
+                                          .toString()
+                                          .isEmpty
+                                          ? "  Completed "
+                                          : dropDownValue2.value
+                                          .toString(),
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          color: Color(0xFF5E6282),
+                                          fontWeight:
+                                          FontWeight.w400),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }),
+                            const SizedBox(width: 10,),
+                            const Spacer(),
+                            const Icon(
+                              Icons.keyboard_arrow_down_outlined,
+                              color:Color(0xFF000000),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 21),
+                  InkWell(
+                    onTap: (){
+                      print('click button');
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          color: const Color(0xFF18B884)
+                      ),
+                      child: Center(child: Image.asset('assets/images/filter_icon.png',fit: BoxFit.contain,width: 20,height: 20,)),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
               ListView.builder(
                   itemCount: 7,
                   shrinkWrap: true,
@@ -53,7 +307,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
       children: [
         InkWell(
           onTap: () {
-            Get.toNamed(MyRouter.studioScreen);
+            Get.toNamed(MyRouter.bookingDetailsScreen);
             // Get.toNamed(MyRouter.paidCourse, arguments: [
             //   homeController.model.value.data!.popularCourses![index].id
             //       .toString()
@@ -66,10 +320,10 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                   //border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+              // height: AddSize.screenHeight * .18,
               //margin: EdgeInsets.all(AddSize.size2),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(8),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -81,9 +335,9 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       ),
                       child:
                       Image.asset(
-                        'assets/images/Rectangle100.png',
+                        'assets/images/my_booking.png',
                         width: AddSize.size90,
-                        height: AddSize.size90,
+                        height: 106,
                         fit: BoxFit.cover,
                       ),
                       // CachedNetworkImage(
@@ -105,7 +359,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 8),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -121,30 +375,38 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                                       text: 'Folk Dance',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AddSize.font14,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
                                     ),
                                   ),
                                   SizedBox(
                                       width: AddSize.size5),
-                                  AddText(
+                                 const AddText(
                                     text: 'Success',
                                     textAlign: TextAlign.start,
                                     color: Color(0xFF0EDA5F),
                                     fontWeight: FontWeight.w500,
-                                    fontSize: AddSize.font14,
+                                    fontSize: 12,
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: AddSize.size8,
+                            const SizedBox(
+                              height: 2,
                             ),
+                            const AddText(
+                              text: 'Jaz Dance Class',
+                              textAlign: TextAlign.start,
+                              color: Color(0xFF004B93),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 13,
+                            ),
+                            const SizedBox(height: 5),
                             Row(
                               children: const [
                                 Padding(
                                   padding:  EdgeInsets.only(bottom: 5),
-                                  child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
+                                  child: Icon(Icons.person_outlined,size: 16,color: Color(0xFF7D8396)),
                                 ),
                                 SizedBox(width: 2,),
                                 AddText(
@@ -152,30 +414,30 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                                   textAlign: TextAlign.start,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 14,
+                                  fontSize: 12,
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height: AddSize.size8,
+                            const SizedBox(
+                              height: 2,
                             ),
                             Row(
-                              children: [
+                              children: const[
                                 Padding(
-                                  padding: const EdgeInsets.only(bottom: 4),
-                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                  padding:  EdgeInsets.only(bottom: 4),
+                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 16),
                                 ),
                                 SizedBox(width: 5,),
-                                AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,fontWeight: FontWeight.w400),
-                                AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13,fontWeight: FontWeight.w400),
+                                AddText(text: '25-01-22 ',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                                AddText(text: '(08:30 PM)',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
                               ],
                             ),
                             SizedBox(
-                              height: AddSize.size8,
+                              height: 3,
                             ),
                             Row(
-                              children: [
-                                AddText(text: "\$10.00",color: Color(0xFF18B884),)
+                              children: const [
+                                AddText(text: "\$10.00",color: Color(0xFF18B884),fontSize: 14,fontWeight: FontWeight.w600)
                               ],
                             )
                           ],

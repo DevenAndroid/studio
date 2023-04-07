@@ -22,11 +22,9 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           Get.back();
           //Get.toNamed(MyRouter.studioScreen);
         },
-            child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 60),
-          child: Text("Privacy Policy",style: TextStyle(color: Colors.white),),
-        ),
+            child : const Icon(Icons.arrow_back)),
+        title: const Text("Privacy Policy",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
@@ -34,7 +32,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           padding: const EdgeInsets.all(30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const[
               AddText(text: 'Limited License',fontSize: 18,fontWeight: FontWeight.w500,),
               SizedBox(height: 10,),
               AddText(text: 'These Terms of Use are applicable to your access to and there are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable.',fontSize: 14,fontWeight: FontWeight.w300,color: Color(0xFF545454),height: 1.5),

@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(height: 8,),
+                        const SizedBox(height: 8,),
                         Padding(
                           padding: const EdgeInsets.only(left: 20),
                           child: Row(
@@ -107,15 +107,16 @@ class _HomeScreenState extends State<HomeScreen> {
                  child:  Theme(
                    data:  Theme.of(context).copyWith(
                      accentColor: const Color(0xFF4F535E),
+                       dividerColor: Colors.transparent
                    ),
                    child: Padding(
                      padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                      child: ExpansionTile(
                        leading: Image.asset('assets/images/grid-2.png',width: 22 ,height: 22,),
-                       backgroundColor: Color(0xFFFCFBFA),
-                       iconColor: Color(0xFF4F535E),
-                       collapsedIconColor: Color(0xFF4F535E),
-                       childrenPadding: EdgeInsets.only(left:60),
+                       backgroundColor: const Color(0xFFFCFBFA),
+                       iconColor: const Color(0xFF4F535E),
+                       collapsedIconColor: const Color(0xFF4F535E),
+                       childrenPadding: const EdgeInsets.only(left:60),
                        title: const Text(
                          'My Dashbord ',
                          style: TextStyle(
@@ -124,46 +125,58 @@ class _HomeScreenState extends State<HomeScreen> {
                            fontSize: 16,
                          ),
                        ),
-                       children: const <Widget>[
+                       children:  <Widget>[
                          ListTile(
-                           iconColor:Color(0xFF4F535E),
+                           iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
-                           visualDensity: VisualDensity(horizontal: 0, vertical: -2),
-                           subtitle: Text('Dashbord',
+                           visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
+                           subtitle: const Text('Dashbord',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
                            dense: true,
+                           onTap: (){
+                               Get.back();
+                           },
                          ),
-                         ListTile(
-                           iconColor:Color(0xFF4F535E),
+                          ListTile(
+                           iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
-                           subtitle: Text('Child',
+                           subtitle: const Text('Child',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
                            dense: true,
-                           visualDensity: VisualDensity(horizontal: 0, vertical: -3),
+                           onTap: (){
+                             Get.toNamed(MyRouter.childListScreen);
+                           },
+                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                          ),
-                         ListTile(
-                           iconColor:Color(0xFF4F535E),
+                          ListTile(
+                           iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
-                           subtitle: Text('Caregiver',
+                           subtitle: const Text('Caregiver',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
                            dense: true,
-                           visualDensity: VisualDensity(horizontal: 0, vertical: -3),
+                            onTap: (){
+                              Get.toNamed(MyRouter.caregiverListScreen);
+                            },
+                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                          ),
-                         ListTile(
-                           visualDensity: VisualDensity(horizontal: 0, vertical: -3),
-                           iconColor:Color(0xFF4F535E),
+                          ListTile(
+                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
+                           iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
-                           subtitle: Text('My Booking',
+                           subtitle: const Text('My Booking',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
                            dense: true,
+                            onTap: (){
+                              Get.toNamed(MyRouter.myBookingScreen);
+                            },
                          ),
 
                        ],
@@ -171,20 +184,20 @@ class _HomeScreenState extends State<HomeScreen> {
                    ),
                  ),
                ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
                   title: Row(
                     children: [
                       currentDrawer == 0
-                          ? Icon(
+                          ? const Icon(
                       Icons.mail,
-                        color: const Color(0xFF4F535E),
+                        color: Color(0xFF4F535E),
                       )
-                          :Icon(
+                          :const Icon(
                       Icons.mail_outline,
-                        color: const Color(0xFF4F535E),
+                        color: Color(0xFF4F535E),
                       ),
                       const SizedBox(
                         width: 31,
@@ -210,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
@@ -252,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-             Divider(
+             const Divider(
                thickness: 1,
              ),
               Container(
@@ -264,15 +277,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 child:  Theme(
                   data:  Theme.of(context).copyWith(
                     accentColor: const Color(0xFF4F535E),
+                      dividerColor: Colors.transparent
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                     child: ExpansionTile(
                       leading: Image.asset('assets/images/ranking.png',width: 25 ,height: 25,),
-                      backgroundColor: Color(0xFFFCFBFA),
-                      iconColor: Color(0xFF4F535E),
-                      collapsedIconColor: Color(0xFF4F535E),
-                      childrenPadding: EdgeInsets.only(left:20),
+                      backgroundColor: const Color(0xFFFCFBFA),
+                      iconColor: const Color(0xFF4F535E),
+                      collapsedIconColor: const Color(0xFF4F535E),
+                      childrenPadding: const EdgeInsets.only(left:20),
                       title: const Text(
                         'Refer',
                         style: TextStyle(
@@ -283,13 +297,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       children:  <Widget>[
                         ListTile(
-                          iconColor:Color(0xFF4F535E),
+                          iconColor:const Color(0xFF4F535E),
                           // isThreeLine: true,
-                          visualDensity: VisualDensity(horizontal: 0, vertical: -2),
+                          visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
                           subtitle: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('YAF5KJHGCX45YTUY',
+                              const Text('YAF5KJHGCX45YTUY',
                                 style: TextStyle( color: Color(0xFF1E282D),
                                   fontWeight: FontWeight.w400,
                                   fontSize: 14,),),
@@ -304,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
@@ -346,7 +360,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
@@ -388,7 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
@@ -430,7 +444,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
@@ -472,7 +486,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
@@ -514,7 +528,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,bottom: 0),
                 child: ListTile(
@@ -556,7 +570,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height:20,
               )
             ],
@@ -731,7 +745,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Expanded(
                                       child: AddText(
                                         text: "Dance Studio",
-                                        color: Color(0xFF1B233A),
+                                        color: const Color(0xFF1B233A),
                                         fontWeight: FontWeight.w600,
                                         fontSize: AddSize.font16,
                                       ),
@@ -809,7 +823,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                   AddText(
+                   const AddText(
                      text: 'Popular Classes',
                      fontSize: 18,fontWeight: FontWeight.w500,color: Color(0xFF1B233A),
                      //fontWeight: FontWeight.bold,
@@ -852,7 +866,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AddText(
+                    const AddText(
                       text: 'Popular Events',
                       fontSize: 18,fontWeight: FontWeight.w500,color: Color(0xFF1B233A),
                       //fontWeight: FontWeight.bold,
@@ -1311,7 +1325,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Padding(
                                     padding: EdgeInsets.only(
                                         top: AddSize.size5),
-                                    child: AddText(
+                                    child: const AddText(
                                       text:'4.9',
                                       color: Colors.amber,
                                       fontWeight:
@@ -1344,8 +1358,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 const Icon(Icons.location_on_outlined,color: Colors.grey,size: 20,),
                                 const SizedBox(width: 5,),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 5),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 5),
                                   child: AddText(
                                     text: '5 km',
                                     textAlign: TextAlign.start,
@@ -1365,7 +1379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             SizedBox(height: AddSize.size8,),
-                            AddText(text: " \$ 30.00",color: AppTheme.primaryColor,fontSize: 15,fontWeight: FontWeight.w500,)
+                            const AddText(text: " \$ 30.00",color: AppTheme.primaryColor,fontSize: 15,fontWeight: FontWeight.w500,)
                           ],
                         ),
                       ),
@@ -1436,7 +1450,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: const EdgeInsets.only(right: 8.0),
                               child: Row(
                                 children: [
-                                  Expanded(
+                                  const Expanded(
                                     child: AddText(
                                       text: 'Yoga Class',
                                       textAlign: TextAlign.start,
@@ -1482,8 +1496,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 const Icon(Icons.location_on_outlined,color: Colors.grey,size: 20,),
                                 const SizedBox(width: 5,),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 5),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 5),
                                   child: AddText(
                                     text: '5 km',
                                     textAlign: TextAlign.start,
@@ -1504,7 +1518,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             SizedBox(height: AddSize.size6,),
                             SizedBox(height: AddSize.size8,),
-                            AddText(text: " \$ 30.00",color: AppTheme.primaryColor,fontSize: 15,fontWeight: FontWeight.w500,)
+                            const AddText(text: " \$ 30.00",color: AppTheme.primaryColor,fontSize: 15,fontWeight: FontWeight.w500,)
                           ],
                         ),
                       ),
@@ -1607,7 +1621,7 @@ Future<void> _distance (BuildContext context) {
   return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        RangeValues values = RangeValues(1, 100);
+        RangeValues values = const RangeValues(1, 100);
         return SimpleDialog(
             title: const Text('Distance',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12,),),
             shape: const RoundedRectangleBorder(

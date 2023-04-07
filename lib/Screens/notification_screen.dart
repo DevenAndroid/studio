@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../Router/my_router.dart';
 import '../widgets/add_text.dart';
 import '../widgets/app_theme.dart';
 import '../widgets/dimentions.dart';
@@ -59,7 +60,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             padding: EdgeInsets.all(AddSize.padding10),
                             child: InkWell(
                               onTap: () {
-                               // Get.toNamed(MyRouter.myMessage);
+                               Get.toNamed(MyRouter.settingScreen);
                               },
                               child: Column(
                                 children: [

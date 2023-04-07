@@ -22,12 +22,10 @@ class _SupportScreenState extends State<SupportScreen> {
           Get.back();
           //Get.toNamed(MyRouter.studioScreen);
         },
-            child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 85),
-          child: Text("Support",style: TextStyle(color: Colors.white),),
-        ),
+            child : const Icon(Icons.arrow_back)),
+        title: const Text("Support",style: TextStyle(color: Colors.white),),
         toolbarHeight: 70,
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -36,57 +34,64 @@ class _SupportScreenState extends State<SupportScreen> {
             children: [
               SizedBox(height: 10,),
               Row(
-                children: [
-                  AddText(text: 'Hi, How can we help?',fontWeight: FontWeight.w600,fontSize: 20,)
+                children: const [
+                  AddText(text: 'Hi, How can we Help?',fontWeight: FontWeight.w600,fontSize: 20,)
                 ],
               ),
-              SizedBox(height: 30,),
-              TextField(
-                //controller: helpScreenController.searchController1,
-                textInputAction: TextInputAction.search,
+             const SizedBox(height: 16,),
+              SizedBox(
+                height: 52,
+                child: TextField(
+                  //controller: helpScreenController.searchController1,
+                  textInputAction: TextInputAction.search,
+                  onChanged: (value){
 
-                onChanged: (value){
-
-                },
-                decoration: InputDecoration(
-                  enabledBorder: const OutlineInputBorder(
-                      borderSide:
-                      BorderSide(color: Color(0xFFC9002B)),
-                      borderRadius:
-                      BorderRadius.all(Radius.circular(11))),
-                  border: const OutlineInputBorder(
-                      borderSide:
-                      BorderSide(color: Color(0xfff53b176)),
-                      borderRadius:
-                      BorderRadius.all(Radius.circular(11))),
-                  filled: true,
-                  fillColor: Colors.white,
-                  labelText: 'Search',
-                  suffixIcon: GestureDetector(
-                      onTap: (){
-                        //helpScreenController.getDatasEARCH();
-                      },
-                      child: const Icon(Icons.search,color: Color(0xFFC9002B),)),
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Color(0xFFC9002B)),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(11))),
+                    border: const OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Color(0xfff53b176)),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(11))),
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: 'Search',
+                    suffixIcon: GestureDetector(
+                        onTap: (){
+                          //helpScreenController.getDatasEARCH();
+                        },
+                        child: const Icon(Icons.search,color: Color(0xFFC9002B),)),
+                  ),
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 35,),
+                children: const[
+                  SizedBox(height: 31,),
                   AddText(text: 'Hot Questions',fontWeight: FontWeight.w500,fontSize: 18,),
-                  SizedBox(height: 35,),
+                  SizedBox(height: 19,),
                   AddText(text: '(My Account) Why did I not receive my verification code/ One-Time Password (OTP) via SMS?',fontWeight: FontWeight.w400,fontSize: 16,color: Color(0xFF545454),),
-                  SizedBox(height: 35,),
+                  SizedBox(height: 16),
+                  Divider(thickness: 1.0,),
+                  SizedBox(height: 16),
                   AddText(text: '(Order Cancellation) How will I get my refund for cancelled orders?',color: Color(0xFF545454),fontWeight: FontWeight.w400,fontSize: 16,),
-                  SizedBox(height: 35,),
+                  SizedBox(height: 16),
+                  Divider(thickness: 1.0,),
+                  SizedBox(height: 16),
                   AddText(text: '(Order Tracking) How do I check the status of my order?',color: Color(0xFF545454),fontWeight: FontWeight.w400,fontSize: 16,),
-                  SizedBox(height: 35,),
+                  SizedBox(height: 16),
+                  Divider(thickness: 1.0,),
+                  SizedBox(height: 16),
                   AddText(text: '(My Account) Why did I not receive my verification code/ One-Time Password (OTP) via SMS?',color: Color(0xFF545454),fontWeight: FontWeight.w400,fontSize: 16,),
-                  SizedBox(height: 35,),
-                  AddText(text: '(Order Cancellation) How will I get my refund for cancelled orders?',color: Color(0xFF545454),fontWeight: FontWeight.w400,fontSize: 16,),
-                  SizedBox(height: 35,),
+                  Divider(thickness: 1.0,),
+                  SizedBox(height: 16),
                   AddText(text: '(Order Tracking) How do I check the status of my order?',color: Color(0xFF545454),fontWeight: FontWeight.w400,fontSize: 16,),
-                  SizedBox(height: 35,),
+                  SizedBox(height: 16),
                 ],
               ),
 
