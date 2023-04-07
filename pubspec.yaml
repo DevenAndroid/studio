@@ -52,6 +52,7 @@ dependencies:
   card_swiper: ^2.0.4
   image_picker: ^0.8.4+4
   multi_image_picker: ^4.6.7
+  syncfusion_flutter_charts: ^21.1.38
 
 dev_dependencies:
   flutter_test:

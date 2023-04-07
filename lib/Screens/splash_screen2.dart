@@ -39,7 +39,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(13),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.only(top: 30),
@@ -47,7 +47,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                 children: [
                   Container(
                     height: 96,
-                    width: size.width*.88,
+                    width: size.width,
                     decoration: BoxDecoration(
                       // color: Color(0xFFFFFFFF),
                       color: Color(0xFFFFFFFF),
@@ -57,7 +57,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: (){
-                          Get.toNamed(MyRouter.parentDashboardScreen);
+                          Get.toNamed(MyRouter.signupScreen);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -84,7 +84,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                            ),
                             const Spacer(),
                             InkWell(onTap: (){
-                              Get.toNamed(MyRouter.parentDashboardScreen);
+                              Get.toNamed(MyRouter.signupScreen);
                             },
                                 child: const Icon(Icons.arrow_forward))
                           ],
@@ -120,7 +120,56 @@ class _SplashScreen2State extends State<SplashScreen2> {
                  const SizedBox(height: 20,),
                   Container(
                     height: 96,
-                    width: size.width*.88,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFFFFFF),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: (){
+                          Get.toNamed(MyRouter.studioregistrationScreen);
+
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 91,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color(0xFF18B884).withOpacity(.35),
+                              ),
+                              // child: Image.asset('assets/images/studio_partner.png'),
+                              child: SizedBox(
+                                height: 2,
+                                  child: SvgPicture.asset('assets/images/Vector.svg',fit: BoxFit.none,)),
+                            ),
+
+                           const Padding(
+                             padding: EdgeInsets.only(left: 13.0),
+                             child:  Text('Are You Studio Partner',style: TextStyle(
+                               fontSize: 16,
+                               fontWeight: FontWeight.w500,
+                             ),),
+                           ),
+                            const Spacer(),
+                            InkWell(onTap: (){
+                             Get.toNamed(MyRouter.studioregistrationScreen);
+                            },
+                                child: const Icon(Icons.arrow_forward))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20,),
+                  Container(
+                    height: 96,
+                    width: size.width,
                     decoration: BoxDecoration(
                       color: const Color(0xFFFFFFFF),
                       borderRadius: BorderRadius.circular(10),
@@ -142,60 +191,12 @@ class _SplashScreen2State extends State<SplashScreen2> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Color(0xFF18B884).withOpacity(.35),
                               ),
-                              // child: Image.asset('assets/images/studio_partner.png'),
-                              child: SizedBox(
-                                height: 2,
-                                  child: SvgPicture.asset('assets/images/Vector.svg',fit: BoxFit.none,)),
-                            ),
-
-                           const Padding(
-                             padding: EdgeInsets.only(left: 18.0),
-                             child:  Text('Are You Studio Partner',style: TextStyle(
-                               fontSize: 16,
-                               fontWeight: FontWeight.w500,
-                             ),),
-                           ),
-                            const Spacer(),
-                            InkWell(onTap: (){
-                              Get.toNamed(MyRouter.businessRegistrationScreen);
-                            },
-                                child: const Icon(Icons.arrow_forward))
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20,),
-                  Container(
-                    height: 96,
-                    width: size.width*.88,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: (){
-                          Get.toNamed(MyRouter.signupScreen);
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 91,
-                              height: 80,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xFF18B884).withOpacity(.35),
-                              ),
                               child: SizedBox(
                                   child: SvgPicture.asset('assets/images/Layer 2.svg',fit: BoxFit.none)),
                             ),
 
                             const Padding(
-                              padding: EdgeInsets.only(left: 18.0),
+                              padding: EdgeInsets.only(left: 13.0),
                               child: Text('Are You Event Partner',style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -203,7 +204,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                             ),
                             const Spacer(),
                             InkWell(onTap: (){
-                              Get.toNamed(MyRouter.signupScreen);
+                              Get.toNamed(MyRouter.businessRegistrationScreen);
                             },
                                 child: Icon(Icons.arrow_forward))
                           ],

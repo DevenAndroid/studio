@@ -121,10 +121,13 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                             fontSize: 16,
                           ),
                         ),
-                        children: const <Widget>[
+                        children:  <Widget>[
                           ListTile(
                             iconColor:Color(0xFF4F535E),
                             // isThreeLine: true,
+                            onTap: (){
+                               Get.back();
+                            },
                             visualDensity: VisualDensity(horizontal: 0, vertical: -2),
                             subtitle: Text('Dashbord',
                               style: TextStyle( color: Color(0xFF4F535E),
@@ -134,6 +137,9 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                           ),
                           ListTile(
                             iconColor:Color(0xFF4F535E),
+                            onTap: (){
+                              Get.toNamed(MyRouter.childListScreen);
+                            },
                             // isThreeLine: true,
                             subtitle: Text('Child',
                               style: TextStyle( color: Color(0xFF4F535E),
@@ -143,6 +149,9 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                             visualDensity: VisualDensity(horizontal: 0, vertical: -3),
                           ),
                           ListTile(
+                            onTap: (){
+                              Get.toNamed(MyRouter.caregiverListScreen);
+                            },
                             iconColor:Color(0xFF4F535E),
                             // isThreeLine: true,
                             subtitle: Text('Caregiver',
@@ -153,6 +162,9 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                             visualDensity: VisualDensity(horizontal: 0, vertical: -3),
                           ),
                           ListTile(
+                            onTap: (){
+                              Get.toNamed(MyRouter.myBookingScreen);
+                            },
                             visualDensity: VisualDensity(horizontal: 0, vertical: -3),
                             iconColor:Color(0xFF4F535E),
                             // isThreeLine: true,
@@ -177,7 +189,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                     children: [
                       currentDrawer == 0
                           ? const Icon(
-                        Icons.mail,
+                        Icons.mail_outline,
                         color: Color(0xFF4F535E),
                       )
                           :const Icon(
@@ -204,6 +216,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 0;
+                      Get.toNamed(MyRouter.notificationScreen);
                     });
                   },
                 ),
@@ -342,6 +355,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 4;
+                      Get.toNamed(MyRouter.businessRegistrationScreen);
                       // bottomController.updateIndexValue(2);
                     });
                   },
@@ -383,6 +397,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                   ),
                   onTap: () {
                     setState(() {
+                      Get.toNamed(MyRouter.businessRegistrationScreen);
                       currentDrawer = 4;
                       // bottomController.updateIndexValue(2);
                     });

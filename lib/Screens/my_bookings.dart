@@ -14,15 +14,21 @@ class MyBookingScreen extends StatefulWidget {
 }
 
 class _MyBookingScreenState extends State<MyBookingScreen> {
-  RxString dropDownValue2 = ''.obs;
-  var days = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
+  RxString dropDownValue1 = ''.obs;
+  RxString dropDownValue = ''.obs;
+
+  var months = [
+    'Jan',
+    'Feb',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+  ];
+  var completed = [
+    'Yes',
+    'No',
   ];
   @override
   Widget build(BuildContext context) {
@@ -60,7 +66,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       offset: Offset.fromDirection(50, 100),
                       onSelected: (value) {
                         setState(() {
-                          dropDownValue2.value = days[value];
+                          dropDownValue.value = months[value];
 
                         });
                       },
@@ -72,10 +78,10 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                               children: [
                                 InkWell(
                                   onTap: (){
-                                    dropDownValue2.value =  '  Folk Dance';
+                                    dropDownValue.value =  '  Jan';
                                     Get.back();
                                   },
-                                  child: const Text('  Folk Dance'),
+                                  child: const Text(' Jan'),
                                 ),
 
                               ],
@@ -88,10 +94,10 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                                 InkWell(
                                   onTap: (){
                                     setState(() {
-                                      dropDownValue2.value = '  Hip hop dance';
+                                      dropDownValue.value = '  Feb';
                                       Get.back();
                                     }); },
-                                  child: const Text('  Hip hop dance'),
+                                  child: const Text('  Feb'),
                                 ),
 
                               ],
@@ -102,10 +108,10 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                                 InkWell(
                                   onTap: (){
                                     setState(() {
-                                      dropDownValue2.value = '  Salsa Dance';
+                                      dropDownValue.value = '  March';
                                       Get.back();
                                     }); },
-                                  child: const Text('  Salsa Dance'),
+                                  child: const Text('  March'),
                                 ),
 
                               ],
@@ -133,11 +139,11 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
 
                                   Center(
                                     child: Text(
-                                      dropDownValue2.value
+                                      dropDownValue.value
                                           .toString()
                                           .isEmpty
                                           ? "  Month "
-                                          : dropDownValue2.value
+                                          : dropDownValue.value
                                           .toString(),
                                       style: const TextStyle(
                                           fontSize: 14,
@@ -171,7 +177,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       offset: Offset.fromDirection(50, 100),
                       onSelected: (value) {
                         setState(() {
-                          dropDownValue2.value = days[value];
+                          dropDownValue1.value = completed[value];
 
                         });
                       },
@@ -183,10 +189,10 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                               children: [
                                 InkWell(
                                   onTap: (){
-                                    dropDownValue2.value =  '  Folk Dance';
+                                    dropDownValue1.value =  '  Yes';
                                     Get.back();
                                   },
-                                  child: const Text('  Folk Dance'),
+                                  child: const Text(' Yes'),
                                 ),
 
                               ],
@@ -199,28 +205,28 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                                 InkWell(
                                   onTap: (){
                                     setState(() {
-                                      dropDownValue2.value = '  Hip hop dance';
+                                      dropDownValue1.value = ' NO';
                                       Get.back();
                                     }); },
-                                  child: const Text('  Hip hop dance'),
+                                  child: const Text(' No'),
                                 ),
 
                               ],
                             )),
-                        PopupMenuItem(
-                            child: Column(
-                              children: [
-                                InkWell(
-                                  onTap: (){
-                                    setState(() {
-                                      dropDownValue2.value = '  Salsa Dance';
-                                      Get.back();
-                                    }); },
-                                  child: const Text('  Salsa Dance'),
-                                ),
-
-                              ],
-                            )),
+                        // PopupMenuItem(
+                        //     child: Column(
+                        //       children: [
+                        //         InkWell(
+                        //           onTap: (){
+                        //             setState(() {
+                        //               dropDownValue2.value = '  Pending';
+                        //               Get.back();
+                        //             }); },
+                        //           child: const Text('  Pending'),
+                        //         ),
+                        //
+                        //       ],
+                        //     )),
                       ],
                       child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -244,11 +250,11 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
 
                                   Center(
                                     child: Text(
-                                      dropDownValue2.value
+                                      dropDownValue1.value
                                           .toString()
                                           .isEmpty
                                           ? "  Completed "
-                                          : dropDownValue2.value
+                                          : dropDownValue1.value
                                           .toString(),
                                       style: const TextStyle(
                                           fontSize: 14,

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
@@ -13,14 +14,14 @@ import '../../widgets/app_theme.dart';
 import '../../widgets/common_textfield.dart';
 import '../../widgets/dimentions.dart';
 
-class BusinessRegistrationScreen extends StatefulWidget {
-  const BusinessRegistrationScreen({Key? key}) : super(key: key);
+class Studio_registrationScreen extends StatefulWidget {
+  const Studio_registrationScreen({Key? key}) : super(key: key);
 
   @override
-  State<BusinessRegistrationScreen> createState() => _BusinessRegistrationScreenState();
+  State<Studio_registrationScreen> createState() => _Studio_registrationScreenState();
 }
 
-class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen> {
+class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
   bool value = false;
   final Formkey2 = GlobalKey<FormState>();
   final ImagePicker imgpicker2 = ImagePicker();
@@ -34,7 +35,7 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
   _pickVideo() async{
     final video = await picker.getVideo(source: ImageSource.gallery) ;
     _video = File(video!.path);
-}
+  }
   openLogoFromGallery() async {
     try {
       var pickedfiles = await imgpicker2.pickMultiImage();
@@ -99,8 +100,8 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
                 ),
                 SizedBox(height: AddSize.size10,),
                 CustomTextField(
-                    obSecure: false.obs,
-                    hintText: 'Popup dance class'.obs,
+                  obSecure: false.obs,
+                  hintText: 'Popup dance class'.obs,
                   validator: MultiValidator([
                     RequiredValidator(
                         errorText:
@@ -138,21 +139,21 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
                 ),
                 SizedBox(height: AddSize.size10,),
                 CustomTextField(
-                    obSecure: false.obs,
-                    hintText: 'Riverside Building, County Hall'.obs,
-                    suffixIcon:  Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height : 28,
-                          width: 28,
-                          child: const CircleAvatar(
-                              backgroundColor: Color(0xFFD7EDFF),
-                              child: Icon(Icons.location_on_outlined,color: AppTheme.primaryColor,size: 18,)),
-                        ),
-                      ],
-                    ),
+                  obSecure: false.obs,
+                  hintText: 'Riverside Building, County Hall'.obs,
+                  suffixIcon:  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height : 28,
+                        width: 28,
+                        child: const CircleAvatar(
+                            backgroundColor: Color(0xFFD7EDFF),
+                            child: Icon(Icons.location_on_outlined,color: AppTheme.primaryColor,size: 18,)),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: AddSize.size16,),
                 AddText(
@@ -199,17 +200,6 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
                     ),
                   ),
                 ),
-                // Container(
-                //   height: 120,
-                //   width: AddSize.screenWidth,
-                //   decoration: BoxDecoration(
-                //       border: Border.all(color: AppTheme.boardercolor.withOpacity(0.5)),
-                //       borderRadius: BorderRadius.circular(10)
-                //   ),
-                //   child: InkWell(
-                //       onTap: (){},
-                //       child: Image.asset('assets/images/Group1000003877.png')),
-                // ),
                 SizedBox(height: AddSize.size16,),
                 AddText(
                   text: "Studio image",
@@ -329,16 +319,16 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
                     ),
                     Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 5),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 5),
                           child: AddText(text: 'I agree to the',fontSize: 14,fontWeight: FontWeight.w500,),
                         ),
-                        SizedBox(width: 5,),
+                        const SizedBox(width: 5,),
                         InkWell(onTap: (){
                           Get.toNamed(MyRouter.cancellationPolicyScreen);
                         },
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 5),
+                            child: const Padding(
+                              padding: EdgeInsets.only(top: 5),
                               child: AddText(text: 'Cancellation Policy',fontSize: 14,fontWeight: FontWeight.w500,color: AppTheme.primaryColor,),
                             )),
                       ],
@@ -348,19 +338,19 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
                 SizedBox(height: AddSize.size50,),
                 ElevatedButton(onPressed: ()
                 {
-                  // Get.toNamed(MyRouter.editProfileScreen);
+                  Get.toNamed(MyRouter.studio_dashboradScreen);
                 },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.buttonColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
-                        side: BorderSide(
+                        side: const BorderSide(
                           color: AppTheme.buttonColor,
                         ),
                       ),
                       minimumSize: const Size(340, 56),
                     ),
-                    child: Center(child: AddText(text: 'REGISTER ACCOUNT',color:Colors.white,fontSize: 19,fontWeight: FontWeight.w600,))
+                    child: const Center(child: AddText(text: 'REGISTER ACCOUNT',color:Colors.white,fontSize: 19,fontWeight: FontWeight.w600,))
                 ),
                 SizedBox(height: AddSize.size40,),
 

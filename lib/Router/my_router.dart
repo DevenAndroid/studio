@@ -48,6 +48,8 @@ import '../ForgotPassword/signup_verification.dart';
 import '../studio_owner/checkout_owner.dart';
 import '../studio_owner/create_class.dart';
 import '../studio_owner/reviews_screen.dart';
+import '../studio_owner/studio_deshboard.dart';
+import '../studio_owner/studio_registration.dart';
 import '../studio_owner/subscripition_screen.dart';
 import '../studio_owner/subscription_plan.dart';
 
@@ -104,6 +106,9 @@ class MyRouter{
   static var  subScripitionScreenOwner="/subScripitionScreenOwner";
   static var  checkoutOwner="/checkoutOwner";
   static var  subscripitionPlanScreen ="/subscripitionPlanScreen";
+  //studio owner
+  static var  studio_dashboradScreen ="/studio_dashboradScreen";
+  static var  studioregistrationScreen ="/studioregistrationScreen";
 
 
 
@@ -114,58 +119,60 @@ class MyRouter{
 
 
   static var route = [
-   GetPage(name: '/', page: () => const SplashScreen()),
-   GetPage(name: MyRouter.splashScreen, page: () => const SplashScreen()),
-   GetPage(name: MyRouter.onBoarding, page: () => OnBoardingScreen()),
-    GetPage(name: MyRouter.loginScreen, page: () => LoginScreen()),
-    GetPage(name: MyRouter.signupScreen, page: () => SignupScreen()),
-    GetPage(name: MyRouter.forgotPassword, page: () => ForgotPassword()),
-    GetPage(name: MyRouter.signupVerification, page: () => SignupVerification()),
-    GetPage(name: MyRouter.resetPassword, page: () => ResetPassword()),
-    GetPage(name: MyRouter.homeScreen, page: () => HomeScreen()),
-    GetPage(name: MyRouter.bottomNavBar, page: () => BottomNavbar()),
-    GetPage(name: MyRouter.studioScreen, page: () => StudioScreen()),
-    GetPage(name: MyRouter.notificationScreen, page: () => NotificationScreen()),
-    GetPage(name: MyRouter.studioClassScreen, page: () => StudioClassScreen()),
-    GetPage(name: MyRouter.bookingScreen, page: () => BookingInformationScreen()),
-    GetPage(name: MyRouter.checkoutScreen, page: () => CheckoutScreen()),
-    GetPage(name: MyRouter.thankYouScreen, page: () => ThankYouScreen()),
-    GetPage(name: MyRouter.profileScreen, page: () => ProfileScreen()),
-    GetPage(name: MyRouter.editProfileScreen, page: () => EditProfile()),
-    GetPage(name: MyRouter.splashScreen2, page: () => SplashScreen2()),
-    GetPage(name: MyRouter.studioListScreen, page: () => StudioListScreen()),
-    GetPage(name: MyRouter.savedPlacesScreen, page: () => SavedPlacesScreen()),
-    GetPage(name: MyRouter.myBookingScreen, page: () => MyBookingScreen()),
-    GetPage(name: MyRouter.bookingDetailsScreen, page: () => BookingDetailsScreen()),
-    GetPage(name: MyRouter.leaveReviewScreen, page: () => ReviewScreen()),
-    GetPage(name: MyRouter.leaveReviewScreen, page: () => NotificationScreen()),
-    GetPage(name: MyRouter.cancellationPolicyScreen, page: () => CancellationPolicyScreen()),
-    GetPage(name: MyRouter.parentDashboardScreen, page: () => ParentDashboardScreen()),
-    GetPage(name: MyRouter.childListScreen, page: () => ChildListScreen()),
-    GetPage(name: MyRouter.addNewChildScreen, page: () => AddNewChildScreen()),
-    GetPage(name: MyRouter.caregiverListScreen, page: () => CareGiverListScreen()),
-    GetPage(name: MyRouter.addNewCaregiverScreen, page: () => AddNewCareGiverScreen()),
-    GetPage(name: MyRouter.privacyPolicyScreen, page: () => PrivacyPolicyScreen()),
-    GetPage(name: MyRouter.faqScreen, page: () => FaqScreen()),
-    GetPage(name: MyRouter.supportScreen, page: () => SupportScreen()),
-    GetPage(name: MyRouter.businessRegistrationScreen, page: () => BusinessRegistrationScreen()),
-    GetPage(name: MyRouter.createNewEventScreen, page: () => CreateNewEventScreen()),
-    GetPage(name: MyRouter.eventListScreen, page: () => EventListScreen()),
-    GetPage(name: MyRouter.discoEventScreen, page: () => DiscoEventScreen()),
-    GetPage(name: MyRouter.myBookingEventScreen, page: () => MyBookingEventScreen()),
-    GetPage(name: MyRouter.myBookingDetailsEventScreen, page: () => MyBookingDetailsEventScreen()),
-    GetPage(name: MyRouter.reviewEventScreen, page: () => ReviewEventScreen()),
-    GetPage(name: MyRouter.subscriptionPlanScreen, page: () => SubscriptionPlanScreen()),
-    GetPage(name: MyRouter.checkoutEventScreen, page: () => CheckoutEventScreen()),
-    GetPage(name: MyRouter.thankYouEventScreen, page: () => ThankYouEventScreen()),
-    GetPage(name: MyRouter.withDrawlMoneyScreen, page: () => WithDrawlMoneyScreen()),
-    GetPage(name: MyRouter.settingScreen, page: () => SettingScreen()),
-    GetPage(name: MyRouter.createclassowner, page: () => CreateClassOwner()),
-    GetPage(name: MyRouter.thankyouownerScreen, page: () => ThankyouOwner()),
-    GetPage(name: MyRouter.reviewscreen, page: () => ReviewOwnerScreen()),
-    GetPage(name: MyRouter.subScripitionScreenOwner, page: () => SubScripitionScreenOwner()),
-    GetPage(name: MyRouter.checkoutOwner, page: () => CheckoutOwner()),
-    GetPage(name: MyRouter.subscripitionPlanScreen, page: () => SubscripitionPlanScreen()),
+    GetPage(name: '/', page: () => const SplashScreen()),
+    GetPage(name: MyRouter.splashScreen, page: () => const SplashScreen()),
+    GetPage(name: MyRouter.onBoarding, page: () => OnBoardingScreen()),
+    GetPage(name: MyRouter.loginScreen, page: () => const LoginScreen()),
+    GetPage(name: MyRouter.signupScreen, page: () => const SignupScreen()),
+    GetPage(name: MyRouter.forgotPassword, page: () => const ForgotPassword()),
+    GetPage(name: MyRouter.signupVerification, page: () => const SignupVerification()),
+    GetPage(name: MyRouter.resetPassword, page: () => const ResetPassword()),
+    GetPage(name: MyRouter.homeScreen, page: () => const HomeScreen()),
+    GetPage(name: MyRouter.bottomNavBar, page: () => const BottomNavbar()),
+    GetPage(name: MyRouter.studioScreen, page: () => const StudioScreen()),
+    GetPage(name: MyRouter.notificationScreen, page: () => const NotificationScreen()),
+    GetPage(name: MyRouter.studioClassScreen, page: () => const StudioClassScreen()),
+    GetPage(name: MyRouter.bookingScreen, page: () => const BookingInformationScreen()),
+    GetPage(name: MyRouter.checkoutScreen, page: () => const CheckoutScreen()),
+    GetPage(name: MyRouter.thankYouScreen, page: () => const ThankYouScreen()),
+    GetPage(name: MyRouter.profileScreen, page: () => const ProfileScreen()),
+    GetPage(name: MyRouter.editProfileScreen, page: () => const EditProfile()),
+    GetPage(name: MyRouter.splashScreen2, page: () => const SplashScreen2()),
+    GetPage(name: MyRouter.studioListScreen, page: () => const StudioListScreen()),
+    GetPage(name: MyRouter.savedPlacesScreen, page: () => const SavedPlacesScreen()),
+    GetPage(name: MyRouter.myBookingScreen, page: () => const MyBookingScreen()),
+    GetPage(name: MyRouter.bookingDetailsScreen, page: () => const BookingDetailsScreen()),
+    GetPage(name: MyRouter.leaveReviewScreen, page: () => const ReviewScreen()),
+    GetPage(name: MyRouter.leaveReviewScreen, page: () => const NotificationScreen()),
+    GetPage(name: MyRouter.cancellationPolicyScreen, page: () => const CancellationPolicyScreen()),
+    GetPage(name: MyRouter.parentDashboardScreen, page: () => const ParentDashboardScreen()),
+    GetPage(name: MyRouter.childListScreen, page: () => const ChildListScreen()),
+    GetPage(name: MyRouter.addNewChildScreen, page: () => const AddNewChildScreen()),
+    GetPage(name: MyRouter.caregiverListScreen, page: () => const CareGiverListScreen()),
+    GetPage(name: MyRouter.addNewCaregiverScreen, page: () => const AddNewCareGiverScreen()),
+    GetPage(name: MyRouter.privacyPolicyScreen, page: () => const PrivacyPolicyScreen()),
+    GetPage(name: MyRouter.faqScreen, page: () => const FaqScreen()),
+    GetPage(name: MyRouter.supportScreen, page: () => const SupportScreen()),
+    GetPage(name: MyRouter.businessRegistrationScreen, page: () => const BusinessRegistrationScreen()),
+    GetPage(name: MyRouter.createNewEventScreen, page: () => const CreateNewEventScreen()),
+    GetPage(name: MyRouter.eventListScreen, page: () => const EventListScreen()),
+    GetPage(name: MyRouter.discoEventScreen, page: () => const DiscoEventScreen()),
+    GetPage(name: MyRouter.myBookingEventScreen, page: () => const MyBookingEventScreen()),
+    GetPage(name: MyRouter.myBookingDetailsEventScreen, page: () => const MyBookingDetailsEventScreen()),
+    GetPage(name: MyRouter.reviewEventScreen, page: () => const ReviewEventScreen()),
+    GetPage(name: MyRouter.subscriptionPlanScreen, page: () => const SubscriptionPlanScreen()),
+    GetPage(name: MyRouter.checkoutEventScreen, page: () => const CheckoutEventScreen()),
+    GetPage(name: MyRouter.thankYouEventScreen, page: () => const ThankYouEventScreen()),
+    GetPage(name: MyRouter.withDrawlMoneyScreen, page: () => const WithDrawlMoneyScreen()),
+    GetPage(name: MyRouter.settingScreen, page: () => const SettingScreen()),
+    GetPage(name: MyRouter.createclassowner, page: () => const CreateClassOwner()),
+    GetPage(name: MyRouter.thankyouownerScreen, page: () => const ThankyouOwner()),
+    GetPage(name: MyRouter.reviewscreen, page: () => const ReviewOwnerScreen()),
+    GetPage(name: MyRouter.subScripitionScreenOwner, page: () => const SubScripitionScreenOwner()),
+    GetPage(name: MyRouter.checkoutOwner, page: () => const CheckoutOwner()),
+    GetPage(name: MyRouter.subscripitionPlanScreen, page: () => const SubscripitionPlanScreen()),
+    GetPage(name: MyRouter.studio_dashboradScreen, page: () => const Studio_dashboradScreen()),
+    GetPage(name: MyRouter.studioregistrationScreen, page: () => const Studio_registrationScreen()),
 
 
 
