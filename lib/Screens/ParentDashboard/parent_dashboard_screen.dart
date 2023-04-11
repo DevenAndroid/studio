@@ -114,7 +114,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                         collapsedIconColor: const Color(0xFF4F535E),
                         childrenPadding: const EdgeInsets.only(left:60),
                         title: const Text(
-                          'My Dashbord ',
+                          'My Parent',
                           style: TextStyle(
                             color: Color(0xFF4F535E),
                             fontWeight: FontWeight.w400,
@@ -129,7 +129,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                                Get.back();
                             },
                             visualDensity: VisualDensity(horizontal: 0, vertical: -2),
-                            subtitle: Text('Dashbord',
+                            subtitle: Text('Child List',
                               style: TextStyle( color: Color(0xFF4F535E),
                                 fontWeight: FontWeight.w300,
                                 fontSize: 14,),),
@@ -141,7 +141,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                               Get.toNamed(MyRouter.childListScreen);
                             },
                             // isThreeLine: true,
-                            subtitle: Text('Child',
+                            subtitle: Text('Add New child',
                               style: TextStyle( color: Color(0xFF4F535E),
                                 fontWeight: FontWeight.w300,
                                 fontSize: 14,),),
@@ -154,7 +154,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                             },
                             iconColor:Color(0xFF4F535E),
                             // isThreeLine: true,
-                            subtitle: Text('Caregiver',
+                            subtitle: Text('Caregiver List',
                               style: TextStyle( color: Color(0xFF4F535E),
                                 fontWeight: FontWeight.w300,
                                 fontSize: 14,),),
@@ -168,7 +168,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                             visualDensity: VisualDensity(horizontal: 0, vertical: -3),
                             iconColor:Color(0xFF4F535E),
                             // isThreeLine: true,
-                            subtitle: Text('My Booking',
+                            subtitle: Text('Add New Caregiver',
                               style: TextStyle( color: Color(0xFF4F535E),
                                 fontWeight: FontWeight.w300,
                                 fontSize: 14,),),

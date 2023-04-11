@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studio_live/ForgotPassword/forgot_password.dart';
 import 'package:studio_live/Screens/EventFlow/bussiness_registration_screen.dart';
@@ -36,6 +35,7 @@ import 'package:studio_live/Userflow/signup_screen.dart';
 import 'package:studio_live/studio_owner/thank_you_owner.dart';
 import '../ForgotPassword/reset_password.dart';
 import '../Screens/EventFlow/checkout_event_screen.dart';
+import '../Screens/EventFlow/event_dashboard.dart';
 import '../Screens/EventFlow/review_event_screen.dart';
 import '../Screens/ParentDashboard/add_new_caregiver_screen.dart';
 import '../Screens/ParentDashboard/privacy_policy.dart';
@@ -45,11 +45,18 @@ import '../Screens/onboarding_screen.dart';
 import '../Screens/single_studio_screen.dart';
 import '../Screens/splash_screen.dart';
 import '../ForgotPassword/signup_verification.dart';
+import '../studio_owner/add_new_teammember_screen.dart';
+import '../studio_owner/booking_details_screen.dart';
 import '../studio_owner/checkout_owner.dart';
 import '../studio_owner/create_class.dart';
+import '../studio_owner/my_booking_screen.dart';
+import '../studio_owner/my_employee_screen.dart';
 import '../studio_owner/reviews_screen.dart';
+import '../studio_owner/studio_class_page_screen.dart';
 import '../studio_owner/studio_deshboard.dart';
+import '../studio_owner/studio_owner_class_screen.dart';
 import '../studio_owner/studio_registration.dart';
+import '../studio_owner/studio_withdrawal_screen.dart';
 import '../studio_owner/subscripition_screen.dart';
 import '../studio_owner/subscription_plan.dart';
 
@@ -109,6 +116,14 @@ class MyRouter{
   //studio owner
   static var  studio_dashboradScreen ="/studio_dashboradScreen";
   static var  studioregistrationScreen ="/studioregistrationScreen";
+  static var  eventDashBoardScreen ="/eventDashBoardScreen";
+  static var  studioOwnerClassScreen ="/studioOwnerClassScreen";
+  static var  myEmployeeScreen ="/myEmployeeScreen";
+  static var  addNewTeamScreen ="/addNewTeamScreen";
+  static var  studioClassPageScreen ="/studioClassPageScreen";
+  static var  myBookingStudioScreen ="/myBookingStudioScreen";
+  static var  bookingDetailsScreen2 ="/bookingDetailsScreen2";
+  static var  studioWithdrawalScreen ="/studioWithdrawalScreen";
 
 
 
@@ -119,7 +134,7 @@ class MyRouter{
 
 
   static var route = [
-    GetPage(name: '/', page: () => const SplashScreen()),
+    GetPage(name: '/', page: () => const EventDashBoardScreen()),
     GetPage(name: MyRouter.splashScreen, page: () => const SplashScreen()),
     GetPage(name: MyRouter.onBoarding, page: () => OnBoardingScreen()),
     GetPage(name: MyRouter.loginScreen, page: () => const LoginScreen()),
@@ -154,6 +169,7 @@ class MyRouter{
     GetPage(name: MyRouter.faqScreen, page: () => const FaqScreen()),
     GetPage(name: MyRouter.supportScreen, page: () => const SupportScreen()),
     GetPage(name: MyRouter.businessRegistrationScreen, page: () => const BusinessRegistrationScreen()),
+    GetPage(name: MyRouter.eventDashBoardScreen, page: () => const EventDashBoardScreen()),
     GetPage(name: MyRouter.createNewEventScreen, page: () => const CreateNewEventScreen()),
     GetPage(name: MyRouter.eventListScreen, page: () => const EventListScreen()),
     GetPage(name: MyRouter.discoEventScreen, page: () => const DiscoEventScreen()),
@@ -173,6 +189,14 @@ class MyRouter{
     GetPage(name: MyRouter.subscripitionPlanScreen, page: () => const SubscripitionPlanScreen()),
     GetPage(name: MyRouter.studio_dashboradScreen, page: () => const Studio_dashboradScreen()),
     GetPage(name: MyRouter.studioregistrationScreen, page: () => const Studio_registrationScreen()),
+    GetPage(name: MyRouter.studioOwnerClassScreen, page: () => const StudioOwnerClassScreen()),
+    GetPage(name: MyRouter.myEmployeeScreen, page: () => const MyEmployeeScreen()),
+    GetPage(name: MyRouter.addNewTeamScreen, page: () => const AddNewTeamMemberScreen()),
+    GetPage(name: MyRouter.studioClassPageScreen, page: () => const StudioClassPageScreen()),
+    GetPage(name: MyRouter.myBookingStudioScreen, page: () => const MyBookingScreen2()),
+    GetPage(name: MyRouter.bookingDetailsScreen2, page: () => const BookingDetailsScreen2()),
+    GetPage(name: MyRouter.studioWithdrawalScreen, page: () => const StudioWithDrawlScreen()),
+
 
 
 

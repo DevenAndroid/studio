@@ -73,11 +73,6 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
-        leading: InkWell(onTap: (){
-          Get.back();
-          //Get.toNamed(MyRouter.studioScreen);
-        },
-            child : const Icon(Icons.arrow_back)),
         title: const Text("Business Registration",style: TextStyle(color: Colors.white),),
         centerTitle: true,
         toolbarHeight: 70,

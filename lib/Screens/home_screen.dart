@@ -74,8 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 MainAxisAlignment.start,
                                 children: const [
 
-                                  Text(
-                                    'Rizwan Q',
+                                  Text('Rizwan Q',
                                     style: TextStyle(
                                         color: Color(0xFFFFFFFF),
                                         fontWeight: FontWeight.w600,
@@ -130,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                            iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
                            visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
-                           subtitle: const Text('Dashbord',
+                           subtitle: const Text('Parent Dashboard',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
@@ -142,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ListTile(
                            iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
-                           subtitle: const Text('Child',
+                           subtitle: const Text('Studio List',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
@@ -155,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ListTile(
                            iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
-                           subtitle: const Text('Caregiver',
+                           subtitle: const Text('Dance Studio',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
@@ -169,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                            visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                            iconColor:const Color(0xFF4F535E),
                            // isThreeLine: true,
-                           subtitle: const Text('My Booking',
+                           subtitle: const Text('Dance Studio Class',
                              style: TextStyle( color: Color(0xFF4F535E),
                                fontWeight: FontWeight.w300,
                                fontSize: 14,),),
@@ -178,7 +177,32 @@ class _HomeScreenState extends State<HomeScreen> {
                               Get.toNamed(MyRouter.myBookingScreen);
                             },
                          ),
-
+                         ListTile(
+                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
+                           iconColor:const Color(0xFF4F535E),
+                           // isThreeLine: true,
+                           subtitle: const Text('Child Info',
+                             style: TextStyle( color: Color(0xFF4F535E),
+                               fontWeight: FontWeight.w300,
+                               fontSize: 14,),),
+                           dense: true,
+                           onTap: (){
+                             Get.toNamed(MyRouter.myBookingScreen);
+                           },
+                         ),
+                         ListTile(
+                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
+                           iconColor:const Color(0xFF4F535E),
+                           // isThreeLine: true,
+                           subtitle: const Text('My Bookings',
+                             style: TextStyle( color: Color(0xFF4F535E),
+                               fontWeight: FontWeight.w300,
+                               fontSize: 14,),),
+                           dense: true,
+                           onTap: (){
+                             Get.toNamed(MyRouter.myBookingScreen);
+                           },
+                         ),
                        ],
                      ),
                    ),
@@ -353,10 +377,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.studioregistrationScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -395,10 +420,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.businessRegistrationScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -1345,7 +1371,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(height: 6,),
                             Row(
                               children: const [
-                                Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 5),
+                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                ),
                                 SizedBox(width: 5,),
                                 AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
                                 AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
@@ -1483,7 +1512,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(height: 6,),
                             Row(
                               children: const [
-                                Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 5),
+                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                ),
                                 SizedBox(width: 5,),
                                 AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
                                 AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),

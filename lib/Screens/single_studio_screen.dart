@@ -51,7 +51,7 @@ class _StudioScreenState extends State<StudioScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                       height: MediaQuery.of(context).size.height*0.30,
+                       height: MediaQuery.of(context).size.height*0.20,
                        width: MediaQuery.of(context).size.width,
                        clipBehavior: Clip.antiAlias,
                        decoration: BoxDecoration(
@@ -64,7 +64,7 @@ class _StudioScreenState extends State<StudioScreen> {
                            autoplayDisableOnInteraction: false,
                            itemCount: 3,
                            itemBuilder: (BuildContext context, int index) {
-                             return Image.asset('assets/images/doctor_swiper.png');
+                             return Image.asset('assets/images/doctor_swiper.png',fit: BoxFit.cover,);
                            },
                            // pagination: const SwiperPagination(),
                            control: const SwiperControl(
@@ -517,7 +517,10 @@ class _StudioScreenState extends State<StudioScreen> {
                             ),
                             Row(
                               children: [
-                                const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 5),
+                                  child: const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                ),
                                 const SizedBox(width: 5,),
                                 const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400,),
                                 const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),

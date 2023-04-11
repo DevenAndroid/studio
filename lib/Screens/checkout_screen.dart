@@ -311,7 +311,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 12),
+                    padding: const EdgeInsets.only(top: 15),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -330,7 +330,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               SizedBox(height: AddSize.size40,),
               ElevatedButton(onPressed: ()
               {
-                Get.toNamed(MyRouter.thankYouScreen);
+                //Get.toNamed(MyRouter.thankYouScreen);
               },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -344,7 +344,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ),
                   child: const Center(child: AddText(text: 'ADD NEW CARD',color:AppTheme.primaryColor,fontWeight: FontWeight.w500,fontSize: 16,))
               ),
-              SizedBox(height: AddSize.size10,),
+              SizedBox(height: AddSize.size20,),
               ElevatedButton(onPressed: ()
               {
                 Get.toNamed(MyRouter.thankYouScreen);

@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 import '../Router/my_router.dart';
 import '../widgets/add_text.dart';
 import '../widgets/app_theme.dart';
 import '../widgets/dimentions.dart';
-class MyBookingScreen extends StatefulWidget {
-  const MyBookingScreen({Key? key}) : super(key: key);
+
+class MyBookingScreen2 extends StatefulWidget {
+  const  MyBookingScreen2({Key? key}) : super(key: key);
 
   @override
-  State<MyBookingScreen> createState() => _MyBookingScreenState();
+  State<MyBookingScreen2> createState() => _MyBookingScreen2State();
 }
 
-class _MyBookingScreenState extends State<MyBookingScreen> {
+class _MyBookingScreen2State extends State<MyBookingScreen2> {
   RxString dropDownValue1 = ''.obs;
   RxString dropDownValue = ''.obs;
 
@@ -30,6 +32,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
     'Yes',
     'No',
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +121,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                             )),
                       ],
                       child: Container(
-                        //padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                       //padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                         decoration: BoxDecoration(
                             color: const Color(0xFFF4FAFF),
                             borderRadius: const BorderRadius.all(
@@ -228,7 +231,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                         //     )),
                       ],
                       child: Container(
-                        //padding: const EdgeInsets.only(left: 20),
+                       // padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                         decoration: BoxDecoration(
                             color: const Color(0xFFF4FAFF),
                             borderRadius: const BorderRadius.all(
@@ -376,7 +379,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Folk Dance',
+                                      text: 'Dance Class',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.w600,
@@ -399,41 +402,64 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                               height: 2,
                             ),
                             const AddText(
-                              text: 'Jaz Dance Class',
+                              text: 'Folk Dance',
                               textAlign: TextAlign.start,
                               color: Color(0xFF004B93),
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
                             ),
                             const SizedBox(height: 5),
-                            Row(
-                              children: const [
-                                Padding(
-                                  padding:  EdgeInsets.only(bottom: 5),
-                                  child: Icon(Icons.person_outlined,size: 16,color: Color(0xFF7D8396)),
-                                ),
-                                SizedBox(width: 2,),
-                                AddText(
-                                  text: '25 Members',
-                                  textAlign: TextAlign.start,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                ),
-                              ],
-                            ),
+                            // Row(
+                            //   children: const [
+                            //     Padding(
+                            //       padding:  EdgeInsets.only(bottom: 5),
+                            //       child: Icon(Icons.person_outlined,size: 16,color: Color(0xFF7D8396)),
+                            //     ),
+                            //     SizedBox(width: 2,),
+                            //     AddText(
+                            //       text: '25 Members',
+                            //       textAlign: TextAlign.start,
+                            //       color: Colors.grey,
+                            //       fontWeight: FontWeight.w400,
+                            //       fontSize: 12,
+                            //     ),
+                            //   ],
+                            // ),
                             const SizedBox(
                               height: 2,
                             ),
                             Row(
-                              children: const[
-                                Padding(
-                                  padding:  EdgeInsets.only(bottom: 4),
-                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 16),
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: const[
+                                    Padding(
+                                      padding:  EdgeInsets.only(bottom: 4),
+                                      child: Icon(Icons.calendar_month,color: Colors.grey,size: 16),
+                                    ),
+                                    SizedBox(width: 5,),
+                                    AddText(text: '25-01-22 ',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                                    AddText(text: '(08:30 PM)',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                                  ],
                                 ),
-                                SizedBox(width: 5,),
-                                AddText(text: '25-01-22 ',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
-                                AddText(text: '(08:30 PM)',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+
+                                Row(
+                                  children: const [
+                                    Padding(
+                                      padding:  EdgeInsets.only(bottom: 5),
+                                      child: Icon(Icons.person_outlined,size: 16,color: Color(0xFF7D8396)),
+                                    ),
+                                    SizedBox(width: 2,),
+                                    AddText(
+                                      text: '2 child',
+                                      textAlign: TextAlign.start,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12,
+                                    ),
+                                  ],
+                                ),
+
                               ],
                             ),
                             SizedBox(
@@ -441,7 +467,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                             ),
                             Row(
                               children: const [
-                                AddText(text: "\$10.00",color: Color(0xFF18B884),fontSize: 14,fontWeight: FontWeight.w600)
+                                AddText(text: "\$30.00",color: Color(0xFF18B884),fontSize: 14,fontWeight: FontWeight.w600)
                               ],
                             )
                           ],
@@ -459,4 +485,5 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
       ],
     );
   }
+
 }

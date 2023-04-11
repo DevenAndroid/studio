@@ -4,25 +4,26 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../Router/my_router.dart';
-import '../../widgets/add_text.dart';
-import '../../widgets/app_theme.dart';
-import '../../widgets/common_textfield.dart';
-import '../../widgets/custom_textfiled.dart';
-import '../../widgets/dimentions.dart';
-class AddNewChildScreen extends StatefulWidget {
-  const AddNewChildScreen({Key? key}) : super(key: key);
+import '../Router/my_router.dart';
+import '../widgets/add_text.dart';
+import '../widgets/app_theme.dart';
+import '../widgets/custom_textfiled.dart';
+import '../widgets/dimentions.dart';
+class AddNewTeamMemberScreen extends StatefulWidget {
+  const AddNewTeamMemberScreen({Key? key}) : super(key: key);
 
   @override
-  State<AddNewChildScreen> createState() => _AddNewChildScreenState();
+  State<AddNewTeamMemberScreen> createState() => _AddNewTeamMemberScreenState();
 }
 
-class _AddNewChildScreenState extends State<AddNewChildScreen> {
+class _AddNewTeamMemberScreenState extends State<AddNewTeamMemberScreen> {
   TextEditingController childName = TextEditingController();
   TextEditingController childAge = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
   final ImagePicker imgpicker1 = ImagePicker();
   List<XFile>? imagefiles1;
-
   openImagesNewChild() async {
     try {
       var pickedfiles = await imgpicker1.pickMultiImage();
@@ -38,8 +39,8 @@ class _AddNewChildScreenState extends State<AddNewChildScreen> {
       print("error while picking file.");
     }
   }
+
   @override
-  final _formKey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -145,7 +146,7 @@ class _AddNewChildScreenState extends State<AddNewChildScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 130,),
+                const SizedBox(height: 200,),
                 ElevatedButton(onPressed: ()
                 {
                   Get.toNamed(MyRouter.parentDashboardScreen);

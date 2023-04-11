@@ -21,28 +21,29 @@ class _ThankYouScreenState extends State<ThankYouScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: AddSize.size125),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  child: SvgPicture.asset('assets/images/Group 1000004151.svg'),
-                ),
-              ],
-            ),
-            SizedBox(height: AddSize.size40),
-            const Center(child: AddText(text: 'Your Booking is Confirmed!',fontSize: 25,fontWeight: FontWeight.w600,)),
-            SizedBox(height: AddSize.size20),
-            const Center(child: AddText(text: 'Thank You for The Booking',fontSize: 16,fontWeight: FontWeight.w400,color: Color(0xFF828B88),)),
-            SizedBox(height: AddSize.size10),
-            const Center(child: AddText(text: 'Booking is #2589632',fontSize: 16,fontWeight: FontWeight.w400,color: AppTheme.primaryColor,)),
-            SizedBox(height: AddSize.size200,),
-            Padding(
-              padding: const EdgeInsets.only(left: 21,right: 21),
-              child: ElevatedButton(onPressed: ()
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: AddSize.size125),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    child: SvgPicture.asset('assets/images/Group 1000004151.svg'),
+                  ),
+                ],
+              ),
+              SizedBox(height: AddSize.size40),
+              const Center(child: AddText(text: 'Your Booking is Confirmed!',fontSize: 25,fontWeight: FontWeight.w600,)),
+              SizedBox(height: AddSize.size20),
+              const Center(child: AddText(text: 'Thank You for The Booking',fontSize: 16,fontWeight: FontWeight.w400,color: Color(0xFF828B88),)),
+              SizedBox(height: AddSize.size10),
+              const Center(child: AddText(text: 'Booking is #2589632',fontSize: 16,fontWeight: FontWeight.w400,color: AppTheme.primaryColor,)),
+              SizedBox(height: AddSize.size200,),
+
+              ElevatedButton(onPressed: ()
               {
                 Get.toNamed(MyRouter.bottomNavBar);
               },
@@ -58,8 +59,8 @@ class _ThankYouScreenState extends State<ThankYouScreen> {
                   ),
                   child: const Center(child: AddText(text: 'GO TO HOME',color:Colors.white,fontWeight: FontWeight.w600,fontSize: 18,))
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

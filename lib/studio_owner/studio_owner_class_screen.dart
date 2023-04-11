@@ -1,35 +1,24 @@
-import 'dart:developer';
-
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:studio_live/Router/my_router.dart';
 
+import '../Router/my_router.dart';
 import '../widgets/add_text.dart';
 import '../widgets/app_theme.dart';
-import '../widgets/common_button.dart';
 import '../widgets/dimentions.dart';
 
-class StudioClassScreen extends StatefulWidget {
-  const StudioClassScreen({Key? key}) : super(key: key);
+class StudioOwnerClassScreen extends StatefulWidget {
+  const StudioOwnerClassScreen({Key? key}) : super(key: key);
 
   @override
-  State<StudioClassScreen> createState() => _StudioClassScreenState();
+  State<StudioOwnerClassScreen> createState() => _StudioOwnerClassScreenState();
 }
 
-class _StudioClassScreenState extends State<StudioClassScreen> {
-  String ratingvalue = '';
-  final formKey = GlobalKey<FormState>();
-  final TextEditingController commentController = TextEditingController();
-
-
+class _StudioOwnerClassScreenState extends State<StudioOwnerClassScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
       appBar:  AppBar(
         elevation: 0,
@@ -114,156 +103,156 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                           ),
                         ],
                       ),
-                     Padding(
-                       padding: const EdgeInsets.all(8),
-                       child: Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                         children: [
-                           Row(
-                             mainAxisAlignment:
-                             MainAxisAlignment.spaceBetween,
-                             children: [
-                               AddText(
-                                 text: "Yoga Classes",
-                                 //textAlign: TextAlign.start,
-                                 color: Colors.black,
-                                 fontWeight: FontWeight.w600,
-                                 fontSize: AddSize.font18,
-                               ),
-                               Container(
-                                 height: 25,
-                                 width: 74,
-                                 decoration: BoxDecoration(
-                                   color: const Color(0xFF18B884),
-                                   borderRadius: BorderRadius.circular(6)
-                                 ),
-                                 child: const Center(
-                                   child:
-                                   Text('Online',
-                                     style: TextStyle(
-                                       color: Color(0xFFFFFFFF),
-                                       fontWeight: FontWeight.w600,
-                                       fontSize: 14,
-                                     ),
-                                   ),
-                                 ),
-                               )
-                             ],
-                           ),
+                      Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: [
+                                AddText(
+                                  text: "Yoga Classes",
+                                  //textAlign: TextAlign.start,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: AddSize.font18,
+                                ),
+                                Container(
+                                  height: 25,
+                                  width: 74,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xFF18B884),
+                                      borderRadius: BorderRadius.circular(6)
+                                  ),
+                                  child: const Center(
+                                    child:
+                                    Text('Online',
+                                      style: TextStyle(
+                                        color: Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
 
-                           const Text('Hatha yoga',style: TextStyle(
-                             color: Color(0xFF195C9C) ,
-                             fontWeight: FontWeight.w400,
-                             fontSize: 15 ,
-                           ),),
-                           SizedBox(
-                             height: AddSize.size10,
-                           ),
-                           Row(
-                             children: const [
-                               Padding(
-                                 padding:  EdgeInsets.only(bottom: 5),
-                                 child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
-                               ),
-                               SizedBox(width: 5 ),
-                               AddText(
-                                 text: '6 to 10 Ages',
-                                 textAlign: TextAlign.start,
-                                 color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,
-                               ),
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
-                           Row(
-                             children:  [
-                               Padding(
-                                 padding: const EdgeInsets.only(bottom: 7),
-                                 // child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                                 child: Image.asset('assets/images/seat.png',height: 20,width: 20,),
-                               ),
-                              const SizedBox(width: 5,),
-                              const AddText(text: '105 available seats',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
+                            const Text('Hatha yoga',style: TextStyle(
+                              color: Color(0xFF195C9C) ,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15 ,
+                            ),),
+                            SizedBox(
+                              height: AddSize.size10,
+                            ),
+                            Row(
+                              children: const [
+                                Padding(
+                                  padding:  EdgeInsets.only(bottom: 5),
+                                  child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
+                                ),
+                                SizedBox(width: 5 ),
+                                AddText(
+                                  text: '6 to 10 Ages',
+                                  textAlign: TextAlign.start,
+                                  color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: AddSize.size15,
+                            ),
+                            Row(
+                              children:  [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 7),
+                                  // child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                  child: Image.asset('assets/images/seat.png',height: 20,width: 20,),
+                                ),
+                                const SizedBox(width: 5,),
+                                const AddText(text: '105 available seats',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
 
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
-                           Row(
-                             children: const [
-                               Padding(
-                                 padding:  EdgeInsets.only(bottom: 7),
-                                 child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                               ),
-                               SizedBox(width: 5,),
-                               AddText(text: '25-01-22-',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
-                               AddText(text: '08:30 PM',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
-                           Row(
-                             children: const[
-                               AddText(text: "\$30.00",color: AppTheme.primaryColor,fontWeight: FontWeight.w600,fontSize: 18,)
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: AddSize.size15,
+                            ),
+                            Row(
+                              children: const [
+                                Padding(
+                                  padding:  EdgeInsets.only(bottom: 7),
+                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                ),
+                                SizedBox(width: 5,),
+                                AddText(text: '25-01-22-',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
+                                AddText(text: '08:30 PM',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
+                              ],
+                            ),
+                            SizedBox(
+                              height: AddSize.size15,
+                            ),
+                            Row(
+                              children: const[
+                                AddText(text: "\$30.00",color: AppTheme.primaryColor,fontWeight: FontWeight.w600,fontSize: 18,)
+                              ],
+                            ),
+                            SizedBox(
+                              height: AddSize.size15,
+                            ),
 
-                          const Divider(
-                             height: 1,
-                             thickness: 0.5,
-                             color: Color(0xFF39439D),
-                           ),
-                           const SizedBox(height: 20,),
-                           const AddText(text: 'About Folk Dance',fontSize: 20,fontWeight: FontWeight.w600,),
-                           const SizedBox(height: 20,),
+                            const Divider(
+                              height: 1,
+                              thickness: 0.5,
+                              color: Color(0xFF39439D),
+                            ),
+                            const SizedBox(height: 20,),
+                            const AddText(text: 'About Folk Dance',fontSize: 20,fontWeight: FontWeight.w600,),
+                            const SizedBox(height: 20,),
 
-                           Column(
-                             crossAxisAlignment: CrossAxisAlignment.start,
-                             children:  [
-                              const AddText(text: 'Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w300,),
-                              InkWell(
-                                onTap: (){},
-                                child: const Text(
-                                'Read more',style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color:  Color(0xFF5B5E73),
-                                  decoration: TextDecoration.underline,
-                                ),),
-                              )
-                             ],
-                           ),
-                         ],
-                       ),
-                     )
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children:  [
+                                const AddText(text: 'Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w300,),
+                                InkWell(
+                                  onTap: (){},
+                                  child: const Text(
+                                    'Read more',style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color:  Color(0xFF5B5E73),
+                                    decoration: TextDecoration.underline,
+                                  ),),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
               ),
-             addHeight(AddSize.size10),
-             Container(
-               height: 255,
-               decoration: BoxDecoration(
-                   color: Colors.white,
-                   boxShadow: blurBoxShadow,
-                   borderRadius:
-                   BorderRadius.circular(AddSize.size15)),
-               child: Padding(
-                 padding: const EdgeInsets.only(left:16.0),
-                 child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-                     addHeight(AddSize.size15),
-                     const Text('Highlights',style: TextStyle(
-                       fontSize: 18,fontWeight: FontWeight.w600,
-                       color: Color(0xFF1B233A)
-                     ),),
+              addHeight(AddSize.size10),
+              Container(
+                height: 255,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: blurBoxShadow,
+                    borderRadius:
+                    BorderRadius.circular(AddSize.size15)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left:16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      addHeight(AddSize.size15),
+                      const Text('Highlights',style: TextStyle(
+                          fontSize: 18,fontWeight: FontWeight.w600,
+                          color: Color(0xFF1B233A)
+                      ),),
                       addHeight(AddSize.size15),
 
                       Padding(
@@ -294,99 +283,99 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                           ],
                         ),
                       ),
-                     Padding(
-                       padding: const EdgeInsets.only(right: 30,top: 12),
-                       child: Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                         children: [
-                           Row(
-                             children: [
-                               const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
-                               addWidth(AddSize.size13),
-                               const Text('Folk Dance',style: TextStyle(
-                                   fontSize: 14,fontWeight: FontWeight.w400,
-                                   color: Color(0xFF534F4F)
-                               ),)
-                             ],
-                           ),
-                           Row(
-                             children: [
-                               const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
-                               addWidth(AddSize.size13),
-                               const Text('Music Events',style: TextStyle(
-                                   fontSize: 14,fontWeight: FontWeight.w400,
-                                   color: Color(0xFF534F4F)
-                               ),)
-                             ],
-                           ),
-                         ],
-                       ),
-                     ),
-                     addHeight(AddSize.size12),
-                     const Text('Amenities',style: TextStyle(
-                         fontSize: 18,fontWeight: FontWeight.w600,
-                         color: Color(0xFF1B233A)
-                     ),),
-                     Padding(
-                       padding: const EdgeInsets.only(right: 87,top: 12),
-                       child: Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                         children: [
-                           Row(
-                             children: [
-                               const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
-                               addWidth(AddSize.size13),
-                               const Text('Lockers',style: TextStyle(
-                                   fontSize: 14,fontWeight: FontWeight.w400,
-                                   color: Color(0xFF534F4F)
-                               ),)
-                             ],
-                           ),
-                           Row(
-                             children: [
-                               const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
-                               addWidth(AddSize.size13),
-                               const Text('Mats',style: TextStyle(
-                                   fontSize: 14,fontWeight: FontWeight.w400,
-                                   color: Color(0xFF534F4F)
-                               ),)
-                             ],
-                           ),
-                         ],
-                       ),
-                     ),
-                     Padding(
-                       padding: const EdgeInsets.only(right: 69,top: 12),
-                       child: Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                         children: [
-                           Row(
-                             children: [
-                               const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
-                               addWidth(AddSize.size13),
-                               const Text('Towels',style: TextStyle(
-                                   fontSize: 14,fontWeight: FontWeight.w400,
-                                   color: Color(0xFF534F4F)
-                               ),)
-                             ],
-                           ),
-                           Row(
-                             children: [
-                               const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
-                               addWidth(AddSize.size13),
-                               const Text('Parking',style: TextStyle(
-                                   fontSize: 14,fontWeight: FontWeight.w400,
-                                   color: Color(0xFF534F4F)
-                               ),)
-                             ],
-                           ),
-                         ],
-                       ),
-                     ),
-                   ],
-                 ),
-               ),
-             ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 30,top: 12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
+                                addWidth(AddSize.size13),
+                                const Text('Folk Dance',style: TextStyle(
+                                    fontSize: 14,fontWeight: FontWeight.w400,
+                                    color: Color(0xFF534F4F)
+                                ),)
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
+                                addWidth(AddSize.size13),
+                                const Text('Music Events',style: TextStyle(
+                                    fontSize: 14,fontWeight: FontWeight.w400,
+                                    color: Color(0xFF534F4F)
+                                ),)
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      addHeight(AddSize.size12),
+                      const Text('Amenities',style: TextStyle(
+                          fontSize: 18,fontWeight: FontWeight.w600,
+                          color: Color(0xFF1B233A)
+                      ),),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 87,top: 12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
+                                addWidth(AddSize.size13),
+                                const Text('Lockers',style: TextStyle(
+                                    fontSize: 14,fontWeight: FontWeight.w400,
+                                    color: Color(0xFF534F4F)
+                                ),)
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
+                                addWidth(AddSize.size13),
+                                const Text('Mats',style: TextStyle(
+                                    fontSize: 14,fontWeight: FontWeight.w400,
+                                    color: Color(0xFF534F4F)
+                                ),)
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 69,top: 12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
+                                addWidth(AddSize.size13),
+                                const Text('Towels',style: TextStyle(
+                                    fontSize: 14,fontWeight: FontWeight.w400,
+                                    color: Color(0xFF534F4F)
+                                ),)
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                const Icon(Icons.check,color: Color(0xFFFFA629),size: 20,),
+                                addWidth(AddSize.size13),
+                                const Text('Parking',style: TextStyle(
+                                    fontSize: 14,fontWeight: FontWeight.w400,
+                                    color: Color(0xFF534F4F)
+                                ),)
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               addHeight(AddSize.size10),
               Container(
 
@@ -548,7 +537,7 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                   ),
                 ),
               ),
-             const SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -565,14 +554,14 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                           const AddText(text: 'cancellation policy',fontSize: 18,fontWeight: FontWeight.w600,),
                           const SizedBox(height: 20,),
                           const AddText(text: 'Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w300,),
-                       
+
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
-               addHeight(AddSize.size20),
+              addHeight(AddSize.size20),
               Stack(
                   children: <Widget>[
                     Container(
@@ -584,21 +573,21 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                       child: Center(child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 35,)),
                     ),
                     Positioned(
-                      top: 0,
+                        top: 0,
                         right: 20,
                         left: 20,
                         bottom: 12,
                         child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                         InkWell(
-                           child: Image.asset('assets/images/back_icon.png',width: 30,height: 30,),
-                         ),
-                        InkWell(
-                          child: Image.asset('assets/images/next_icon.png',width: 30,height: 30,),
-                        ),
-                      ],
-                    ))
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              child: Image.asset('assets/images/back_icon.png',width: 30,height: 30,),
+                            ),
+                            InkWell(
+                              child: Image.asset('assets/images/next_icon.png',width: 30,height: 30,),
+                            ),
+                          ],
+                        ))
                   ]
               ),
               const SizedBox(height: 20,),
@@ -606,7 +595,7 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
               addHeight(AddSize.size20),
               ElevatedButton(onPressed: ()
               {
-                 Get.toNamed(MyRouter.bookingScreen);
+                Get.toNamed(MyRouter.bookingScreen);
               },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.buttonColor,

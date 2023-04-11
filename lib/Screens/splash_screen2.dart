@@ -57,7 +57,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: (){
-                          Get.toNamed(MyRouter.signupScreen);
+                          Get.toNamed(MyRouter.loginScreen);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -84,7 +84,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                            ),
                             const Spacer(),
                             InkWell(onTap: (){
-                              Get.toNamed(MyRouter.signupScreen);
+                              Get.toNamed(MyRouter.loginScreen);
                             },
                                 child: const Icon(Icons.arrow_forward))
                           ],
@@ -92,31 +92,6 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       ),
                     ),
                   ),
-                  // Container(
-                  //   height: 203,
-                  //   width: 259,
-                  //   decoration: BoxDecoration(
-                  //   ),child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child: Column(
-                  //     children: [
-                  //       Image.asset('assets/images/Rectangle23164.png'),
-                  //       SizedBox(height: 20,),
-                  //       Row(
-                  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //         children: [
-                  //           AddText(text: 'Are you Parents',fontWeight: FontWeight.w400),
-                  //           SizedBox(height: 10,),
-                  //           InkWell(onTap: (){
-                  //             Get.toNamed(MyRouter.loginScreen);
-                  //           },
-                  //               child: Icon(Icons.arrow_forward))
-                  //         ],
-                  //       )
-                  //     ],
-                  // ),
-                  //   ),
-                  // ),
                  const SizedBox(height: 20,),
                   Container(
                     height: 96,
@@ -129,7 +104,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: (){
-                          Get.toNamed(MyRouter.studioregistrationScreen);
+                          Get.toNamed(MyRouter.loginScreen);
 
                         },
                         child: Row(
@@ -158,7 +133,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                            ),
                             const Spacer(),
                             InkWell(onTap: (){
-                             Get.toNamed(MyRouter.studioregistrationScreen);
+                             Get.toNamed(MyRouter.loginScreen);
                             },
                                 child: const Icon(Icons.arrow_forward))
                           ],
@@ -178,7 +153,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: (){
-                          Get.toNamed(MyRouter.businessRegistrationScreen);
+                          Get.toNamed(MyRouter.loginScreen);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -204,7 +179,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                             ),
                             const Spacer(),
                             InkWell(onTap: (){
-                              Get.toNamed(MyRouter.businessRegistrationScreen);
+                              Get.toNamed(MyRouter.loginScreen);
                             },
                                 child: Icon(Icons.arrow_forward))
                           ],
@@ -212,60 +187,6 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       ),
                     ),
                   ),
-
-                  // Container(
-                  //   height: 203,
-                  //   width: 259,
-                  //   decoration: BoxDecoration(
-                  //
-                  //   ),child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: Column(
-                  //     children: [
-                  //       Image.asset('assets/images/Rectangle33.png'),
-                  //       SizedBox(height: 20,),
-                  //       Row(
-                  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //         children: [
-                  //           AddText(text: 'Are you Studio Partner',fontWeight: FontWeight.w400,),
-                  //           SizedBox(height: 10,),
-                  //           InkWell(onTap: (){
-                  //             Get.toNamed(MyRouter.loginScreen);
-                  //           },
-                  //               child: Icon(Icons.arrow_forward))
-                  //         ],
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
-                  // ),
-                  // SizedBox(height: 20,),
-                  // Container(
-                  //   height: 203,
-                  //   width: 259,
-                  //   decoration: BoxDecoration(
-                  //
-                  //   ),child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: Column(
-                  //     children: [
-                  //       Image.asset('assets/images/Rectangle34.png'),
-                  //       SizedBox(height: 20,),
-                  //       Row(
-                  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //         children: [
-                  //           AddText(text: 'Are you Event Partner',fontWeight: FontWeight.w400),
-                  //           SizedBox(height: 10,),
-                  //           InkWell(onTap: (){
-                  //             Get.toNamed(MyRouter.loginScreen);
-                  //           },
-                  //               child: Icon(Icons.arrow_forward))
-                  //         ],
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
-                  // ),
                 ],
               ),
             ),

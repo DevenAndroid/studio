@@ -204,7 +204,7 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 170,),
+              SizedBox(height: 260,),
               ElevatedButton(onPressed: ()
               {
                 Get.toNamed(MyRouter.checkoutScreen);
