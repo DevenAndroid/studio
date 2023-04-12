@@ -28,7 +28,7 @@ class CommonButtonField extends StatelessWidget {
         onPressed: function, // add this here
         child: Text(buttonText,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: AddSize.font18)
+            style: TextStyle(fontSize: AddSize.font14)
                 .copyWith(color: Colors.white, fontWeight: FontWeight.w600)),
       ),
     );

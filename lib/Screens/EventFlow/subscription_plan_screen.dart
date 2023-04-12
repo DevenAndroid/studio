@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:studio_live/widgets/add_text.dart';
 
+import '../../Router/my_router.dart';
 import '../../widgets/app_theme.dart';
 class SubscriptionPlanScreen extends StatefulWidget {
   const SubscriptionPlanScreen({Key? key}) : super(key: key);
@@ -40,7 +41,6 @@ class _SubscriptionPlanScreenState extends State<SubscriptionPlanScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade200),
                   borderRadius: BorderRadius.circular(10)
@@ -77,7 +77,24 @@ class _SubscriptionPlanScreenState extends State<SubscriptionPlanScreen> {
                     ],
                   ),
                 ),
-              )
+              ),
+              SizedBox(height: 500,),
+              ElevatedButton(onPressed: ()
+              {
+                Get.toNamed(MyRouter.checkoutEventScreen);
+              },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppTheme.primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: AppTheme.primaryColor,
+                      ),
+                    ),
+                    minimumSize: const Size(340, 56),
+                  ),
+                  child: Center(child: AddText(text: 'UPGRADE',color:Colors.white,fontSize: 19,fontWeight: FontWeight.w600,))
+              ),
             ],
           ),
         ),

@@ -126,7 +126,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                             iconColor:Color(0xFF4F535E),
                             // isThreeLine: true,
                             onTap: (){
-                               Get.back();
+                              Get.toNamed(MyRouter.childListScreen);
                             },
                             visualDensity: VisualDensity(horizontal: 0, vertical: -2),
                             subtitle: Text('Child List',
@@ -138,7 +138,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                           ListTile(
                             iconColor:Color(0xFF4F535E),
                             onTap: (){
-                              Get.toNamed(MyRouter.childListScreen);
+                              Get.toNamed(MyRouter.addNewChildScreen);
                             },
                             // isThreeLine: true,
                             subtitle: Text('Add New child',
@@ -163,7 +163,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                           ),
                           ListTile(
                             onTap: (){
-                              Get.toNamed(MyRouter.myBookingScreen);
+                              Get.toNamed(MyRouter.addNewCaregiverScreen);
                             },
                             visualDensity: VisualDensity(horizontal: 0, vertical: -3),
                             iconColor:Color(0xFF4F535E),
@@ -355,7 +355,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 4;
-                      Get.toNamed(MyRouter.businessRegistrationScreen);
+                      Get.toNamed(MyRouter.studioRegistrationScreen);
                       // bottomController.updateIndexValue(2);
                     });
                   },
@@ -570,7 +570,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
+                      Get.toNamed(MyRouter.loginScreen);
                     });
                   },
                 ),

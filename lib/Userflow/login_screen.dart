@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -236,6 +237,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         child: Padding(
                                           padding: const EdgeInsets.only(bottom: 3.0),
                                           child: Checkbox(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(4)),
                                               materialTapTargetSize: MaterialTapTargetSize
                                                   .shrinkWrap,
                                               value: value,
@@ -333,7 +336,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(right: 10),
-                                    child: Image.asset("assets/images/Group1000003765.png",),
+                                    child: SvgPicture.asset('assets/images/Gmail.svg'),
                                   ),
                                   Text('Sign in with google',style: TextStyle(color: Color(0xFF39439D),fontSize: 15,fontWeight: FontWeight.w500),)
                                 ],

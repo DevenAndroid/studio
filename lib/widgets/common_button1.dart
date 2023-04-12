@@ -20,9 +20,9 @@ class CommonButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: expended! ? AppTheme.primaryColor : Colors.black),
+          color: expended! ? AppTheme.buttonColor : Colors.black),
       child: MaterialButton(
-        minWidth: buttonWidth * .01,
+        minWidth: buttonWidth * 0.25,
         color: BgColor,
         height: buttonHeight,
         //  padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -30,7 +30,7 @@ class CommonButton extends StatelessWidget {
         child: Text(buttonText,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: AddSize.font18)
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
+                .copyWith(color: Colors.white, fontWeight: FontWeight.w600)),
       ),
     );
   }

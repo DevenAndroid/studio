@@ -81,7 +81,7 @@ class _SubScripitionScreenOwnerState extends State<SubScripitionScreenOwner> {
                       const SizedBox(height: 15,),
                       ElevatedButton(onPressed: ()
                       {
-                        Get.toNamed(MyRouter.subscripitionPlanScreen);
+                        Get.toNamed(MyRouter.subscriptionPlanScreen2);
                       },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppTheme.buttonColor,
@@ -153,7 +153,7 @@ class _SubScripitionScreenOwnerState extends State<SubScripitionScreenOwner> {
                               const SizedBox(height: 15,),
                               ElevatedButton(onPressed: ()
                               {
-                                Get.toNamed(MyRouter.subscripitionPlanScreen);
+                                Get.toNamed(MyRouter.subscriptionPlanScreen2);
                               },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xFFFFA629),

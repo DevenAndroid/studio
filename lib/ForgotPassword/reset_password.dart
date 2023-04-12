@@ -179,10 +179,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                           )),
                       validator: (value) {
                         if (value!.trim().isEmpty) {
-                          return 'Conform password is required ';
+                          return 'Confirm password is required ';
                         } else if (value!.trim() !=
                             newPasswordController.text.trim()) {
-                          return 'Conform password not matching';
+                          return 'Confirm password not matching';
                         } else {
                           return null;
                         }

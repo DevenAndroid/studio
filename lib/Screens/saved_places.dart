@@ -144,47 +144,70 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Folk Dance',
+                                      text: 'Dance Class',
                                       textAlign: TextAlign.start,
                                       fontWeight: FontWeight.w600,
                                       fontSize: AddSize.font16,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: AddSize.size16,
+                                  ),
+                                  SizedBox(
+                                      width: AddSize.size5),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        top: AddSize.size5),
+                                    child: AddText(
+                                      text:'4.9',
+                                      color: Colors.amber,
+                                      fontWeight:
+                                      FontWeight.w600,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                             const SizedBox(height: 6),
-                            Row(
-                              children:  [
-                                const Padding(
-                                  padding:  EdgeInsets.only(bottom: 5),
-                                  child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
-                                ),
+
                                 const SizedBox(width: 2,),
-                                AddText(
-                                  text: '6 to 10 Ages',
-                                  textAlign: TextAlign.start,
-                                  color: const Color(0xFF7D8396),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: AddSize.font12,
+                                Row(
+                                  children: [
+                                    const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                                    const SizedBox(width: 5,),
+                                    const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400,),
+                                    const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                                  ],
+                                ),
+                            const SizedBox(height: 6),
+                            Row(
+                              children: [
+                                Icon(Icons.location_on_outlined,color: AppTheme.userText.withOpacity(.4)
+                                  ,size: 20,),
+                                SizedBox(width: 5,),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: AddText(
+                                    text: '5 km',
+                                    textAlign: TextAlign.start,
+                                    color: AppTheme.userText.withOpacity(.4),
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                  ),
                                 ),
                               ],
                             ),
                             SizedBox(
                               height: 5,
                             ),
-                            Row(
-                              children: [
-                                const Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                                const SizedBox(width: 5,),
-                                const AddText(text: '25-01-22-',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400,),
-                                const AddText(text: '08:30 PM',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
-                              ],
-                            ),
+
                             SizedBox(height: 10,),
                             Row(
                               children: [
-                                const AddText(text: "\$10.00",color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14,)
+                                const AddText(text: "\$30.00",color: Colors.amber,fontWeight: FontWeight.w600,fontSize: 14,)
                               ],
                             )
                           ],

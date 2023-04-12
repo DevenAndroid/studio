@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../Router/my_router.dart';
 import '../../widgets/add_text.dart';
 import '../../widgets/app_theme.dart';
+import '../../widgets/common_button1.dart';
 import '../../widgets/dimentions.dart';
 class EventListScreen extends StatefulWidget {
   const EventListScreen({Key? key}) : super(key: key);
@@ -33,9 +35,9 @@ class _EventListScreenState extends State<EventListScreen> {
         actions: [Padding(
           padding: const EdgeInsets.only(right: 20),
           child: CircleAvatar(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.black,
             radius: 20,
-            child: Icon(Icons.filter_alt,color: AppTheme.primaryColor,),
+            child: SvgPicture.asset('assets/images/setting-4.svg',fit: BoxFit.none,),
           ),
         )],
         toolbarHeight: 70,
@@ -56,14 +58,16 @@ class _EventListScreenState extends State<EventListScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: YourButtonWidget(),
     );
   }
+
   Column coursesUi(int index) {
     return Column(
       children: [
         InkWell(
           onTap: () {
-            Get.toNamed(MyRouter.eventListScreen);
+            Get.toNamed(MyRouter.discoEventScreen);
             // Get.toNamed(MyRouter.paidCourse, arguments: [
             //   homeController.model.value.data!.popularCourses![index].id
             //       .toString()
@@ -166,19 +170,6 @@ class _EventListScreenState extends State<EventListScreen> {
                             ),
                             Row(
                               children: [
-                                const Icon(Icons.location_on_outlined,color: Colors.grey,size: 20,),
-                                const SizedBox(width: 5,),
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 5),
-                                  child: AddText(
-                                    text: '5 km',
-                                    textAlign: TextAlign.start,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                                addWidth(AddSize.size14),
                                 Image.asset('assets/images/seat_icon.png',height: 16,width: 16,color: Colors.grey,),
                                 addWidth(AddSize.size5),
                                 Text('105 available seats',style: TextStyle(
@@ -203,6 +194,35 @@ class _EventListScreenState extends State<EventListScreen> {
           height: AddSize.size10,
         ),
       ],
+    );
+  }
+
+  Widget YourButtonWidget() {
+    var deviceWidth = AddSize.screenWidth;
+    return Container(
+      height: AddSize.screenHeight * .1,
+      width: AddSize.screenWidth,
+      color: Colors.white,
+      child: Center(
+        child: CommonButton('Create New Event', () {
+          Get.toNamed(MyRouter.createNewEventScreen);
+          // OverlayEntry loader = Helpers.overlayLoader(context);
+          // Overlay.of(context)!.insert(loader);
+          // startTestRepo(Get.arguments[0]).then((value) {
+          //   if (value.data!.status == 200) {
+          //     Get.offNamed(MyRouter.questionList,
+          //         arguments: [Get.arguments[0], courseId]);
+          //     Helpers.hideLoader(loader);
+          //     showToast(value.message.toString());
+          //   } else {
+          //     Helpers.hideLoader(loader);
+          //     showToast(value.message.toString().replaceAll(
+          //         "You cannot start this Assignment",
+          //         "You have already submitted this test"));
+          //   }
+          // });
+        }, deviceWidth, expended: true, AddSize.size50),
+      ),
     );
   }
 }

@@ -563,39 +563,44 @@ class _StudioOwnerClassScreenState extends State<StudioOwnerClassScreen> {
               ),
               addHeight(AddSize.size20),
               Stack(
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Image.asset('assets/images/Group1000003969.png'),
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.30,
+                    width: MediaQuery.of(context).size.width,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Swiper(
+                        autoplay: false,
+                        outer: false,
+                        autoplayDisableOnInteraction: false,
+                        itemCount: 3,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Image.asset('assets/images/Group1000003969.png');
+                        },
+                        // pagination: const SwiperPagination(),
+                        control: const SwiperControl(
+                            size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
+                      ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 65),
-                      child: Center(child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 35,)),
-                    ),
-                    Positioned(
-                        top: 0,
-                        right: 20,
-                        left: 20,
-                        bottom: 12,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              child: Image.asset('assets/images/back_icon.png',width: 30,height: 30,),
-                            ),
-                            InkWell(
-                              child: Image.asset('assets/images/next_icon.png',width: 30,height: 30,),
-                            ),
-                          ],
-                        ))
-                  ]
+                  ),
+                  Positioned(
+                      top: 1,
+                      left: 1,
+                      right: 0,
+                      bottom: 0,
+                      child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 40,)
+                  ),
+                ],
               ),
               const SizedBox(height: 20,),
               const Center(child: AddText(text: 'What to expect a Dance Studio')),
               addHeight(AddSize.size20),
               ElevatedButton(onPressed: ()
               {
-                Get.toNamed(MyRouter.bookingScreen);
+                Get.toNamed(MyRouter.addNewTeamScreen);
               },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.buttonColor,

@@ -113,7 +113,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                       collapsedIconColor: const Color(0xFF4F535E),
                       childrenPadding: const EdgeInsets.only(left:60),
                       title: const Text(
-                        'My Studio ',
+                        'My Events ',
                         style: TextStyle(
                           color: Color(0xFF4F535E),
                           fontWeight: FontWeight.w400,
@@ -131,32 +131,32 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.parentDashboardScreen);
+                            Get.toNamed(MyRouter.eventDashBoardScreen);
                           },
                         ),
                         ListTile(
                           iconColor:const Color(0xFF4F535E),
                           // isThreeLine: true,
-                          subtitle: const Text('My Employees',
+                          subtitle: const Text('My Events',
                             style: TextStyle( color: Color(0xFF4F535E),
                               fontWeight: FontWeight.w300,
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.childListScreen);
+                            Get.toNamed(MyRouter.eventListScreen);
                           },
                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                         ),
                         ListTile(
                           iconColor:const Color(0xFF4F535E),
                           // isThreeLine: true,
-                          subtitle: const Text('Classe',
+                          subtitle: const Text('My Bookings',
                             style: TextStyle( color: Color(0xFF4F535E),
                               fontWeight: FontWeight.w300,
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.caregiverListScreen);
+                            Get.toNamed(MyRouter.myBookingEventScreen);
                           },
                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                         ),
@@ -164,13 +164,13 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                           iconColor:const Color(0xFF4F535E),
                           // isThreeLine: true,
-                          subtitle: const Text('Booking',
+                          subtitle: const Text('Create New Event',
                             style: TextStyle( color: Color(0xFF4F535E),
                               fontWeight: FontWeight.w300,
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.createNewEventScreen);
                           },
                         ),
                         ListTile(
@@ -183,7 +183,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.withDrawlMoneyScreen);
                           },
                         ),
                         ListTile(
@@ -196,7 +196,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.reviewEventScreen);
                           },
                         ),
                         ListTile(
@@ -209,7 +209,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.settingScreen);
                           },
                         ),
                       ],
@@ -386,10 +386,11 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.supportScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -428,10 +429,11 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.privacyPolicyScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -470,10 +472,11 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.faqScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -512,10 +515,11 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.loginScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -631,7 +635,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset('assets//images/calendar1.png',width: 38,height: 38,),
+                          Image.asset('assets/images/calendar1.png',width: 38,height: 38,),
                           const Text('159',style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w700,
@@ -657,7 +661,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset('assets//images/dollar_money.png',width: 54,height: 54,),
+                          Image.asset('assets/images/dollar_money.png',width: 54,height: 54,),
                           const Text('\$3510',style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w700,

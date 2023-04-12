@@ -152,7 +152,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             .hasMatch(emailController.text)) {
                           return null;
                         } else {
-                          return 'Please enter a vaild email address';
+                          return 'Please enter a valid email address';
                         }
                       },
                     ),

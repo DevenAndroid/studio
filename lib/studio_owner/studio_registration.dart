@@ -22,6 +22,13 @@ class Studio_registrationScreen extends StatefulWidget {
 }
 
 class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController address = TextEditingController();
+  String dropdownvalue = 'Male';
+  RxString genderType = "".obs;
+
   bool value = false;
   final Formkey2 = GlobalKey<FormState>();
   final ImagePicker imgpicker2 = ImagePicker();
@@ -97,6 +104,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 CustomTextField(
                   obSecure: false.obs,
                   hintText: 'Popup dance class'.obs,
+                  controller: name,
                   validator: MultiValidator([
                     RequiredValidator(
                         errorText:
@@ -113,6 +121,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 SizedBox(height: AddSize.size10,),
                 CustomTextField(
                     obSecure: false.obs,
+                    controller: email,
                     hintText: 'info@gmail.com'.obs),
                 const SizedBox(height: 16),
                 AddText(
@@ -124,6 +133,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 SizedBox(height: AddSize.size10,),
                 CustomTextField(
                     obSecure: false.obs,
+                    controller: phone,
                     hintText: '987-654-3210'.obs),
                 const SizedBox(height: 16),
                 AddText(
@@ -135,6 +145,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 SizedBox(height: AddSize.size10,),
                 CustomTextField(
                   obSecure: false.obs,
+                  controller: address,
                   hintText: 'Riverside Building, County Hall'.obs,
                   suffixIcon:  Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -145,12 +156,172 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                         width: 28,
                         child: const CircleAvatar(
                             backgroundColor: Color(0xFFD7EDFF),
-                            child: Icon(Icons.location_on_outlined,color: AppTheme.primaryColor,size: 18,)),
+                            child: Icon(Icons.location_on_outlined,color:  Color(0xFF39439D),size: 18,)),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: AddSize.size16,),
+                AddText(
+                  text: "City",
+                  fontSize: AddSize.size16,
+                  color: AppTheme.filtter,
+                  fontWeight: FontWeight.w500,
+                ),
+                SizedBox(
+                  height: AddSize.size10,
+                ),
+                DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    hintText: "Jaipur ",
+                    focusColor: AppTheme.primaryColor,
+                    hintStyle: TextStyle(
+                        color: AppTheme.userText,
+                        fontSize: AddSize.font14),
+                    filled: true,
+                    fillColor: AppTheme.appPrimaryPinkColor
+                        .withOpacity(.02),
+                    contentPadding: EdgeInsets.symmetric(
+                        horizontal: AddSize.size12),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.primaryColor),
+                      borderRadius:
+                      BorderRadius.circular(10.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: AppTheme.boardercolor
+                                .withOpacity(0.5)),
+                        borderRadius:
+                        const BorderRadius.all(
+                            Radius.circular(10.0))),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: AppTheme.boardercolor
+                                .withOpacity(0.5),
+                            width: 3.0),
+                        borderRadius:
+                        BorderRadius.circular(15.0)),
+                  ),
+                  value: genderType.value == ""
+                      ? null
+                      : genderType.value,
+                  validator: (value) {
+                    if (genderType.value == "") {
+                      return "Please select gender type";
+                    } else {
+                      return null;
+                    }
+                  },
+                  items: const [
+                    DropdownMenuItem(
+                      value: "Jaipur",
+                      child: Text('Jaipur'),
+                    ),
+                    DropdownMenuItem(
+                      value: "Jaipur",
+                      child: Text('Jaipur'),
+                    ),
+                    //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                  ],
+                  onChanged: (String? v) {
+                    genderType.value = v!;
+                  },
+                ),
+                SizedBox(
+                  height: AddSize.size20,
+                ),
+                AddText(
+                  text: "State",
+                  fontSize: AddSize.size16,
+                  color: AppTheme.filtter,
+                  fontWeight: FontWeight.w500,
+                ),
+                SizedBox(
+                  height: AddSize.size10,
+                ),
+                DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    hintText: "Rajasthan ",
+                    focusColor: AppTheme.primaryColor,
+                    hintStyle: TextStyle(
+                        color: AppTheme.userText,
+                        fontSize: AddSize.font14),
+                    filled: true,
+                    fillColor: AppTheme.appPrimaryPinkColor
+                        .withOpacity(.02),
+                    contentPadding: EdgeInsets.symmetric(
+                        horizontal: AddSize.size12),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.primaryColor),
+                      borderRadius:
+                      BorderRadius.circular(10.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: AppTheme.boardercolor
+                                .withOpacity(0.5)),
+                        borderRadius:
+                        const BorderRadius.all(
+                            Radius.circular(10.0))),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: AppTheme.boardercolor
+                                .withOpacity(0.5),
+                            width: 3.0),
+                        borderRadius:
+                        BorderRadius.circular(15.0)),
+                  ),
+                  value: genderType.value == ""
+                      ? null
+                      : genderType.value,
+                  validator: (value) {
+                    if (genderType.value == "") {
+                      return "Please select gender type";
+                    } else {
+                      return null;
+                    }
+                  },
+                  items: const [
+                    DropdownMenuItem(
+                      value: "Rajasthan",
+                      child: Text('Rajasthan'),
+                    ),
+                    DropdownMenuItem(
+                      value: "Rajasthan",
+                      child: Text('Rajasthan'),
+                    ),
+                    //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                  ],
+                  onChanged: (String? v) {
+                    genderType.value = v!;
+                  },
+                ),
+                SizedBox(
+                  height: AddSize.size20,
+                ),
+                AddText(
+                  text: "Zip Code",
+                  fontSize: AddSize.size16,
+                  color: AppTheme.filtter,
+                  fontWeight: FontWeight.w500,
+                ),
+                SizedBox(height: AddSize.size10,),
+                CustomTextField(
+                  obSecure: false.obs,
+                  hintText: '302004'.obs,
+                  controller: name,
+                  validator: MultiValidator([
+                    RequiredValidator(
+                        errorText:
+                        'Please enter name '),
+                  ]),
+                ),
+                SizedBox(
+                  height: AddSize.size20,
+                ),
                 AddText(
                   text: "Logo",
                   fontSize: AddSize.size16,
@@ -195,6 +366,8 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                     ),
                   ),
                 ),
+                SizedBox(height: AddSize.size8,),
+                AddText(text: 'Upload Logo must be PNG or JPEG, up to 1 MB each,  and 512 px and 512 px',color: Colors.grey,fontSize: 12,),
                 SizedBox(height: AddSize.size16,),
                 AddText(
                   text: "Studio image",
@@ -240,7 +413,8 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                     ),
                   ),
                 ),
-
+                SizedBox(height: AddSize.size8,),
+                AddText(text: 'Upload Logo must be PNG or JPEG, up to 1 MB each,  and 512 px and 512 px',color: Colors.grey,fontSize: 12,),
                 SizedBox(height: AddSize.size16),
                 AddText(
                   text: "Upload Video",
@@ -286,54 +460,59 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: AddSize.size10,),
-                Row(
-                  children: [
-                    Transform.scale(
-                      scale: 1.1,
-                      child: Checkbox(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4)),
-                        checkColor: Colors.white,
-                        activeColor: AppTheme.primaryColor,
-                        value: this.value,
-                        onChanged: ( value) {
-                          if(this.value == false){
-                            setState(() {
-                              this.value = true;
-                            });
-                          }
-                          else if(this.value == true)  {
-                            setState(() {
-                              this.value = false;
-                            });
-                          }
+                SizedBox(height: AddSize.size8,),
+                AddText(text: 'Upload Video. must be 10 MB each,  and 512 px and 512 px',color: Colors.grey,fontSize: 12,),
+                SizedBox(height: AddSize.size20,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 2),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.1,
+                        child: Checkbox(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4)),
+                          checkColor: Colors.white,
+                          activeColor: AppTheme.primaryColor,
+                          value: this.value,
+                          onChanged: ( value) {
+                            if(this.value == false){
+                              setState(() {
+                                this.value = true;
+                              });
+                            }
+                            else if(this.value == true)  {
+                              setState(() {
+                                this.value = false;
+                              });
+                            }
 
-                        },
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 5),
-                          child: AddText(text: 'I agree to the',fontSize: 14,fontWeight: FontWeight.w500,),
+                          },
                         ),
-                        const SizedBox(width: 5,),
-                        InkWell(onTap: (){
-                          Get.toNamed(MyRouter.cancellationPolicyScreen);
-                        },
-                            child: const Padding(
-                              padding: EdgeInsets.only(top: 5),
-                              child: AddText(text: 'Cancellation Policy',fontSize: 14,fontWeight: FontWeight.w500,color: AppTheme.primaryColor,),
-                            )),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 5),
+                            child: AddText(text: 'I agree to the',fontSize: 14,fontWeight: FontWeight.w500,),
+                          ),
+                          const SizedBox(width: 5,),
+                          InkWell(onTap: (){
+                            Get.toNamed(MyRouter.cancellationPolicyScreen);
+                          },
+                              child: const Padding(
+                                padding: EdgeInsets.only(top: 5),
+                                child: AddText(text: 'Cancellation Policy',fontSize: 14,fontWeight: FontWeight.w500,color: AppTheme.primaryColor,),
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                SizedBox(height: AddSize.size50,),
+                SizedBox(height: AddSize.size20,),
                 ElevatedButton(onPressed: ()
                 {
-                  Get.toNamed(MyRouter.studio_dashboradScreen);
+                  Get.toNamed(MyRouter.studioDashboardScreen);
                 },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.buttonColor,

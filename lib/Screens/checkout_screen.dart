@@ -330,7 +330,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               SizedBox(height: AddSize.size40,),
               ElevatedButton(onPressed: ()
               {
-                //Get.toNamed(MyRouter.thankYouScreen);
+                Get.toNamed(MyRouter.addCardScreen);
               },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,

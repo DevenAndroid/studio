@@ -76,7 +76,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                             ),
 
                           const Padding(
-                             padding:  EdgeInsets.only(left: 18.0),
+                             padding:  EdgeInsets.only(left: 13.0),
                              child:  Text('Are You Parents',style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,

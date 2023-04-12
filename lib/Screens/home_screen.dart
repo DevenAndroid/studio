@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                fontSize: 14,),),
                            dense: true,
                            onTap: (){
-                             Get.toNamed(MyRouter.childListScreen);
+                             Get.toNamed(MyRouter.studioListScreen);
                            },
                            visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                          ),
@@ -160,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                fontSize: 14,),),
                            dense: true,
                             onTap: (){
-                              Get.toNamed(MyRouter.caregiverListScreen);
+                              Get.toNamed(MyRouter.studioScreen);
                             },
                            visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                          ),
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                fontSize: 14,),),
                            dense: true,
                             onTap: (){
-                              Get.toNamed(MyRouter.myBookingScreen);
+                              Get.toNamed(MyRouter.studioClassScreen);
                             },
                          ),
                          ListTile(
@@ -187,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                fontSize: 14,),),
                            dense: true,
                            onTap: (){
-                             Get.toNamed(MyRouter.myBookingScreen);
+                             Get.toNamed(MyRouter.bookingScreen);
                            },
                          ),
                          ListTile(
@@ -243,6 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 0;
+                      Get.toNamed(MyRouter.notificationScreen);
                     });
                   },
                 ),
@@ -377,7 +378,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   onTap: () {
-                    Get.toNamed(MyRouter.studioregistrationScreen);
+                    Get.toNamed(MyRouter.studioRegistrationScreen);
                     // setState(() {
                     //   currentDrawer = 4;
                     //   // bottomController.updateIndexValue(2);
@@ -465,7 +466,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
+                      Get.toNamed(MyRouter.supportScreen);
                     });
                   },
                 ),
@@ -507,7 +508,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
+                      Get.toNamed(MyRouter.privacyPolicyScreen);
                     });
                   },
                 ),
@@ -549,7 +550,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
+                      Get.toNamed(MyRouter.faqScreen);
                     });
                   },
                 ),
@@ -591,7 +592,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     setState(() {
                       currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
+                      Get.toNamed(MyRouter.loginScreen);
                     });
                   },
                 ),

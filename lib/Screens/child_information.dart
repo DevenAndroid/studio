@@ -100,22 +100,25 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                               borderRadius:
                               BorderRadius.circular(15.0)),
                         ),
-                        items: const [
-                          DropdownMenuItem(
+                        items:  [
+                          const DropdownMenuItem(
                             value: "Jacky",
                             child: Text('Jacky'),
                           ),
-                          DropdownMenuItem(
+                          const DropdownMenuItem(
                             value: "Rocky",
                             child: Text('Rocky'),
                           ),
-                          DropdownMenuItem(
+                          const DropdownMenuItem(
                             value: "Alex",
                             child: Text('Alex'),
                           ),
                           DropdownMenuItem(
                             value: "Add New Child",
-                            child: Text('Add New Child',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),),
+                            child: InkWell(onTap: (){
+                              Get.toNamed(MyRouter.addNewChildScreen);
+                            },
+                                child: const Text('Add New Child',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),)),
                           ),
                           //DropdownMenuItem(value: "Others",child: Text('Others'),)
                         ],
@@ -123,7 +126,7 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                           genderType.value = v!;
                         },
                       ),
-                      SizedBox(height: AddSize.size40,),
+                      SizedBox(height: AddSize.size30,),
                       AddText(
                         text: "Caretaker Name",
                         fontSize: AddSize.size16,
@@ -165,18 +168,25 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                               BorderRadius.circular(15.0)),
                         ),
 
-                        items: const [
-                          DropdownMenuItem(
+                        items:  [
+                          const DropdownMenuItem(
                             value: "Ram lal",
                             child: Text('Ram lal'),
                           ),
-                          DropdownMenuItem(
+                          const DropdownMenuItem(
                             value: "shyam kumar",
                             child: Text('shyam kumar'),
                           ),
-                          DropdownMenuItem(
+                          const DropdownMenuItem(
                             value: "oren",
                             child: Text('oren'),
+                          ),
+                          DropdownMenuItem(
+                            value: "Add New Caretaker",
+                            child: InkWell(onTap: (){
+                              Get.toNamed(MyRouter.addNewCaregiverScreen);
+                            },
+                                child: const Text('Add New Caretaker',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),)),
                           ),
                           //DropdownMenuItem(value: "Others",child: Text('Others'),)
                         ],

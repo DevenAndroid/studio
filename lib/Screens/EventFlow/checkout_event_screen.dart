@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../Router/my_router.dart';
 import '../../widgets/add_text.dart';
 import '../../widgets/app_theme.dart';
 import '../../widgets/dimentions.dart';
@@ -18,7 +19,7 @@ class _CheckoutEventScreenState extends State<CheckoutEventScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -41,8 +42,9 @@ class _CheckoutEventScreenState extends State<CheckoutEventScreen> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade200),
-                    borderRadius: BorderRadius.circular(10)
+
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -64,13 +66,12 @@ class _CheckoutEventScreenState extends State<CheckoutEventScreen> {
                               AddText(text: '\$150',color: AppTheme.buttonColor,fontWeight: FontWeight.w700,fontSize: 24,)
                             ],
                           ),
-
                         ],
                       ),
                       SizedBox(height: 20,),
                       Row(
                         children: [
-                          AddText(text: 'One Time Event',fontSize: 21,fontWeight: FontWeight.w400,)
+                          AddText(text: 'One Time Event',fontSize: 21,fontWeight: FontWeight.w400,color: Color(0xFF4B565F),)
                         ],
                       )
                     ],
@@ -85,7 +86,6 @@ class _CheckoutEventScreenState extends State<CheckoutEventScreen> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: blurBoxShadow,
-                    border: Border.all(color: Color(0xFFD4D9FF)),
                     borderRadius: BorderRadius.circular(15)),
                 // width: AddSize.screenWidth,
                 height: AddSize.screenHeight * .10,
@@ -124,7 +124,6 @@ class _CheckoutEventScreenState extends State<CheckoutEventScreen> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: blurBoxShadow,
-                    border: Border.all(color: Color(0xFFD4D9FF)),
                     borderRadius: BorderRadius.circular(15)),
                 // width: AddSize.screenWidth,
                 height: AddSize.screenHeight * .10,
@@ -161,7 +160,23 @@ class _CheckoutEventScreenState extends State<CheckoutEventScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: AddSize.size40,),
+              SizedBox(height: AddSize.size200,),
+              ElevatedButton(onPressed: ()
+              {
+                Get.toNamed(MyRouter.thankYouEventScreen);
+              },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppTheme.buttonColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: AppTheme.buttonColor,
+                      ),
+                    ),
+                    minimumSize: const Size(340, 56),
+                  ),
+                  child: Center(child: AddText(text: 'CONFIRM',color:Colors.white,fontSize: 19,fontWeight: FontWeight.w600,))
+              ),
             ],
           ),
         ),

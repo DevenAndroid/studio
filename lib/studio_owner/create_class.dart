@@ -103,13 +103,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            onSelected: (value) {
                              setState(() {
                                dropDownValue2.value = category[value];
-
                              });
                            },
                            // icon: Icon(Icons.keyboard_arrow_down),
                            itemBuilder: (context) => [
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
                                      InkWell(
@@ -119,14 +117,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                        },
                                        child: const Text('  Folk Dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
-
                                      InkWell(
                                        onTap: (){
                                          setState(() {
@@ -135,7 +130,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Hip hop dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
@@ -149,7 +143,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Salsa Dance'),
                                      ),
-
                                    ],
                                  )),
                            ],
@@ -229,7 +222,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                // icon: Icon(Icons.keyboard_arrow_down),
                                itemBuilder: (context) => [
                                  PopupMenuItem(
-
                                      child: Column(
                                        children: [
                                          InkWell(
@@ -239,14 +231,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                            },
                                            child: const Text('  Folk Dance'),
                                          ),
-
                                        ],
                                      )),
                                  PopupMenuItem(
-
                                      child: Column(
                                        children: [
-
                                          InkWell(
                                            onTap: (){
                                              setState(() {
@@ -255,7 +244,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                              }); },
                                            child: const Text('  Hip hop dance'),
                                          ),
-
                                        ],
                                      )),
                                  PopupMenuItem(
@@ -269,7 +257,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                              }); },
                                            child: const Text('  Salsa Dance'),
                                          ),
-
                                        ],
                                      )),
                                ],
@@ -292,7 +279,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          crossAxisAlignment:
                                          CrossAxisAlignment.center,
                                          children: [
-
                                            Center(
                                              child: Text(
                                                dropDownValue2.value
@@ -333,13 +319,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                onSelected: (value) {
                                  setState(() {
                                    dropDownValue2.value = category[value];
-
                                  });
                                },
                                // icon: Icon(Icons.keyboard_arrow_down),
                                itemBuilder: (context) => [
                                  PopupMenuItem(
-
                                      child: Column(
                                        children: [
                                          InkWell(
@@ -349,14 +333,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                            },
                                            child: const Text('  Folk Dance'),
                                          ),
-
                                        ],
                                      )),
                                  PopupMenuItem(
-
                                      child: Column(
                                        children: [
-
                                          InkWell(
                                            onTap: (){
                                              setState(() {
@@ -365,7 +346,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                              }); },
                                            child: const Text('  Hip hop dance'),
                                          ),
-
                                        ],
                                      )),
                                  PopupMenuItem(
@@ -379,7 +359,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                              }); },
                                            child: const Text('  Salsa Dance'),
                                          ),
-
                                        ],
                                      )),
                                ],
@@ -402,7 +381,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          crossAxisAlignment:
                                          CrossAxisAlignment.center,
                                          children: [
-
                                            Center(
                                              child: Text(
                                                dropDownValue2.value
@@ -474,13 +452,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            onSelected: (value) {
                              setState(() {
                                dropDownValue2.value = category[value];
-
                              });
                            },
                            // icon: Icon(Icons.keyboard_arrow_down),
                            itemBuilder: (context) => [
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
                                      InkWell(
@@ -490,14 +466,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                        },
                                        child: const Text('  Folk Dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
-
                                      InkWell(
                                        onTap: (){
                                          setState(() {
@@ -506,7 +479,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Hip hop dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
@@ -520,7 +492,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Salsa Dance'),
                                      ),
-
                                    ],
                                  )),
                            ],
@@ -543,7 +514,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                      crossAxisAlignment:
                                      CrossAxisAlignment.center,
                                      children: [
-
                                        Center(
                                          child: Text(
                                            dropDownValue2.value
@@ -602,13 +572,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            onSelected: (value) {
                              setState(() {
                                dropDownValue2.value = category[value];
-
                              });
                            },
                            // icon: Icon(Icons.keyboard_arrow_down),
                            itemBuilder: (context) => [
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
                                      InkWell(
@@ -618,14 +586,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                        },
                                        child: const Text('  Folk Dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
-
                                      InkWell(
                                        onTap: (){
                                          setState(() {
@@ -634,7 +599,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Hip hop dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
@@ -648,7 +612,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Salsa Dance'),
                                      ),
-
                                    ],
                                  )),
                            ],
@@ -671,7 +634,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                      crossAxisAlignment:
                                      CrossAxisAlignment.center,
                                      children: [
-
                                        Center(
                                          child: Text(
                                            dropDownValue2.value
@@ -718,13 +680,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            onSelected: (value) {
                              setState(() {
                                dropDownValue2.value = category[value];
-
                              });
                            },
                            // icon: Icon(Icons.keyboard_arrow_down),
                            itemBuilder: (context) => [
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
                                      InkWell(
@@ -734,14 +694,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                        },
                                        child: const Text('  Folk Dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
-
                                      InkWell(
                                        onTap: (){
                                          setState(() {
@@ -750,7 +707,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Hip hop dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
@@ -764,7 +720,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Salsa Dance'),
                                      ),
-
                                    ],
                                  )),
                            ],
@@ -787,7 +742,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                      crossAxisAlignment:
                                      CrossAxisAlignment.center,
                                      children: [
-
                                        Center(
                                          child: Text(
                                            dropDownValue2.value
@@ -834,13 +788,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            onSelected: (value) {
                              setState(() {
                                dropDownValue2.value = category[value];
-
                              });
                            },
                            // icon: Icon(Icons.keyboard_arrow_down),
                            itemBuilder: (context) => [
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
                                      InkWell(
@@ -850,14 +802,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                        },
                                        child: const Text('  Folk Dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
-
                                  child: Column(
                                    children: [
-
                                      InkWell(
                                        onTap: (){
                                          setState(() {
@@ -866,7 +815,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Hip hop dance'),
                                      ),
-
                                    ],
                                  )),
                              PopupMenuItem(
@@ -880,7 +828,6 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                          }); },
                                        child: const Text('  Salsa Dance'),
                                      ),
-
                                    ],
                                  )),
                            ],

@@ -1,3 +1,4 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -49,47 +50,35 @@ class _DiscoEventScreenState extends State<DiscoEventScreen> {
                     children: [
                       Stack(
                         children: [
-                          Padding(
-                            padding:
-                            EdgeInsets.only(bottom: AddSize.size15),
-                            child: ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(8.0),
-                                  topRight: Radius.circular(8.0),
-                                  bottomLeft: Radius.circular(8.0),
-                                  bottomRight: Radius.circular(8.0),
-                                ),
-                                child:
-                                Image.asset(
-                                    'assets/images/Rectangle36.png',
-                                    width: AddSize.size330 ,
-                                    height: AddSize.size170,
-                                    fit: BoxFit.cover
-                                )
-                              // CachedNetworkImage(
-                              //   imageUrl:model.value.data!.image.toString(),
-                              //   width: AddSize.size100 * 4,
-                              //   height: AddSize.size100 * 2,
-                              //   fit: BoxFit.cover,
-                              // ),
+                          Container(
+                            height: MediaQuery.of(context).size.height*0.30,
+                            width: MediaQuery.of(context).size.width,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Swiper(
+                                autoplay: false,
+                                outer: false,
+                                autoplayDisableOnInteraction: false,
+                                itemCount: 3,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Image.asset('assets/images/Rectangle36.png');
+                                },
+                                // pagination: const SwiperPagination(),
+                                control: const SwiperControl(
+                                    size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
+                              ),
                             ),
                           ),
-                          // Positioned(
-                          //   child: Align(
-                          //     alignment: Alignment.topRight,
-                          //     child: Padding(
-                          //       padding: EdgeInsets.all(AddSize.size10),
-                          //       child: Container(
-                          //           width: AddSize.size45,
-                          //           height: AddSize.size45,
-                          //           decoration: BoxDecoration(
-                          //               borderRadius:BorderRadius.circular(100),
-                          //               color: Colors.white.withOpacity(.8)),
-                          //
-                          //       ),
-                          //     ),
-                          //   ),
-                          // )
+                          Positioned(
+                              top: 1,
+                              left: 1,
+                              right: 0,
+                              bottom: 0,
+                              child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 40,)
+                          ),
                         ],
                       ),
                       Padding(
@@ -102,7 +91,7 @@ class _DiscoEventScreenState extends State<DiscoEventScreen> {
                               MainAxisAlignment.spaceBetween,
                               children: [
                                 AddText(
-                                  text: "Folk Dance",
+                                  text: "Disco Event",
                                   //textAlign: TextAlign.start,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -193,47 +182,7 @@ class _DiscoEventScreenState extends State<DiscoEventScreen> {
                     AddText(text: 'See all reviews',decoration: TextDecoration.underline,fontWeight: FontWeight.w500,fontSize: 14,),
 
                     SizedBox(height: 40,),
-                    AddText(text: 'Reviews',fontSize: 20,fontWeight: FontWeight.w600,),
-                    SizedBox(height: 20,),
-                    Row(
-                      children: [
-                        AddText(text: '4.8',fontSize: 16,fontWeight: FontWeight.w500,),
-                        SizedBox(width: 5,),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: Icon(
-                            Icons.star,
-                            color: Color(0xFFFF8E30),
-                            size: AddSize.size15,
-                          ),
-                        ),
-                        SizedBox(width: 5,),
-                        AddText(text: '(2500+)',fontSize: 16,fontWeight: FontWeight.w500,),
-                      ],
-                    ),
-                    SizedBox(height: 20,),
-                    Row(
-                      children: [
-                        AddText(text: 'Jack Lee',fontSize: 18,fontWeight: FontWeight.w600,),
-                        SizedBox(width: 10,),
-                        Icon(Icons.verified,color: Color(0xFF12C202),)
-                      ],
-                    ),
-                    SizedBox(height: 15,),
-                    AddText(text: 'Lorem Ipsum is simply dummy text of the '
-                        'printing and typesetting industry. Lorem Ipsum has been the.',fontWeight: FontWeight.w300,fontSize: 14,height: 1.5,),
-                    SizedBox(height: 5,),
-                    AddText(text: 'See all reviews',decoration: TextDecoration.underline,fontWeight: FontWeight.w500,fontSize: 14,),
-                    // AddText(text: 'Our Classes',fontSize: 18,fontWeight: FontWeight.w500),
-                    // SizedBox(height: 10,),
-                    // ListView.builder(
-                    //     itemCount: 3,
-                    //     shrinkWrap: true,
-                    //     physics: const BouncingScrollPhysics(),
-                    //     itemBuilder: (BuildContext context, int index) {
-                    //       return coursesUi1(index);
-                    //     }),
-                    SizedBox(height: 50,),
+
                     AddText(text: 'Highlights',fontSize: 18,fontWeight: FontWeight.w600,),
                     SizedBox(height: 15,),
                     Row(
@@ -391,19 +340,65 @@ class _DiscoEventScreenState extends State<DiscoEventScreen> {
                     ),
                     SizedBox(height: 20,),
                     AddText(text: "18225 Biscayne Blvd, Aventura, Jaipur"),
+                    SizedBox(height: 20,),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: blurBoxShadow,
+                          borderRadius:
+                          BorderRadius.circular(AddSize.size15)),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const AddText(text: 'cancellation policy',fontSize: 18,fontWeight: FontWeight.w600,),
+                                const SizedBox(height: 20,),
+                                const AddText(text: 'Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w300,),
+
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     SizedBox(height: 45,),
                     AddText(text: 'Videos',fontWeight: FontWeight.w600,fontSize: 18,),
                     SizedBox(height: 20,),
                     Stack(
-                        children: <Widget>[
-                          Container(
-                            child: Image.asset('assets/images/Group1000003969.png'),
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height*0.30,
+                          width: MediaQuery.of(context).size.width,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Swiper(
+                              autoplay: false,
+                              outer: false,
+                              autoplayDisableOnInteraction: false,
+                              itemCount: 3,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Image.asset('assets/images/Rectangle50.png');
+                              },
+                              // pagination: const SwiperPagination(),
+                              control: const SwiperControl(
+                                  size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
+                            ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 65),
-                            child: Center(child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 35,)),
-                          ),
-                        ]
+                        ),
+                        Positioned(
+                            top: 1,
+                            left: 1,
+                            right: 0,
+                            bottom: 0,
+                            child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 40,)
+                        ),
+                      ],
                     ),
                     SizedBox(height: 20,),
                     AddText(text: 'What to expect a Dance Studio'),

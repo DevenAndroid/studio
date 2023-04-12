@@ -192,61 +192,78 @@ class _StudioScreenState extends State<StudioScreen> {
                   ),
                 ),
                 ),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 10,),
-                    Stack(
-                      children: <Widget>[
-                        Container(
-                        child: Image.asset('assets/images/Rectangle23165.png'),
-                      ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 160,top: 70),
-                          child: Icon(Icons.location_on_outlined,color: Color(0xFF004B93),size: 35,),
-                        )
+              const SizedBox(height: 10,),
+              Container(
+                  decoration: BoxDecoration(
+                    color:  Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow:(blurBoxShadow),
+                  ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Center(child: Image.asset('assets/images/Rectangle23165.png',)),
+                      const SizedBox(height: 20,),
+                      AddText(text: "18225 Biscayne Blvd, Aventura, Jaipur"),
+                    ],
+                  ),
+                ),
 
-                      ]
-                    ),
-                    const SizedBox(height: 20,),
-                    const Center(child: AddText(text: "18225 Biscayne Blvd, Aventura, Jaipur")),
-                    const SizedBox(height: 45,),
-                    const AddText(text: 'Videos',fontWeight: FontWeight.w600,fontSize: 18,),
-                    const SizedBox(height: 20,),
+              ),
+              const SizedBox(height: 30,),
+              const AddText(text: 'Videos',fontWeight: FontWeight.w600,fontSize: 18,),
+              const SizedBox(height: 20,),
+              Container(
+                decoration: BoxDecoration(
+                  color:  Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow:(blurBoxShadow),
+                ),
+                child: Column(
+                  children: [
                     Stack(
-                      children: <Widget>[
+                      children: [
                         Container(
-                          child: Image.asset('assets/images/Group1000003969.png'),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 65),
-                          child: Center(child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 35,)),
+                          height: MediaQuery.of(context).size.height*0.25,
+                          width: MediaQuery.of(context).size.width,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Swiper(
+                              autoplay: false,
+                              outer: false,
+                              autoplayDisableOnInteraction: false,
+                              itemCount: 3,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Image.asset('assets/images/Group1000003969.png');
+                              },
+                              // pagination: const SwiperPagination(),
+                              control: const SwiperControl(
+                                  size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
+                            ),
+                          ),
                         ),
                         Positioned(
-                            top: 0,
-                            right: 10,
-                            left: 10,
-                            bottom: 12,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                InkWell(
-                                  child: Image.asset('assets/images/back_icon.png',width: 30,height: 30,),
-                                ),
-                                InkWell(
-                                  child: Image.asset('assets/images/next_icon.png',width: 30,height: 30,),
-                                ),
-                              ],
-                            ))
-                      ]
+                            top: 1,
+                            left: 1,
+                            right: 0,
+                            bottom: 0,
+                            child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 40,)
+                        ),
+
+                      ],
                     ),
+                    AddText(text: 'What to expect a Dance Studio'),
                     const SizedBox(height: 20,),
-                    const Center(child: AddText(text: 'What to expect a Dance Studio')),
                   ],
                 ),
-              )
+              ),
+              const SizedBox(height: 30,),
+
+
             ],
           ),
         ),

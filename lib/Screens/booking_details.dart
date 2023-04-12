@@ -94,8 +94,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 SizedBox(height: AddSize.size20,),
                                 const AddText(text: 'Cargiver Name',fontWeight: FontWeight.w500),
                                 SizedBox(height: AddSize.size20,),
-                                const AddText(text: 'Email',fontWeight: FontWeight.w500),
-                                SizedBox(height: AddSize.size20,),
                                 const AddText(text: 'Phone',fontWeight: FontWeight.w500),
                               ],
                             ),
@@ -106,8 +104,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                               const AddText(text: 'Jack Smith',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
                               SizedBox(height: AddSize.size20,),
                               const AddText(text: 'Alexendor',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                              SizedBox(height: AddSize.size20,),
-                              const AddText(text: '987-654-3210',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
                               SizedBox(height: AddSize.size20,),
                               const AddText(text: '987-654-3210',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
                             ],
@@ -142,8 +138,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 SizedBox(height: AddSize.size20,),
                                 const AddText(text: 'Cargiver Name',fontWeight: FontWeight.w500),
                                 SizedBox(height: AddSize.size20,),
-                                const AddText(text: 'Email',fontWeight: FontWeight.w500),
-                                SizedBox(height: AddSize.size20,),
                                 const AddText(text: 'Phone',fontWeight: FontWeight.w500),
                               ],
                             ),
@@ -154,8 +148,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                               const AddText(text: 'Jack Smith',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
                               SizedBox(height: AddSize.size20,),
                               const AddText(text: 'Alexendor',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                              SizedBox(height: AddSize.size20,),
-                              const AddText(text: '987-654-3210',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
                               SizedBox(height: AddSize.size20,),
                               const AddText(text: '987-654-3210',color: Color(0xFF1B233A),fontWeight: FontWeight.w400)
                             ],
@@ -169,71 +161,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                 ),
               ),
               SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Studio Details",
-                fontSize: AddSize.size18,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w600,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const AddText(text: 'Studio Name',fontWeight: FontWeight.w500),
-                                SizedBox(height: AddSize.size28,),
-                                const AddText(text: 'Class Location',fontWeight: FontWeight.w500),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const AddText(text: 'Jazz Dance',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,),
-                                SizedBox(height: AddSize.size20,),
-                                Row(
-                                  children: [
-                                    SizedBox(height: AddSize.size20,),
-                                    Container(
-                                      height : 28,
-                                      width: 28,
-                                      child: const CircleAvatar(
-                                        backgroundColor: Color(0xFFFFD4B0),
-                                          child: Icon(Icons.location_on_outlined,color: AppTheme.primaryColor,size: 18,)),
-                                    ),
-                                    const SizedBox(width: 8,),
-                                    const AddText(text: 'Douglas, Cork, ',color: Color(0xFF1B233A),fontWeight: FontWeight.w400),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          //AddText(text: 'Folk Dance',fontWeight: FontWeight.w600),
-                          //AddText(text: '\$100.00',color: Color(0xFF1B233A),fontWeight: FontWeight.w400,)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: AddSize.size18,),
               //SizedBox(height: 45,),
               Center(
                 child: Stack(
@@ -260,7 +187,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
               const SizedBox(height: 45,),
               ElevatedButton(onPressed: ()
               {
-                Get.toNamed(MyRouter.leaveReviewScreen);
+                Get.toNamed(MyRouter.reviewEventScreen);
               },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.buttonColor,
@@ -369,7 +296,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Folk Dance',
+                                      text: 'Disco Event',
                                       textAlign: TextAlign.start,
                                       color: AppTheme.filtter.withOpacity(0.8),
                                       fontWeight: FontWeight.w600,
@@ -388,17 +315,26 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 ],
                               ),
                             ),
-                            const SizedBox(
-                              height: 2,
-                            ),
-                            const AddText(
-                              text: 'Jaz Dance Class',
-                              textAlign: TextAlign.start,
-                              color: Color(0xFF004B93),
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
                             const SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: const[
+                                    Padding(
+                                      padding:  EdgeInsets.only(bottom: 4),
+                                      child: Icon(Icons.calendar_month,color: Colors.grey,size: 16),
+                                    ),
+                                    SizedBox(width: 5,),
+                                    AddText(text: '25-01-22 ',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                                    AddText(text: '(08:30 PM)',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 3,
+                            ),
                             Row(
                               children: const [
                                 Padding(
@@ -407,7 +343,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 ),
                                 SizedBox(width: 2,),
                                 AddText(
-                                  text: '25 Members',
+                                  text: '2 members',
                                   textAlign: TextAlign.start,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w400,
@@ -415,26 +351,12 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 2,
-                            ),
-                            Row(
-                              children: const[
-                                Padding(
-                                  padding:  EdgeInsets.only(bottom: 4),
-                                  child: Icon(Icons.calendar_month,color: Colors.grey,size: 16),
-                                ),
-                                SizedBox(width: 5,),
-                                AddText(text: '25-01-22 ',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
-                                AddText(text: '(08:30 PM)',color: Colors.grey,fontSize: 12,fontWeight: FontWeight.w400),
-                              ],
-                            ),
-                            const SizedBox(
+                            SizedBox(
                               height: 3,
                             ),
                             Row(
                               children: const [
-                                AddText(text: "\$10.00",color: Color(0xFF18B884),fontSize: 14,fontWeight: FontWeight.w600)
+                                AddText(text: "\$30.00",color: Color(0xFF18B884),fontSize: 14,fontWeight: FontWeight.w600)
                               ],
                             )
                           ],

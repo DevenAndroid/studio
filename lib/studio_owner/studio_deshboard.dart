@@ -126,13 +126,13 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                           iconColor:const Color(0xFF4F535E),
                           // isThreeLine: true,
                           visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
-                          subtitle: const Text('Dashbord',
+                          subtitle: const Text('Dashboard',
                             style: TextStyle( color: Color(0xFF4F535E),
                               fontWeight: FontWeight.w300,
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.parentDashboardScreen);
+                            Get.toNamed(MyRouter.studioDashboardScreen);
                           },
                         ),
                         ListTile(
@@ -144,22 +144,22 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.childListScreen);
+                            Get.toNamed(MyRouter.myEmployeeScreen);
                           },
                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                         ),
                         ListTile(
+                          visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                           iconColor:const Color(0xFF4F535E),
                           // isThreeLine: true,
-                          subtitle: const Text('Classe',
+                          subtitle: const Text('classes',
                             style: TextStyle( color: Color(0xFF4F535E),
                               fontWeight: FontWeight.w300,
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.caregiverListScreen);
+                            Get.toNamed(MyRouter.studioOwnerClassScreen);
                           },
-                          visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
                         ),
                         ListTile(
                           visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
@@ -171,7 +171,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.myBookingStudioScreen);
                           },
                         ),
                         ListTile(
@@ -184,7 +184,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.studioWithdrawalScreen);
                           },
                         ),
                         ListTile(
@@ -197,7 +197,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.reviewScreen);
                           },
                         ),
                         ListTile(
@@ -210,7 +210,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                               fontSize: 14,),),
                           dense: true,
                           onTap: (){
-                            Get.toNamed(MyRouter.myBookingScreen);
+                            Get.toNamed(MyRouter.settingScreen);
                           },
                         ),
                       ],
@@ -251,9 +251,10 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 0;
-                    });
+                    Get.toNamed(MyRouter.notificationScreen);
+                    // setState(() {
+                    //   currentDrawer = 0;
+                    // });
                   },
                 ),
               ),
@@ -292,10 +293,11 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 1;
-                      Get.toNamed(MyRouter.savedPlacesScreen);
-                    });
+                    Get.toNamed(MyRouter.savedPlacesScreen);
+                    // setState(() {
+                    //   currentDrawer = 1;
+                    //   Get.toNamed(MyRouter.savedPlacesScreen);
+                    // });
                   },
                 ),
               ),
@@ -387,10 +389,11 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.supportScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -429,10 +432,11 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.privacyPolicyScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -471,10 +475,11 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.faqScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -513,10 +518,11 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      currentDrawer = 4;
-                      // bottomController.updateIndexValue(2);
-                    });
+                    Get.toNamed(MyRouter.loginScreen);
+                    // setState(() {
+                    //   currentDrawer = 4;
+                    //   // bottomController.updateIndexValue(2);
+                    // });
                   },
                 ),
               ),
@@ -632,7 +638,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Image.asset('assets//images/calendar1.png',fit: BoxFit.contain,),
+                            Image.asset('assets/images/calendar1.png',height: 38,width: 38,),
                            const Text('159',style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w700,
@@ -658,7 +664,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset('assets//images/dollar_money.png',width: 54,height: 54,),
+                          Image.asset('assets/images/dollar_money.png',width: 54,height: 54,),
                           const Text('\$3510',style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w700,

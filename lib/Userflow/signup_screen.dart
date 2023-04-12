@@ -356,7 +356,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 validator: MultiValidator([
                                   RequiredValidator(
                                       errorText:
-                                      'Please enter your location '),
+                                      'Please enter your address '),
                                   // PatternValidator(r'^[0-9]',
                                   //     errorText: 'Only digits are allow'),
                                   // MinLengthValidator(10,
@@ -449,7 +449,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                     )),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Please enter your password';
+                                    return 'Please enter your Confirm password';
                                   }
                                   if (value.toString() ==
                                       passwordController.text) {
@@ -491,6 +491,8 @@ class _SignupScreenState extends State<SignupScreen> {
 
                                         ),
                                         child: Checkbox(
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(4)),
                                             materialTapTargetSize: MaterialTapTargetSize
                                                 .shrinkWrap,
                                             value: value,
@@ -592,7 +594,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                                     Text('Sign in with google',
                                       style: TextStyle(color: Color(0xFF39439D),
-                                          fontSize: 18),)
+                                          fontSize: 15,fontWeight: FontWeight.w500),)
                                   ],
                                 ),
                               ),

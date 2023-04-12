@@ -16,6 +16,7 @@ class _WithDrawlMoneyScreenState extends State<WithDrawlMoneyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -32,13 +33,13 @@ class _WithDrawlMoneyScreenState extends State<WithDrawlMoneyScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Column(
             children: [
               SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade200),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
                 ),
                 child: Padding(
@@ -69,7 +70,7 @@ class _WithDrawlMoneyScreenState extends State<WithDrawlMoneyScreen> {
               SizedBox(height: 40,),
               Container(
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade200),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(10)
                 ),
                 child: Padding(
@@ -86,7 +87,7 @@ class _WithDrawlMoneyScreenState extends State<WithDrawlMoneyScreen> {
                             width: 80,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
-                              border: Border.all()
+                              border: Border.all(color: Colors.grey)
                             ),child: Center(child: AddText(text: '+\$500',)),
                           ),SizedBox(width: 20,),
                           Container(
@@ -94,7 +95,7 @@ class _WithDrawlMoneyScreenState extends State<WithDrawlMoneyScreen> {
                               width: 80,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                border: Border.all()
+                                border: Border.all(color: Colors.grey)
                             ),child: Center(child: AddText(text: '+\$800',)),
                           ),SizedBox(width: 20,),
                           Container(
@@ -102,7 +103,7 @@ class _WithDrawlMoneyScreenState extends State<WithDrawlMoneyScreen> {
                               width: 80,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                border: Border.all()
+                                border: Border.all(color: Colors.grey)
                             ),child: Center(child: AddText(text: '+\$1000',)),
                           ),
                         ],

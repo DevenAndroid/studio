@@ -1,12 +1,16 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
+import '../../Router/my_router.dart';
 import '../../widgets/add_text.dart';
 import '../../widgets/app_theme.dart';
 import '../../widgets/common_textfield.dart';
+import '../../widgets/custom_textfiled.dart';
 import '../../widgets/dimentions.dart';
 
 class CreateNewEventScreen extends StatefulWidget {
@@ -18,11 +22,56 @@ class CreateNewEventScreen extends StatefulWidget {
 
 class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
   final TextEditingController dobController = TextEditingController();
+  final TextEditingController address = TextEditingController();
 
   RxString genderType = "".obs;
   RxString highLightType = "".obs;
   String dateInput11 = "";
   String dateInput12 = "";
+  bool value = false;
+  final ImagePicker imgpicker3 = ImagePicker();
+  List<XFile>? imagefiles3;
+  final ImagePicker imgpicker2 = ImagePicker();
+  List<XFile>? imagefiles2;
+  openImgFromGallery() async {
+    try {
+      var pickedfiles = await imgpicker3.pickMultiImage();
+      //you can use ImageCourse.camera for Camera capture
+      if(pickedfiles != null){
+        imagefiles3 = pickedfiles;
+        setState(() {
+        });
+      }else{
+        print("No image is selected.");
+      }
+    }catch (e) {
+      print("error while picking file.");
+    }
+  }
+  openLogoFromGallery() async {
+    try {
+      var pickedfiles = await imgpicker2.pickMultiImage();
+      //you can use ImageCourse.camera for Camera capture
+      if(pickedfiles != null){
+        imagefiles2 = pickedfiles;
+        setState(() {
+        });
+      }else{
+        print("No image is selected.");
+      }
+    }catch (e) {
+      print("error while picking file.");
+    }
+  }
+
+
+  File? _video;
+  final picker = ImagePicker();
+
+  _pickVideo() async{
+    final video = await picker.getVideo(source: ImageSource.gallery) ;
+    _video = File(video!.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,139 +194,66 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
               ),
               SizedBox(height: AddSize.size20,),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
-                    child: AddText(
-                      text: "Start Date",
-                      fontSize: AddSize.size16,
-                      color: AppTheme.filtter,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Expanded(
-                    child: AddText(
-                      text: "End Date",
-                      fontSize: AddSize.size16,
-                      color: AppTheme.filtter,
-                      fontWeight: FontWeight.w300,
-                    ),
+                  AddText(
+                    text: "Select Date and Time",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
                   ),
                 ],
               ),
               SizedBox(height: 10,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: CommonTextFieldWidget(
-                      suffix: InkWell(
-                        onTap: () async {
-                          DateTime? _selectedDate =
-                          await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now().subtract(Duration(days: 1)),
-                              firstDate: DateTime(1950),
-                              //DateTime.now() - not to allow to choose before today.
-                              lastDate: DateTime.now().subtract(Duration(days: 1)));
+              CommonTextFieldWidget(
+                suffix: InkWell(
+                  onTap: () async {
+                    DateTime? _selectedDate =
+                    await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now().subtract(Duration(days: 1)),
+                        firstDate: DateTime(1950),
+                        //DateTime.now() - not to allow to choose before today.
+                        lastDate: DateTime.now().subtract(Duration(days: 1)));
 
-                          if (_selectedDate != null) {
-                            print(_selectedDate);
-                            dateInput11 =
-                                _selectedDate.toString();
-                            print(dateInput11);
-                            String formattedDate =
-                            DateFormat('dd/MM/yyyy')
-                                .format(_selectedDate)
-                                .toString();
+                    if (_selectedDate != null) {
+                      print(_selectedDate);
+                      dateInput11 =
+                          _selectedDate.toString();
+                      print(dateInput11);
+                      String formattedDate =
+                      DateFormat('dd/MM/yyyy')
+                          .format(_selectedDate)
+                          .toString();
 
-                            print(formattedDate);
-                            setState(() {
-                              dobController.text =
-                                  formattedDate; //set output date to TextField value.
-                              dobController.text =
-                                  formattedDate;
-                            });
-                          } else {
-                            print("Date is not selected");
-                          }
-                        },
-                        child: Icon(
-                          Icons.calendar_today_outlined,
-                          size: AddSize.size18,
-                          color: AppTheme.primaryColor,
-                        ),
-                      ),
-                      controller: dobController,
-                      readOnly: true,
-                      hint: 'Date of Birth',
-                      // prefix: Icon(Icons.access_time_rounded),
-                      // keyboardType: TextInputType.,
-                      textInputAction: TextInputAction.next,
-                      bgColor:
-                      AppTheme.textfield.withOpacity(0.5),
-                      validator: MultiValidator([
-                        RequiredValidator(
-                            errorText: 'Please select Date'),
-                      ]),
-                    ),
+                      print(formattedDate);
+                      setState(() {
+                        dobController.text =
+                            formattedDate; //set output date to TextField value.
+                        dobController.text =
+                            formattedDate;
+                      });
+                    } else {
+                      print("Date is not selected");
+                    }
+                  },
+                  child: Icon(
+                    Icons.calendar_today_outlined,
+                    size: AddSize.size18,
+                    color: AppTheme.primaryColor,
                   ),
-                  SizedBox(width: 15,),
-                  Expanded(
-                    child: CommonTextFieldWidget(
-                      suffix: InkWell(
-                        onTap: () async {
-                          DateTime? _selectedDate =
-                          await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now().subtract(Duration(days: 1)),
-                              firstDate: DateTime(1950),
-                              //DateTime.now() - not to allow to choose before today.
-                              lastDate: DateTime.now().subtract(Duration(days: 1)));
-
-                          if (_selectedDate != null) {
-                            print(_selectedDate);
-                            dateInput12 =
-                                _selectedDate.toString();
-                            print(dateInput12);
-                            String formattedDate =
-                            DateFormat('dd/MM/yyyy')
-                                .format(_selectedDate)
-                                .toString();
-
-                            print(formattedDate);
-                            setState(() {
-                              dobController.text =
-                                  formattedDate; //set output date to TextField value.
-                              dobController.text =
-                                  formattedDate;
-                            });
-                          } else {
-                            print("Date is not selected");
-                          }
-                        },
-                        child: Icon(
-                          Icons.calendar_today_outlined,
-                          size: AddSize.size18,
-                          color: AppTheme.primaryColor,
-                        ),
-                      ),
-                      controller: dobController,
-                      readOnly: true,
-                      hint: 'Date of Birth',
-                      // prefix: Icon(Icons.access_time_rounded),
-                      // keyboardType: TextInputType.,
-                      textInputAction: TextInputAction.next,
-                      bgColor:
-                      AppTheme.textfield.withOpacity(0.5),
-                      validator: MultiValidator([
-                        RequiredValidator(
-                            errorText: 'Please select Date'),
-                      ]),
-                    ),
-                  ),
-                ],
+                ),
+                controller: dobController,
+                readOnly: true,
+                hint: '23-3-2023 - 08:30pm',
+                // prefix: Icon(Icons.access_time_rounded),
+                // keyboardType: TextInputType.,
+                textInputAction: TextInputAction.next,
+                bgColor:
+                AppTheme.textfield.withOpacity(0.5),
+                validator: MultiValidator([
+                  RequiredValidator(
+                      errorText: 'Please select Date'),
+                ]),
               ),
               SizedBox(height: AddSize.size20,),
               AddText(
@@ -316,26 +292,23 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 fontWeight: FontWeight.w300,
               ),
               SizedBox(height: AddSize.size10,),
-              CommonTextFieldWidget(
-                //controller: emailController,
-                hint: 'Riverside Building, County Hall',
-                keyboardType: TextInputType.emailAddress,
-                textInputAction: TextInputAction.next,
-                //maxLength: 10,
-                bgColor: AppTheme.textfield.withOpacity(0.5),
-                validator: MultiValidator([
-                  RequiredValidator(
-                      errorText:
-                      'Please Enter  name '),
-                  // PatternValidator(r'^[0-9]',
-                  //     errorText: 'Only digits are allow'),
-                  // MinLengthValidator(10,
-                  //     errorText:
-                  //         'Phone number must be at list 10 digit'),
-                  // MaxLengthValidator(10,
-                  //     errorText:
-                  //         'Phone number is not greater then 10 digit'),
-                ]),
+              CustomTextField(
+                obSecure: false.obs,
+                controller: address,
+                hintText: 'Riverside Building, County Hall'.obs,
+                suffixIcon:  Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height : 28,
+                      width: 28,
+                      child: const CircleAvatar(
+                          backgroundColor: Color(0xFFD7EDFF),
+                          child: Icon(Icons.location_on_outlined,color: Color(0xFF39439D),size: 18,)),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: AddSize.size20,),
               AddText(
@@ -575,16 +548,46 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 fontWeight: FontWeight.w300,
               ),
               SizedBox(height: AddSize.size10,),
-              Container(
-                height: 120,
-                width: AddSize.screenWidth,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade200),
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Image.asset('assets/images/Group37.png')
+              InkWell(
+                onTap: (){
+                  openLogoFromGallery();
+                },
+                child: Container(
+                  height: 170,
+                  width: AddSize.screenWidth,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xFFD7EBFF)),
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xFFF4FAFF),
+                  ),
+                  child: imagefiles2 != null?Wrap(
+                    children: imagefiles2!.map((imageone){
+                      return Container(
+                          child:Card(
+                            child: Container(
+                              height: 160, width: MediaQuery.of(context).size.width,
+                              child: Image.file(File(imageone.path),fit: BoxFit.cover,alignment: Alignment.topCenter),
+                            ),
+                          )
+                      );
+                    }).toList(),
+                  ):  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/export.png',width: 24,height: 24,),
+                      const Text('Upload images',style: TextStyle(
+                        color: Color(0xFF5E6282),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),),
+                      Text('Upload max 5 images',style: TextStyle(
+                        color: Color(0xFF39439D),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),)
+
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: AddSize.size20,),
@@ -595,19 +598,93 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 fontWeight: FontWeight.w300,
               ),
               SizedBox(height: AddSize.size10,),
-              Container(
-                height: 120,
-                width: AddSize.screenWidth,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade200),
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Image.asset('assets/images/Group38.png')
+              InkWell(
+                onTap: (){
+                  _pickVideo();
+                },
+                child: Container(
+                  height: 170,
+                  width: AddSize.screenWidth,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xFFD7EBFF)),
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xFFF4FAFF),
+                  ),
+                  child: _video != null?Wrap(
+                    children: imagefiles3!.map((imageone){
+                      return Container(
+                          child:Card(
+                            child: Container(
+                              height: 160, width: MediaQuery.of(context).size.width,
+                              child: Image.file(File(imageone.path),fit: BoxFit.cover,alignment: Alignment.topCenter),
+                            ),
+                          )
+                      );
+                    }).toList(),
+                  ):  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/export.png',width: 24,height: 24,),
+                      const Text('Upload Videos',style: TextStyle(
+                        color: Color(0xFF5E6282),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),),
+                      Text('Upload max 5 videos',style: TextStyle(
+                        color: Color(0xFF39439D),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),)
+
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(height: AddSize.size40,),
+              SizedBox(height: AddSize.size20,),
+              Row(
+                children: [
+                  Transform.scale(
+                    scale: 1.1,
+                    child: Checkbox(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4)),
+                      checkColor: Colors.white,
+                      activeColor: AppTheme.primaryColor,
+                      value: this.value,
+                      onChanged: ( value) {
+                        if(this.value == false){
+                          setState(() {
+                            this.value = true;
+                          });
+                        }
+                        else if(this.value == true)  {
+                          setState(() {
+                            this.value = false;
+                          });
+                        }
+
+                      },
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: AddText(text: 'I agree to the',fontSize: 14,fontWeight: FontWeight.w500,color: Colors.grey,),
+                      ),
+                      SizedBox(width: 5,),
+                      InkWell(onTap: (){
+                        Get.toNamed(MyRouter.cancellationPolicyScreen);
+                      },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: AddText(text: 'Cancellation Policy',fontSize: 14,fontWeight: FontWeight.w500,color: AppTheme.primaryColor,),
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: AddSize.size20,),
               ElevatedButton(onPressed: ()
               {
                 // Get.toNamed(MyRouter.editProfileScreen);

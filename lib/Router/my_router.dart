@@ -40,6 +40,7 @@ import '../Screens/EventFlow/review_event_screen.dart';
 import '../Screens/ParentDashboard/add_new_caregiver_screen.dart';
 import '../Screens/ParentDashboard/privacy_policy.dart';
 import '../Screens/ParentDashboard/setting_screen.dart';
+import '../Screens/addcard_screen.dart';
 import '../Screens/my_bookings.dart';
 import '../Screens/onboarding_screen.dart';
 import '../Screens/single_studio_screen.dart';
@@ -76,6 +77,7 @@ class MyRouter{
   static var studioClassScreen ="/studioClassScreen";
   static var  bookingScreen="/bookingScreen";
   static var  checkoutScreen="/checkoutScreen";
+  static var  addCardScreen="/addCardScreen";
   static var  thankYouScreen="/thankYouScreen";
   static var  profileScreen="/profileScreen";
   static var  editProfileScreen="/editProfileScreen";
@@ -107,15 +109,15 @@ class MyRouter{
   static var  thankYouEventScreen="/thankYouEventScreen";
   static var  withDrawlMoneyScreen="/withDrawlMoneyScreen";
   static var  settingScreen="/settingScreen";
-  static var  createclassowner="/createclassowner";
-  static var  thankyouownerScreen="/thankyouownerScreen";
-  static var  reviewscreen="/reviewScreen";
-  static var  subScripitionScreenOwner="/subScripitionScreenOwner";
-  static var  checkoutOwner="/checkoutOwner";
-  static var  subscripitionPlanScreen ="/subscripitionPlanScreen";
+  static var  createClassOwnerScreen="/createClassOwnerScreen";
+  static var  thankYouOwnerScreen="/thankYouOwnerScreen";
+  static var  reviewScreen="/reviewScreen";
+  static var  subscriptionOwnerScreen="/subscriptionOwnerScreen";
+  static var  checkoutOwnerScreen="/checkoutOwnerScreen";
+  static var  subscriptionPlanScreen2 ="/subscriptionPlanScreen2";
   //studio owner
-  static var  studio_dashboradScreen ="/studio_dashboradScreen";
-  static var  studioregistrationScreen ="/studioregistrationScreen";
+  static var  studioDashboardScreen ="/studioDashboardScreen";
+  static var  studioRegistrationScreen ="/studioRegistrationScreen";
   static var  eventDashBoardScreen ="/eventDashBoardScreen";
   static var  studioOwnerClassScreen ="/studioOwnerClassScreen";
   static var  myEmployeeScreen ="/myEmployeeScreen";
@@ -124,6 +126,7 @@ class MyRouter{
   static var  myBookingStudioScreen ="/myBookingStudioScreen";
   static var  bookingDetailsScreen2 ="/bookingDetailsScreen2";
   static var  studioWithdrawalScreen ="/studioWithdrawalScreen";
+  //static var  myEmployeeScreen ="/myEmployeeScreen";
 
 
 
@@ -134,7 +137,7 @@ class MyRouter{
 
 
   static var route = [
-    GetPage(name: '/', page: () => const EventDashBoardScreen()),
+    GetPage(name: '/', page: () => const SplashScreen()),
     GetPage(name: MyRouter.splashScreen, page: () => const SplashScreen()),
     GetPage(name: MyRouter.onBoarding, page: () => OnBoardingScreen()),
     GetPage(name: MyRouter.loginScreen, page: () => const LoginScreen()),
@@ -149,6 +152,7 @@ class MyRouter{
     GetPage(name: MyRouter.studioClassScreen, page: () => const StudioClassScreen()),
     GetPage(name: MyRouter.bookingScreen, page: () => const BookingInformationScreen()),
     GetPage(name: MyRouter.checkoutScreen, page: () => const CheckoutScreen()),
+    GetPage(name: MyRouter.addCardScreen, page: () => const AddCardScreen()),
     GetPage(name: MyRouter.thankYouScreen, page: () => const ThankYouScreen()),
     GetPage(name: MyRouter.profileScreen, page: () => const ProfileScreen()),
     GetPage(name: MyRouter.editProfileScreen, page: () => const EditProfile()),
@@ -181,14 +185,14 @@ class MyRouter{
     GetPage(name: MyRouter.thankYouEventScreen, page: () => const ThankYouEventScreen()),
     GetPage(name: MyRouter.withDrawlMoneyScreen, page: () => const WithDrawlMoneyScreen()),
     GetPage(name: MyRouter.settingScreen, page: () => const SettingScreen()),
-    GetPage(name: MyRouter.createclassowner, page: () => const CreateClassOwner()),
-    GetPage(name: MyRouter.thankyouownerScreen, page: () => const ThankyouOwner()),
-    GetPage(name: MyRouter.reviewscreen, page: () => const ReviewOwnerScreen()),
-    GetPage(name: MyRouter.subScripitionScreenOwner, page: () => const SubScripitionScreenOwner()),
-    GetPage(name: MyRouter.checkoutOwner, page: () => const CheckoutOwner()),
-    GetPage(name: MyRouter.subscripitionPlanScreen, page: () => const SubscripitionPlanScreen()),
-    GetPage(name: MyRouter.studio_dashboradScreen, page: () => const Studio_dashboradScreen()),
-    GetPage(name: MyRouter.studioregistrationScreen, page: () => const Studio_registrationScreen()),
+    GetPage(name: MyRouter.createClassOwnerScreen, page: () => const CreateClassOwner()),
+    GetPage(name: MyRouter.thankYouOwnerScreen, page: () => const ThankyouOwner()),
+    GetPage(name: MyRouter.reviewScreen, page: () => const ReviewOwnerScreen()),
+    GetPage(name: MyRouter.subscriptionOwnerScreen, page: () => const SubScripitionScreenOwner()),
+    GetPage(name: MyRouter.checkoutOwnerScreen, page: () => const CheckoutOwner()),
+    GetPage(name: MyRouter.subscriptionPlanScreen2, page: () => const SubscripitionPlanScreen()),
+    GetPage(name: MyRouter.studioDashboardScreen, page: () => const Studio_dashboradScreen()),
+    GetPage(name: MyRouter.studioRegistrationScreen, page: () => const Studio_registrationScreen()),
     GetPage(name: MyRouter.studioOwnerClassScreen, page: () => const StudioOwnerClassScreen()),
     GetPage(name: MyRouter.myEmployeeScreen, page: () => const MyEmployeeScreen()),
     GetPage(name: MyRouter.addNewTeamScreen, page: () => const AddNewTeamMemberScreen()),
