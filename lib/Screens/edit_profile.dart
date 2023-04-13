@@ -136,6 +136,19 @@ class _EditProfileState extends State<EditProfile> {
                 textInputAction: TextInputAction.next,
                 //maxLength: 10,
                 bgColor: AppTheme.textfield.withOpacity(0.5),
+                suffix:   Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height : 28,
+                      width: 28,
+                      child: const CircleAvatar(
+                          backgroundColor: Color(0xFFD7EDFF),
+                          child: Icon(Icons.location_on_outlined,color:  Color(0xFF39439D),size: 18,)),
+                    ),
+                  ],
+                ),
                 validator: MultiValidator([
                   RequiredValidator(
                       errorText:

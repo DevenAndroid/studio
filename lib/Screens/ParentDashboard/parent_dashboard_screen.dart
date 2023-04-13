@@ -675,7 +675,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                child: AddText(text: 'My Booking',fontWeight: FontWeight.w500,fontSize: 18,),
              ),
               Container(
-                height: AddSize.screenHeight * .40,
+                height: AddSize.screenHeight * .33,
                 decoration: BoxDecoration(boxShadow: blurBoxShadow),
                 child: ListView.builder(
                     itemCount: 3,
@@ -704,7 +704,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                           margin: EdgeInsets.all(AddSize.size5),
                           child: Padding(
                             padding:
-                            const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            const EdgeInsets.fromLTRB(6, 6, 6, 6),
                             child: Column(
                               crossAxisAlignment:
                               CrossAxisAlignment.start,
@@ -725,7 +725,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                                         Radius.circular(8.0),
                                       ),
                                       child:Image.asset('assets/images/home_studio.png',
-                                        width: AddSize.size300,
+                                        width: 310,
                                         height: 141,
                                         fit: BoxFit.cover,
                                       ),
@@ -858,7 +858,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                                       child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
                                     ),
                                     SizedBox(width: 5,),
-                                    AddText(text: '25-01-22-',color: Colors.grey,fontSize: 13,),
+                                    AddText(text: '25-01-22 , ',color: Colors.grey,fontSize: 13,),
                                     AddText(text: '08:30 PM',color: Colors.grey,fontSize: 13),
                                   ],
                                 ),
@@ -899,13 +899,19 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
               const SizedBox(
                 height: 13,
               ),
-              ListView.builder(
-                  itemCount: 2,
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return coursesUi(index);
-                  }),
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Container(
+                  decoration: BoxDecoration(boxShadow: blurBoxShadow),
+                  child: ListView.builder(
+                      itemCount: 2,
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        return coursesUi(index);
+                      }),
+                ),
+              ),
               const SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -936,13 +942,19 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
               const SizedBox(
                 height: 13,
               ),
-              ListView.builder(
-                  itemCount: 2,
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return coursesUi1(index);
-                  }),
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Container(
+                  decoration: BoxDecoration(boxShadow: blurBoxShadow),
+                  child: ListView.builder(
+                      itemCount: 2,
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        return coursesUi1(index);
+                      }),
+                ),
+              ),
               const SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -973,13 +985,19 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
               const SizedBox(
                 height: 13,
               ),
-              ListView.builder(
-                  itemCount: 2,
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return coursesUi2(index);
-                  }),
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Container(
+                  decoration: BoxDecoration(boxShadow: (blurBoxShadow)),
+                  child: ListView.builder(
+                      itemCount: 2,
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        return coursesUi2(index);
+                      }),
+                ),
+              ),
             ],
           ),
         ),
@@ -1003,10 +1021,10 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                   boxShadow: blurBoxShadow,
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
-              height: AddSize.screenHeight * .18,
-              width: MediaQuery.of(context).size.width,
+             // height: AddSize.screenHeight * .18,
+              //width: MediaQuery.of(context).size.width,
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(8),
                 child: Row(
                   children: [
                     Stack(
@@ -1055,7 +1073,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(bottom: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -1175,8 +1193,8 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                     child:
                     Image.asset(
                       'assets/images/parent_child.png',
-                      width: 76,
-                      height: 61,
+                      width: 80,
+                      height: 90,
                       fit: BoxFit.cover,
                     ),
                     // CachedNetworkImage(
@@ -1322,8 +1340,8 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                       child:
                       Image.asset(
                         'assets/images/person_img.png',
-                        width: 71,
-                        height: 71,
+                        width: 80,
+                        height: 90,
                         fit: BoxFit.cover,
                       ),
                       // CachedNetworkImage(

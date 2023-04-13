@@ -6,6 +6,7 @@ import 'package:studio_live/Router/my_router.dart';
 import 'package:studio_live/widgets/add_text.dart';
 import 'package:studio_live/widgets/dimentions.dart';
 
+import '../listModel.dart';
 import '../widgets/app_theme.dart';
 import '../widgets/common_textfield.dart';
 class BookingInformationScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class BookingInformationScreen extends StatefulWidget {
 
 class _BookingInformationScreenState extends State<BookingInformationScreen> {
   RxString genderType = "".obs;
+  RxList<ListModel> listModelData = <ListModel>[].obs;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,22 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                 color: AppTheme.filtter,
                 fontWeight: FontWeight.w500,
               ),
-              SizedBox(height: AddSize.size30,),
+              SizedBox(height: AddSize.size20,),
+              Obx(() {
+                  return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: listModelData.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {},
+                          child: repeatUnit(
+
+                              index: index),
+                        );
+                      });
+
+              }),
               Container(
                 decoration: BoxDecoration(
                   color: Color(0xFFFFFFFF),
@@ -201,16 +218,230 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
                 ),
               ),
               SizedBox(height: 20,),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     FloatingActionButton(
+              //       onPressed: () {
+              //         // Container(
+              //         //   decoration: BoxDecoration(
+              //         //     color: Color(0xFFFFFFFF),
+              //         //     borderRadius: BorderRadius.circular(10),
+              //         //     boxShadow: (blurBoxShadow),
+              //         //   ),
+              //         //   child: Padding(
+              //         //     padding: const EdgeInsets.all(18),
+              //         //     child: Column(
+              //         //       crossAxisAlignment: CrossAxisAlignment.start,
+              //         //       children: [
+              //         //         AddText(
+              //         //           text: "Child Name",
+              //         //           fontSize: AddSize.size16,
+              //         //           color: AppTheme.filtter,
+              //         //           fontWeight: FontWeight.w500,
+              //         //         ),
+              //         //         SizedBox(height: AddSize.size10,),
+              //         //         DropdownButtonFormField(
+              //         //           decoration: InputDecoration(
+              //         //             hintText: "Jacky ",
+              //         //             focusColor: AppTheme.primaryColor,
+              //         //             hintStyle: TextStyle(
+              //         //                 color: AppTheme.userText,
+              //         //                 fontSize: AddSize.font14),
+              //         //             filled: true,
+              //         //             fillColor: AppTheme.appPrimaryPinkColor
+              //         //                 .withOpacity(.02),
+              //         //             contentPadding: EdgeInsets.symmetric(
+              //         //                 horizontal: AddSize.size12),
+              //         //             focusedBorder: OutlineInputBorder(
+              //         //               borderSide: BorderSide(
+              //         //                   color: AppTheme.primaryColor),
+              //         //               borderRadius:
+              //         //               BorderRadius.circular(10.0),
+              //         //             ),
+              //         //             enabledBorder: OutlineInputBorder(
+              //         //                 borderSide: BorderSide(
+              //         //                     color: AppTheme.boardercolor
+              //         //                         .withOpacity(0.5)),
+              //         //                 borderRadius:
+              //         //                 const BorderRadius.all(
+              //         //                     Radius.circular(10.0))),
+              //         //             border: OutlineInputBorder(
+              //         //                 borderSide: BorderSide(
+              //         //                     color: AppTheme.boardercolor
+              //         //                         .withOpacity(0.5),
+              //         //                     width: 3.0),
+              //         //                 borderRadius:
+              //         //                 BorderRadius.circular(15.0)),
+              //         //           ),
+              //         //           items:  [
+              //         //             const DropdownMenuItem(
+              //         //               value: "Jacky",
+              //         //               child: Text('Jacky'),
+              //         //             ),
+              //         //             const DropdownMenuItem(
+              //         //               value: "Rocky",
+              //         //               child: Text('Rocky'),
+              //         //             ),
+              //         //             const DropdownMenuItem(
+              //         //               value: "Alex",
+              //         //               child: Text('Alex'),
+              //         //             ),
+              //         //             DropdownMenuItem(
+              //         //               value: "Add New Child",
+              //         //               child: InkWell(onTap: (){
+              //         //                 Get.toNamed(MyRouter.addNewChildScreen);
+              //         //               },
+              //         //                   child: const Text('Add New Child',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),)),
+              //         //             ),
+              //         //             //DropdownMenuItem(value: "Others",child: Text('Others'),)
+              //         //           ],
+              //         //           onChanged: (String? v) {
+              //         //             genderType.value = v!;
+              //         //           },
+              //         //         ),
+              //         //         SizedBox(height: AddSize.size30,),
+              //         //         AddText(
+              //         //           text: "Caretaker Name",
+              //         //           fontSize: AddSize.size16,
+              //         //           color: AppTheme.filtter,
+              //         //           fontWeight: FontWeight.w500,
+              //         //         ),
+              //         //         SizedBox(height: AddSize.size10,),
+              //         //         DropdownButtonFormField(
+              //         //           decoration: InputDecoration(
+              //         //             hintText: "Jolly",
+              //         //             focusColor: AppTheme.primaryColor,
+              //         //             hintStyle: TextStyle(
+              //         //                 color: AppTheme.userText,
+              //         //                 fontSize: AddSize.font14),
+              //         //             filled: true,
+              //         //             fillColor: AppTheme.appPrimaryPinkColor
+              //         //                 .withOpacity(.02),
+              //         //             contentPadding: EdgeInsets.symmetric(
+              //         //                 horizontal: AddSize.size12),
+              //         //             focusedBorder: OutlineInputBorder(
+              //         //               borderSide: BorderSide(
+              //         //                   color: AppTheme.primaryColor),
+              //         //               borderRadius:
+              //         //               BorderRadius.circular(10.0),
+              //         //             ),
+              //         //             enabledBorder: OutlineInputBorder(
+              //         //                 borderSide: BorderSide(
+              //         //                     color: AppTheme.boardercolor
+              //         //                         .withOpacity(0.5)),
+              //         //                 borderRadius:
+              //         //                 const BorderRadius.all(
+              //         //                     Radius.circular(10.0))),
+              //         //             border: OutlineInputBorder(
+              //         //                 borderSide: BorderSide(
+              //         //                     color: AppTheme.boardercolor
+              //         //                         .withOpacity(0.5),
+              //         //                     width: 3.0),
+              //         //                 borderRadius:
+              //         //                 BorderRadius.circular(15.0)),
+              //         //           ),
+              //         //
+              //         //           items:  [
+              //         //             const DropdownMenuItem(
+              //         //               value: "Ram lal",
+              //         //               child: Text('Ram lal'),
+              //         //             ),
+              //         //             const DropdownMenuItem(
+              //         //               value: "shyam kumar",
+              //         //               child: Text('shyam kumar'),
+              //         //             ),
+              //         //             const DropdownMenuItem(
+              //         //               value: "oren",
+              //         //               child: Text('oren'),
+              //         //             ),
+              //         //             DropdownMenuItem(
+              //         //               value: "Add New Caretaker",
+              //         //               child: InkWell(onTap: (){
+              //         //                 Get.toNamed(MyRouter.addNewCaregiverScreen);
+              //         //               },
+              //         //                   child: const Text('Add New Caretaker',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),)),
+              //         //             ),
+              //         //             //DropdownMenuItem(value: "Others",child: Text('Others'),)
+              //         //           ],
+              //         //           onChanged: (String? v) {
+              //         //             genderType.value = v!;
+              //         //           },
+              //         //         ),
+              //         //         SizedBox(height: AddSize.size30,),
+              //         //
+              //         //       ],
+              //         //     ),
+              //         //   ),
+              //         // );
+              //       },
+              //       child: Container(
+              //         height: AddSize.size30,
+              //         width: AddSize.size30,
+              //         decoration: BoxDecoration(
+              //           color: Colors.amber.shade600,
+              //           borderRadius: BorderRadius.circular(50),
+              //         ),
+              //         child: Center(
+              //             child: GestureDetector(
+              //               onTap: () {
+              //                 listModelData.add(ListModel(
+              //                     qty: "".obs,
+              //                     price: "".obs,
+              //                     varientId: "".obs,
+              //                     minQty: "".obs,
+              //                     maxQty: "".obs,
+              //                     qtyType: "".obs,
+              //                     marketPrice: "".obs));
+              //                 setState(() {});
+              //               },
+              //               child: Icon(
+              //                 Icons.add,
+              //                 color: AppTheme.buttonColor,
+              //                 size: AddSize.size25,
+              //               ),
+              //             )),
+              //       ),
+              //       // Icon(Icons.add, color: Colors.white, size: 29,),
+              //       // backgroundColor: AppTheme.buttonColor,
+              //       // tooltip: 'Capture Picture',
+              //       // elevation: 5,
+              //       // splashColor: Colors.grey,
+              //     )
+              //   ],
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  FloatingActionButton(
-                    onPressed: () {},
-                    child: Icon(Icons.add, color: Colors.white, size: 29,),
-                    backgroundColor: AppTheme.buttonColor,
-                    tooltip: 'Capture Picture',
-                    elevation: 5,
-                    splashColor: Colors.grey,
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: AddSize.size50,
+                      width: AddSize.size50,
+                      decoration: BoxDecoration(
+                        color: AppTheme.buttonColor,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              listModelData.add(ListModel(
+                                  qty: "".obs,
+                                  price: "".obs,
+                                  varientId: "".obs,
+                                  minQty: "".obs,
+                                  maxQty: "".obs,
+                                  qtyType: "".obs,
+                                  marketPrice: "".obs));
+                              setState(() {});
+                            },
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: AddSize.size25,
+                            ),
+                          )),
+                    ),
                   )
                 ],
               ),
@@ -238,6 +469,169 @@ class _BookingInformationScreenState extends State<BookingInformationScreen> {
 
       ),
 
+    );
+  }
+  Padding repeatUnit({
+    required int index,
+  }) {
+    // final TextEditingController qty = TextEditingController(text: qty1);
+    // final TextEditingController price = TextEditingController(text: price1);
+    // final TextEditingController minQty = TextEditingController(text: minQty1);
+    // final TextEditingController maxQty = TextEditingController(text: maxQty1);
+    //final TextEditingController marketPrice =TextEditingController(text: marketPrice1);
+    return Padding(
+      padding: const EdgeInsets.all(1),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: (blurBoxShadow),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AddText(
+                text: "Child Name",
+                fontSize: AddSize.size16,
+                color: AppTheme.filtter,
+                fontWeight: FontWeight.w500,
+              ),
+              SizedBox(height: AddSize.size10,),
+              DropdownButtonFormField(
+                decoration: InputDecoration(
+                  hintText: "Jacky ",
+                  focusColor: AppTheme.primaryColor,
+                  hintStyle: TextStyle(
+                      color: AppTheme.userText,
+                      fontSize: AddSize.font14),
+                  filled: true,
+                  fillColor: AppTheme.appPrimaryPinkColor
+                      .withOpacity(.02),
+                  contentPadding: EdgeInsets.symmetric(
+                      horizontal: AddSize.size12),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: AppTheme.primaryColor),
+                    borderRadius:
+                    BorderRadius.circular(10.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5)),
+                      borderRadius:
+                      const BorderRadius.all(
+                          Radius.circular(10.0))),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5),
+                          width: 3.0),
+                      borderRadius:
+                      BorderRadius.circular(15.0)),
+                ),
+                items:  [
+                  const DropdownMenuItem(
+                    value: "Jacky",
+                    child: Text('Jacky'),
+                  ),
+                  const DropdownMenuItem(
+                    value: "Rocky",
+                    child: Text('Rocky'),
+                  ),
+                  const DropdownMenuItem(
+                    value: "Alex",
+                    child: Text('Alex'),
+                  ),
+                  DropdownMenuItem(
+                    value: "Add New Child",
+                    child: InkWell(onTap: (){
+                      Get.toNamed(MyRouter.addNewChildScreen);
+                    },
+                        child: const Text('Add New Child',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),)),
+                  ),
+                  //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                ],
+                onChanged: (String? v) {
+                  genderType.value = v!;
+                },
+              ),
+              SizedBox(height: AddSize.size30,),
+              AddText(
+                text: "Caretaker Name",
+                fontSize: AddSize.size16,
+                color: AppTheme.filtter,
+                fontWeight: FontWeight.w500,
+              ),
+              SizedBox(height: AddSize.size10,),
+              DropdownButtonFormField(
+                decoration: InputDecoration(
+                  hintText: "Jolly",
+                  focusColor: AppTheme.primaryColor,
+                  hintStyle: TextStyle(
+                      color: AppTheme.userText,
+                      fontSize: AddSize.font14),
+                  filled: true,
+                  fillColor: AppTheme.appPrimaryPinkColor
+                      .withOpacity(.02),
+                  contentPadding: EdgeInsets.symmetric(
+                      horizontal: AddSize.size12),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: AppTheme.primaryColor),
+                    borderRadius:
+                    BorderRadius.circular(10.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5)),
+                      borderRadius:
+                      const BorderRadius.all(
+                          Radius.circular(10.0))),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5),
+                          width: 3.0),
+                      borderRadius:
+                      BorderRadius.circular(15.0)),
+                ),
+
+                items:  [
+                  const DropdownMenuItem(
+                    value: "Ram lal",
+                    child: Text('Ram lal'),
+                  ),
+                  const DropdownMenuItem(
+                    value: "shyam kumar",
+                    child: Text('shyam kumar'),
+                  ),
+                  const DropdownMenuItem(
+                    value: "oren",
+                    child: Text('oren'),
+                  ),
+                  DropdownMenuItem(
+                    value: "Add New Caretaker",
+                    child: InkWell(onTap: (){
+                      Get.toNamed(MyRouter.addNewCaregiverScreen);
+                    },
+                        child: const Text('Add New Caretaker',style: TextStyle(color: Color(0xFF18B884),fontWeight: FontWeight.w600,fontSize: 14),)),
+                  ),
+                  //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                ],
+                onChanged: (String? v) {
+                  genderType.value = v!;
+                },
+              ),
+              SizedBox(height: AddSize.size30,),
+
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

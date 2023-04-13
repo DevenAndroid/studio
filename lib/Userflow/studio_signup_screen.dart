@@ -1,8 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+
 import '../Router/my_router.dart';
 import '../Utils/images.dart';
 import '../widgets/add_text.dart';
@@ -10,16 +14,15 @@ import '../widgets/app_theme.dart';
 import '../widgets/common_button.dart';
 import '../widgets/common_textfield.dart';
 import '../widgets/dimentions.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+class StudioSignUpScreen extends StatefulWidget {
+  const StudioSignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<StudioSignUpScreen> createState() => _StudioSignUpScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
   final formKey = GlobalKey<FormState>();
   var obscureText = true;
   var obscureText1 = true;
@@ -517,7 +520,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   Row(
                                     children: [
                                       Padding(padding:  EdgeInsets.only(left: 41),
-                                      child: AddText(text: 'and', fontSize: 14) ,
+                                        child: AddText(text: 'and', fontSize: 14) ,
                                       ),
                                       Padding(
                                         padding: EdgeInsets.only(left: 4),
@@ -625,7 +628,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                           ),
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () {
-                                              Get.toNamed(MyRouter.loginScreen);
+                                              Get.toNamed(MyRouter.studioLoginScreen);
                                             }),
                                     ],
                                   ),

@@ -46,6 +46,10 @@ import '../Screens/onboarding_screen.dart';
 import '../Screens/single_studio_screen.dart';
 import '../Screens/splash_screen.dart';
 import '../ForgotPassword/signup_verification.dart';
+import '../Userflow/event_login_screen.dart';
+import '../Userflow/event_signup_screen.dart';
+import '../Userflow/studio_login_screen.dart';
+import '../Userflow/studio_signup_screen.dart';
 import '../studio_owner/add_new_teammember_screen.dart';
 import '../studio_owner/booking_details_screen.dart';
 import '../studio_owner/checkout_owner.dart';
@@ -126,7 +130,10 @@ class MyRouter{
   static var  myBookingStudioScreen ="/myBookingStudioScreen";
   static var  bookingDetailsScreen2 ="/bookingDetailsScreen2";
   static var  studioWithdrawalScreen ="/studioWithdrawalScreen";
-  //static var  myEmployeeScreen ="/myEmployeeScreen";
+  static var  studioLoginScreen ="/studioLoginScreen";
+  static var  studioSignUpScreen ="/studioSignUpScreen";
+  static var  eventLoginScreen ="/eventLoginScreen";
+  static var  eventSignupScreen ="/eventSignupScreen";
 
 
 
@@ -200,6 +207,10 @@ class MyRouter{
     GetPage(name: MyRouter.myBookingStudioScreen, page: () => const MyBookingScreen2()),
     GetPage(name: MyRouter.bookingDetailsScreen2, page: () => const BookingDetailsScreen2()),
     GetPage(name: MyRouter.studioWithdrawalScreen, page: () => const StudioWithDrawlScreen()),
+    GetPage(name: MyRouter.studioLoginScreen, page: () => const StudioLoginScreen()),
+    GetPage(name: MyRouter.studioSignUpScreen, page: () => const StudioSignUpScreen()),
+    GetPage(name: MyRouter.eventLoginScreen, page: () => const EventLoginScreen()),
+    GetPage(name: MyRouter.eventSignupScreen, page: () => const EventSignUpScreen()),
 
 
 

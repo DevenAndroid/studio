@@ -86,10 +86,10 @@ class _StudioListScreenState extends State<StudioListScreen> {
                    //border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+              //height: AddSize.screenHeight * .18,
               //margin: EdgeInsets.all(AddSize.size2),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(AddSize.size5),
                 child: Row(
                   children: [
                     Stack(
@@ -103,7 +103,7 @@ class _StudioListScreenState extends State<StudioListScreen> {
                         ),
                         child:
                         Image.asset(
-                          'assets/images/Rectangle100.png',
+                          'assets/images/yoga_classes.png',
                           width: AddSize.size90,
                           height: AddSize.size90,
                           fit: BoxFit.cover,
@@ -137,7 +137,7 @@ class _StudioListScreenState extends State<StudioListScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.only(top: 1),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

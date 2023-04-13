@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 import '../Router/my_router.dart';
 import '../Utils/images.dart';
@@ -12,22 +13,20 @@ import '../widgets/app_theme.dart';
 import '../widgets/common_button.dart';
 import '../widgets/common_textfield.dart';
 import '../widgets/dimentions.dart';
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class StudioLoginScreen extends StatefulWidget {
+  const StudioLoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<StudioLoginScreen> createState() => _StudioLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _StudioLoginScreenState extends State<StudioLoginScreen> {
   final formKey = GlobalKey<FormState>();
   bool value = false;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   RxBool checkboxColor = false.obs;
   var obscureText = true;
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: AppTheme.primaryColor,
                       child: Stack(
                         children: [
-                         //Text('Sourav sdsdsjkdjsdjskdjskdjskdjskdjskdjskdjskdjskdsjkdsjkdsjkd'),
+                          //Text('Sourav sdsdsjkdjsdjskdjskdjskdjskdjskdjskdjskdjskdsjkdsjkdsjkd'),
                           // Image.asset(
                           //   "assets/images/bg.png",
                           //   height: AddSize.screenHeight * .5,
@@ -119,10 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 AddText(
-                                    text: "Sign In",
-                                    fontSize: AddSize.size25,
-                                    color: AppTheme.headingColor,
-                                    fontWeight: FontWeight.bold,
+                                  text: "Sign In",
+                                  fontSize: AddSize.size25,
+                                  color: AppTheme.headingColor,
+                                  fontWeight: FontWeight.bold,
                                 ),SizedBox(width: 20,),
                                 Image.asset(
                                   "assets/images/faceid1.png",
@@ -131,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fit: BoxFit.contain,
                                 ),
 
-                               // Image.asset("assets/images/Vector.png",width: 30,height: 30,)
+                                // Image.asset("assets/images/Vector.png",width: 30,height: 30,)
 
                               ],
                             ),
@@ -297,7 +296,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 //     .then((value) async {
                                 //   if (value.data!.token != null) {
                                 //     showToast("Login Successful");
-                                     Get.toNamed(MyRouter.bottomNavBar);
+                                Get.toNamed(MyRouter.studioDashboardScreen);
                                 //     SharedPreferences sharedPreference =
                                 //     await SharedPreferences.getInstance();
                                 //     sharedPreference.setString(
@@ -328,8 +327,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               width: MediaQuery.of(context).size.width / 1,
                               height: 60,
                               decoration:  BoxDecoration(
-                                border: Border.all(color: Color(0xFF39439D)),
-                                borderRadius: BorderRadius.circular(10)
+                                  border: Border.all(color: Color(0xFF39439D)),
+                                  borderRadius: BorderRadius.circular(10)
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -371,7 +370,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
-                                            Get.toNamed(MyRouter.signupScreen);
+                                            Get.toNamed(MyRouter.studioDashboardScreen);
                                           }),
                                   ],
                                 ),

@@ -6,6 +6,7 @@ class AppTheme {
   static const Color userText = Color(0xff271943);
   static const Color filtter = Color(0xff100f0f);
   static const Color linkColor = Color(0xff39439D);
+
   static const Color boardercolor = Color(0xffcec7e0);
   static const Color appPrimaryPinkColor = Color(0xffFA61FF);
   static const Color textfield = Color(0xfff0ebf3);

@@ -512,7 +512,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 SizedBox(height: AddSize.size20,),
                 ElevatedButton(onPressed: ()
                 {
-                  Get.toNamed(MyRouter.studioDashboardScreen);
+                  Get.toNamed(MyRouter.studioLoginScreen);
                 },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.buttonColor,

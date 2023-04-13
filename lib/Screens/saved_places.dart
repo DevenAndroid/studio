@@ -32,7 +32,7 @@ class _SavedPlacesScreenState extends State<SavedPlacesScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           child: Column(
             children: [
               ListView.builder(

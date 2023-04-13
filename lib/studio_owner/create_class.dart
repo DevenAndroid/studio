@@ -2,14 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:studio_live/widgets/dimentions.dart';
 
 import '../Router/my_router.dart';
 import '../widgets/add_text.dart';
 import '../widgets/app_theme.dart';
+import '../widgets/common_textfield.dart';
 import '../widgets/custom_textfiled.dart';
 
 class CreateClassOwner extends StatefulWidget {
@@ -20,6 +23,7 @@ class CreateClassOwner extends StatefulWidget {
 }
 
 class _CreateClassOwnerState extends State<CreateClassOwner> {
+  TextEditingController dobController = TextEditingController();
   final ImagePicker imgpicker = ImagePicker();
   List<XFile>? imagefiles;
 
@@ -49,6 +53,7 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
   RxString dropDownValue2 = ''.obs;
   RxBool checkboxColor = false.obs;
   bool value = false;
+  String dateInput11 = "";
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -419,10 +424,56 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                          fontWeight: FontWeight.w500,
                        ),),
                        addHeight(AddSize.size6),
-                       CustomTextField(
-                         obSecure: false.obs,
-                         hintText: 'Select'.obs,
-                         suffixIcon: const Icon(Icons.calendar_month,color: Color(0xFF1A3436),),
+                       CommonTextFieldWidget(
+                         suffix: InkWell(
+                           onTap: () async {
+                             DateTime? _selectedDate =
+                             await showDatePicker(
+                                 context: context,
+                                 initialDate: DateTime.now().subtract(Duration(days: 1)),
+                                 firstDate: DateTime(1950),
+                                 //DateTime.now() - not to allow to choose before today.
+                                 lastDate: DateTime.now().subtract(Duration(days: 1)));
+
+                             if (_selectedDate != null) {
+                               print(_selectedDate);
+                               dateInput11 =
+                                   _selectedDate.toString();
+                               print(dateInput11);
+                               String formattedDate =
+                               DateFormat('dd/MM/yyyy')
+                                   .format(_selectedDate)
+                                   .toString();
+
+                               print(formattedDate);
+                               setState(() {
+                                 dobController.text =
+                                     formattedDate; //set output date to TextField value.
+                                 dobController.text =
+                                     formattedDate;
+                               });
+                             } else {
+                               print("Date is not selected");
+                             }
+                           },
+                           child: Icon(
+                             Icons.calendar_today_outlined,
+                             size: AddSize.size18,
+                             color: AppTheme.primaryColor,
+                           ),
+                         ),
+                         //controller: dobController,
+                         readOnly: true,
+                         hint: 'Select',
+                         // prefix: Icon(Icons.access_time_rounded),
+                         // keyboardType: TextInputType.,
+                         textInputAction: TextInputAction.next,
+                         bgColor:
+                         AppTheme.textfield.withOpacity(0.5),
+                         validator: MultiValidator([
+                           RequiredValidator(
+                               errorText: 'Please select Date'),
+                         ]),
                        ),
                        addHeight(AddSize.size16),
                        const Text('Enter Price',style: TextStyle(

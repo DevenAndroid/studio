@@ -41,7 +41,7 @@ class _StudioScreenState extends State<StudioScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 458,
+                height: 480,
               decoration: BoxDecoration(
                 color:  Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -51,7 +51,7 @@ class _StudioScreenState extends State<StudioScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                       height: MediaQuery.of(context).size.height*0.20,
+                       height: MediaQuery.of(context).size.height*0.25,
                        width: MediaQuery.of(context).size.width,
                        clipBehavior: Clip.antiAlias,
                        decoration: BoxDecoration(
@@ -59,13 +59,20 @@ class _StudioScreenState extends State<StudioScreen> {
                        child: Padding(
                          padding: const EdgeInsets.all(8.0),
                          child: Swiper(
+                           loop: false,
                            autoplay: false,
                            outer: false,
                            autoplayDisableOnInteraction: false,
                            itemCount: 3,
                            itemBuilder: (BuildContext context, int index) {
-                             return Image.asset('assets/images/doctor_swiper.png',fit: BoxFit.cover,);
-                           },
+                             return Column(
+                               children: [
+                                 Image.asset('assets/images/doctor_swiper.png',fit: BoxFit.cover,),
+                               //Text(assistants[])
+                               ],
+                             );
+
+                             },
                            // pagination: const SwiperPagination(),
                            control: const SwiperControl(
                                size: 30,color: Colors.white,padding: EdgeInsets.all(20)),
@@ -79,12 +86,12 @@ class _StudioScreenState extends State<StudioScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
-                          Text('Dance Studio',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color:  Color(0xFF1B233A)),),
+                          Text('Dance Studio',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color:  Colors.grey),),
                           Spacer(),
                           Icon(Icons.location_on_outlined),
                           Padding(
                             padding: EdgeInsets.only(right: 8.0),
-                            child: Text('5 Km',style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color:  Color(0xFF1B233A)),),
+                            child: Text('5 Km',style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color:  Colors.grey),),
                           ),
                         ],
                       ),
@@ -235,6 +242,7 @@ class _StudioScreenState extends State<StudioScreen> {
                             child: Swiper(
                               autoplay: false,
                               outer: false,
+                              loop: false,
                               autoplayDisableOnInteraction: false,
                               itemCount: 3,
                               itemBuilder: (BuildContext context, int index) {
@@ -443,7 +451,7 @@ class _StudioScreenState extends State<StudioScreen> {
                         ),
                         child:
                         Image.asset(
-                          'assets/images/Rectangle18.png',
+                          'assets/images/events_home.png',
                           width: AddSize.size100,
                           height: AddSize.size100,
                           fit: BoxFit.cover,

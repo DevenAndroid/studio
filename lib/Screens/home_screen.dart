@@ -709,7 +709,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // const SizedBox(height: 10,),
               Container(
-                height: AddSize.screenHeight * .37,
+                height: AddSize.screenHeight * .31,
                 decoration: BoxDecoration(boxShadow: blurBoxShadow),
                 child: ListView.builder(
                     itemCount: 3,
@@ -738,7 +738,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           margin: EdgeInsets.all(AddSize.size5),
                           child: Padding(
                             padding:
-                            const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            const EdgeInsets.fromLTRB(6, 6, 6, 6),
                             child: Column(
                               crossAxisAlignment:
                               CrossAxisAlignment.start,
@@ -872,7 +872,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 10,),
               Padding(
-                padding: const EdgeInsets.all(4),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   children: [
                     ListView.builder(
@@ -1065,12 +1065,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                      Padding(
                                        padding: EdgeInsets.only(
                                            top: AddSize.size5),
-                                       child: AddText(
+                                       child: const AddText(
                                          text:'4.9',
                                          color: Colors.amber,
                                          fontWeight:
                                          FontWeight.w600,
-                                         fontSize:AddSize.font14,
+                                         fontSize:13,
                                        ),
                                      ),
                                    ],
@@ -1145,10 +1145,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .21,
+              //height: AddSize.screenHeight * .19,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -1161,7 +1161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child:
                       Image.asset(
                         'assets/images/home_classes.png',
-                        height: 115,
+                        height: 130,
                         width: AddSize.size100,
                         fit: BoxFit.cover,
                       ),
@@ -1171,7 +1171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 4),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -1231,7 +1231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             SizedBox(
-                              height: AddSize.size6,
+                              height: 3,
                             ),
                             Row(
                               children: [
@@ -1271,7 +1271,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               )),
         ),
-
         SizedBox(
           height: AddSize.size10,
         ),
@@ -1296,10 +1295,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .21,
+            //  height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -1313,7 +1312,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Image.asset(
                         'assets/images/events_home.png',
                         width: AddSize.size100,
-                        height: 115,
+                        height: 130,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -1322,7 +1321,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -1382,7 +1381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             SizedBox(
-                              height: AddSize.size6,
+                              height: 3,
                             ),
                             Row(
                               children: [
@@ -1443,10 +1442,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .21,
+              //height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(8),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -1460,7 +1459,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Image.asset(
                         'assets/images/yoga_classes.png',
                         width: AddSize.size100,
-                        height:115,
+                        height:130,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -1469,7 +1468,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 4),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

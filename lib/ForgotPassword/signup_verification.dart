@@ -116,7 +116,7 @@ class _SignupVerification extends State<SignupVerification> {
                         fontSize: AddSize.font14,
                       ),
                       SizedBox(
-                        height: AddSize.size5,
+                        height: AddSize.size10,
                       ),
 
                       ///pincode
@@ -253,7 +253,7 @@ class _SignupVerification extends State<SignupVerification> {
                         length: 4,
                         pinTheme: PinTheme(
                           shape: PinCodeFieldShape.box,
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(12),
                           selectedColor:  Color(0xFFC9002B),
                           selectedFillColor: Colors.black,
                           fieldWidth: 80,

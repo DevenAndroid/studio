@@ -1168,7 +1168,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
       children: [
         InkWell(
           onTap: () {
-            Get.toNamed(MyRouter.studioListScreen);
+            Get.toNamed(MyRouter.studioOwnerClassScreen);
             // Get.toNamed(MyRouter.paidCourse, arguments: [
             //   homeController.model.value.data!.popularCourses![index].id
             //       .toString()
@@ -1312,7 +1312,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
       children: [
         InkWell(
           onTap: () {
-            Get.toNamed(MyRouter.studioListScreen);
+            Get.toNamed(MyRouter.studioOwnerClassScreen);
             // Get.toNamed(MyRouter.paidCourse, arguments: [
             //   homeController.model.value.data!.popularCourses![index].id
             //       .toString()

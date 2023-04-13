@@ -507,7 +507,7 @@ class _BusinessRegistrationScreenState extends State<BusinessRegistrationScreen>
                 SizedBox(height: AddSize.size20,),
                 ElevatedButton(onPressed: ()
                 {
-                   Get.toNamed(MyRouter.eventDashBoardScreen);
+                   Get.toNamed(MyRouter.eventLoginScreen);
                 },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.buttonColor,

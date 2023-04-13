@@ -104,7 +104,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: (){
-                          Get.toNamed(MyRouter.loginScreen);
+                          Get.toNamed(MyRouter.studioRegistrationScreen);
 
                         },
                         child: Row(
@@ -133,7 +133,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                            ),
                             const Spacer(),
                             InkWell(onTap: (){
-                             Get.toNamed(MyRouter.loginScreen);
+                             Get.toNamed(MyRouter.studioRegistrationScreen);
                             },
                                 child: const Icon(Icons.arrow_forward))
                           ],
@@ -153,7 +153,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: (){
-                          Get.toNamed(MyRouter.loginScreen);
+                          Get.toNamed(MyRouter.businessRegistrationScreen);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -179,7 +179,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                             ),
                             const Spacer(),
                             InkWell(onTap: (){
-                              Get.toNamed(MyRouter.loginScreen);
+                              Get.toNamed(MyRouter.businessRegistrationScreen);
                             },
                                 child: Icon(Icons.arrow_forward))
                           ],

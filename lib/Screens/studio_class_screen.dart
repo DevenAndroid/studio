@@ -54,196 +54,196 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                     boxShadow: blurBoxShadow,
                     borderRadius:
                     BorderRadius.circular(AddSize.size15)),
-                child: Padding(
-                  padding: EdgeInsets.all(AddSize.size15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Stack(
-                        children: [
-                          Container(
-                            height: MediaQuery.of(context).size.height*0.30,
-                            width: MediaQuery.of(context).size.width,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Swiper(
-                                autoplay: false,
-                                outer: false,
-                                autoplayDisableOnInteraction: false,
-                                itemCount: 3,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Image.asset('assets/images/doctor_swiper.png');
-                                },
-                                // pagination: const SwiperPagination(),
-                                control: const SwiperControl(
-                                    size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
-                              ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height*0.30,
+                          width: MediaQuery.of(context).size.width,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Swiper(
+                              autoplay: false,
+                              loop: false,
+                              outer: false,
+                              autoplayDisableOnInteraction: false,
+                              itemCount: 3,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Image.asset('assets/images/doctor_swiper.png');
+                              },
+                              // pagination: const SwiperPagination(),
+                              control: const SwiperControl(
+                                  size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
                             ),
                           ),
-                          Positioned(
-                              top: 30,
-                              left: 185,
-                              right: 0,
-                              bottom: 0,
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 32,
-                                    width: 114,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(6),
-                                      color: const Color(0xFFFFFFFF),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                                      child: Row(
+                        ),
+                        Positioned(
+                            top: 40,
+                            left: 235,
+                            right: 0,
+                            bottom: 0,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 32,
+                                  width: 114,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    color: const Color(0xFFFFFFFF),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                                    child: Row(
 
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: const [
-                                          Icon(Icons.remove_red_eye,color: Color(0xFF6D85A0),),
-                                          Text('505 View',style: TextStyle(color: Color(0xFF6D85A0),fontSize: 14,fontWeight: FontWeight.w400),)
-                                        ],
-                                      ),
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Icon(Icons.remove_red_eye,color: Color(0xFF6D85A0),),
+                                        Text('505 View',style: TextStyle(color: Color(0xFF6D85A0),fontSize: 14,fontWeight: FontWeight.w400),)
+                                      ],
                                     ),
                                   ),
-                                ],
-                              )
-                          ),
-                        ],
-                      ),
-                     Padding(
-                       padding: const EdgeInsets.all(8),
-                       child: Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                         children: [
-                           Row(
-                             mainAxisAlignment:
-                             MainAxisAlignment.spaceBetween,
-                             children: [
-                               AddText(
-                                 text: "Yoga Classes",
-                                 //textAlign: TextAlign.start,
-                                 color: Colors.black,
-                                 fontWeight: FontWeight.w600,
-                                 fontSize: AddSize.font18,
+                                ),
+                              ],
+                            )
+                        ),
+                      ],
+                    ),
+                   Padding(
+                     padding: const EdgeInsets.all(8),
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
+                         Row(
+                           mainAxisAlignment:
+                           MainAxisAlignment.spaceBetween,
+                           children: [
+                             AddText(
+                               text: "Yoga Classes",
+                               //textAlign: TextAlign.start,
+                               color: Colors.black,
+                               fontWeight: FontWeight.w600,
+                               fontSize: AddSize.font18,
+                             ),
+                             Container(
+                               height: 25,
+                               width: 74,
+                               decoration: BoxDecoration(
+                                 color: const Color(0xFF18B884),
+                                 borderRadius: BorderRadius.circular(6)
                                ),
-                               Container(
-                                 height: 25,
-                                 width: 74,
-                                 decoration: BoxDecoration(
-                                   color: const Color(0xFF18B884),
-                                   borderRadius: BorderRadius.circular(6)
-                                 ),
-                                 child: const Center(
-                                   child:
-                                   Text('Online',
-                                     style: TextStyle(
-                                       color: Color(0xFFFFFFFF),
-                                       fontWeight: FontWeight.w600,
-                                       fontSize: 14,
-                                     ),
+                               child: const Center(
+                                 child:
+                                 Text('Online',
+                                   style: TextStyle(
+                                     color: Color(0xFFFFFFFF),
+                                     fontWeight: FontWeight.w600,
+                                     fontSize: 14,
                                    ),
                                  ),
-                               )
-                             ],
-                           ),
-
-                           const Text('Hatha yoga',style: TextStyle(
-                             color: Color(0xFF195C9C) ,
-                             fontWeight: FontWeight.w400,
-                             fontSize: 15 ,
-                           ),),
-                           SizedBox(
-                             height: AddSize.size10,
-                           ),
-                           Row(
-                             children: const [
-                               Padding(
-                                 padding:  EdgeInsets.only(bottom: 5),
-                                 child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
                                ),
-                               SizedBox(width: 5 ),
-                               AddText(
-                                 text: '6 to 10 Ages',
-                                 textAlign: TextAlign.start,
-                                 color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,
-                               ),
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
-                           Row(
-                             children:  [
-                               Padding(
-                                 padding: const EdgeInsets.only(bottom: 7),
-                                 // child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                                 child: Image.asset('assets/images/seat.png',height: 20,width: 20,),
-                               ),
-                              const SizedBox(width: 5,),
-                              const AddText(text: '105 available seats',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
+                             )
+                           ],
+                         ),
+                         SizedBox(
+                           height: AddSize.size10,
+                         ),
+                         const Text('Hatha yoga,',style: TextStyle(
+                           color: Color(0xFF195C9C) ,
+                           fontWeight: FontWeight.w400,
+                           fontSize: 15 ,
+                         ),),
+                         SizedBox(
+                           height: AddSize.size10,
+                         ),
+                         Row(
+                           children: const [
+                             Padding(
+                               padding:  EdgeInsets.only(bottom: 5),
+                               child: Icon(Icons.person_outlined,size: 20,color: Color(0xFF7D8396)),
+                             ),
+                             SizedBox(width: 5 ),
+                             AddText(
+                               text: '6 to 10 Ages',
+                               textAlign: TextAlign.start,
+                               color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,
+                             ),
+                           ],
+                         ),
+                         SizedBox(
+                           height: AddSize.size15,
+                         ),
+                         Row(
+                           children:  [
+                             Padding(
+                               padding: const EdgeInsets.only(bottom: 7),
+                               // child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                               child: Image.asset('assets/images/seat.png',height: 20,width: 20,),
+                             ),
+                            const SizedBox(width: 5,),
+                            const AddText(text: '105 available seats',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
 
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
-                           Row(
-                             children: const [
-                               Padding(
-                                 padding:  EdgeInsets.only(bottom: 7),
-                                 child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
-                               ),
-                               SizedBox(width: 5,),
-                               AddText(text: '25-01-22-',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
-                               AddText(text: '08:30 PM',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
-                           Row(
-                             children: const[
-                               AddText(text: "\$30.00",color: AppTheme.primaryColor,fontWeight: FontWeight.w600,fontSize: 16,)
-                             ],
-                           ),
-                           SizedBox(
-                             height: AddSize.size15,
-                           ),
+                           ],
+                         ),
+                         SizedBox(
+                           height: AddSize.size15,
+                         ),
+                         Row(
+                           children: const [
+                             Padding(
+                               padding:  EdgeInsets.only(bottom: 7),
+                               child: Icon(Icons.calendar_month,color: Colors.grey,size: 20),
+                             ),
+                             SizedBox(width: 5,),
+                             AddText(text: '25-01-22-',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
+                             AddText(text: '08:30 PM',color: Color(0xFF7D8396),fontSize: 14,fontWeight: FontWeight.w400,),
+                           ],
+                         ),
+                         SizedBox(
+                           height: AddSize.size15,
+                         ),
+                         Row(
+                           children: const[
+                             AddText(text: "\$30.00",color: AppTheme.primaryColor,fontWeight: FontWeight.w600,fontSize: 16,)
+                           ],
+                         ),
+                         SizedBox(
+                           height: AddSize.size15,
+                         ),
 
-                          const Divider(
-                             height: 1,
-                             thickness: 0.5,
-                             color: Color(0xFF39439D),
-                           ),
-                           const SizedBox(height: 20,),
-                           const AddText(text: 'About Folk Dance',fontSize: 20,fontWeight: FontWeight.w600,),
-                           const SizedBox(height: 20,),
+                        const Divider(
+                           height: 1,
+                           thickness: 0.5,
+                           color: Color(0xFF39439D),
+                         ),
+                         const SizedBox(height: 20,),
+                         const AddText(text: 'About Folk Dance',fontSize: 20,fontWeight: FontWeight.w600,),
+                         const SizedBox(height: 20,),
 
-                           Column(
-                             crossAxisAlignment: CrossAxisAlignment.start,
-                             children:  [
-                              const AddText(text: 'Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w300,),
-                              InkWell(
-                                onTap: (){},
-                                child: const Text(
-                                'Read more',style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color:  Color(0xFF5B5E73),
-                                  decoration: TextDecoration.underline,
-                                ),),
-                              )
-                             ],
-                           ),
-                         ],
-                       ),
-                     )
-                    ],
-                  ),
+                         Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           children:  [
+                            const AddText(text: 'Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w300,),
+                            InkWell(
+                              onTap: (){},
+                              child: const Text(
+                              'Read more',style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color:  Color(0xFF5B5E73),
+                                decoration: TextDecoration.underline,
+                              ),),
+                            )
+                           ],
+                         ),
+                       ],
+                     ),
+                   )
+                  ],
                 ),
               ),
              addHeight(AddSize.size10),
@@ -565,7 +565,16 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                           const AddText(text: 'cancellation policy',fontSize: 18,fontWeight: FontWeight.w600,),
                           const SizedBox(height: 20,),
                           const AddText(text: 'Lorem Ipsum is simply dummy text of the for printing and typesetting industry. the Lorem Ipsum has been the. text of the in printing',fontSize: 16,color: Color(0xFF667182),fontWeight: FontWeight.w300,),
-                       
+                          SizedBox(height: AddSize.size5,),
+                           InkWell(onTap: (){},
+                             child: Text(
+                              'Read more',style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color:  Color(0xFF5B5E73),
+                              decoration: TextDecoration.underline,
+                          ),),
+                           ),
                         ],
                       ),
                     ),
@@ -573,41 +582,53 @@ class _StudioClassScreenState extends State<StudioClassScreen> {
                 ),
               ),
                addHeight(AddSize.size20),
-              Stack(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height*0.30,
-                    width: MediaQuery.of(context).size.width,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Swiper(
-                        autoplay: false,
-                        outer: false,
-                        autoplayDisableOnInteraction: false,
-                        itemCount: 3,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Image.asset('assets/images/Group1000003969.png');
-                        },
-                        // pagination: const SwiperPagination(),
-                        control: const SwiperControl(
-                            size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
-                      ),
+              Container(
+                decoration: BoxDecoration(
+                  color:  Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow:(blurBoxShadow),
+                ),
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height*0.25,
+                          width: MediaQuery.of(context).size.width,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Swiper(
+                              autoplay: false,
+                              loop: false,
+                              outer: false,
+                              autoplayDisableOnInteraction: false,
+                              itemCount: 3,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Image.asset('assets/images/Group1000003969.png');
+                              },
+                              // pagination: const SwiperPagination(),
+                              control: const SwiperControl(
+                                  size: 30,color: Colors.white,padding: EdgeInsets.all(15)),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                            top: 1,
+                            left: 1,
+                            right: 0,
+                            bottom: 0,
+                            child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 40,)
+                        ),
+                      ],
                     ),
-                  ),
-                  Positioned(
-                      top: 1,
-                      left: 1,
-                      right: 0,
-                      bottom: 0,
-                      child: Icon(Icons.play_circle_outlined,color: Colors.white,size: 40,)
-                  ),
-                ],
+                    Center(child: const AddText(text: 'What to expect a Dance Studio')),
+                    const SizedBox(height: 20,),
+                  ],
+                ),
               ),
-              const SizedBox(height: 20,),
-              const Center(child: AddText(text: 'What to expect a Dance Studio')),
               addHeight(AddSize.size20),
               ElevatedButton(onPressed: ()
               {
