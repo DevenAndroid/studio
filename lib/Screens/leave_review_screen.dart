@@ -26,10 +26,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 65),
-          child: Text("Leave Review",style: TextStyle(color: Colors.white),),
-        ),
+        title: Text("Leave Review",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       

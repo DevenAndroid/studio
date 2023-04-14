@@ -22,11 +22,15 @@ class Studio_registrationScreen extends StatefulWidget {
 }
 
 class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
+  ScrollController scrollController = ScrollController();
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController address = TextEditingController();
-  String dropdownvalue = 'Male';
+  TextEditingController city = TextEditingController();
+  TextEditingController state = TextEditingController();
+  TextEditingController zipcode = TextEditingController();
+  // String dropdownvalue = 'Male';
   RxString genderType = "".obs;
 
   bool value = false;
@@ -101,9 +105,9 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                   fontWeight: FontWeight.w500,
                 ),
                 SizedBox(height: AddSize.size10,),
-                CustomTextField(
-                  obSecure: false.obs,
-                  hintText: 'Popup dance class'.obs,
+                CommonTextFieldWidget(
+                  //obSecure: false.obs,
+                  hint: 'Popup dance class',
                   controller: name,
                   validator: MultiValidator([
                     RequiredValidator(
@@ -119,10 +123,16 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                   fontWeight: FontWeight.w500,
                 ),
                 SizedBox(height: AddSize.size10,),
-                CustomTextField(
-                    obSecure: false.obs,
+                CommonTextFieldWidget(
+                    //obSecure: false.obs,
                     controller: email,
-                    hintText: 'info@gmail.com'.obs),
+                    hint: 'info@gmail.com',
+                  validator: MultiValidator([
+                    RequiredValidator(
+                        errorText:
+                        'Please enter name '),
+                  ]),
+                ),
                 const SizedBox(height: 16),
                 AddText(
                   text: "Phone",
@@ -131,10 +141,17 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                   fontWeight: FontWeight.w500,
                 ),
                 SizedBox(height: AddSize.size10,),
-                CustomTextField(
-                    obSecure: false.obs,
+                CommonTextFieldWidget(
+                    //obSecure: false.obs,
                     controller: phone,
-                    hintText: '987-654-3210'.obs),
+                    hint: '987-654-3210',
+                  keyboardType: TextInputType.number,
+                  validator: MultiValidator([
+                    RequiredValidator(
+                        errorText:
+                        'Please enter name '),
+                  ]),
+                ),
                 const SizedBox(height: 16),
                 AddText(
                   text: "Address",
@@ -143,11 +160,16 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                   fontWeight: FontWeight.w500,
                 ),
                 SizedBox(height: AddSize.size10,),
-                CustomTextField(
-                  obSecure: false.obs,
+                CommonTextFieldWidget(
+                 // obSecure: false.obs,
                   controller: address,
-                  hintText: 'Riverside Building, County Hall'.obs,
-                  suffixIcon:  Column(
+                  hint: 'Riverside Building, County Hall',
+                  validator: MultiValidator([
+                    RequiredValidator(
+                        errorText:
+                        'Please enter name '),
+                  ]),
+                  suffix:  Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -173,7 +195,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 ),
                 DropdownButtonFormField(
                   decoration: InputDecoration(
-                    hintText: "Jaipur ",
+                    hintText: "Select ",
                     focusColor: AppTheme.primaryColor,
                     hintStyle: TextStyle(
                         color: AppTheme.userText,
@@ -209,7 +231,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                       : genderType.value,
                   validator: (value) {
                     if (genderType.value == "") {
-                      return "Please select gender type";
+                      return "Please select city type";
                     } else {
                       return null;
                     }
@@ -220,8 +242,8 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                       child: Text('Jaipur'),
                     ),
                     DropdownMenuItem(
-                      value: "Jaipur",
-                      child: Text('Jaipur'),
+                      value: "Others",
+                      child: Text('Others'),
                     ),
                     //DropdownMenuItem(value: "Others",child: Text('Others'),)
                   ],
@@ -243,7 +265,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 ),
                 DropdownButtonFormField(
                   decoration: InputDecoration(
-                    hintText: "Rajasthan ",
+                    hintText: "Select ",
                     focusColor: AppTheme.primaryColor,
                     hintStyle: TextStyle(
                         color: AppTheme.userText,
@@ -279,7 +301,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                       : genderType.value,
                   validator: (value) {
                     if (genderType.value == "") {
-                      return "Please select gender type";
+                      return "Please select state type";
                     } else {
                       return null;
                     }
@@ -290,8 +312,8 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                       child: Text('Rajasthan'),
                     ),
                     DropdownMenuItem(
-                      value: "Rajasthan",
-                      child: Text('Rajasthan'),
+                      value: "Others",
+                      child: Text('Others'),
                     ),
                     //DropdownMenuItem(value: "Others",child: Text('Others'),)
                   ],
@@ -309,14 +331,15 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                   fontWeight: FontWeight.w500,
                 ),
                 SizedBox(height: AddSize.size10,),
-                CustomTextField(
-                  obSecure: false.obs,
-                  hintText: '302004'.obs,
-                  controller: name,
+                CommonTextFieldWidget(
+                 // obSecure: false.obs,
+                  hint: '302004',
+                  controller: zipcode,
+                  keyboardType: TextInputType.number,
                   validator: MultiValidator([
                     RequiredValidator(
                         errorText:
-                        'Please enter name '),
+                        'Please enter zipcode '),
                   ]),
                 ),
                 SizedBox(
@@ -337,9 +360,9 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                     height: 170,
                     width: AddSize.screenWidth,
                     decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xFFD7EBFF)),
+                      border: Border.all(color: AppTheme.boardercolor),
                       borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xFFF4FAFF),
+                      color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                     ),
                     child: imagefiles2 != null?Wrap(
                       children: imagefiles2!.map((imageone){
@@ -367,7 +390,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                   ),
                 ),
                 SizedBox(height: AddSize.size8,),
-                AddText(text: 'Upload Logo must be PNG or JPEG, up to 1 MB each,  and 512 px and 512 px',color: Colors.grey,fontSize: 12,),
+                AddText(text: 'Upload Logo must be PNG or JPEG, up to 1 MB each,  and 512 px and 512 px',color: Colors.grey,fontSize: 12,height: 1.3,),
                 SizedBox(height: AddSize.size16,),
                 AddText(
                   text: "Studio image",
@@ -384,9 +407,9 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                     height: 170,
                     width: AddSize.screenWidth,
                     decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xFFD7EBFF)),
+                      border: Border.all(color: AppTheme.boardercolor),
                       borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xFFF4FAFF),
+                      color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                     ),
                     child: imagefiles3 != null?Wrap(
                       children: imagefiles3!.map((imageone){
@@ -414,7 +437,7 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                   ),
                 ),
                 SizedBox(height: AddSize.size8,),
-                AddText(text: 'Upload Logo must be PNG or JPEG, up to 1 MB each,  and 512 px and 512 px',color: Colors.grey,fontSize: 12,),
+                AddText(text: 'Upload Logo must be PNG or JPEG, up to 1 MB each,  and 512 px and 512 px',color: Colors.grey,fontSize: 12,height: 1.3,),
                 SizedBox(height: AddSize.size16),
                 AddText(
                   text: "Upload Video",
@@ -431,9 +454,9 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                     height: 170,
                     width: AddSize.screenWidth,
                     decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xFFD7EBFF)),
+                      border: Border.all(color: AppTheme.boardercolor),
                       borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xFFF4FAFF),
+                      color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                     ),
                     child: _video != null?Wrap(
                       children: imagefiles3!.map((imageone){
@@ -512,7 +535,35 @@ class _Studio_registrationScreenState extends State<Studio_registrationScreen> {
                 SizedBox(height: AddSize.size20,),
                 ElevatedButton(onPressed: ()
                 {
-                  Get.toNamed(MyRouter.studioLoginScreen);
+                  if(Formkey2.currentState!.validate()){
+                    Get.toNamed(MyRouter.studioLoginScreen);
+                  }
+                  else{
+                    if(name.text.trim().isEmpty){
+                      scrollController.animateTo(10, duration: Duration(milliseconds: 800), curve: Curves.bounceInOut);
+                    }
+                    else if(email.text.trim().isEmpty){
+                      scrollController.animateTo(0, duration: Duration(milliseconds: 800), curve: Curves.bounceInOut);
+                    }
+                    else if(phone.text.trim().isEmpty){
+                      scrollController.animateTo(400, duration: Duration(milliseconds: 800), curve: Curves.bounceInOut);
+                    }
+                    else if(address.text.trim().isEmpty){
+                      scrollController.animateTo(600, duration: Duration(milliseconds: 800), curve: Curves.bounceInOut);
+                    }
+                    // else if(city.text.trim().isEmpty){
+                    //   scrollController.animateTo(0, duration: Duration(milliseconds: 800), curve: Curves.bounceInOut);
+                    // }
+                    // else if(state.text.trim().isEmpty){
+                    //   scrollController.animateTo(0, duration: Duration(milliseconds: 800), curve: Curves.bounceInOut);
+                    // }
+                    else if(zipcode.text.trim().isEmpty){
+                      scrollController.animateTo(700, duration: Duration(milliseconds: 800), curve: Curves.bounceInOut);
+                    }
+                  }
+
+
+
                 },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.buttonColor,

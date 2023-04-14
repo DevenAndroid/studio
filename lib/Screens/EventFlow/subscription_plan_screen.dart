@@ -28,10 +28,8 @@ class _SubscriptionPlanScreenState extends State<SubscriptionPlanScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 105),
-          child: Text("Plans",style: TextStyle(color: Colors.white),),
-        ),
+        title: Text("Plans",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(

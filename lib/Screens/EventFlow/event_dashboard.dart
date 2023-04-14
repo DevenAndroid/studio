@@ -534,7 +534,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFFFFF),
         toolbarHeight: 70,
-        elevation: 1.8,
+        elevation: 0,
         shadowColor: const Color(0xFF549ADD),
         titleSpacing: 0,
         leading:Column(
@@ -853,10 +853,10 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .21,
+              //height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -870,7 +870,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                       Image.asset(
                         'assets/images/events_home.png',
                         width: AddSize.size100,
-                        height: 115,
+                        height: 130,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -879,7 +879,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -1144,10 +1144,10 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .21,
+             // height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -1161,7 +1161,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                       Image.asset(
                         'assets/images/events_home.png',
                         width: AddSize.size100,
-                        height: 115,
+                        height: 130,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -1170,7 +1170,7 @@ class _EventDashBoardScreenState extends State<EventDashBoardScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

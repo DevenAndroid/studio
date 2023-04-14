@@ -19,7 +19,7 @@ class _EventListScreenState extends State<EventListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: AppTheme.backgroundColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -28,23 +28,26 @@ class _EventListScreenState extends State<EventListScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 70),
-          child: Text("My Events",style: TextStyle(color: Colors.white),),
-        ),
-        actions: [Padding(
+        title: Text("My Events",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+        actions: [
+          Padding(
           padding: const EdgeInsets.only(right: 20),
-          child: CircleAvatar(
-            backgroundColor: Colors.black,
-            radius: 20,
-            child: SvgPicture.asset('assets/images/setting-4.svg',fit: BoxFit.none,),
+          child: InkWell(onTap: (){
+            _dialogBuilder(context);
+            },
+            child: CircleAvatar(
+              backgroundColor: Colors.black,
+              radius: 20,
+              child: SvgPicture.asset('assets/images/setting-4.svg',fit: BoxFit.none,),
+            ),
           ),
         )],
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(14),
           child: Column(
             children: [
               ListView.builder(
@@ -80,10 +83,10 @@ class _EventListScreenState extends State<EventListScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .21,
+             // height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -106,7 +109,7 @@ class _EventListScreenState extends State<EventListScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -223,6 +226,166 @@ class _EventListScreenState extends State<EventListScreen> {
           // });
         }, deviceWidth, expended: true, AddSize.size50),
       ),
+    );
+  }
+
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12.0))),
+          children: <Widget>[
+            SimpleDialogOption(
+              onPressed: () {
+                Get.back();
+                _showDatePicker(context);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Date'),
+                  InkWell(
+                    child: const Icon(Icons.arrow_forward_ios,size: 20,),
+                    onTap: (){
+                      // _showDatePicker(context);
+
+                    },
+                  )
+                ],
+              ),
+            ),
+            const Divider(thickness: 1,),
+            SimpleDialogOption(
+              onPressed: () {
+                Get.back();
+                _distance(context);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Distance'),
+                  InkWell(
+                    child: const Icon(Icons.arrow_forward_ios,size: 20,),
+                    onTap: (){
+                      _distance(context);
+                    },
+                  )
+                ],
+              ),
+            ),
+            const Divider(thickness: 1,),
+            SimpleDialogOption(
+              onPressed: () {
+                Get.back();
+                _category(context);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Category'),
+                  InkWell(
+                    child: const Icon(Icons.arrow_forward_ios,size: 20,),
+                    onTap: (){
+                      _category(context);
+                    },
+                  )
+                ],
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+  Future<void> _showDatePicker (BuildContext context) {
+    return showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2000), lastDate: DateTime(2025),     builder: (context,child){
+      return Theme(
+        data: ThemeData(
+          primarySwatch: Colors.orange,
+        ),
+        child: child!,
+      );
+    },);
+
+  }
+  Future<void> _distance (BuildContext context) {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          RangeValues values = RangeValues(1, 100);
+          return SimpleDialog(
+              title: const Text('Distance',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12,),),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0))),
+              children: <Widget>[
+                SimpleDialogOption(
+                  child:  Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 8,
+                          width: 231,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFFF8E30),
+                              borderRadius: BorderRadius.circular(100)
+                          ),
+                        ),
+                        Container(
+                          height: 8,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFFFF1E5),
+                              borderRadius: BorderRadius.circular(100)
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+                SimpleDialogOption(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text('1km',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: Color(0xFF657074)),),
+                      Text('10km',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: Color(0xFF657074)),),
+
+                    ],
+                  ),
+                )
+              ]);
+        }
+    );
+  }
+  Future<void> _category (BuildContext context) {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12.0))),
+            children: <Widget>[
+              SimpleDialogOption(
+                onPressed: () {
+                  Get.back();
+                },
+                child: const Text('Classes'),
+              ),
+              const Divider(thickness: 1,),
+              SimpleDialogOption(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Events'),
+              ),
+            ],
+          );
+        }
     );
   }
 }

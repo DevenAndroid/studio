@@ -5,6 +5,7 @@ import 'package:studio_live/widgets/add_text.dart';
 import 'package:studio_live/widgets/app_theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../Router/my_router.dart';
+import '../widgets/custom_textfiled.dart';
 import '../widgets/dimentions.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
@@ -17,6 +18,10 @@ class Studio_dashboradScreen extends StatefulWidget {
 }
 
 class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
+
+  bool forPushNoti = true;
+  bool forPushNoti1 = true;
+  bool forPushNoti2 = true;
   final drawerKey = GlobalKey<ScaffoldState>();
   int currentDrawer = 0;
   @override
@@ -537,7 +542,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFFFFF),
         toolbarHeight: 70,
-        elevation: 1.8,
+        elevation: 0,
         shadowColor: const Color(0xFF549ADD),
         titleSpacing: 0,
         leading:Column(
@@ -859,16 +864,120 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
               const SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    ListView.builder(
-                        itemCount: 2,
-                        shrinkWrap: true,
-                        physics: const BouncingScrollPhysics(),
-                        itemBuilder: (BuildContext context, int index) {
-                          return coursesUi3(index);
-                        }),
-                  ],
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 10,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleAvatar(
+                              //radius: 10,
+                              child: Image.asset('assets/images/Ellipse1738.png'),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AddText(text: 'Elaxa John'),
+                                SizedBox(height: 5,),
+                                AddText(text: 'elaxa.john@gmail.com'),
+                              ],
+                            ),
+                            Transform.scale(
+                              scale: 1.2,
+                              child: Switch(
+                                // thumb color (round icon)
+                                activeColor: Colors.white,
+                                activeTrackColor: Color(0xFF18B884),
+                                inactiveThumbColor: Color(0xFFFFFFFF),
+                                inactiveTrackColor: Color(0xFF18B884).withOpacity(.26),
+                                splashRadius: 50.0,
+                                // boolean variable value
+                                value: forPushNoti,
+                                // changes the state of the switch
+                                onChanged: (value) => setState(() => forPushNoti = value),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleAvatar(
+                              //radius: 10,
+                              child: Image.asset('assets/images/Ellipse1738.png'),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AddText(text: 'Elaxa John'),
+                                SizedBox(height: 5,),
+                                AddText(text: 'elaxa.john@gmail.com'),
+                              ],
+                            ),
+                            Transform.scale(
+                              scale: 1.2,
+                              child: Switch(
+                                // thumb color (round icon)
+                                activeColor: Colors.white,
+                                activeTrackColor: Color(0xFF18B884),
+                                inactiveThumbColor: Color(0xFFFFFFFF),
+                                inactiveTrackColor: Color(0xFF18B884).withOpacity(.26),
+                                splashRadius: 50.0,
+                                // boolean variable value
+                                value: forPushNoti1,
+                                // changes the state of the switch
+                                onChanged: (value) => setState(() => forPushNoti1 = value),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleAvatar(
+                              //radius: 10,
+                              child: Image.asset('assets/images/Ellipse1738.png'),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AddText(text: 'Elaxa John'),
+                                SizedBox(height: 5,),
+                                AddText(text: 'elaxa.john@gmail.com'),
+                              ],
+                            ),
+                            Transform.scale(
+                              scale: 1.2,
+                              child: Switch(
+                                // thumb color (round icon)
+                                activeColor: Colors.white,
+                                activeTrackColor: Color(0xFF18B884),
+                                inactiveThumbColor: Color(0xFFFFFFFF),
+                                inactiveTrackColor: Color(0xFF18B884).withOpacity(.26),
+                                splashRadius: 50.0,
+                                // boolean variable value
+                                value: forPushNoti2,
+                                // changes the state of the switch
+                                onChanged: (value) => setState(() => forPushNoti2 = value),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10,),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -1045,10 +1154,10 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+              //height: AddSize.screenHeight * .18,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -1061,7 +1170,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                       child:
                       Image.asset(
                         'assets/images/studio_desh.png',
-                        height: 90,
+                        height: 120,
                         width: AddSize.size100,
                         fit: BoxFit.cover,
                       ),
@@ -1071,7 +1180,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -1084,7 +1193,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                                 children: [
                                   Expanded(
                                     child: AddText(
-                                      text: 'Photo Classes',
+                                      text: 'Dance Classes',
                                       textAlign: TextAlign.start,
                                       fontWeight: FontWeight.w600,
                                       fontSize: AddSize.font16,
@@ -1181,10 +1290,10 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                   borderRadius: BorderRadius.circular(
                       AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .21,
+              //height: AddSize.screenHeight * .21,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -1198,7 +1307,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                       Image.asset(
                         'assets/images/events_home.png',
                         width: AddSize.size100,
-                        height: 115,
+                        height: 130,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -1207,7 +1316,7 @@ class _Studio_dashboradScreenState extends State<Studio_dashboradScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

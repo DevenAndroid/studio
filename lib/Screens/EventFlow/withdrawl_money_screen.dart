@@ -25,10 +25,8 @@ class _WithDrawlMoneyScreenState extends State<WithDrawlMoneyScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 45),
-          child: Text("Withdrawl Money",style: TextStyle(color: Colors.white),),
-        ),
+        title: Text("Withdrawl Money",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(

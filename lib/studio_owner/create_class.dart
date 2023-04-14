@@ -72,7 +72,7 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(12),
           child: Column(
             children: [
                Form(
@@ -155,11 +155,10 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                              padding: const EdgeInsets.symmetric(
                                  horizontal: 3, vertical: 10),
                              decoration: BoxDecoration(
-                                 color: const Color(0xFFF4FAFF),
+                                 color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                  borderRadius: const BorderRadius.all(
                                      Radius.circular(8)),
-                                 border: Border.all(
-                                     color:const Color(0xFFD7EBFF),width: 1)),
+                                 border: Border.all(color: AppTheme.boardercolor)),
                              child: Row(
                                mainAxisAlignment: MainAxisAlignment.center,
                                children: [
@@ -269,11 +268,10 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                  padding: const EdgeInsets.symmetric(
                                      horizontal: 3, vertical: 10),
                                  decoration: BoxDecoration(
-                                     color: const Color(0xFFF4FAFF),
+                                     color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                      borderRadius: const BorderRadius.all(
                                          Radius.circular(8)),
-                                     border: Border.all(
-                                         color:const Color(0xFFD7EBFF),width: 1)),
+                                     border: Border.all(color:AppTheme.boardercolor)),
                                  child: Row(
                                    mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
@@ -371,11 +369,10 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                                  padding: const EdgeInsets.symmetric(
                                      horizontal: 3, vertical: 10),
                                  decoration: BoxDecoration(
-                                     color: const Color(0xFFF4FAFF),
+                                     color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                      borderRadius: const BorderRadius.all(
                                          Radius.circular(8)),
-                                     border: Border.all(
-                                         color:const Color(0xFFD7EBFF),width: 1)),
+                                     border: Border.all(color: AppTheme.boardercolor)),
                                  child: Row(
                                    mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
@@ -418,7 +415,7 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                          ],
                        ),
                        addHeight(AddSize.size16),
-                       const Text('Date & TIme',style: TextStyle(
+                       const Text('Date & Time',style: TextStyle(
                          color: Color(0xFF1F1F1F),
                          fontSize: 14,
                          fontWeight: FontWeight.w500,
@@ -468,8 +465,7 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                          // prefix: Icon(Icons.access_time_rounded),
                          // keyboardType: TextInputType.,
                          textInputAction: TextInputAction.next,
-                         bgColor:
-                         AppTheme.textfield.withOpacity(0.5),
+                         bgColor:AppTheme.textfield.withOpacity(0.5),
                          validator: MultiValidator([
                            RequiredValidator(
                                errorText: 'Please select Date'),
@@ -550,11 +546,10 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                              padding: const EdgeInsets.symmetric(
                                  horizontal: 3, vertical: 10),
                              decoration: BoxDecoration(
-                                 color: const Color(0xFFF4FAFF),
+                                 color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                  borderRadius: const BorderRadius.all(
                                      Radius.circular(8)),
-                                 border: Border.all(
-                                     color:const Color(0xFFD7EBFF),width: 1)),
+                                 border: Border.all(color: AppTheme.boardercolor)),
                              child: Row(
                                mainAxisAlignment: MainAxisAlignment.center,
                                children: [
@@ -670,11 +665,11 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                              padding: const EdgeInsets.symmetric(
                                  horizontal: 3, vertical: 10),
                              decoration: BoxDecoration(
-                                 color: const Color(0xFFF4FAFF),
+                                 color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                  borderRadius: const BorderRadius.all(
                                      Radius.circular(8)),
                                  border: Border.all(
-                                     color:const Color(0xFFD7EBFF),width: 1)),
+                                     color: AppTheme.boardercolor)),
                              child: Row(
                                mainAxisAlignment: MainAxisAlignment.center,
                                children: [
@@ -778,11 +773,10 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                              padding: const EdgeInsets.symmetric(
                                  horizontal: 3, vertical: 10),
                              decoration: BoxDecoration(
-                                 color: const Color(0xFFF4FAFF),
+                                 color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                  borderRadius: const BorderRadius.all(
                                      Radius.circular(8)),
-                                 border: Border.all(
-                                     color:const Color(0xFFD7EBFF),width: 1)),
+                                 border: Border.all(color: AppTheme.boardercolor)),
                              child: Row(
                                mainAxisAlignment: MainAxisAlignment.center,
                                children: [
@@ -886,11 +880,10 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                              padding: const EdgeInsets.symmetric(
                                  horizontal: 3, vertical: 10),
                              decoration: BoxDecoration(
-                                 color: const Color(0xFFF4FAFF),
+                                 color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                  borderRadius: const BorderRadius.all(
                                      Radius.circular(8)),
-                                 border: Border.all(
-                                     color:const Color(0xFFD7EBFF),width: 1)),
+                                 border: Border.all(color: AppTheme.boardercolor)),
                              child: Row(
                                mainAxisAlignment: MainAxisAlignment.center,
                                children: [
@@ -958,9 +951,9 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            height: 113,
                            width: MediaQuery.of(context).size.width,
                            decoration: BoxDecoration(
-                             color: const Color(0xFFF4FAFF),
+                             color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                              borderRadius: BorderRadius.circular(12),
-                             border: Border.all(color: const Color(0xFFD7EBFF),width: 1)
+                             border: Border.all(color: AppTheme.boardercolor)
                            ),
                            child: imagefiles != null?Wrap(
                              children: imagefiles!.map((imageone){
@@ -1007,9 +1000,9 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            height: 113,
                            width: MediaQuery.of(context).size.width,
                            decoration: BoxDecoration(
-                               color: const Color(0xFFF4FAFF),
+                               color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                                borderRadius: BorderRadius.circular(12),
-                               border: Border.all(color: const Color(0xFFD7EBFF),width: 1)
+                               border: Border.all(color: AppTheme.boardercolor)
                            ),
                            child: imagefiles != null?Wrap(
                              children: imagefiles!.map((imageone){
@@ -1095,6 +1088,8 @@ class _CreateClassOwnerState extends State<CreateClassOwner> {
                            ),
                            child: const Center(child: AddText(text: 'Create class',color:Colors.white,fontSize: 19,fontWeight: FontWeight.w600,))
                        ),
+                       addHeight(AddSize.size30),
+
                      ],
                    )
                ),

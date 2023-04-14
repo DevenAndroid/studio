@@ -608,7 +608,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFFFFF),
         toolbarHeight: 70,
-        elevation: 1.8,
+        elevation: 0,
         shadowColor: const Color(0xFF549ADD),
         titleSpacing: 0,
         leading:Column(

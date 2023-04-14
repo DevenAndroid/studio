@@ -36,12 +36,12 @@ class _StudioScreenState extends State<StudioScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 480,
+               height: 480,
               decoration: BoxDecoration(
                 color:  Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -67,7 +67,7 @@ class _StudioScreenState extends State<StudioScreen> {
                            itemBuilder: (BuildContext context, int index) {
                              return Column(
                                children: [
-                                 Image.asset('assets/images/doctor_swiper.png',fit: BoxFit.cover,),
+                                 Image.asset('assets/images/doctor_swiper.png',fit: BoxFit.contain,),
                                //Text(assistants[])
                                ],
                              );
@@ -86,9 +86,9 @@ class _StudioScreenState extends State<StudioScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
-                          Text('Dance Studio',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color:  Colors.grey),),
+                          Text('Dance Studio',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color:  Colors.black),),
                           Spacer(),
-                          Icon(Icons.location_on_outlined),
+                          Icon(Icons.location_on_outlined,color:  Colors.grey),
                           Padding(
                             padding: EdgeInsets.only(right: 8.0),
                             child: Text('5 Km',style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color:  Colors.grey),),
@@ -246,7 +246,7 @@ class _StudioScreenState extends State<StudioScreen> {
                               autoplayDisableOnInteraction: false,
                               itemCount: 3,
                               itemBuilder: (BuildContext context, int index) {
-                                return Image.asset('assets/images/Group1000003969.png');
+                                return Image.asset('assets/images/Group1000003969.png',fit: BoxFit.contain,);
                               },
                               // pagination: const SwiperPagination(),
                               control: const SwiperControl(
@@ -434,10 +434,10 @@ class _StudioScreenState extends State<StudioScreen> {
                   // border: Border.all(color: AppTheme.subText.withOpacity(.5)),
                   borderRadius: BorderRadius.circular(AddSize.size15)),
               // width: AddSize.screenWidth,
-              height: AddSize.screenHeight * .18,
+             // height: AddSize.screenHeight * .18,
               //margin: EdgeInsets.all(AddSize.size5),
               child: Padding(
-                padding: EdgeInsets.all(AddSize.size10),
+                padding: EdgeInsets.all(6),
                 child: Row(
                   children: [
                     Stack(
@@ -498,7 +498,7 @@ class _StudioScreenState extends State<StudioScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'app_theme.dart';
+
 class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
@@ -80,7 +82,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             filled: true,
             errorMaxLines: 2,
             enabled: widget.enabled,
-            fillColor: const Color(0xFFF4FAFF),
+            fillColor: AppTheme.appPrimaryPinkColor.withOpacity(.02),
             hintText: widget.hintText.value,
             errorText: widget.errorText,
             labelText: widget.labelText,
@@ -97,17 +99,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
             contentPadding: const EdgeInsets.only(left: 10, top: 10),
             focusedBorder: OutlineInputBorder(
               borderSide:
-              BorderSide(color: Color(0xFFD7EBFF), width: 1.0),
+              BorderSide(color: AppTheme.boardercolor, width: 1.0),
               borderRadius: BorderRadius.circular(8),
             ),
             enabledBorder: OutlineInputBorder(
               borderSide:
-              BorderSide(color: Color(0xFFD7EBFF), width: 1.0),
+              BorderSide(color: AppTheme.boardercolor, width: 1.0),
               borderRadius: BorderRadius.circular(8),
             ),
             border: OutlineInputBorder(
                 borderSide: BorderSide(
-                    color: Color(0xFFD7EBFF), width: 1.0),
+                    color: AppTheme.boardercolor, width: 1.0),
                 borderRadius: BorderRadius.circular(8.0)),
           ),
           validator: widget.validator);

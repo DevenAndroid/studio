@@ -586,7 +586,7 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFFFFF),
         toolbarHeight: 70,
-        elevation: 1.8,
+        elevation: 0,
         shadowColor: const Color(0xFF549ADD),
         titleSpacing: 0,
         leading:Column(
@@ -1259,29 +1259,33 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                                 // ),
                                 Row(
                                   children:  [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(color: const Color(0xFFD4D9FF))
-                                      ),
-                                      child: const CircleAvatar(
-                                        backgroundColor: Color(0xFFE4E7FF),
-                                        minRadius: 13,
-                                        maxRadius: 13,
-                                        child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17),
+                                    InkWell(onTap: (){},
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: const Color(0xFFD4D9FF))
+                                        ),
+                                        child: const CircleAvatar(
+                                          backgroundColor: Color(0xFFE4E7FF),
+                                          minRadius: 13,
+                                          maxRadius: 13,
+                                          child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(width: 18),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(color: const Color(0xFFFFC2CF))
-                                      ),
-                                      child: const CircleAvatar(
-                                        backgroundColor: Color(0xFFFFCFD9),
-                                        minRadius: 13,
-                                        maxRadius: 13,
-                                        child: Icon(Icons.delete_forever,color: Color(0xFFC9002B),size: 17),
+                                    InkWell(onTap: (){},
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: const Color(0xFFFFC2CF))
+                                        ),
+                                        child: const CircleAvatar(
+                                          backgroundColor: Color(0xFFFFCFD9),
+                                          minRadius: 13,
+                                          maxRadius: 13,
+                                          child: Icon(Icons.delete_forever,color: Color(0xFFC9002B),size: 17),
+                                        ),
                                       ),
                                     )
                                   ],
@@ -1414,29 +1418,33 @@ class _ParentDashboardScreenState extends State<ParentDashboardScreen> {
                                 // ),
                                 Row(
                                   children:  [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(color: const Color(0xFFD4D9FF))
-                                      ),
-                                      child: const CircleAvatar(
-                                        backgroundColor: Color(0xFFE4E7FF),
-                                        minRadius: 13,
-                                        maxRadius: 13,
-                                        child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17),
+                                    InkWell(onTap: (){},
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(color: const Color(0xFFD4D9FF))
+                                        ),
+                                        child: const CircleAvatar(
+                                          backgroundColor: Color(0xFFE4E7FF),
+                                          minRadius: 13,
+                                          maxRadius: 13,
+                                          child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(width: 18),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(color: const Color(0xFFFFC2CF))
-                                      ),
-                                      child: const CircleAvatar(
-                                        backgroundColor: Color(0xFFFFCFD9),
-                                        minRadius: 13,
-                                        maxRadius: 13,
-                                        child: Icon(Icons.delete_forever,color: Color(0xFFC9002B),size: 17),
+                                    InkWell(onTap: (){},
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(color: const Color(0xFFFFC2CF))
+                                        ),
+                                        child: const CircleAvatar(
+                                          backgroundColor: Color(0xFFFFCFD9),
+                                          minRadius: 13,
+                                          maxRadius: 13,
+                                          child: Icon(Icons.delete_forever,color: Color(0xFFC9002B),size: 17),
+                                        ),
                                       ),
                                     )
                                   ],

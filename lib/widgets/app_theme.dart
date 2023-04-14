@@ -14,6 +14,9 @@ class AppTheme {
   static const Color buttonColor = Color(0xFF18B884);
   static const Color searchfield = Color(0xffF3F7FA);
   static const Color etBgColor = Color(0xFFF0F0F0);
+  static const Color backgroundColor = Color(0xFFF6F6F6);
+  static const Color requiredColor = Color(0xFFFF8E30);
+
 
 
 

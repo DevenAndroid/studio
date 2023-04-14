@@ -57,7 +57,7 @@ class _AddNewTeamMemberScreenState extends State<AddNewTeamMemberScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           child: Form(
             key: _formKey,
             child: Column(
@@ -94,11 +94,11 @@ class _AddNewTeamMemberScreenState extends State<AddNewTeamMemberScreen> {
                   hintText: '5 years'.obs,
                   obSecure: false.obs,
                   controller: childAge,
-                  keyboardType: TextInputType.name,
+                  keyboardType: TextInputType.number,
                   validator: MultiValidator([
                     RequiredValidator(
                         errorText:
-                        'Please Enter child name '),
+                        'Please Enter child age '),
                   ]),
                 ),
                 const SizedBox(height: 16),
@@ -117,9 +117,9 @@ class _AddNewTeamMemberScreenState extends State<AddNewTeamMemberScreen> {
                     height: 170,
                     width: AddSize.screenWidth,
                     decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xFFD7EBFF)),
+                      border: Border.all(color: AppTheme.boardercolor),
                       borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xFFF4FAFF),
+                      color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                     ),
                     child: imagefiles1 != null?Wrap(
                       children: imagefiles1!.map((imageone){
@@ -149,7 +149,12 @@ class _AddNewTeamMemberScreenState extends State<AddNewTeamMemberScreen> {
                 const SizedBox(height: 200,),
                 ElevatedButton(onPressed: ()
                 {
-                  Get.toNamed(MyRouter.parentDashboardScreen);
+                  if(_formKey.currentState!.validate()){
+
+                    //Get.toNamed(MyRouter.parentDashboardScreen);
+
+                  }
+
                 },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.buttonColor,

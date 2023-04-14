@@ -17,6 +17,7 @@ class _ChildListScreenState extends State<ChildListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.backgroundColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppTheme.primaryColor,
@@ -31,7 +32,7 @@ class _ChildListScreenState extends State<ChildListScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 15,left: 8,right: 8),
+          padding: const EdgeInsets.all(14),
           child: Column(
             children: [
               ListView.builder(
@@ -98,8 +99,8 @@ class _ChildListScreenState extends State<ChildListScreen> {
                       child:
                       Image.asset(
                         'assets/images/child_list.png',
-                        width: 65,
-                        height: 61,
+                        width: 80,
+                        height: 95,
                         fit: BoxFit.cover,
                       ),
                       // CachedNetworkImage(
@@ -121,7 +122,7 @@ class _ChildListScreenState extends State<ChildListScreen> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 12),
+                        padding: const EdgeInsets.only(top: 18),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -156,36 +157,42 @@ class _ChildListScreenState extends State<ChildListScreen> {
                                   //textAlign: TextAlign.start,
                                   color: Color(0xFF7D8396),
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 12,
+                                  fontSize: 14,
                                 ),
                                 // SizedBox(
                                 //   width: AddSize.size20,
                                 // ),
                                 Row(
                                   children:  [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(color: const Color(0xFFD4D9FF))
-                                      ),
-                                      child: const CircleAvatar(
-                                        backgroundColor: Color(0xFFE4E7FF),
-                                        minRadius: 13,
-                                        maxRadius: 13,
-                                        child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17),
+                                    InkWell(onTap: (){
+                                     Get.toNamed(MyRouter.addNewChildScreen);
+                                    },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(color: const Color(0xFFD4D9FF))
+                                        ),
+                                        child: const CircleAvatar(
+                                          backgroundColor: Color(0xFFE4E7FF),
+                                          minRadius: 13,
+                                          maxRadius: 13,
+                                          child: Icon(Icons.edit,color: Color(0xFF39439D),size: 17),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(width: 18,),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(color: const Color(0xFFFFC2CF))
-                                      ),
-                                      child: const CircleAvatar(
-                                        backgroundColor: Color(0xFFFFCFD9),
-                                        minRadius: 13,
-                                        maxRadius: 13,
-                                        child: Icon(Icons.delete_forever,color: Color(0xFFC9002B),size: 17),
+                                    InkWell(onTap: (){},
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(color: const Color(0xFFFFC2CF))
+                                        ),
+                                        child: const CircleAvatar(
+                                          backgroundColor: Color(0xFFFFCFD9),
+                                          minRadius: 13,
+                                          maxRadius: 13,
+                                          child: Icon(Icons.delete_forever,color: Color(0xFFC9002B),size: 17),
+                                        ),
                                       ),
                                     )
                                   ],

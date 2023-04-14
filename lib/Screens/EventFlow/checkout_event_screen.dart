@@ -28,10 +28,8 @@ class _CheckoutEventScreenState extends State<CheckoutEventScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 80),
-          child: Text("Checkout",style: TextStyle(color: Colors.white),),
-        ),
+        title: Text("Checkout",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(

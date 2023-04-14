@@ -85,24 +85,31 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
           //Get.toNamed(MyRouter.studioScreen);
         },
             child : Icon(Icons.arrow_back)),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 30),
-          child: Text("Create New Event",style: TextStyle(color: Colors.white),),
-        ),
+        title: Text("Create New Event",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
         toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Event Name",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
+              Row(
+                children: [
+                  AddText(
+                    text: "Event Name",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
               ),
               SizedBox(height: AddSize.size10,),
               CommonTextFieldWidget(
@@ -127,11 +134,311 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 ]),
               ),
               SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Event Type",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
+              Row(
+                children: [
+                  AddText(
+                    text: "Event Type",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
+              ),
+              SizedBox(height: AddSize.size10,),
+              DropdownButtonFormField(
+                decoration: InputDecoration(
+                  hintText: "Select ",
+                  focusColor: AppTheme.primaryColor,
+                  hintStyle: TextStyle(
+                      color: AppTheme.userText,
+                      fontSize: AddSize.font14),
+                  filled: true,
+                  fillColor: AppTheme.appPrimaryPinkColor
+                      .withOpacity(.02),
+                  contentPadding: EdgeInsets.symmetric(
+                      horizontal: AddSize.size12),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: AppTheme.primaryColor),
+                    borderRadius:
+                    BorderRadius.circular(10.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5)),
+                      borderRadius:
+                      const BorderRadius.all(
+                          Radius.circular(10.0))),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5),
+                          width: 3.0),
+                      borderRadius:
+                      BorderRadius.circular(15.0)),
+                ),
+                value: genderType.value == ""
+                    ? null
+                    : genderType.value,
+                validator: (value) {
+                  if (genderType.value == "") {
+                    return "Please select event type";
+                  } else {
+                    return null;
+                  }
+                },
+                items: const [
+                  DropdownMenuItem(
+                    value: "Studio",
+                    child: Text('Studio'),
+                  ),
+                  DropdownMenuItem(
+                    value: "Others",
+                    child: Text('Others'),
+                  ),
+                  //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                ],
+                onChanged: (String? v) {
+                  genderType.value = v!;
+                },
+              ),
+              SizedBox(height: AddSize.size20,),
+              Row(
+                children: [
+                  AddText(
+                    text: "Select Date and Time",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
+              ),
+              SizedBox(height: 10,),
+              CommonTextFieldWidget(
+                suffix: InkWell(
+                  onTap: () async {
+                    DateTime? _selectedDate =
+                    await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now().subtract(Duration(days: 1)),
+                        firstDate: DateTime(1950),
+                        //DateTime.now() - not to allow to choose before today.
+                        lastDate: DateTime.now().subtract(Duration(days: 1)));
+
+                    if (_selectedDate != null) {
+                      print(_selectedDate);
+                      dateInput11 =
+                          _selectedDate.toString();
+                      print(dateInput11);
+                      String formattedDate =
+                      DateFormat('dd/MM/yyyy')
+                          .format(_selectedDate)
+                          .toString();
+
+                      print(formattedDate);
+                      setState(() {
+                        dobController.text =
+                            formattedDate; //set output date to TextField value.
+                        dobController.text =
+                            formattedDate;
+                      });
+                    } else {
+                      print("Date is not selected");
+                    }
+                  },
+                  child: Icon(
+                    Icons.calendar_today_outlined,
+                    size: AddSize.size18,
+                    color: AppTheme.primaryColor,
+                  ),
+                ),
+                controller: dobController,
+                readOnly: true,
+                hint: '23-3-2023 - 08:30pm',
+                // prefix: Icon(Icons.access_time_rounded),
+                // keyboardType: TextInputType.,
+                textInputAction: TextInputAction.next,
+                bgColor:
+                AppTheme.textfield.withOpacity(0.5),
+                validator: MultiValidator([
+                  RequiredValidator(
+                      errorText: 'Please select Date'),
+                ]),
+              ),
+              SizedBox(height: AddSize.size20,),
+              Row(
+                children: [
+                  AddText(
+                    text: "Event Price",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
+              ),
+              SizedBox(height: AddSize.size10,),
+              CommonTextFieldWidget(
+                //controller: emailController,
+                hint: '30.00',
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
+                //maxLength: 10,
+                bgColor: AppTheme.textfield.withOpacity(0.5),
+                validator: MultiValidator([
+                  RequiredValidator(
+                      errorText:
+                      'Please Enter  name '),
+                  // PatternValidator(r'^[0-9]',
+                  //     errorText: 'Only digits are allow'),
+                  // MinLengthValidator(10,
+                  //     errorText:
+                  //         'Phone number must be at list 10 digit'),
+                  // MaxLengthValidator(10,
+                  //     errorText:
+                  //         'Phone number is not greater then 10 digit'),
+                ]),
+              ),
+              SizedBox(height: AddSize.size20,),
+              Row(
+                children: [
+                  AddText(
+                    text: "Address",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
+              ),
+              SizedBox(height: AddSize.size10,),
+              CustomTextField(
+                obSecure: false.obs,
+                controller: address,
+                hintText: 'Riverside Building, County Hall'.obs,
+                suffixIcon:  Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height : 28,
+                      width: 28,
+                      child: const CircleAvatar(
+                          backgroundColor: Color(0xFFD7EDFF),
+                          child: Icon(Icons.location_on_outlined,color: Color(0xFF39439D),size: 18,)),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: AddSize.size20,),
+              Row(
+                children: [
+                  AddText(
+                    text: "HighLights",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
+              ),
+              SizedBox(height: AddSize.size10,),
+              DropdownButtonFormField(
+                decoration: InputDecoration(
+                  hintText: "Select ",
+                  focusColor: AppTheme.primaryColor,
+                  hintStyle: TextStyle(
+                      color: AppTheme.userText,
+                      fontSize: AddSize.font14),
+                  filled: true,
+                  fillColor: AppTheme.appPrimaryPinkColor
+                      .withOpacity(.02),
+                  contentPadding: EdgeInsets.symmetric(
+                      horizontal: AddSize.size12),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: AppTheme.primaryColor),
+                    borderRadius:
+                    BorderRadius.circular(10.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5)),
+                      borderRadius:
+                      const BorderRadius.all(
+                          Radius.circular(10.0))),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppTheme.boardercolor
+                              .withOpacity(0.5),
+                          width: 3.0),
+                      borderRadius:
+                      BorderRadius.circular(15.0)),
+                ),
+                value: genderType.value == ""
+                    ? null
+                    : genderType.value,
+                validator: (value) {
+                  if (genderType.value == "") {
+                    return "Please select event type";
+                  } else {
+                    return null;
+                  }
+                },
+                items: const [
+                  DropdownMenuItem(
+                    value: "Studio",
+                    child: Text('Studio'),
+                  ),
+                  DropdownMenuItem(
+                    value: "Others",
+                    child: Text('Others'),
+                  ),
+                  //DropdownMenuItem(value: "Others",child: Text('Others'),)
+                ],
+                onChanged: (String? v) {
+                  genderType.value = v!;
+                },
+              ),
+              SizedBox(height: AddSize.size20,),
+              Row(
+                children: [
+                  AddText(
+                    text: "Amenities",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
               ),
               SizedBox(height: AddSize.size10,),
               DropdownButtonFormField(
@@ -196,126 +503,17 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
               Row(
                 children: [
                   AddText(
-                    text: "Select Date and Time",
+                    text: "Healthy & Safety measures",
                     fontSize: AddSize.size16,
                     color: AppTheme.filtter,
                     fontWeight: FontWeight.w300,
                   ),
-                ],
-              ),
-              SizedBox(height: 10,),
-              CommonTextFieldWidget(
-                suffix: InkWell(
-                  onTap: () async {
-                    DateTime? _selectedDate =
-                    await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now().subtract(Duration(days: 1)),
-                        firstDate: DateTime(1950),
-                        //DateTime.now() - not to allow to choose before today.
-                        lastDate: DateTime.now().subtract(Duration(days: 1)));
-
-                    if (_selectedDate != null) {
-                      print(_selectedDate);
-                      dateInput11 =
-                          _selectedDate.toString();
-                      print(dateInput11);
-                      String formattedDate =
-                      DateFormat('dd/MM/yyyy')
-                          .format(_selectedDate)
-                          .toString();
-
-                      print(formattedDate);
-                      setState(() {
-                        dobController.text =
-                            formattedDate; //set output date to TextField value.
-                        dobController.text =
-                            formattedDate;
-                      });
-                    } else {
-                      print("Date is not selected");
-                    }
-                  },
-                  child: Icon(
-                    Icons.calendar_today_outlined,
-                    size: AddSize.size18,
-                    color: AppTheme.primaryColor,
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
                   ),
-                ),
-                controller: dobController,
-                readOnly: true,
-                hint: '23-3-2023 - 08:30pm',
-                // prefix: Icon(Icons.access_time_rounded),
-                // keyboardType: TextInputType.,
-                textInputAction: TextInputAction.next,
-                bgColor:
-                AppTheme.textfield.withOpacity(0.5),
-                validator: MultiValidator([
-                  RequiredValidator(
-                      errorText: 'Please select Date'),
-                ]),
-              ),
-              SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Event Price",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
-              ),
-              SizedBox(height: AddSize.size10,),
-              CommonTextFieldWidget(
-                //controller: emailController,
-                hint: '30.00',
-                keyboardType: TextInputType.emailAddress,
-                textInputAction: TextInputAction.next,
-                //maxLength: 10,
-                bgColor: AppTheme.textfield.withOpacity(0.5),
-                validator: MultiValidator([
-                  RequiredValidator(
-                      errorText:
-                      'Please Enter  name '),
-                  // PatternValidator(r'^[0-9]',
-                  //     errorText: 'Only digits are allow'),
-                  // MinLengthValidator(10,
-                  //     errorText:
-                  //         'Phone number must be at list 10 digit'),
-                  // MaxLengthValidator(10,
-                  //     errorText:
-                  //         'Phone number is not greater then 10 digit'),
-                ]),
-              ),
-              SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Address",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
-              ),
-              SizedBox(height: AddSize.size10,),
-              CustomTextField(
-                obSecure: false.obs,
-                controller: address,
-                hintText: 'Riverside Building, County Hall'.obs,
-                suffixIcon:  Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height : 28,
-                      width: 28,
-                      child: const CircleAvatar(
-                          backgroundColor: Color(0xFFD7EDFF),
-                          child: Icon(Icons.location_on_outlined,color: Color(0xFF39439D),size: 18,)),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "HighLights",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
+                ],
               ),
               SizedBox(height: AddSize.size10,),
               DropdownButtonFormField(
@@ -377,143 +575,20 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 },
               ),
               SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Amenities",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
-              ),
-              SizedBox(height: AddSize.size10,),
-              DropdownButtonFormField(
-                decoration: InputDecoration(
-                  hintText: "Select ",
-                  focusColor: AppTheme.primaryColor,
-                  hintStyle: TextStyle(
-                      color: AppTheme.userText,
-                      fontSize: AddSize.font14),
-                  filled: true,
-                  fillColor: AppTheme.appPrimaryPinkColor
-                      .withOpacity(.02),
-                  contentPadding: EdgeInsets.symmetric(
-                      horizontal: AddSize.size12),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: AppTheme.primaryColor),
-                    borderRadius:
-                    BorderRadius.circular(10.0),
+              Row(
+                children: [
+                  AddText(
+                    text: "Event Description",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
                   ),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: AppTheme.boardercolor
-                              .withOpacity(0.5)),
-                      borderRadius:
-                      const BorderRadius.all(
-                          Radius.circular(10.0))),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: AppTheme.boardercolor
-                              .withOpacity(0.5),
-                          width: 3.0),
-                      borderRadius:
-                      BorderRadius.circular(15.0)),
-                ),
-                value: genderType.value == ""
-                    ? null
-                    : genderType.value,
-                validator: (value) {
-                  if (genderType.value == "") {
-                    return "Please select gender type";
-                  } else {
-                    return null;
-                  }
-                },
-                items: const [
-                  DropdownMenuItem(
-                    value: "Studio",
-                    child: Text('Studio'),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
                   ),
-                  DropdownMenuItem(
-                    value: "Others",
-                    child: Text('Others'),
-                  ),
-                  //DropdownMenuItem(value: "Others",child: Text('Others'),)
                 ],
-                onChanged: (String? v) {
-                  genderType.value = v!;
-                },
-              ),
-              SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Healthy & Safety measures",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
-              ),
-              SizedBox(height: AddSize.size10,),
-              DropdownButtonFormField(
-                decoration: InputDecoration(
-                  hintText: "Select ",
-                  focusColor: AppTheme.primaryColor,
-                  hintStyle: TextStyle(
-                      color: AppTheme.userText,
-                      fontSize: AddSize.font14),
-                  filled: true,
-                  fillColor: AppTheme.appPrimaryPinkColor
-                      .withOpacity(.02),
-                  contentPadding: EdgeInsets.symmetric(
-                      horizontal: AddSize.size12),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: AppTheme.primaryColor),
-                    borderRadius:
-                    BorderRadius.circular(10.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: AppTheme.boardercolor
-                              .withOpacity(0.5)),
-                      borderRadius:
-                      const BorderRadius.all(
-                          Radius.circular(10.0))),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: AppTheme.boardercolor
-                              .withOpacity(0.5),
-                          width: 3.0),
-                      borderRadius:
-                      BorderRadius.circular(15.0)),
-                ),
-                value: genderType.value == ""
-                    ? null
-                    : genderType.value,
-                validator: (value) {
-                  if (genderType.value == "") {
-                    return "Please select gender type";
-                  } else {
-                    return null;
-                  }
-                },
-                items: const [
-                  DropdownMenuItem(
-                    value: "Studio",
-                    child: Text('Studio'),
-                  ),
-                  DropdownMenuItem(
-                    value: "Others",
-                    child: Text('Others'),
-                  ),
-                  //DropdownMenuItem(value: "Others",child: Text('Others'),)
-                ],
-                onChanged: (String? v) {
-                  genderType.value = v!;
-                },
-              ),
-              SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Event Description",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
               ),
 
 
@@ -522,7 +597,8 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 height: 120,
                 width: AddSize.screenWidth,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade200),
+                  color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
+                  border: Border.all(color: AppTheme.boardercolor),
                   borderRadius: BorderRadius.circular(10)
                 ),
                 child: Padding(
@@ -541,11 +617,20 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 ),
               ),
               SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "images",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
+              Row(
+                children: [
+                  AddText(
+                    text: "images",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
               ),
               SizedBox(height: AddSize.size10,),
               InkWell(
@@ -556,9 +641,9 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                   height: 170,
                   width: AddSize.screenWidth,
                   decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFFD7EBFF)),
+                    border: Border.all(color: AppTheme.boardercolor),
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFFF4FAFF),
+                    color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                   ),
                   child: imagefiles2 != null?Wrap(
                     children: imagefiles2!.map((imageone){
@@ -591,11 +676,20 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                 ),
               ),
               SizedBox(height: AddSize.size20,),
-              AddText(
-                text: "Upload Videos",
-                fontSize: AddSize.size16,
-                color: AppTheme.filtter,
-                fontWeight: FontWeight.w300,
+              Row(
+                children: [
+                  AddText(
+                    text: "Upload Videos",
+                    fontSize: AddSize.size16,
+                    color: AppTheme.filtter,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  const AddText(
+                    text: "*",
+                    color: AppTheme.requiredColor,
+                    //fontWeight: FontWeight.w300,
+                  ),
+                ],
               ),
               SizedBox(height: AddSize.size10,),
               InkWell(
@@ -606,9 +700,9 @@ class _CreateNewEventScreenState extends State<CreateNewEventScreen> {
                   height: 170,
                   width: AddSize.screenWidth,
                   decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFFD7EBFF)),
+                    border: Border.all(color: AppTheme.boardercolor),
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFFF4FAFF),
+                    color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                   ),
                   child: _video != null?Wrap(
                     children: imagefiles3!.map((imageone){

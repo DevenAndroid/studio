@@ -116,9 +116,9 @@ class _AddNewChildScreenState extends State<AddNewChildScreen> {
                     height: 170,
                     width: AddSize.screenWidth,
                     decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xFFD7EBFF)),
+                      border: Border.all(color: AppTheme.boardercolor),
                       borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xFFF4FAFF),
+                      color: AppTheme.appPrimaryPinkColor.withOpacity(.02),
                     ),
                     child: imagefiles1 != null?Wrap(
                       children: imagefiles1!.map((imageone){
@@ -148,7 +148,10 @@ class _AddNewChildScreenState extends State<AddNewChildScreen> {
                 const SizedBox(height: 130,),
                 ElevatedButton(onPressed: ()
                 {
-                  Get.toNamed(MyRouter.parentDashboardScreen);
+                  if(_formKey.currentState!.validate()){
+                    //Get.toNamed(MyRouter.parentDashboardScreen);
+                  }
+
                 },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.buttonColor,
